@@ -112,17 +112,6 @@ export default function App() {
           <SubscribeModal isOpen={subscribeModal.isOpen} onClose={subscribeModal.close} />
           <SubmitAppModal isOpen={submitModal.isOpen} onClose={submitModal.close} />
           <AuthModal isOpen={authModal.isOpen} onClose={authModal.close} />
-          
-          {/* Bottom Sheet for Mobile */}
-          <AppDetailBottomSheet
-            app={selectedApp}
-            isOpen={!!selectedApp && isMobile}
-            onClose={handleCloseBottomSheet}
-            onNavigateToApp={handleAppClick}
-            onSubscribeClick={subscribeModal.open}
-            onSubmitClick={submitModal.open}
-            onLoginClick={authModal.open}
-          />
         
         <Toaster position="bottom-center" />
       </div>
