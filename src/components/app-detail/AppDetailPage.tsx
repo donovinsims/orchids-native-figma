@@ -158,10 +158,13 @@ export default function AppDetailPage({
                 <X className="w-6 h-6 text-text-primary" />
               </button>
               
-              {/* Drag Handle */}
-              <div className="flex-grow flex justify-center cursor-grab active:cursor-grabbing py-4">
-                <div className="w-12 h-1.5 bg-white/10 rounded-full" />
-              </div>
+                {/* Drag Handle */}
+                <div 
+                  onPointerDown={(e) => dragControls.start(e)}
+                  className="flex-grow flex justify-center cursor-grab active:cursor-grabbing py-4"
+                >
+                  <div className="w-12 h-1.5 bg-white/10 rounded-full" />
+                </div>
 
               <button
                 onClick={handleShare}
