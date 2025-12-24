@@ -53,10 +53,11 @@ export default function AppDetailPage({
   onLoginClick,
 }: AppDetailPageProps) {
   const { isBookmarked, toggleBookmark } = useBookmarks();
-  const { user } = useAuth();
-  const bookmarked = isBookmarked(app.id);
-  
-  const y = useMotionValue(0);
+    const { user } = useAuth();
+    const bookmarked = isBookmarked(app.id);
+    const dragControls = useDragControls();
+    
+    const y = useMotionValue(0);
   const bgOpacity = useTransform(y, [0, 300], [0.4, 0]);
 
   const handleBookmark = async () => {
