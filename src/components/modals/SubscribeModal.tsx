@@ -58,26 +58,26 @@ export function SubscribeModal({ isOpen, onClose }: SubscribeModalProps) {
       <div className="p-6 pt-4 md:pt-6">
         {/* Icon */}
         <div className="flex justify-center mb-4">
-          <div className="w-12 h-12 flex items-center justify-center bg-gray-100 rounded-full">
+          <div className="w-12 h-12 flex items-center justify-center bg-background-secondary rounded-full">
             {isSuccess ? (
-              <CheckCircle className="w-6 h-6 text-green-600" />
+              <CheckCircle className="w-6 h-6 text-success" />
             ) : (
-              <Sparkles className="w-6 h-6 text-gray-900" />
+              <Sparkles className="w-6 h-6 text-text-primary" />
             )}
           </div>
         </div>
 
         {isSuccess ? (
           <div className="text-center">
-            <h2 className="text-xl text-gray-900 mb-2">
+            <h2 className="text-xl text-text-primary mb-2">
               You&apos;re subscribed!
             </h2>
-            <p className="text-gray-600 mb-6">
+            <p className="text-text-secondary mb-6">
               Thanks for subscribing. You&apos;ll receive our weekly curated software picks in your inbox.
             </p>
             <button
               onClick={handleClose}
-              className="w-full min-h-[44px] px-4 py-3 rounded-lg bg-gray-900 text-white hover:bg-gray-800 transition-colors"
+              className="w-full min-h-[44px] px-4 py-3 rounded-md bg-primary text-primary-foreground hover:opacity-90 transition-colors"
             >
               Done
             </button>
@@ -85,12 +85,12 @@ export function SubscribeModal({ isOpen, onClose }: SubscribeModalProps) {
         ) : (
           <>
             {/* Heading */}
-            <h2 className="text-xl text-gray-900 text-center mb-2">
+            <h2 className="text-xl text-text-primary text-center mb-2">
               Weekly inspiration
             </h2>
 
             {/* Description */}
-            <p className="text-gray-600 text-center mb-6">
+            <p className="text-text-secondary text-center mb-6">
               Stay up to date on the latest software discoveries and get the best apps delivered to your email inbox every week.
             </p>
 
@@ -105,21 +105,21 @@ export function SubscribeModal({ isOpen, onClose }: SubscribeModalProps) {
                     setError(null);
                   }}
                   placeholder="you@example.com"
-                  className={`w-full min-h-[44px] px-4 py-3 rounded-lg border ${
-                    error ? "border-red-300 focus:ring-red-500" : "border-gray-300 focus:ring-gray-900"
-                  } focus:outline-none focus:ring-2 focus:border-transparent transition-colors`}
+                  className={`w-full min-h-[44px] px-4 py-3 rounded-md border bg-background ${
+                    error ? "border-error focus:ring-error/20" : "border-border focus:ring-primary/20"
+                  } focus:outline-none focus:ring-2 focus:border-transparent transition-colors text-text-primary placeholder:text-text-muted`}
                   disabled={isLoading}
                   autoComplete="email"
                 />
                 {error && (
-                  <p className="mt-2 text-sm text-red-600">{error}</p>
+                  <p className="mt-2 text-sm text-error">{error}</p>
                 )}
               </div>
 
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full min-h-[44px] px-4 py-3 rounded-lg bg-gray-900 text-white hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                className="w-full min-h-[44px] px-4 py-3 rounded-md bg-primary text-primary-foreground hover:opacity-90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
                 {isLoading ? (
                   <>
@@ -133,7 +133,7 @@ export function SubscribeModal({ isOpen, onClose }: SubscribeModalProps) {
             </form>
 
             {/* Footer text */}
-            <p className="text-sm text-gray-400 text-center mt-4">
+            <p className="text-sm text-text-tertiary text-center mt-4">
               No spam — just curated software
             </p>
           </>
