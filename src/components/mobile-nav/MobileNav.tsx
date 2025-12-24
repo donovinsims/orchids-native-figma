@@ -54,6 +54,19 @@ export function MobileNavOverlay({
 }: MobileNavOverlayProps) {
   const [activeCategory, setActiveCategory] = useState("All");
 
+  const MagicIcon = (props: React.SVGProps<SVGSVGElement>) => (
+    <svg
+      role="img"
+      viewBox="0 0 10.67 10.67"
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <title>Magic Icon</title>
+      <path d="M5.33333 0L6.41334 4.28L10.6667 5.33333L6.41334 6.38667L5.33333 10.6667L4.25333 6.38667L0 5.33333L4.25333 4.28L5.33333 0Z" />
+    </svg>
+  );
+
   if (!isOpen) return null;
 
   const handleSubscribe = () => {
