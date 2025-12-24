@@ -324,7 +324,8 @@ export default function AppDetailBottomSheet({
                 <h2 className="text-xl text-text-primary mb-4">
                   Related Apps
                 </h2>
-                <div className="space-y-4">
+                  <div className="space-y-4">
+                    {app.relatedApps.map((relatedApp) => (
                       <motion.button
                         key={relatedApp.id}
                         onClick={() => {
