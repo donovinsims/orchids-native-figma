@@ -15,12 +15,15 @@ import { Container } from "./components/ui/container";
 import { websitesData, appDetailsData } from "./data/appsData";
 import { AuthProvider } from "./hooks/use-auth";
 
+import ProfileView from "./components/sections/ProfileView";
+
 export default function App() {
   const subscribeModal = useModal();
   const submitModal = useModal();
   const authModal = useModal();
   const [selectedAppId, setSelectedAppId] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [currentView, setCurrentView] = useState<'home' | 'profile'>('home');
 
   // Detect mobile viewport
   useEffect(() => {
@@ -55,15 +58,36 @@ export default function App() {
     <AuthProvider>
       <NextThemesProvider attribute="class" defaultTheme="light" enableSystem>
       <div className="relative min-h-screen bg-background-primary text-foreground transition-colors duration-200 flex flex-col">
-        {!selectedApp || isMobile ? (
-          <>
-            <HeaderNavigation 
+        {(!selectedApp || isMobile) && (
+          <HeaderNavigation 
+            onSubscribeClick={subscribeModal.open}
+            onSubmitClick={submitModal.open}
+            onLoginClick={authModal.open}
+            onProfileClick={() => setCurrentView('profile')}
+            onHomeClick={() => {
+              setCurrentView('home');
+              setSelectedAppId(null);
+            }}
+          />
+        )}
+        
+        <div className="flex-grow">
+          {selectedApp && !isMobile ? (
+            <AppDetailPage 
+              app={selectedApp} 
+              onBack={handleBackToList}
+              onNavigateToApp={handleAppClick}
               onSubscribeClick={subscribeModal.open}
               onSubmitClick={submitModal.open}
-              onLoginClick={authModal.open}
             />
-            
-            <div className="pt-[67px] flex-grow">
+          ) : currentView === 'profile' ? (
+            <div className="pt-[67px]">
+              <Container className="py-md md:py-xl">
+                <ProfileView onAppClick={handleAppClick} />
+              </Container>
+            </div>
+          ) : (
+            <div className="pt-[67px]">
               <main>
                 <Container className="py-md md:py-xl">
                   <HeroHeader onSubscribeClick={subscribeModal.open} />
@@ -71,16 +95,11 @@ export default function App() {
                 </Container>
               </main>
             </div>
-            <Footer 
-              onSubscribeClick={subscribeModal.open}
-              onSubmitClick={submitModal.open}
-            />
-          </>
-        ) : (
-          <AppDetailPage 
-            app={selectedApp} 
-            onBack={handleBackToList}
-            onNavigateToApp={handleAppClick}
+          )}
+        </div>
+
+        {(!selectedApp || isMobile) && (
+          <Footer 
             onSubscribeClick={subscribeModal.open}
             onSubmitClick={submitModal.open}
           />
