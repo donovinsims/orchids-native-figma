@@ -157,7 +157,7 @@ export default function AppDetailPage({ app, onBack, onNavigateToApp, onSubscrib
                       <button
                         key={relatedApp.id}
                         onClick={() => onNavigateToApp?.(relatedApp.id)}
-                        className="block bg-background rounded-md border border-border overflow-hidden hover:border-border-strong transition-all duration-200 hover:shadow-md text-left"
+                        className="block bg-background-primary rounded-md border border-border hover:border-border-strong transition-all duration-200 hover:shadow-md text-left"
                       >
                         <div className="relative w-full aspect-video bg-background-secondary">
                           <img
