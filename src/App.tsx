@@ -26,15 +26,15 @@ export default function App() {
   const [currentView, setCurrentView] = useState<'home' | 'profile'>('home');
 
   // Detect mobile viewport
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 1024); // lg breakpoint
-    };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+    useEffect(() => {
+      const checkMobile = () => {
+        setIsMobile(window.innerWidth < 768);
+      };
+      
+      checkMobile();
+      window.addEventListener('resize', checkMobile);
+      return () => window.removeEventListener('resize', checkMobile);
+    }, []);
 
   const handleAppClick = (appId: string) => {
     setSelectedAppId(appId);
