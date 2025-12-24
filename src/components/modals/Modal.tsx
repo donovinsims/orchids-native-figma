@@ -89,7 +89,7 @@ export function Modal({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4"
+      className="fixed inset-0 z-50 flex items-end justify-center sm:items-center p-4 sm:p-6"
       role="dialog"
       aria-modal="true"
       aria-label={title}
@@ -97,14 +97,14 @@ export function Modal({
     >
       {/* Backdrop */}
       <div
-        className="absolute inset-0 bg-black/40 animate-in fade-in duration-200"
+        className="absolute inset-0 bg-black/40 backdrop-blur-md animate-in fade-in duration-200"
         onClick={handleBackdropClick}
       />
 
         {/* Modal content */}
         <div
           ref={modalRef}
-          className={`relative w-full max-w-md bg-background rounded-md shadow-2xl animate-in fade-in zoom-in-95 duration-200 max-h-[90vh] overflow-y-auto border border-border ${className}`}
+          className={`relative w-full max-w-md bg-background-primary rounded-lg shadow-2xl animate-in fade-in slide-in-from-bottom-4 sm:zoom-in-95 duration-200 max-h-[90vh] overflow-y-auto border border-border ${className}`}
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
