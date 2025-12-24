@@ -11,10 +11,6 @@ interface Website {
   href: string;
   faviconUrl: string;
   category?: string;
-  video: {
-    webm: string;
-    mp4: string;
-  };
 }
 
 interface WebsiteGridProps {
@@ -58,7 +54,7 @@ function WebsiteCard({ item, onClick }: { item: Website; onClick?: (id: string) 
         className="relative w-full block overflow-hidden hover:opacity-90 transition-opacity duration-200"
         style={{
           background: 'black',
-          borderRadius: '6px'
+          borderRadius: '12px'
         }}
         whileTap={{ scale: 0.97 }}
         transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -66,7 +62,7 @@ function WebsiteCard({ item, onClick }: { item: Website; onClick?: (id: string) 
         <div className="relative w-full aspect-[333/225] bg-gray-50">
           {/* Border overlay */}
           <div 
-            className="absolute inset-0 pointer-events-none rounded-lg border border-gray-200"
+            className="absolute inset-0 pointer-events-none rounded-xl border border-gray-200"
           />
         </div>
       </motion.button>
