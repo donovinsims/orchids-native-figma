@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { useModal } from "./hooks/useModal";
 import HeaderNavigation from "./components/sections/HeaderNavigation";
 import HeroHeader from "./components/sections/HeroHeader";
@@ -51,48 +52,50 @@ export default function App() {
   const selectedApp = selectedAppId ? appDetailsData[selectedAppId] : null;
 
   return (
-    <div className="relative min-h-screen bg-background text-foreground transition-colors duration-200">
-      {!selectedApp || isMobile ? (
-        <>
-          <HeaderNavigation 
+    <NextThemesProvider attribute="class" defaultTheme="light" enableSystem>
+      <div className="relative min-h-screen bg-background text-foreground transition-colors duration-200">
+        {!selectedApp || isMobile ? (
+          <>
+            <HeaderNavigation 
+              onSubscribeClick={subscribeModal.open}
+              onSubmitClick={submitModal.open}
+              onLoginClick={authModal.open}
+            />
+            
+            <div className="pt-[67px]">
+              <main>
+                <Container className="py-md md:py-xl">
+                  <HeroHeader onSubscribeClick={subscribeModal.open} />
+                  <WebsiteGrid items={websitesData} onItemClick={handleAppClick} />
+                </Container>
+              </main>
+            </div>
+          </>
+        ) : (
+          <AppDetailPage 
+            app={selectedApp} 
+            onBack={handleBackToList}
+            onNavigateToApp={handleAppClick}
             onSubscribeClick={subscribeModal.open}
             onSubmitClick={submitModal.open}
-            onLoginClick={authModal.open}
           />
-          
-          <div className="pt-[67px]">
-            <main>
-              <Container className="py-md md:py-xl">
-                <HeroHeader onSubscribeClick={subscribeModal.open} />
-                <WebsiteGrid items={websitesData} onItemClick={handleAppClick} />
-              </Container>
-            </main>
-          </div>
-        </>
-      ) : (
-        <AppDetailPage 
-          app={selectedApp} 
-          onBack={handleBackToList}
-          onNavigateToApp={handleAppClick}
-          onSubscribeClick={subscribeModal.open}
-          onSubmitClick={submitModal.open}
-        />
-      )}
+        )}
 
-      {/* Modals */}
-      <SubscribeModal isOpen={subscribeModal.isOpen} onClose={subscribeModal.close} />
-      <SubmitAppModal isOpen={submitModal.isOpen} onClose={submitModal.close} />
-      <AuthModal isOpen={authModal.isOpen} onClose={authModal.close} />
-      
-      {/* Bottom Sheet for Mobile */}
-      <AppDetailBottomSheet
-        app={selectedApp}
-        isOpen={!!selectedApp && isMobile}
-        onClose={handleCloseBottomSheet}
-        onNavigateToApp={handleAppClick}
-      />
-      
-      <Toaster position="bottom-center" />
-    </div>
+        {/* Modals */}
+        <SubscribeModal isOpen={subscribeModal.isOpen} onClose={subscribeModal.close} />
+        <SubmitAppModal isOpen={submitModal.isOpen} onClose={submitModal.close} />
+        <AuthModal isOpen={authModal.isOpen} onClose={authModal.close} />
+        
+        {/* Bottom Sheet for Mobile */}
+        <AppDetailBottomSheet
+          app={selectedApp}
+          isOpen={!!selectedApp && isMobile}
+          onClose={handleCloseBottomSheet}
+          onNavigateToApp={handleAppClick}
+        />
+        
+        <Toaster position="bottom-center" />
+      </div>
+    </NextThemesProvider>
   );
 }
