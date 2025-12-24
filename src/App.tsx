@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { useModal } from "./hooks/useModal.tsx";
 import HeaderNavigation from "./components/sections/HeaderNavigation";
+import { ThemeToggle } from "./components/theme-toggle";
 import HeroHeader from "./components/sections/HeroHeader";
 import WebsiteGrid from "./components/sections/WebsiteGrid";
 import AppDetailPage from "./components/app-detail/AppDetailPage";
