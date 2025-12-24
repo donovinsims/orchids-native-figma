@@ -338,7 +338,7 @@ export default function AppDetailBottomSheet({
                         whileTap={{ scale: 0.98 }}
                         transition={{ type: "spring", stiffness: 400, damping: 17 }}
                       >
-                        <div className="relative w-full aspect-video bg-background-secondary overflow-hidden">
+                        <div className="relative w-full aspect-[16/10] bg-background-secondary overflow-hidden">
                           <img
                             src={relatedApp.previewImage}
                             alt={relatedApp.title}
