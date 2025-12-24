@@ -41,6 +41,7 @@ export const websitesData: Website[] = [
     category: "Productivity",
     href: "/apps/akiflow",
     faviconUrl: "https://www.google.com/s2/favicons?domain=akiflow.com&sz=128",
+    previewImage: "https://api.microlink.io/?url=https%3A%2F%2Fakiflow.com&screenshot=true&meta=false&embed=screenshot.url&viewport.width=1280&viewport.height=720",
   },
   {
     id: "cleanclip",
@@ -49,6 +50,7 @@ export const websitesData: Website[] = [
     category: "Productivity",
     href: "/apps/cleanclip",
     faviconUrl: "https://www.google.com/s2/favicons?domain=cleanclip.cc&sz=128",
+    previewImage: "https://api.microlink.io/?url=https%3A%2F%2Fcleanclip.cc&screenshot=true&meta=false&embed=screenshot.url&viewport.width=1280&viewport.height=720",
   },
   {
     id: "designcode",
@@ -57,6 +59,7 @@ export const websitesData: Website[] = [
     category: "Education",
     href: "/apps/designcode",
     faviconUrl: "https://designcode.io/favicon-32x32.png?v=42a278c0c94e914295c7dd0eddf50492",
+    previewImage: "https://images.ctfassets.net/ooa29xqb8tix/24XYZktClnZjDjt2YNlGmX/d857becac30265e19ad8847365c68fbf/Metadata.png",
   },
   {
     id: "eden",
@@ -65,6 +68,7 @@ export const websitesData: Website[] = [
     category: "Productivity",
     href: "/apps/eden",
     faviconUrl: "https://framerusercontent.com/images/NBzdgTQOtcwXsJCJCgnkx1jShg.png",
+    previewImage: "https://framerusercontent.com/assets/1DeHvV4Tz302r8YLrI0WCoUkp8.png",
   },
   {
     id: "flylighter",
@@ -73,6 +77,7 @@ export const websitesData: Website[] = [
     category: "Productivity",
     href: "/apps/flylighter",
     faviconUrl: "https://flylighter.com/favicon.png",
+    previewImage: "https://flylighter.com/flylighter-banner.jpeg",
   },
   {
     id: "matter",
@@ -81,6 +86,7 @@ export const websitesData: Website[] = [
     category: "Productivity",
     href: "/apps/matter",
     faviconUrl: "https://getmatter.com/favicon.ico",
+    previewImage: "https://main--matter-website-e45df7.netlify.app/images/og-index.jpg",
   },
   {
     id: "humblytics",
@@ -89,6 +95,7 @@ export const websitesData: Website[] = [
     category: "Analytics",
     href: "/apps/humblytics",
     faviconUrl: "https://framerusercontent.com/images/xGpQ9r5keeG3F7rc3hM4Dg3Rks.png",
+    previewImage: "https://framerusercontent.com/images/60HjhXRBD6ChqxMX3f9cRoAYB4.png",
   },
   {
     id: "kortex",
@@ -97,6 +104,7 @@ export const websitesData: Website[] = [
     category: "AI Tools",
     href: "/apps/kortex",
     faviconUrl: "https://cdn.prod.website-files.com/66e2be2343a7c5501a5a7fe2/66eda605d155545da532ad77_Kortex%20Favicon.png",
+    previewImage: "https://cdn.prod.website-files.com/66e2be2343a7c5501a5a7fe2/67040fbb0eccf2b5347664d8_Kortex%20OG%20Image%20Update.webp",
   },
   {
     id: "lazy",
@@ -105,6 +113,7 @@ export const websitesData: Website[] = [
     category: "Productivity",
     href: "/apps/lazy",
     faviconUrl: "https://lazy.so/favicon_io/favicon-32x32.png",
+    previewImage: "https://lazy.so/images/lazy-og.jpg?4362984378",
   },
   {
     id: "creator-mba",
@@ -113,6 +122,7 @@ export const websitesData: Website[] = [
     category: "Education",
     href: "/apps/creator-mba",
     faviconUrl: "https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/sites/2147532368/images/2a3651-6835-e853-dc4e-a11552b52c4_JustinWelsh-Monogram_4_.png?v=2",
+    previewImage: "https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/sites/2147532368/images/2c8f-e310-7e06-bfad-af2206c8df38_3107e7e8-47d7-42ba-8711-12f3c34dfa88.png",
   },
   {
     id: "mimestream",
@@ -121,6 +131,7 @@ export const websitesData: Website[] = [
     category: "Productivity",
     href: "/apps/mimestream",
     faviconUrl: "https://mimestream.com/assets/icons/app-icon_32x32.png",
+    previewImage: "https://mimestream.com/assets/images/site-preview.png",
   },
   {
     id: "orchids",
@@ -129,6 +140,7 @@ export const websitesData: Website[] = [
     category: "Development",
     href: "/apps/orchids",
     faviconUrl: "https://orchids.app/favicon.ico",
+    previewImage: "https://api.microlink.io/?url=https%3A%2F%2Forchids.app&screenshot=true&meta=false&embed=screenshot.url&viewport.width=1280&viewport.height=720",
   },
   {
     id: "polar",
@@ -137,6 +149,7 @@ export const websitesData: Website[] = [
     category: "Fintech",
     href: "/apps/polar",
     faviconUrl: "https://polar.sh/favicon.png",
+    previewImage: "https://polar.sh/assets/brand/polar_og.jpg",
   },
   {
     id: "rows",
@@ -145,6 +158,7 @@ export const websitesData: Website[] = [
     category: "Productivity",
     href: "/apps/rows",
     faviconUrl: "https://rows.com/favicon-db1159ebe7660d30970d9d49ad633a8396ee236c89eb06e2b9878f1a5a72573c/favicon.ico",
+    previewImage: "https://rows.com/media/share.png",
   },
   {
     id: "segmentui",
@@ -153,6 +167,7 @@ export const websitesData: Website[] = [
     category: "Design",
     href: "/apps/segmentui",
     faviconUrl: "https://framerusercontent.com/images/mFyfqomzD8KEi8lZPvsm5xEF4l8.png",
+    previewImage: "https://framerusercontent.com/images/nyd0tjQO5GGX3cbjqNuScyoqI0.png",
   },
   {
     id: "superhuman",
@@ -161,6 +176,7 @@ export const websitesData: Website[] = [
     category: "Productivity",
     href: "/apps/superhuman",
     faviconUrl: "https://superhumanstatic.com/super-funnel/main/public/images/v1/favicons/superhuman-icon.svg",
+    previewImage: "https://superhumanstatic.com/super-funnel/main/public/images/v1/social-share.png",
   },
   {
     id: "tally",
@@ -169,6 +185,7 @@ export const websitesData: Website[] = [
     category: "No-code",
     href: "/apps/tally",
     faviconUrl: "https://tally.so/favicon.svg",
+    previewImage: "https://tally.so/images/og.jpg",
   },
   {
     id: "dan-koe",
@@ -177,6 +194,7 @@ export const websitesData: Website[] = [
     category: "Education",
     href: "/apps/dan-koe",
     faviconUrl: "https://thedankoe.com/wp-content/uploads/2022/04/koe-favicon-150x150.jpg",
+    previewImage: "https://thedankoe.com/wp-content/uploads/2023/10/1-square.jpg",
   },
   {
     id: "texts",
@@ -185,6 +203,7 @@ export const websitesData: Website[] = [
     category: "Communication",
     href: "/apps/texts",
     faviconUrl: "https://www.google.com/s2/favicons?domain=texts.com&sz=128",
+    previewImage: "https://api.microlink.io/?url=https%3A%2F%2Ftexts.com&screenshot=true&meta=false&embed=screenshot.url&viewport.width=1280&viewport.height=720",
   },
   {
     id: "beehiiv",
@@ -193,6 +212,7 @@ export const websitesData: Website[] = [
     category: "Marketing",
     href: "/apps/beehiiv",
     faviconUrl: "https://beehiiv-marketing-images.s3.amazonaws.com/Redesign2023/favicon.png",
+    previewImage: "https://media.beehiiv.com/www/og-image/og-beehiiv.png",
   },
   {
     id: "flow",
@@ -201,6 +221,7 @@ export const websitesData: Website[] = [
     category: "AI Tools",
     href: "/apps/flow",
     faviconUrl: "https://cdn.prod.website-files.com/682f84b3838c89f8ff7667db/684b3be32acf9b372f54d041_ws-favi.png",
+    previewImage: "https://cdn.prod.website-files.com/682f84b3838c89f8ff7667db/683c611aba65ade013982bcd_wispr-og-min.jpg",
   },
   {
     id: "onetap",
@@ -209,6 +230,7 @@ export const websitesData: Website[] = [
     category: "Productivity",
     href: "/apps/onetap",
     faviconUrl: "https://framerusercontent.com/images/KwRNiJTpOyodG3xW6SXTxmVnnc.png",
+    previewImage: "https://framerusercontent.com/images/gR9WlQEiJ3uleaCLQ24uHuF7qQQ.png",
   },
   {
     id: "screen-studio",
@@ -217,6 +239,7 @@ export const websitesData: Website[] = [
     category: "Video",
     href: "/apps/screen-studio",
     faviconUrl: "https://www.screen.studio/icon.png",
+    previewImage: "https://screen.studio/og-main-2.png",
   },
   {
     id: "plunk",
@@ -225,6 +248,7 @@ export const websitesData: Website[] = [
     category: "Marketing",
     href: "/apps/plunk",
     faviconUrl: "https://www.useplunk.com/favicon/favicon-32x32.png",
+    previewImage: "https://www.useplunk.com/assets/card.png",
   },
   {
     id: "spiral",
@@ -233,6 +257,7 @@ export const websitesData: Website[] = [
     category: "AI Tools",
     href: "/apps/spiral",
     faviconUrl: "https://framerusercontent.com/images/ZJjuhw9IT16KQiTUilnGpsrxuVw.svg",
+    previewImage: "https://framerusercontent.com/assets/cumaHssCSvnociQcbq08BlpGHPc.png",
   },
   {
     id: "monologue",
@@ -241,6 +266,7 @@ export const websitesData: Website[] = [
     category: "Productivity",
     href: "/apps/monologue",
     faviconUrl: "https://framerusercontent.com/images/aF3yOlwFNUtfqtTdVBPl2pbUP3o.png",
+    previewImage: "https://framerusercontent.com/images/iDZTa4NQGEBJEibFjQlfeCQyag.png",
   },
   {
     id: "youform",
@@ -249,6 +275,7 @@ export const websitesData: Website[] = [
     category: "No-code",
     href: "/apps/youform",
     faviconUrl: "https://youform.io/assets/images/favicon.ico",
+    previewImage: "https://youform.com/assets/images/youform-builder.png",
   }
 ];
 
