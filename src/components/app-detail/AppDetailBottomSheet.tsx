@@ -55,66 +55,66 @@ export default function AppDetailBottomSheet({
   const { isBookmarked, toggleBookmark } = useBookmarks();
   const { user } = useAuth();
   const y = useMotionValue(0);
-  const backdropOpacity = useTransform(y, [0, 300], [0.4, 0]);
-  const bookmarked = app ? isBookmarked(app.id) : false;
+    const bgOpacity = useTransform(y, [0, 300], [0.4, 0]);
+    const bookmarked = app ? isBookmarked(app.id) : false;
 
-  const handleBookmark = async () => {
-    if (!app) return;
-    if (!user) {
-      onLoginClick?.();
-      return;
-    }
-    const { error } = await toggleBookmark(app.id);
-    if (error) {
-      toast.error("Failed to update bookmark");
-    } else {
-      toast.success(bookmarked ? "Removed from bookmarks" : "Added to bookmarks");
-    }
-  };
-
-  const handleShare = async () => {
-    if (navigator.share && app) {
-      try {
-        await navigator.share({
-          title: app.title,
-          text: app.description,
-          url: window.location.href,
-        });
-      } catch (err) {
-        // User cancelled or error
+    const handleBookmark = async () => {
+      if (!app) return;
+      if (!user) {
+        onLoginClick?.();
+        return;
       }
-    } else {
-      navigator.clipboard.writeText(window.location.href);
-      toast.success("Link copied to clipboard");
-    }
-  };
+      const { error } = await toggleBookmark(app.id);
+      if (error) {
+        toast.error("Failed to update bookmark");
+      } else {
+        toast.success(bookmarked ? "Removed from bookmarks" : "Added to bookmarks");
+      }
+    };
 
-  const handleDragEnd = (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
-    const shouldClose = info.velocity.y > 500 || (info.velocity.y >= 0 && info.offset.y > 150);
-    
-    if (shouldClose) {
-      onClose();
-    } else {
-      y.set(0);
-    }
-  };
+    const handleShare = async () => {
+      if (navigator.share && app) {
+        try {
+          await navigator.share({
+            title: app.title,
+            text: app.description,
+            url: window.location.href,
+          });
+        } catch (err) {
+          // User cancelled or error
+        }
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        toast.success("Link copied to clipboard");
+      }
+    };
 
-  if (!app) return null;
+    const handleDragEnd = (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+      const shouldClose = info.velocity.y > 500 || (info.velocity.y >= 0 && info.offset.y > 150);
+      
+      if (shouldClose) {
+        onClose();
+      } else {
+        y.set(0);
+      }
+    };
 
-  return (
-    <>
-      {/* Backdrop */}
-      <motion.div
-        className="fixed inset-0 bg-black z-40 lg:hidden"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: isOpen ? 0.4 : 0 }}
-        exit={{ opacity: 0 }}
-        transition={{ 
-          type: "spring",
-          damping: 40,
-          stiffness: 400
-        }}
-          style={{ opacity: backdropOpacity }}
+    if (!app) return null;
+
+    return (
+      <>
+        {/* Backdrop */}
+        <motion.div
+          className="fixed inset-0 bg-black z-40 lg:hidden"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: isOpen ? 0.4 : 0 }}
+          exit={{ opacity: 0 }}
+          transition={{ 
+            type: "spring",
+            damping: 40,
+            stiffness: 400
+          }}
+          style={{ opacity: bgOpacity }}
         onClick={onClose}
         aria-hidden={!isOpen}
       />
