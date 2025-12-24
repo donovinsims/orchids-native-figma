@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { motion, useMotionValue, useTransform, PanInfo } from "motion/react";
 import { X, ExternalLink, Bookmark, Check, Share2 } from "lucide-react";
 import { toast } from "sonner@2.0.3";
+import Footer from "../sections/Footer";
 
 interface AppDetail {
   id: string;
