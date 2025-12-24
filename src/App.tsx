@@ -79,9 +79,12 @@ export default function App() {
                 onNavigateToApp={handleAppClick}
                 onSubscribeClick={subscribeModal.open}
                 onSubmitClick={submitModal.open}
-                onLoginClick={authModal.open}
-              />
-            ) : currentView === 'profile' ? (
+                  onLoginClick={authModal.open}
+                  onProfileClick={() => setCurrentView('profile')}
+                  onHomeClick={handleBackToList}
+                />
+              ) : currentView === 'profile' ? (
+
               <div className="pt-[67px]">
                 <Container className="py-md md:py-xl">
                   <ProfileView onAppClick={handleAppClick} />
