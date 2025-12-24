@@ -56,7 +56,7 @@ function WebsiteCard({ item, onClick }: { item: Website; onClick?: (id: string) 
         whileTap={{ scale: 0.98 }}
         transition={{ type: "spring", stiffness: 400, damping: 17 }}
       >
-        <div className="relative w-full aspect-[333/225]">
+        <div className="relative w-full aspect-[16/10]">
             {/* Thumbnail Preview */}
             <div className="absolute inset-0 bg-background-secondary/50 overflow-hidden">
               <img 
