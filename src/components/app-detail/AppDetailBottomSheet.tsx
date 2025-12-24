@@ -181,15 +181,17 @@ export default function AppDetailBottomSheet({
                 delay: 0.1
               }}
             >
-              <img
-                src={app.previewImage}
-                alt={app.title}
-                className="w-full h-full object-cover"
-                onError={(e) => {
-                  e.currentTarget.src = app.faviconUrl;
-                  e.currentTarget.className = "w-full h-full object-contain p-16";
-                }}
-              />
+                <img
+                  src={app.previewImage}
+                  alt={app.title}
+                  className="w-full h-full object-cover object-top"
+                  loading="lazy"
+                  onError={(e) => {
+                    e.currentTarget.src = app.faviconUrl;
+                    e.currentTarget.className = "w-full h-full object-contain p-16";
+                  }}
+                />
+                <div className="absolute inset-0 shadow-[inset_0_0_40px_rgba(0,0,0,0.02)] pointer-events-none" />
             </motion.div>
 
             {/* Title & Description */}
