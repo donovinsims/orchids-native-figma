@@ -2,8 +2,9 @@
 
 import React, { useState } from "react";
 import { Sparkles, Loader2 } from "lucide-react";
-import { toast } from "sonner@2.0.3";
+import { toast } from "sonner";
 import { Modal } from "./Modal";
+import { supabase } from "@/lib/supabase";
 
 interface AuthModalProps {
   isOpen: boolean;
@@ -23,34 +24,59 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
 
     setIsLoading(true);
     try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const { error } = await supabase.auth.signInWithOtp({
+        email,
+        options: {
+          emailRedirectTo: window.location.origin,
+        },
+      });
+
+      if (error) throw error;
+
       toast.success("Magic link sent to your email!");
       onClose();
-    } catch (error) {
-      toast.error("Authentication failed. Please try again.");
+    } catch (error: any) {
+      toast.error(error.message || "Authentication failed. Please try again.");
     } finally {
       setIsLoading(false);
     }
   };
 
-  const handleGoogle = () => {
-    toast.success("Google authentication coming soon!");
+  const handleGoogle = async () => {
+    try {
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: {
+          redirectTo: window.location.origin,
+        },
+      });
+      if (error) throw error;
+    } catch (error: any) {
+      toast.error(error.message || "Google authentication failed.");
+    }
   };
 
-  const handleTwitter = () => {
-    toast.success("Twitter authentication coming soon!");
+  const handleTwitter = async () => {
+    try {
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: 'twitter',
+        options: {
+          redirectTo: window.location.origin,
+        },
+      });
+      if (error) throw error;
+    } catch (error: any) {
+      toast.error(error.message || "Twitter authentication failed.");
+    }
   };
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} showCloseButton={true}>
       <div className="p-8">
-        {/* Sparkle Icon */}
         <div className="mb-6">
           <Sparkles className="w-8 h-8 text-text-primary" fill="currentColor" />
         </div>
 
-        {/* Content */}
         <div>
           <h2 className="text-3xl font-medium text-text-primary mb-3">
             Get Started
@@ -59,7 +85,6 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
             Register for events, subscribe to calendars and manage events you're going to.
           </p>
 
-          {/* Email Auth Form */}
           <form onSubmit={handleEmailAuth} className="space-y-3 mb-6">
             <div>
               <input
@@ -88,7 +113,6 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
             </button>
           </form>
 
-          {/* Divider */}
           <div className="relative mb-6">
             <div className="absolute inset-0 flex items-center">
               <div className="w-full border-t border-border"></div>
@@ -98,9 +122,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
             </div>
           </div>
 
-          {/* Social Login Buttons */}
           <div className="grid grid-cols-2 gap-3">
-            {/* Twitter Button */}
             <button
               onClick={handleTwitter}
               className="flex items-center justify-center py-4 rounded-md bg-background-tertiary hover:bg-background-secondary transition-colors border border-border"
@@ -110,7 +132,6 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
               </svg>
             </button>
 
-            {/* Google Button */}
             <button
               onClick={handleGoogle}
               className="flex items-center justify-center py-4 rounded-md bg-background-tertiary hover:bg-background-secondary transition-colors border border-border"
