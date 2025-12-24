@@ -198,12 +198,12 @@ export default function AppDetailPage({ app, onBack, onNavigateToApp, onSubscrib
                 </div>
 
                 {/* Visit Website Button */}
-                <a
-                  href={app.websiteUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 w-full px-6 py-3 rounded-md border border-border bg-background text-text-primary hover:bg-background-secondary transition-colors"
-                >
+                  <a
+                    href={app.websiteUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 w-full px-6 py-3 rounded-md border border-border bg-background-primary text-text-primary hover:bg-background-secondary transition-colors"
+                  >
                   <span>Visit Website</span>
                   <ExternalLink className="w-4 h-4" />
                 </a>
