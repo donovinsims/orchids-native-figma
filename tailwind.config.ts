@@ -25,6 +25,7 @@ export default {
 					strong: 'var(--border-strong)',
 				},
 				background: {
+					DEFAULT: 'var(--background)',
 					primary: 'var(--background)',
 					secondary: 'var(--background-secondary)',
 					tertiary: 'var(--background-tertiary)',
