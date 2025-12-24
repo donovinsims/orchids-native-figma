@@ -33,7 +33,6 @@ export default function WebsiteGrid({ items, onItemClick }: WebsiteGridProps) {
 }
 
 function WebsiteCard({ item, onClick }: { item: Website; onClick?: (id: string) => void }) {
-  const [isHovered, setIsHovered] = useState(false);
   const [isBookmarked, setIsBookmarked] = useState(false);
 
   const handleClick = (e: React.MouseEvent) => {
@@ -61,8 +60,6 @@ function WebsiteCard({ item, onClick }: { item: Website; onClick?: (id: string) 
           background: 'black',
           borderRadius: '6px'
         }}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
         whileTap={{ scale: 0.97 }}
         transition={{ type: "spring", stiffness: 400, damping: 17 }}
       >
