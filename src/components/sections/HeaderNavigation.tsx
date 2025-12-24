@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { useMobileNav } from "../../hooks/useMobileNav";
 import { MobileNavOverlay, MobileNavTrigger } from "../mobile-nav/MobileNav";
 
@@ -14,24 +14,6 @@ const MagicIcon = (props: React.SVGProps<SVGSVGElement>) => (
   >
     <title>Magic Icon</title>
     <path d="M5.33333 0L6.41334 4.28L10.6667 5.33333L6.41334 6.38667L5.33333 10.6667L4.25333 6.38667L0 5.33333L4.25333 4.28L5.33333 0Z" />
-  </svg>
-);
-
-const SearchIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg
-    width="16"
-    height="17"
-    viewBox="0 0 16 17"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
-    <path
-      fillRule="evenodd"
-      clipRule="evenodd"
-      d="M11.6364 10.9669C12.4432 9.94052 12.875 8.66579 12.875 7.3125C12.875 4.09313 10.2819 1.5 7.0625 1.5C3.84313 1.5 1.25 4.09313 1.25 7.3125C1.25 10.5319 3.84313 13.125 7.0625 13.125C8.42851 13.125 9.6953 12.671 10.7118 11.8415L14.2929 15.4226C14.6834 15.8131 15.3166 15.8131 15.7071 15.4226C16.0976 15.0321 16.0976 14.3989 15.7071 14.0084L11.6364 10.9669ZM2.75 7.3125C2.75 4.92296 4.67296 3 7.0625 3C9.45204 3 11.375 4.92296 11.375 7.3125C11.375 9.70204 9.45204 11.625 7.0625 11.625C4.67296 11.625 2.75 9.70204 2.75 7.3125Z"
-      fill="#A3A3A3"
-    />
   </svg>
 );
 
