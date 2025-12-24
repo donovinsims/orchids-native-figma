@@ -171,7 +171,7 @@ export default function AppDetailBottomSheet({
           <div className="px-4 py-4 space-y-6 text-text-primary">
             {/* Preview Image */}
             <motion.div 
-              className="relative w-full aspect-video bg-background-secondary rounded-md overflow-hidden border border-border"
+              className="relative w-full aspect-[16/10] bg-background-secondary rounded-md overflow-hidden border border-border"
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{
