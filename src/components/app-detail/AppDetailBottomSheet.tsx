@@ -40,6 +40,7 @@ interface AppDetailBottomSheetProps {
   onNavigateToApp?: (appId: string) => void;
   onSubscribeClick?: () => void;
   onSubmitClick?: () => void;
+  onLoginClick?: () => void;
 }
 
 export default function AppDetailBottomSheet({
@@ -49,6 +50,7 @@ export default function AppDetailBottomSheet({
   onNavigateToApp,
   onSubscribeClick,
   onSubmitClick,
+  onLoginClick,
 }: AppDetailBottomSheetProps) {
   const { isBookmarked, toggleBookmark } = useBookmarks();
   const { user } = useAuth();
