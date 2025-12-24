@@ -13,6 +13,7 @@ import { Toaster } from "./components/ui/sonner";
 import { Container } from "./components/ui/container";
 import { websitesData, appDetailsData } from "./data/appsData";
 import { AuthProvider } from "./hooks/use-auth";
+import { AnimatePresence } from "motion/react";
 
 import ProfileView from "./components/sections/ProfileView";
 
@@ -85,18 +86,21 @@ export default function App() {
         />
 
         {/* App Detail Overlay */}
-        {selectedApp && (
-          <AppDetailPage 
-            app={selectedApp} 
-            onBack={handleBackToList}
-            onNavigateToApp={handleAppClick}
-            onSubscribeClick={subscribeModal.open}
-            onSubmitClick={submitModal.open}
-            onLoginClick={authModal.open}
-            onProfileClick={() => setCurrentView('profile')}
-            onHomeClick={handleBackToList}
-          />
-        )}
+        <AnimatePresence>
+          {selectedApp && (
+            <AppDetailPage 
+              key={selectedApp.id}
+              app={selectedApp} 
+              onBack={handleBackToList}
+              onNavigateToApp={handleAppClick}
+              onSubscribeClick={subscribeModal.open}
+              onSubmitClick={submitModal.open}
+              onLoginClick={authModal.open}
+              onProfileClick={() => setCurrentView('profile')}
+              onHomeClick={handleBackToList}
+            />
+          )}
+        </AnimatePresence>
 
           {/* Modals */}
           <SubscribeModal isOpen={subscribeModal.isOpen} onClose={subscribeModal.close} />
