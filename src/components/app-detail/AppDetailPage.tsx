@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { Share2, ExternalLink, Bookmark, Check, X } from "lucide-react";
 import { toast } from "sonner";
 import Footer from "../sections/Footer";
