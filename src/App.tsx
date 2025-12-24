@@ -103,6 +103,8 @@ export default function App() {
         
         <Toaster position="bottom-center" />
       </div>
-    </NextThemesProvider>
+      </NextThemesProvider>
+    </AuthProvider>
   );
 }
+
