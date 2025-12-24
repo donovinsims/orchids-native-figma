@@ -315,6 +315,5 @@ export default function AppDetailPage({
           </div>
         </motion.div>
       </div>
-    </AnimatePresence>
   );
 }
