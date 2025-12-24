@@ -47,91 +47,69 @@ function WebsiteCard({ item, onClick }: { item: Website; onClick?: (id: string) 
   };
 
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-3 group">
       {/* Card Preview */}
       <motion.button
         onClick={handleClick}
-        className="relative w-full block overflow-hidden hover:opacity-90 transition-opacity duration-200"
-        style={{
-          background: 'black',
-          borderRadius: '12px'
-        }}
-        whileTap={{ scale: 0.97 }}
+        className="relative w-full block overflow-hidden transition-all duration-200 bg-[#fafafa] dark:bg-[#0a0a0a] border border-[#e5e5e5] dark:border-[#262626] rounded-[12px] hover:border-[#d1d1d1] dark:hover:border-[#3a3a3a] hover:shadow-sm dark:hover:shadow-[0_0_0_1px_rgba(255,255,255,0.05)]"
+        whileTap={{ scale: 0.98 }}
         transition={{ type: "spring", stiffness: 400, damping: 17 }}
       >
-        <div className="relative w-full aspect-[333/225] bg-gray-50">
-          {/* Border overlay */}
-          <div 
-            className="absolute inset-0 pointer-events-none rounded-xl border border-gray-200"
-          />
+        <div className="relative w-full aspect-[333/225]">
+          {/* Favicon Placeholder / Content */}
+          <div className="absolute inset-0 flex items-center justify-center bg-background-secondary/50">
+            <img 
+              src={item.faviconUrl} 
+              alt="" 
+              className="w-8 h-8 rounded-md shadow-sm"
+              onError={(e) => {
+                (e.target as HTMLImageElement).style.display = 'none';
+              }}
+            />
+          </div>
         </div>
       </motion.button>
 
       {/* Actions - Name, Category, Bookmark, and External Link */}
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between px-1">
         {/* Name & Category */}
         <button 
           onClick={handleClick}
-          className="flex items-center gap-1 text-left flex-1 min-w-0"
+          className="flex items-center gap-1.5 text-left flex-1 min-w-0"
         >
-          <div style={{
-            color: '#151515',
-            fontSize: '14px',
-            fontWeight: '700',
-            lineHeight: '16px'
-          }}>
+          <span className="text-body-md font-semibold text-text-primary truncate">
             {item.title}
-          </div>
+          </span>
           {item.category && (
             <>
-              <div style={{
-                opacity: 0.5,
-                color: '#151515',
-                fontSize: '14px',
-                fontWeight: '400',
-                lineHeight: '16px'
-              }}>
-                ·
-              </div>
-              <div style={{
-                opacity: 0.5,
-                color: '#151515',
-                fontSize: '14px',
-                fontWeight: '400',
-                lineHeight: '16px'
-              }} className="truncate">
+              <span className="text-text-tertiary font-medium">·</span>
+              <span className="text-text-secondary text-body-md font-medium truncate">
                 {item.category}
-              </div>
+              </span>
             </>
           )}
         </button>
 
         {/* Bookmark and External Icons */}
         <div className="flex items-center gap-1 flex-shrink-0">
-          {/* Bookmark Icon */}
           <motion.button
             onClick={handleBookmark}
-            className="w-6 h-6 flex items-center justify-center"
+            className="p-1.5 rounded-md hover:bg-background-tertiary transition-colors text-text-secondary hover:text-text-primary"
             whileTap={{ scale: 0.9 }}
-            transition={{ type: "spring", stiffness: 400, damping: 17 }}
             aria-label={isBookmarked ? "Remove bookmark" : "Add bookmark"}
-            style={{ opacity: 0.5 }}
           >
             <Bookmark 
-              className={`w-4 h-4 text-black ${isBookmarked ? "fill-current" : ""}`}
+              className={`w-4 h-4 ${isBookmarked ? "fill-current text-accent" : ""}`}
             />
           </motion.button>
 
-          {/* External Link Icon */}
           <motion.button
             onClick={handleExternalLink}
-            className="w-6 h-6 flex items-center justify-center"
+            className="p-1.5 rounded-md hover:bg-background-tertiary transition-colors text-text-secondary hover:text-text-primary"
             whileTap={{ scale: 0.9 }}
-            transition={{ type: "spring", stiffness: 400, damping: 17 }}
             aria-label="Open in new tab"
-            style={{ opacity: 0.5 }}
           >
-            <ExternalLink className="w-4 h-4 text-black" />
+            <ExternalLink className="w-4 h-4" />
           </motion.button>
         </div>
       </div>
