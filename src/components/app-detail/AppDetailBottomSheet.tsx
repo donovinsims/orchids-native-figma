@@ -50,24 +50,22 @@ export default function AppDetailBottomSheet({
   onSubscribeClick,
   onSubmitClick,
 }: AppDetailBottomSheetProps) {
-  const [isBookmarked, setIsBookmarked] = useState(false);
-  const y = useMotionValue(0);
-  const opacity = useTransform(y, [0, 300], [0.4, 0]);
+  const { isBookmarked, toggleBookmark } = useBookmarks();
+  const { user } = useAuth();
+  const bookmarked = app ? isBookmarked(app.id) : false;
 
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
+  const handleBookmark = async () => {
+    if (!app) return;
+    if (!user) {
+      toast.error("Please sign in to bookmark apps");
+      return;
     }
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [isOpen]);
-
-  const handleBookmark = () => {
-    setIsBookmarked(!isBookmarked);
-    toast.success(isBookmarked ? "Removed from bookmarks" : "Added to bookmarks");
+    const { error } = await toggleBookmark(app.id);
+    if (error) {
+      toast.error("Failed to update bookmark");
+    } else {
+      toast.success(bookmarked ? "Removed from bookmarks" : "Added to bookmarks");
+    }
   };
 
   const handleShare = async () => {
