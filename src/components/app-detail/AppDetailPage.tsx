@@ -102,18 +102,20 @@ export default function AppDetailPage({ app, onBack, onNavigateToApp, onSubscrib
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-8">
             {/* Left Column - Preview & Content */}
             <div className="space-y-8">
-              {/* Preview Image */}
-              <div className="relative w-full aspect-[16/10] bg-background-secondary rounded-md overflow-hidden border border-border">
-                <img
-                  src={app.previewImage}
-                  alt={app.title}
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    e.currentTarget.src = app.faviconUrl;
-                    e.currentTarget.className = "w-full h-full object-contain p-16";
-                  }}
-                />
-              </div>
+                {/* Preview Image */}
+                <div className="relative w-full aspect-[16/10] bg-background-secondary rounded-md overflow-hidden border border-border">
+                  <img
+                    src={app.previewImage}
+                    alt={app.title}
+                    className="w-full h-full object-cover object-top"
+                    loading="lazy"
+                    onError={(e) => {
+                      e.currentTarget.src = app.faviconUrl;
+                      e.currentTarget.className = "w-full h-full object-contain p-16";
+                    }}
+                  />
+                  <div className="absolute inset-0 shadow-[inset_0_0_40px_rgba(0,0,0,0.02)] pointer-events-none" />
+                </div>
 
               {/* About Section */}
               <section>
