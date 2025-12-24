@@ -52,7 +52,8 @@ export default function App() {
   const selectedApp = selectedAppId ? appDetailsData[selectedAppId] : null;
 
   return (
-    <NextThemesProvider attribute="class" defaultTheme="light" enableSystem>
+    <AuthProvider>
+      <NextThemesProvider attribute="class" defaultTheme="light" enableSystem>
       <div className="relative min-h-screen bg-background-primary text-foreground transition-colors duration-200 flex flex-col">
         {!selectedApp || isMobile ? (
           <>
