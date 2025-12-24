@@ -43,19 +43,6 @@ interface HeaderNavigationProps {
 
 const HeaderNavigation = ({ onSubscribeClick, onSubmitClick, onLoginClick }: HeaderNavigationProps) => {
   const mobileNav = useMobileNav();
-  const [searchOpen, setSearchOpen] = useState(false);
-
-  // Handle keyboard shortcut ⌘K
-  React.useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
-        e.preventDefault();
-        setSearchOpen(true);
-      }
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
 
   return (
     <>
@@ -69,22 +56,7 @@ const HeaderNavigation = ({ onSubscribeClick, onSubmitClick, onLoginClick }: Hea
             <MagicIcon className="w-[10.67px]" />
             <span>saw</span>
           </a>
-          <div className="hidden w-full lg:block">
-            <div className="relative mr-auto w-full group lg:absolute lg:top-1/2 lg:left-1/2 lg:ml-6 lg:max-w-[480px] lg:-translate-x-1/2 lg:-translate-y-1/2 z-50">
-              <button
-                onClick={() => setSearchOpen(true)}
-                className="flex w-full flex-row items-center rounded-full bg-gray-100 px-3 py-[6px] hover:bg-gray-200 transition-colors"
-              >
-                <SearchIcon />
-                <p className="ml-3 w-full-break-normal whitespace-nowrap text-left text-sm text-gray-400">
-                  Search for apps, workflows, shortcuts...
-                </p>
-                <p className="ml-auto rounded-sm px-[5px] py-[2px] text-[10px] text-gray-400">
-                  ⌘{` `}K
-                </p>
-              </button>
-            </div>
-          </div>
+          
           <div className="flex items-center gap-2">
             <button
               onClick={onLoginClick}
