@@ -1,10 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { Share2, ExternalLink, Bookmark, Check } from "lucide-react";
 import { toast } from "sonner";
 import HeaderNavigation from "../sections/HeaderNavigation";
 import Footer from "../sections/Footer";
+import { useBookmarks } from "@/hooks/use-bookmarks";
+import { useAuth } from "@/hooks/use-auth";
+import { motion } from "motion/react";
 
 interface AppDetail {
   id: string;
