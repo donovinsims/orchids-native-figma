@@ -13,6 +13,7 @@ import { AuthModal } from "./components/modals/AuthModal";
 import { Toaster } from "./components/ui/sonner";
 import { Container } from "./components/ui/container";
 import { websitesData, appDetailsData } from "./data/appsData";
+import { AuthProvider } from "./hooks/use-auth";
 
 export default function App() {
   const subscribeModal = useModal();
