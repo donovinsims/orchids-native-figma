@@ -198,16 +198,16 @@ export default function AppDetailPage({ app, onBack, onNavigateToApp, onSubscrib
                   </p>
                 </div>
 
-                  {/* Visit Website Button */}
-                    <a
-                      href={app.websiteUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 w-full px-6 py-3 rounded-md bg-[#ff4500] text-white hover:opacity-90 transition-colors"
-                    >
-                    <span>Visit Website</span>
-                    <ExternalLink className="w-4 h-4" />
-                  </a>
+                    {/* Visit Website Button */}
+                      <a
+                        href={app.websiteUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center gap-2 w-full px-6 py-3 rounded-md bg-background-primary text-text-primary border border-border hover:bg-background-secondary hover:border-border-strong transition-all duration-200"
+                      >
+                      <span>Visit Website</span>
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
 
                 {/* Bookmark Button */}
                 <button
