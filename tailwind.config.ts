@@ -14,76 +14,102 @@ export default {
 			center: true,
 			padding: '2rem',
 			screens: {
-				'2xl': '1400px'
+				'2xl': '1200px'
 			}
 		},
 		extend: {
 			colors: {
-				border: 'hsl(var(--border))',
-				input: 'hsl(var(--input))',
-				ring: 'hsl(var(--ring))',
-				background: 'hsl(var(--background))',
-				foreground: 'hsl(var(--foreground))',
+				border: {
+					DEFAULT: 'var(--border)',
+					subtle: 'var(--border-subtle)',
+					strong: 'var(--border-strong)',
+				},
+				background: {
+					primary: 'var(--background)',
+					secondary: 'var(--background-secondary)',
+					tertiary: 'var(--background-tertiary)',
+				},
+				text: {
+					primary: 'var(--text-primary)',
+					secondary: 'var(--text-secondary)',
+					tertiary: 'var(--text-tertiary)',
+					muted: 'var(--text-muted)',
+				},
 				primary: {
-					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					DEFAULT: 'var(--primary)',
+					foreground: 'var(--primary-foreground)'
 				},
 				secondary: {
-					DEFAULT: 'hsl(var(--secondary))',
-					foreground: 'hsl(var(--secondary-foreground))'
-				},
-				destructive: {
-					DEFAULT: 'hsl(var(--destructive))',
-					foreground: 'hsl(var(--destructive-foreground))'
-				},
-				muted: {
-					DEFAULT: 'hsl(var(--muted))',
-					foreground: 'hsl(var(--muted-foreground))'
+					DEFAULT: 'var(--secondary)',
+					foreground: 'var(--secondary-foreground)'
 				},
 				accent: {
-					DEFAULT: 'hsl(var(--accent))',
-					foreground: 'hsl(var(--accent-foreground))'
+					DEFAULT: 'var(--accent)',
+					foreground: 'var(--accent-foreground)'
 				},
-				popover: {
-					DEFAULT: 'hsl(var(--popover))',
-					foreground: 'hsl(var(--popover-foreground))'
+				success: 'var(--success)',
+				warning: 'var(--warning)',
+				error: 'var(--error)',
+				info: 'var(--info)',
+				muted: {
+					DEFAULT: 'var(--muted)',
+					foreground: 'var(--muted-foreground)'
 				},
 				card: {
-					DEFAULT: 'hsl(var(--card))',
-					foreground: 'hsl(var(--card-foreground))'
+					DEFAULT: 'var(--card)',
+					foreground: 'var(--card-foreground)'
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
-				}
+				popover: {
+					DEFAULT: 'var(--popover)',
+					foreground: 'var(--popover-foreground)'
+				},
+			},
+			spacing: {
+				xs: 'var(--spacing-xs)',
+				sm: 'var(--spacing-sm)',
+				md: 'var(--spacing-md)',
+				lg: 'var(--spacing-lg)',
+				xl: 'var(--spacing-xl)',
+				'2xl': 'var(--spacing-2xl)',
 			},
 			borderRadius: {
-				lg: 'var(--radius)',
-				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
+				none: 'var(--radius-none)',
+				sm: 'var(--radius-sm)',
+				md: 'var(--radius-md)',
+				lg: 'var(--radius-lg)',
+				xl: 'var(--radius-xl)',
+				full: 'var(--radius-full)',
+			},
+			boxShadow: {
+				xs: 'var(--shadow-xs)',
+				sm: 'var(--shadow-sm)',
+				md: 'var(--shadow-md)',
+				lg: 'var(--shadow-lg)',
+				xl: 'var(--shadow-xl)',
+			},
+			fontFamily: {
+				sans: ['var(--font-inter)', 'Inter', 'sans-serif'],
+			},
+			fontSize: {
+				'display-xl': ['48px', { lineHeight: '1.2', letterSpacing: '-0.02em', fontWeight: '700' }],
+				'display-lg': ['36px', { lineHeight: '1.2', letterSpacing: '-0.02em', fontWeight: '600' }],
+				'h1': ['24px', { lineHeight: '1.4', letterSpacing: '-0.01em', fontWeight: '600' }],
+				'h2': ['20px', { lineHeight: '1.5', letterSpacing: '-0.01em', fontWeight: '600' }],
+				'h3': ['18px', { lineHeight: '1.5', fontWeight: '500' }],
+				'h4': ['16px', { lineHeight: '1.6', fontWeight: '500' }],
+				'body-md': ['14px', { lineHeight: '1.6', fontWeight: '400' }],
+				'body-sm': ['12px', { lineHeight: '1.5', fontWeight: '400' }],
+				'label-md': ['12px', { lineHeight: '1.4', fontWeight: '500' }],
+				'caption': ['10px', { lineHeight: '1.4', fontWeight: '400' }],
 			},
 			keyframes: {
 				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
+					from: { height: '0' },
+					to: { height: 'var(--radix-accordion-content-height)' }
 				},
 				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
-					},
-					to: {
-						height: '0'
-					}
+					from: { height: 'var(--radix-accordion-content-height)' },
+					to: { height: '0' }
 				}
 			},
 			animation: {
