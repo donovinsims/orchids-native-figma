@@ -101,29 +101,29 @@ export function Modal({
         onClick={handleBackdropClick}
       />
 
-      {/* Modal content */}
-      <div
-        ref={modalRef}
-        className={`relative w-full max-w-md bg-white rounded-xl shadow-2xl animate-in fade-in zoom-in-95 duration-200 max-h-[90vh] overflow-y-auto ${className}`}
-        onTouchStart={handleTouchStart}
-        onTouchEnd={handleTouchEnd}
-      >
-        {/* Swipe indicator for mobile */}
-        <div className="md:hidden flex justify-center pt-3 pb-1">
-          <div className="w-10 h-1 bg-gray-300 rounded-full" />
-        </div>
+        {/* Modal content */}
+        <div
+          ref={modalRef}
+          className={`relative w-full max-w-md bg-background rounded-md shadow-2xl animate-in fade-in zoom-in-95 duration-200 max-h-[90vh] overflow-y-auto border border-border ${className}`}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
+          {/* Swipe indicator for mobile */}
+          <div className="md:hidden flex justify-center pt-3 pb-1">
+            <div className="w-10 h-1 bg-border rounded-full" />
+          </div>
 
-        {/* Close button */}
-        {showCloseButton && (
-          <button
-            ref={closeButtonRef}
-            onClick={onClose}
-            className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors z-10"
-            aria-label="Close modal"
-          >
-            <X className="w-5 h-5 text-gray-500" />
-          </button>
-        )}
+          {/* Close button */}
+          {showCloseButton && (
+            <button
+              ref={closeButtonRef}
+              onClick={onClose}
+              className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full hover:bg-background-secondary transition-colors z-10"
+              aria-label="Close modal"
+            >
+              <X className="w-5 h-5 text-text-tertiary" />
+            </button>
+          )}
 
         {children}
       </div>
