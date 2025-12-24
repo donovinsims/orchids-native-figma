@@ -20,19 +20,20 @@ interface Website {
 interface WebsiteGridProps {
   items: Website[];
   onItemClick?: (id: string) => void;
+  onLoginClick?: () => void;
 }
 
-export default function WebsiteGrid({ items, onItemClick }: WebsiteGridProps) {
+export default function WebsiteGrid({ items, onItemClick, onLoginClick }: WebsiteGridProps) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 mt-6">
       {items.map((item) => (
-        <WebsiteCard key={item.id} item={item} onClick={onItemClick} />
+        <WebsiteCard key={item.id} item={item} onClick={onItemClick} onLoginClick={onLoginClick} />
       ))}
     </div>
   );
 }
 
-function WebsiteCard({ item, onClick }: { item: Website; onClick?: (id: string) => void }) {
+function WebsiteCard({ item, onClick, onLoginClick }: { item: Website; onClick?: (id: string) => void; onLoginClick?: () => void }) {
   const { isBookmarked, toggleBookmark } = useBookmarks();
   const { user } = useAuth();
   const bookmarked = isBookmarked(item.id);
@@ -45,7 +46,7 @@ function WebsiteCard({ item, onClick }: { item: Website; onClick?: (id: string) 
   const handleBookmark = async (e: React.MouseEvent) => {
     e.stopPropagation();
     if (!user) {
-      toast.error("Please sign in to bookmark apps");
+      onLoginClick?.();
       return;
     }
     const { error } = await toggleBookmark(item.id);
