@@ -28,10 +28,10 @@ const Footer = ({ onSubmitClick, onSubscribeClick }: FooterProps) => {
         <div className="grid grid-cols-1 gap-xl md:grid-cols-4 lg:grid-cols-5">
           {/* Logo and Tagline */}
           <div className="md:col-span-2 lg:col-span-2">
-            <a
-              className="flex w-max cursor-pointer items-center gap-xs rounded-full border border-border bg-background-primary px-sm py-xs text-h1 leading-none transition-all duration-200 ease-in-out hover:-rotate-3 hover:border-border-strong hover:bg-background-secondary mb-md"
-              href="/"
-            >
+              <a
+                className="flex w-max cursor-pointer items-center gap-xs rounded-full border border-border bg-background-primary px-md py-sm text-h1 leading-none transition-all duration-200 ease-in-out hover:-rotate-3 hover:border-border-strong hover:bg-background-secondary mb-md"
+                href="/"
+              >
               <span>see</span>
               <MagicIcon className="w-[10.67px]" />
               <span>saw</span>
