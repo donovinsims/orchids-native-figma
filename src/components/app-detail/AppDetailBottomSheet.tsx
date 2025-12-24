@@ -119,7 +119,7 @@ export default function AppDetailBottomSheet({
       <motion.div
         className="fixed bottom-0 left-0 right-0 bg-background-primary rounded-t-md shadow-2xl z-50 lg:hidden border-t border-border"
         initial={{ y: "100%" }}
-        animate={{ y: isOpen ? "4vh" : "100%" }}
+        animate={{ y: isOpen ? 0 : "100%" }}
         exit={{ y: "100%" }}
         transition={{
           type: "spring",
@@ -129,7 +129,7 @@ export default function AppDetailBottomSheet({
         }}
         style={{ 
           y,
-          height: '96vh',
+          height: '90vh',
           touchAction: 'none'
         }}
         drag="y"
