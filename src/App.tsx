@@ -72,19 +72,18 @@ export default function App() {
         )}
         
         <div className="flex-grow">
-            {selectedApp && !isMobile ? (
+            {selectedApp ? (
               <AppDetailPage 
                 app={selectedApp} 
                 onBack={handleBackToList}
                 onNavigateToApp={handleAppClick}
                 onSubscribeClick={subscribeModal.open}
                 onSubmitClick={submitModal.open}
-                  onLoginClick={authModal.open}
-                  onProfileClick={() => setCurrentView('profile')}
-                  onHomeClick={handleBackToList}
-                />
-              ) : currentView === 'profile' ? (
-
+                onLoginClick={authModal.open}
+                onProfileClick={() => setCurrentView('profile')}
+                onHomeClick={handleBackToList}
+              />
+            ) : currentView === 'profile' ? (
               <div className="pt-[67px]">
                 <Container className="py-md md:py-xl">
                   <ProfileView onAppClick={handleAppClick} />
