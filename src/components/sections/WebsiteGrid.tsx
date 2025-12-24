@@ -1,8 +1,11 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "motion/react";
 import { Bookmark, ExternalLink } from "lucide-react";
+import { useBookmarks } from "@/hooks/use-bookmarks";
+import { useAuth } from "@/hooks/use-auth";
+import { toast } from "sonner";
 
 interface Website {
   id: string;
@@ -30,16 +33,27 @@ export default function WebsiteGrid({ items, onItemClick }: WebsiteGridProps) {
 }
 
 function WebsiteCard({ item, onClick }: { item: Website; onClick?: (id: string) => void }) {
-  const [isBookmarked, setIsBookmarked] = useState(false);
+  const { isBookmarked, toggleBookmark } = useBookmarks();
+  const { user } = useAuth();
+  const bookmarked = isBookmarked(item.id);
 
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
     onClick?.(item.id);
   };
 
-  const handleBookmark = (e: React.MouseEvent) => {
+  const handleBookmark = async (e: React.MouseEvent) => {
     e.stopPropagation();
-    setIsBookmarked(!isBookmarked);
+    if (!user) {
+      toast.error("Please sign in to bookmark apps");
+      return;
+    }
+    const { error } = await toggleBookmark(item.id);
+    if (error) {
+      toast.error("Failed to update bookmark");
+    } else {
+      toast.success(bookmarked ? "Removed from bookmarks" : "Added to bookmarks");
+    }
   };
 
   const handleExternalLink = (e: React.MouseEvent) => {
@@ -97,14 +111,14 @@ function WebsiteCard({ item, onClick }: { item: Website; onClick?: (id: string) 
               <button
                 onClick={handleBookmark}
                 className="p-0.5 transition-colors text-text-secondary hover:text-text-primary bg-transparent focus:ring-0"
-                aria-label={isBookmarked ? "Remove bookmark" : "Add bookmark"}
+                aria-label={bookmarked ? "Remove bookmark" : "Add bookmark"}
               >
                 <motion.div
-                  animate={isBookmarked ? { scale: [1, 1.35, 1] } : { scale: 1 }}
+                  animate={bookmarked ? { scale: [1, 1.35, 1] } : { scale: 1 }}
                   transition={{ duration: 0.3, times: [0, 0.5, 1], ease: "easeInOut" }}
                 >
                   <Bookmark 
-                    className={`w-4 h-4 ${isBookmarked ? "fill-[#ff4500] text-[#ff4500]" : ""}`}
+                    className={`w-4 h-4 ${bookmarked ? "fill-[#ff4500] text-[#ff4500]" : ""}`}
                   />
                 </motion.div>
               </button>
