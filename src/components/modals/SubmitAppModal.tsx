@@ -51,10 +51,6 @@ export function SubmitAppModal({ isOpen, onClose }: SubmitAppModalProps) {
   const validateForm = (): boolean => {
     const newErrors: Partial<FormData> = {};
 
-    if (!formData.appName.trim()) {
-      newErrors.appName = "App name is required";
-    }
-
     if (!formData.appUrl.trim()) {
       newErrors.appUrl = "App URL is required";
     } else if (!isValidUrl(formData.appUrl)) {
