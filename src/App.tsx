@@ -12,10 +12,6 @@ import { SubmitAppModal } from "./components/modals/SubmitAppModal";
 import { AuthModal } from "./components/modals/AuthModal";
 import { Toaster } from "./components/ui/sonner";
 import { websitesData, appDetailsData } from "./data/appsData";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { Sonner } from "@/components/ui/sonner";
-import HoverReceiver from "@/visual-edits/VisualEditsMessenger";
 
 export default function App() {
   const subscribeModal = useModal();
