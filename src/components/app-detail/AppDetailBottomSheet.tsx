@@ -133,33 +133,36 @@ export default function AppDetailBottomSheet({
         onDragEnd={handleDragEnd}
         dragSnapToOrigin={true}
       >
-        {/* Drag Handle */}
-        <div className="w-full flex justify-center pt-3 pb-2">
-          <div className="w-12 h-1 bg-border rounded-full" />
-        </div>
-
-        {/* Header */}
-        <div className="flex items-center justify-between px-4 pb-3 border-b border-border">
-          <motion.button
-            onClick={onClose}
-            className="flex items-center justify-center w-10 h-10 rounded-md active:bg-background-secondary transition-colors"
-            whileTap={{ scale: 0.95 }}
-            transition={{ type: "spring", stiffness: 400, damping: 17 }}
-          >
-            <X className="w-6 h-6 text-text-primary" />
-          </motion.button>
-          <motion.button
-            onClick={handleShare}
-            className="flex items-center justify-center w-10 h-10 rounded-md active:bg-background-secondary transition-colors"
-            whileTap={{ scale: 0.95 }}
-            transition={{ type: "spring", stiffness: 400, damping: 17 }}
-          >
-            <Share2 className="w-5 h-5 text-text-primary" />
-          </motion.button>
-        </div>
-
         {/* Scrollable Content */}
-        <div className="overflow-y-auto h-[calc(100%-60px)] overscroll-contain">
+        <div className="overflow-y-auto h-full overscroll-contain relative rounded-t-md">
+          {/* Header & Drag Handle (Sticky) */}
+          <div className="sticky top-0 z-20 bg-background-primary/80 backdrop-blur-md transition-colors">
+            {/* Drag Handle */}
+            <div className="w-full flex justify-center pt-3 pb-2">
+              <div className="w-12 h-1 bg-border rounded-full" />
+            </div>
+
+            {/* Header */}
+            <div className="flex items-center justify-between px-4 pb-3">
+              <motion.button
+                onClick={onClose}
+                className="flex items-center justify-center w-10 h-10 rounded-md active:bg-background-secondary transition-colors"
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+              >
+                <X className="w-6 h-6 text-text-primary" />
+              </motion.button>
+              <motion.button
+                onClick={handleShare}
+                className="flex items-center justify-center w-10 h-10 rounded-md active:bg-background-secondary transition-colors"
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+              >
+                <Share2 className="w-5 h-5 text-text-primary" />
+              </motion.button>
+            </div>
+          </div>
+
           <div className="px-4 py-4 space-y-6 text-text-primary">
             {/* Preview Image */}
             <motion.div 
