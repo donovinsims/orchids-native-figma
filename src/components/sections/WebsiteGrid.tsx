@@ -57,17 +57,19 @@ function WebsiteCard({ item, onClick }: { item: Website; onClick?: (id: string) 
         transition={{ type: "spring", stiffness: 400, damping: 17 }}
       >
         <div className="relative w-full aspect-[333/225]">
-          {/* Thumbnail Preview */}
-          <div className="absolute inset-0 bg-background-secondary/50 overflow-hidden">
-            <img 
-              src={item.previewImage} 
-              alt={item.title} 
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              onError={(e) => {
-                (e.target as HTMLImageElement).style.display = 'none';
-              }}
-            />
-          </div>
+            {/* Thumbnail Preview */}
+            <div className="absolute inset-0 bg-background-secondary/50 overflow-hidden">
+              <img 
+                src={item.previewImage} 
+                alt={item.title} 
+                className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).style.display = 'none';
+                }}
+              />
+              <div className="absolute inset-0 shadow-[inset_0_0_40px_rgba(0,0,0,0.02)] pointer-events-none" />
+            </div>
         </div>
       </motion.button>
 
