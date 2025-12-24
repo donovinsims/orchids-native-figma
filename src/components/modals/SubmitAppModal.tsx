@@ -180,30 +180,6 @@ export function SubmitAppModal({ isOpen, onClose }: SubmitAppModalProps) {
 
             {/* Form */}
             <form onSubmit={handleSubmit} className="space-y-4">
-              {/* App Name */}
-              <div>
-                <label htmlFor="appName" className="block text-sm text-text-secondary mb-1">
-                  App name <span className="text-error">*</span>
-                </label>
-                <input
-                  id="appName"
-                  type="text"
-                  value={formData.appName}
-                  onChange={(e) => {
-                    setFormData((prev) => ({ ...prev, appName: e.target.value }));
-                    setErrors((prev) => ({ ...prev, appName: undefined }));
-                  }}
-                  placeholder="e.g., Figma"
-                  className={`w-full min-h-[44px] px-4 py-3 rounded-md border bg-background ${
-                    errors.appName ? "border-error" : "border-border"
-                  } focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-transparent text-text-primary placeholder:text-text-muted`}
-                  disabled={isLoading}
-                />
-                {errors.appName && (
-                  <p className="mt-1 text-sm text-error">{errors.appName}</p>
-                )}
-              </div>
-
               {/* App URL */}
               <div>
                 <label htmlFor="appUrl" className="block text-sm text-text-secondary mb-1">
