@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
@@ -112,7 +110,7 @@
   --accent-foreground: #ffffff;
 }
 
-@theme inline {
+@theme {
   --font-sans: var(--font-inter);
   
   --color-background: var(--background);
@@ -161,7 +159,6 @@
   --spacing-xl: var(--spacing-xl);
   --spacing-2xl: var(--spacing-2xl);
 
-  /* Typography Scale for Tailwind v4 inline */
   --text-display-xl: 48px;
   --text-display-xl--line-height: 1.2;
   --text-display-xl--font-weight: 700;
