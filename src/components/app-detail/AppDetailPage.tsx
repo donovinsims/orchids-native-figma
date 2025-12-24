@@ -65,7 +65,7 @@ export default function AppDetailPage({ app, onBack, onNavigateToApp, onSubscrib
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
       <HeaderNavigation 
         onSubscribeClick={onSubscribeClick}
@@ -77,23 +77,23 @@ export default function AppDetailPage({ app, onBack, onNavigateToApp, onSubscrib
         <div className="max-w-[1400px] mx-auto px-4 md:px-6 py-6">
           {/* Breadcrumbs & Share */}
           <div className="flex items-center justify-between mb-6">
-            <nav className="flex items-center gap-2 text-sm text-gray-500">
-              <button onClick={onBack} className="hover:text-gray-900 transition-colors">
+            <nav className="flex items-center gap-2 text-sm text-text-secondary">
+              <button onClick={onBack} className="hover:text-text-primary transition-colors">
                 Home
               </button>
               <span>›</span>
-              <button onClick={onBack} className="hover:text-gray-900 transition-colors">
+              <button onClick={onBack} className="hover:text-text-primary transition-colors">
                 {app.category}
               </button>
               <span>›</span>
-              <span className="text-gray-900">{app.title}</span>
+              <span className="text-text-primary">{app.title}</span>
             </nav>
             <button
               onClick={handleShare}
-              className="flex items-center justify-center w-10 h-10 rounded-lg hover:bg-gray-100 transition-colors"
+              className="flex items-center justify-center w-10 h-10 rounded-md hover:bg-background-secondary transition-colors"
               aria-label="Share"
             >
-              <Share2 className="w-5 h-5 text-gray-900" />
+              <Share2 className="w-5 h-5 text-text-primary" />
             </button>
           </div>
 
@@ -102,7 +102,7 @@ export default function AppDetailPage({ app, onBack, onNavigateToApp, onSubscrib
             {/* Left Column - Preview & Content */}
             <div className="space-y-8">
               {/* Preview Image */}
-              <div className="relative w-full aspect-[16/10] bg-gray-50 rounded-lg overflow-hidden border border-gray-200">
+              <div className="relative w-full aspect-[16/10] bg-background-secondary rounded-md overflow-hidden border border-border">
                 <img
                   src={app.previewImage}
                   alt={app.title}
@@ -116,13 +116,13 @@ export default function AppDetailPage({ app, onBack, onNavigateToApp, onSubscrib
 
               {/* About Section */}
               <section>
-                <h2 className="text-2xl text-black mb-4">
+                <h2 className="text-2xl text-text-primary mb-4">
                   About {app.title}
                 </h2>
-                <p className="text-gray-700 leading-relaxed mb-4">
+                <p className="text-text-secondary leading-relaxed mb-4">
                   {app.about}
                 </p>
-                <p className="text-gray-500 leading-relaxed">
+                <p className="text-text-tertiary leading-relaxed">
                   This is a demo description for {app.title}. It represents the kind of content you would find on the detail page. Ideally this would come from a database or CMS.
                 </p>
               </section>
@@ -130,16 +130,16 @@ export default function AppDetailPage({ app, onBack, onNavigateToApp, onSubscrib
               {/* Key Features */}
               {app.features && app.features.length > 0 && (
                 <section>
-                  <h2 className="text-2xl text-black mb-6">
+                  <h2 className="text-2xl text-text-primary mb-6">
                     Key Features
                   </h2>
                   <ul className="space-y-4">
                     {app.features.map((feature, index) => (
                       <li key={index} className="flex items-start gap-3">
-                        <div className="flex-shrink-0 w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mt-0.5">
-                          <Check className="w-3 h-3 text-green-600" />
+                        <div className="flex-shrink-0 w-5 h-5 rounded-full bg-success/10 flex items-center justify-center mt-0.5">
+                          <Check className="w-3 h-3 text-success" />
                         </div>
-                        <span className="text-gray-700">{feature}</span>
+                        <span className="text-text-secondary">{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -149,7 +149,7 @@ export default function AppDetailPage({ app, onBack, onNavigateToApp, onSubscrib
               {/* Related Apps */}
               {app.relatedApps && app.relatedApps.length > 0 && (
                 <section className="pb-12">
-                  <h2 className="text-2xl text-black mb-6">
+                  <h2 className="text-2xl text-text-primary mb-6">
                     Related Apps
                   </h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -157,9 +157,9 @@ export default function AppDetailPage({ app, onBack, onNavigateToApp, onSubscrib
                       <button
                         key={relatedApp.id}
                         onClick={() => onNavigateToApp?.(relatedApp.id)}
-                        className="block bg-white rounded-xl border border-gray-200 overflow-hidden hover:border-gray-300 transition-all duration-200 hover:shadow-md text-left"
+                        className="block bg-background rounded-md border border-border overflow-hidden hover:border-border-strong transition-all duration-200 hover:shadow-md text-left"
                       >
-                        <div className="relative w-full aspect-video bg-gray-100">
+                        <div className="relative w-full aspect-video bg-background-secondary">
                           <img
                             src={relatedApp.previewImage}
                             alt={relatedApp.title}
@@ -170,10 +170,10 @@ export default function AppDetailPage({ app, onBack, onNavigateToApp, onSubscrib
                           />
                         </div>
                         <div className="p-4">
-                          <h3 className="text-black mb-1">
+                          <h3 className="text-text-primary mb-1">
                             {relatedApp.title}
                           </h3>
-                          <p className="text-sm text-gray-500 line-clamp-2">
+                          <p className="text-sm text-text-secondary line-clamp-2">
                             {relatedApp.description}
                           </p>
                         </div>
@@ -189,10 +189,10 @@ export default function AppDetailPage({ app, onBack, onNavigateToApp, onSubscrib
               <div className="space-y-4">
                 {/* Title & Description */}
                 <div>
-                  <h1 className="text-4xl text-black mb-2 tracking-tight">
+                  <h1 className="text-4xl text-text-primary mb-2 tracking-tight">
                     {app.title}
                   </h1>
-                  <p className="text-gray-500">
+                  <p className="text-text-secondary">
                     {app.description}
                   </p>
                 </div>
@@ -202,7 +202,7 @@ export default function AppDetailPage({ app, onBack, onNavigateToApp, onSubscrib
                   href={app.websiteUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 w-full px-6 py-3 rounded-lg border border-gray-300 bg-white text-black hover:bg-gray-50 transition-colors"
+                  className="flex items-center justify-center gap-2 w-full px-6 py-3 rounded-md border border-border bg-background text-text-primary hover:bg-background-secondary transition-colors"
                 >
                   <span>Visit Website</span>
                   <ExternalLink className="w-4 h-4" />
@@ -211,33 +211,33 @@ export default function AppDetailPage({ app, onBack, onNavigateToApp, onSubscrib
                 {/* Bookmark Button */}
                 <button
                   onClick={handleBookmark}
-                  className="flex items-center justify-center gap-2 w-full px-6 py-3 rounded-lg bg-orange-500 text-white hover:bg-orange-600 transition-colors"
+                  className="flex items-center justify-center gap-2 w-full px-6 py-3 rounded-md bg-accent text-accent-foreground hover:opacity-90 transition-colors"
                 >
                   <span>{isBookmarked ? "Bookmarked" : "Bookmark"}</span>
                   <Bookmark className={`w-4 h-4 ${isBookmarked ? "fill-current" : ""}`} />
                 </button>
 
                 {/* App Information Card */}
-                <div className="border border-gray-200 rounded-xl p-6 bg-white">
-                  <h3 className="text-black mb-4">
+                <div className="border border-border rounded-md p-6 bg-background">
+                  <h3 className="text-text-primary mb-4">
                     App Information
                   </h3>
                   <div className="space-y-3">
                     <div className="flex items-center justify-between">
-                      <span className="text-gray-500 text-sm">Category</span>
-                      <span className="text-black text-sm">{app.category}</span>
+                      <span className="text-text-secondary text-sm">Category</span>
+                      <span className="text-text-primary text-sm">{app.category}</span>
                     </div>
                     <div className="flex items-center justify-between">
-                      <span className="text-gray-500 text-sm">Platforms</span>
-                      <span className="text-black text-sm">{app.platforms.join(", ")}</span>
+                      <span className="text-text-secondary text-sm">Platforms</span>
+                      <span className="text-text-primary text-sm">{app.platforms.join(", ")}</span>
                     </div>
                     <div className="flex items-center justify-between">
-                      <span className="text-gray-500 text-sm">Pricing</span>
-                      <span className="text-black text-sm">{app.pricing}</span>
+                      <span className="text-text-secondary text-sm">Pricing</span>
+                      <span className="text-text-primary text-sm">{app.pricing}</span>
                     </div>
                     <div className="flex items-center justify-between">
-                      <span className="text-gray-500 text-sm">Last Updated</span>
-                      <span className="text-black text-sm">{app.lastUpdated}</span>
+                      <span className="text-text-secondary text-sm">Last Updated</span>
+                      <span className="text-text-primary text-sm">{app.lastUpdated}</span>
                     </div>
                   </div>
                 </div>
@@ -247,5 +247,6 @@ export default function AppDetailPage({ app, onBack, onNavigateToApp, onSubscrib
         </div>
       </main>
     </div>
+  );
   );
 }
