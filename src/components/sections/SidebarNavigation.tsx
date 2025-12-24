@@ -63,7 +63,7 @@ export default function SidebarNavigation({ onSubmitClick }: SidebarNavigationPr
       <div className="overflow-y-auto">
         {categories.map((category, index) => (
           <a href={category.href} key={category.text}>
-            <div className="w-full flex gap-3 items-center px-3 py-2 rounded-lg cursor-pointer text-text-primary group transition-colors relative z-0 hover:bg-background-secondary">
+            <div className="w-full flex gap-3 items-center px-3 py-2 rounded-md cursor-pointer text-text-primary group transition-colors relative z-0 hover:bg-background-secondary">
               <div
                 className={`flex items-center justify-center w-[14px] h-[14px] group-hover:text-text-primary transition z-10 ${
                   index === 0 ? "text-text-primary" : "text-text-tertiary"
@@ -75,7 +75,7 @@ export default function SidebarNavigation({ onSubmitClick }: SidebarNavigationPr
                 {category.text}
               </span>
               {index === 0 && (
-                <div className="bg-background-tertiary rounded-lg w-full h-full absolute top-0 left-0 z-0"></div>
+                <div className="bg-background-tertiary rounded-md w-full h-full absolute top-0 left-0 z-0"></div>
               )}
             </div>
           </a>
@@ -87,7 +87,7 @@ export default function SidebarNavigation({ onSubmitClick }: SidebarNavigationPr
             href="https://tally.so/r/wLP5VG"
             target="_blank"
             rel="noopener noreferrer"
-            className="h-[40px] w-full py-[10px] px-[18px] bg-background-tertiary rounded-[10px] hover:bg-background-secondary cursor-pointer flex items-center justify-between transition-colors text-text-secondary hover:text-text-primary"
+            className="h-[40px] w-full py-[10px] px-[18px] bg-background-tertiary rounded-md hover:bg-background-secondary cursor-pointer flex items-center justify-between transition-colors text-text-secondary hover:text-text-primary"
           >
             <span className="text-sm">Sponsor us</span>
             <ArrowUpRight className="w-[14px] h-[14px] text-text-tertiary" />
@@ -96,7 +96,7 @@ export default function SidebarNavigation({ onSubmitClick }: SidebarNavigationPr
             href="https://x.com/seesawsite"
             target="_blank"
             rel="noopener noreferrer"
-            className="h-[40px] py-[10px] px-[18px] bg-background-tertiary rounded-[10px] hover:bg-background-secondary cursor-pointer flex items-center justify-between transition-colors text-text-secondary hover:text-text-primary"
+            className="h-[40px] py-[10px] px-[18px] bg-background-tertiary rounded-md hover:bg-background-secondary cursor-pointer flex items-center justify-between transition-colors text-text-secondary hover:text-text-primary"
           >
             <XIcon className="w-[14px] h-[14px]" />
           </a>
@@ -104,7 +104,7 @@ export default function SidebarNavigation({ onSubmitClick }: SidebarNavigationPr
         <Button
           onClick={onSubmitClick}
           variant="secondary"
-          className="w-full rounded-xl"
+          className="w-full rounded-md"
         >
           Submit
         </Button>
