@@ -1,7 +1,5 @@
-"use client";
-
 import React from "react";
-import { useMobileNav } from "../../hooks/useMobileNav";
+import { useMobileNav } from "../../hooks/useMobileNav.tsx";
 import { MobileNavOverlay, MobileNavTrigger } from "../mobile-nav/MobileNav";
 import { Button } from "../ui/button";
 import { ThemeToggle } from "../theme-toggle";
