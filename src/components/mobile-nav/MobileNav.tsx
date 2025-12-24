@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { X, Menu, Paintbrush, Code, ListChecks, Shield, Zap, MessageSquare, Wrench, Sparkles, ArrowUpRight, Mail } from "lucide-react";
+import { ThemeToggle } from "../theme-toggle";
 
 interface MobileNavTriggerProps {
   onClick: () => void;
@@ -11,10 +12,10 @@ export function MobileNavTrigger({ onClick }: MobileNavTriggerProps) {
   return (
     <button
       onClick={onClick}
-      className="lg:hidden flex items-center justify-center w-10 h-10 rounded-lg hover:bg-gray-100 transition-colors"
+      className="lg:hidden flex items-center justify-center w-10 h-10 rounded-md hover:bg-background-secondary transition-colors"
       aria-label="Open menu"
     >
-      <Menu className="w-6 h-6 text-gray-900" />
+      <Menu className="w-6 h-6 text-text-primary" />
     </button>
   );
 }
@@ -80,33 +81,36 @@ export function MobileNavOverlay({
     <div className="fixed inset-0 z-50 lg:hidden">
       {/* Backdrop */}
       <div
-        className="absolute inset-0 bg-black/40"
+        className="absolute inset-0 bg-black/40 backdrop-blur-sm"
         onClick={onClose}
       />
 
       {/* Menu Panel */}
-      <div className="absolute top-0 right-0 w-full max-w-lg h-full bg-white shadow-2xl overflow-y-auto">
+      <div className="absolute top-0 right-0 w-full max-w-lg h-full bg-background shadow-2xl overflow-y-auto border-l border-border">
         {/* Header */}
-        <div className="flex items-center justify-between p-4 border-b border-gray-100">
-          <div className="flex items-center gap-[6px]">
-            <span className="text-lg">SEE</span>
+        <div className="flex items-center justify-between p-4 border-b border-border">
+          <div className="flex items-center gap-[6px] text-text-primary">
+            <span className="text-lg font-medium">SEE</span>
             <span className="text-lg">+</span>
-            <span className="text-lg">SAW</span>
+            <span className="text-lg font-medium">SAW</span>
           </div>
-          <button
-            onClick={onClose}
-            className="flex items-center justify-center w-10 h-10 rounded-lg hover:bg-gray-100 transition-colors"
-            aria-label="Close menu"
-          >
-            <X className="w-6 h-6 text-gray-900" />
-          </button>
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+            <button
+              onClick={onClose}
+              className="flex items-center justify-center w-10 h-10 rounded-md hover:bg-background-secondary transition-colors"
+              aria-label="Close menu"
+            >
+              <X className="w-6 h-6 text-text-primary" />
+            </button>
+          </div>
         </div>
 
         {/* Sign In Button */}
         <div className="px-4 py-4 pt-6">
           <button 
             onClick={handleLogin}
-            className="w-full py-3 rounded-lg border border-gray-300 bg-white text-black hover:bg-gray-50 transition-colors text-sm"
+            className="w-full py-3 rounded-md border border-border bg-background text-text-primary hover:bg-background-secondary transition-colors text-sm font-medium"
           >
             Sign in
           </button>
@@ -116,7 +120,7 @@ export function MobileNavOverlay({
         <div className="px-4 pb-4">
           <button
             onClick={handleSubscribe}
-            className="w-full py-3 rounded-lg bg-orange-500 text-white hover:bg-orange-600 transition-colors text-sm"
+            className="w-full py-3 rounded-md bg-foreground text-background hover:opacity-90 transition-colors text-sm font-medium"
           >
             Subscribe
           </button>
@@ -129,10 +133,10 @@ export function MobileNavOverlay({
               <button
                 key={category.label}
                 onClick={() => handleCategoryClick(category.label)}
-                className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
+                className={`w-full flex items-center gap-3 px-4 py-3 rounded-md transition-colors ${
                   activeCategory === category.label
-                    ? "bg-black text-white"
-                    : "text-gray-700 hover:bg-gray-100"
+                    ? "bg-text-primary text-background"
+                    : "text-text-secondary hover:bg-background-secondary"
                 }`}
               >
                 <category.icon className="w-5 h-5" />
@@ -143,34 +147,34 @@ export function MobileNavOverlay({
         </div>
 
         {/* Footer Section */}
-        <div className="px-4 pb-6 space-y-3 border-t border-gray-100 pt-6">
+        <div className="px-4 pb-6 space-y-3 border-t border-border pt-6">
           {/* Sponsor Us */}
           <a
             href="https://tally.so/r/wLP5VG"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-between px-4 py-3 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors"
+            className="flex items-center justify-between px-4 py-3 rounded-md bg-background-secondary hover:bg-border transition-colors border border-border"
           >
-            <span className="text-sm text-gray-700">Sponsor us</span>
-            <ArrowUpRight className="w-4 h-4 text-gray-400" />
+            <span className="text-sm text-text-secondary">Sponsor us</span>
+            <ArrowUpRight className="w-4 h-4 text-text-tertiary" />
           </a>
 
           {/* Submit Button */}
           <button
             onClick={handleSubmit}
-            className="w-full py-3 rounded-lg border border-gray-300 bg-white text-black hover:bg-gray-50 transition-colors text-sm"
+            className="w-full py-3 rounded-md border border-border bg-background text-text-primary hover:bg-background-secondary transition-colors text-sm font-medium"
           >
             Submit
           </button>
 
           {/* Email */}
-          <div className="flex items-center justify-between px-4 py-3 rounded-lg bg-gray-50">
-            <span className="text-sm text-gray-600">hi@seesaw.website</span>
-            <Mail className="w-4 h-4 text-gray-400" />
+          <div className="flex items-center justify-between px-4 py-3 rounded-md bg-background-secondary border border-border">
+            <span className="text-sm text-text-tertiary">hi@seesaw.website</span>
+            <Mail className="w-4 h-4 text-text-tertiary" />
           </div>
 
           {/* Copyright */}
-          <p className="text-center text-xs text-gray-400 pt-2">
+          <p className="text-center text-xs text-text-tertiary pt-2">
             © 2025 SEESAW Studios
           </p>
         </div>
