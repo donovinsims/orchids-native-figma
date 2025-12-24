@@ -288,24 +288,6 @@ export function SubmitAppModal({ isOpen, onClose }: SubmitAppModalProps) {
                 )}
               </div>
 
-              {/* Reason */}
-              <div>
-                <label htmlFor="reason" className="block text-sm text-text-secondary mb-1">
-                  Why is this app great?
-                </label>
-                <textarea
-                  id="reason"
-                  value={formData.reason}
-                  onChange={(e) =>
-                    setFormData((prev) => ({ ...prev, reason: e.target.value }))
-                  }
-                  placeholder="Tell us what makes this app special..."
-                  rows={3}
-                  className="w-full px-4 py-3 rounded-md border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-transparent resize-none text-text-primary placeholder:text-text-muted"
-                  disabled={isLoading}
-                />
-              </div>
-
               <button
                 type="submit"
                 disabled={isLoading}
