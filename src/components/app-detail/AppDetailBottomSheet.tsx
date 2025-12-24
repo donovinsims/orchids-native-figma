@@ -354,6 +354,14 @@ export default function AppDetailBottomSheet({
                 </div>
               </section>
             )}
+
+            {/* Footer */}
+            <div className="pt-8 -mx-4">
+              <Footer 
+                onSubscribeClick={onSubscribeClick}
+                onSubmitClick={onSubmitClick}
+              />
+            </div>
           </div>
         </div>
       </motion.div>
