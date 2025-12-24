@@ -133,7 +133,7 @@ export default function AppDetailPage({
           }}
             style={{ 
               y,
-              height: '98vh',
+              height: '88vh',
             }}
             drag="y"
             dragListener={false}
