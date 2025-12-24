@@ -5,7 +5,6 @@ import HeaderNavigation from "./components/sections/HeaderNavigation";
 import HeroHeader from "./components/sections/HeroHeader";
 import WebsiteGrid from "./components/sections/WebsiteGrid";
 import AppDetailPage from "./components/app-detail/AppDetailPage";
-import AppDetailBottomSheet from "./components/app-detail/AppDetailBottomSheet";
 import Footer from "./components/sections/Footer";
 import { SubscribeModal } from "./components/modals/SubscribeModal";
 import { SubmitAppModal } from "./components/modals/SubmitAppModal";
