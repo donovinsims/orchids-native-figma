@@ -11,7 +11,6 @@ import { SubscribeModal } from "./components/modals/SubscribeModal";
 import { SubmitAppModal } from "./components/modals/SubmitAppModal";
 import { AuthModal } from "./components/modals/AuthModal";
 import { Toaster } from "./components/ui/sonner";
-import { ThemeProvider } from "./components/theme-provider";
 import { Container } from "./components/ui/container";
 import { websitesData, appDetailsData } from "./data/appsData";
 
@@ -52,50 +51,48 @@ export default function App() {
   const selectedApp = selectedAppId ? appDetailsData[selectedAppId] : null;
 
   return (
-    <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-      <div className="relative min-h-screen bg-background text-foreground transition-colors duration-200">
-        {!selectedApp || isMobile ? (
-          <>
-            <HeaderNavigation 
-              onSubscribeClick={subscribeModal.open}
-              onSubmitClick={submitModal.open}
-              onLoginClick={authModal.open}
-            />
-            
-            <div className="pt-[67px]">
-              <main>
-                <Container className="py-md md:py-xl">
-                  <HeroHeader onSubscribeClick={subscribeModal.open} />
-                  <WebsiteGrid items={websitesData} onItemClick={handleAppClick} />
-                </Container>
-              </main>
-            </div>
-          </>
-        ) : (
-          <AppDetailPage 
-            app={selectedApp} 
-            onBack={handleBackToList}
-            onNavigateToApp={handleAppClick}
+    <div className="relative min-h-screen bg-background text-foreground transition-colors duration-200">
+      {!selectedApp || isMobile ? (
+        <>
+          <HeaderNavigation 
             onSubscribeClick={subscribeModal.open}
             onSubmitClick={submitModal.open}
+            onLoginClick={authModal.open}
           />
-        )}
-
-        {/* Modals */}
-        <SubscribeModal isOpen={subscribeModal.isOpen} onClose={subscribeModal.close} />
-        <SubmitAppModal isOpen={submitModal.isOpen} onClose={submitModal.close} />
-        <AuthModal isOpen={authModal.isOpen} onClose={authModal.close} />
-        
-        {/* Bottom Sheet for Mobile */}
-        <AppDetailBottomSheet
-          app={selectedApp}
-          isOpen={!!selectedApp && isMobile}
-          onClose={handleCloseBottomSheet}
+          
+          <div className="pt-[67px]">
+            <main>
+              <Container className="py-md md:py-xl">
+                <HeroHeader onSubscribeClick={subscribeModal.open} />
+                <WebsiteGrid items={websitesData} onItemClick={handleAppClick} />
+              </Container>
+            </main>
+          </div>
+        </>
+      ) : (
+        <AppDetailPage 
+          app={selectedApp} 
+          onBack={handleBackToList}
           onNavigateToApp={handleAppClick}
+          onSubscribeClick={subscribeModal.open}
+          onSubmitClick={submitModal.open}
         />
-        
-        <Toaster position="bottom-center" />
-      </div>
-    </ThemeProvider>
+      )}
+
+      {/* Modals */}
+      <SubscribeModal isOpen={subscribeModal.isOpen} onClose={subscribeModal.close} />
+      <SubmitAppModal isOpen={submitModal.isOpen} onClose={submitModal.close} />
+      <AuthModal isOpen={authModal.isOpen} onClose={authModal.close} />
+      
+      {/* Bottom Sheet for Mobile */}
+      <AppDetailBottomSheet
+        app={selectedApp}
+        isOpen={!!selectedApp && isMobile}
+        onClose={handleCloseBottomSheet}
+        onNavigateToApp={handleAppClick}
+      />
+      
+      <Toaster position="bottom-center" />
+    </div>
   );
 }
