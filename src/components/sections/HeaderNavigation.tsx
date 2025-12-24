@@ -22,31 +22,45 @@ interface HeaderNavigationProps {
   onSubscribeClick?: () => void;
   onSubmitClick?: () => void;
   onLoginClick?: () => void;
+  onProfileClick?: () => void;
+  onHomeClick?: () => void;
 }
 
-const HeaderNavigation = ({ onSubscribeClick, onSubmitClick, onLoginClick }: HeaderNavigationProps) => {
+const HeaderNavigation = ({ onSubscribeClick, onSubmitClick, onLoginClick, onProfileClick, onHomeClick }: HeaderNavigationProps) => {
   const mobileNav = useMobileNav();
-  const { user, signOut } = useAuth();
+  const { user, signOut, profile } = useAuth();
 
   return (
     <>
       <nav className="fixed top-0 z-20 h-[67px] w-full">
         <div className="absolute top-0 left-0 flex h-[67px] w-full items-center justify-between bg-background-primary/80 backdrop-blur-md px-md md:px-lg transition-colors">
-          <a
+          <button
             className="flex w-max cursor-pointer items-center gap-xs rounded-full border border-border bg-background-primary px-md py-sm text-h1 leading-none transition-all duration-200 ease-in-out hover:-rotate-3 hover:border-border-strong hover:bg-background-secondary"
-            href="/"
+            onClick={onHomeClick}
           >
             <span>see</span>
             <MagicIcon className="w-[10.67px]" />
             <span>saw</span>
-          </a>
+          </button>
 
           <div className="flex items-center gap-sm">
             <div className="hidden md:flex items-center gap-sm">
               <ThemeToggle />
               {user ? (
                 <div className="flex items-center gap-sm">
-                  <span className="text-sm text-text-secondary">{user.email}</span>
+                  <button
+                    onClick={onProfileClick}
+                    className="flex items-center gap-2 px-3 py-1.5 rounded-full hover:bg-background-secondary transition-colors"
+                  >
+                    <div className="w-6 h-6 rounded-full bg-background-tertiary flex items-center justify-center overflow-hidden border border-border">
+                      {profile?.avatar_url ? (
+                        <img src={profile.avatar_url} alt={profile.full_name || ""} className="w-full h-full object-cover" />
+                      ) : (
+                        <span className="text-[10px] font-bold">{user.email?.[0].toUpperCase()}</span>
+                      )}
+                    </div>
+                    <span className="text-sm font-medium text-text-primary">Profile</span>
+                  </button>
                   <Button
                     variant="secondary"
                     onClick={() => signOut()}
