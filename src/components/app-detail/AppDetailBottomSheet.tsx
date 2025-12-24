@@ -36,6 +36,8 @@ interface AppDetailBottomSheetProps {
   isOpen: boolean;
   onClose: () => void;
   onNavigateToApp?: (appId: string) => void;
+  onSubscribeClick?: () => void;
+  onSubmitClick?: () => void;
 }
 
 export default function AppDetailBottomSheet({
@@ -43,6 +45,8 @@ export default function AppDetailBottomSheet({
   isOpen,
   onClose,
   onNavigateToApp,
+  onSubscribeClick,
+  onSubmitClick,
 }: AppDetailBottomSheetProps) {
   const [isBookmarked, setIsBookmarked] = useState(false);
   const y = useMotionValue(0);
