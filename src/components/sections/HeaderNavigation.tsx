@@ -39,14 +39,17 @@ const HeaderNavigation = ({ onSubscribeClick, onSubmitClick, onLoginClick }: Hea
             <span>saw</span>
           </a>
           
-            <div className="flex items-center gap-sm">
+          <div className="flex items-center gap-sm">
+            <div className="hidden md:flex items-center gap-sm">
+              <ThemeToggle />
               <Button
                 variant="secondary"
                 onClick={onLoginClick}
-                className="hidden md:flex min-w-[100px]"
+                className="min-w-[100px]"
               >
                 Sign In
               </Button>
+            </div>
             
             <Button
               variant="primary"
