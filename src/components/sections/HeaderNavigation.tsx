@@ -28,9 +28,9 @@ const HeaderNavigation = ({ onSubscribeClick, onSubmitClick, onLoginClick }: Hea
 
   return (
     <>
-      <nav className="fixed top-0 z-20 h-full w-full max-h-[67px]">
-        <div className="absolute top-0 left-0 flex h-[67px] w-full items-center justify-between border-b border-border bg-background/[.90] px-md md:px-lg backdrop-blur-lg">
-          <a
+        <nav className="fixed top-0 z-20 h-full w-full max-h-[67px]">
+          <div className="absolute top-0 left-0 flex h-[67px] w-full items-center justify-between border-b border-border bg-background px-md md:px-lg">
+            <a
             className="flex w-max cursor-pointer items-center gap-xs rounded-full border border-border bg-background-primary px-sm py-xs text-h1 leading-none transition-all duration-200 ease-in-out hover:-rotate-3 hover:border-border-strong hover:bg-background-secondary"
             href="/"
           >
