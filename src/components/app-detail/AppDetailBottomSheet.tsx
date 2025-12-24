@@ -114,7 +114,7 @@ export default function AppDetailBottomSheet({
           damping: 40,
           stiffness: 400
         }}
-        style={{ opacity }}
+          style={{ opacity: backdropOpacity }}
         onClick={onClose}
         aria-hidden={!isOpen}
       />
