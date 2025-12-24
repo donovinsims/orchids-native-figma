@@ -95,6 +95,8 @@ export default function App() {
           isOpen={!!selectedApp && isMobile}
           onClose={handleCloseBottomSheet}
           onNavigateToApp={handleAppClick}
+          onSubscribeClick={subscribeModal.open}
+          onSubmitClick={submitModal.open}
         />
         
         <Toaster position="bottom-center" />
