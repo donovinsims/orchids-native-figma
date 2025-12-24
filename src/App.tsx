@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { useModal } from "./hooks/useModal.tsx";
 import HeaderNavigation from "./components/sections/HeaderNavigation";
-import { ThemeToggle } from "./components/theme-toggle";
 import HeroHeader from "./components/sections/HeroHeader";
 import WebsiteGrid from "./components/sections/WebsiteGrid";
 import AppDetailPage from "./components/app-detail/AppDetailPage";
@@ -53,7 +52,6 @@ export default function App() {
   return (
     <NextThemesProvider attribute="class" defaultTheme="light" enableSystem>
       <div className="relative min-h-screen bg-background-primary text-foreground transition-colors duration-200">
-        <ThemeToggle />
         {!selectedApp || isMobile ? (
           <>
             <HeaderNavigation 
