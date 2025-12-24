@@ -218,7 +218,7 @@ export default function AppDetailPage({ app, onBack, onNavigateToApp, onSubscrib
                 </button>
 
                 {/* App Information Card */}
-                <div className="border border-border rounded-md p-6 bg-background">
+                <div className="border border-border rounded-md p-6 bg-background-primary">
                   <h3 className="text-text-primary mb-4">
                     App Information
                   </h3>
