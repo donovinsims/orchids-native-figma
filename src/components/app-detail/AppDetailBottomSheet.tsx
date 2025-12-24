@@ -223,17 +223,17 @@ export default function AppDetailBottomSheet({
                 delay: 0.2
               }}
             >
-                  <motion.a
-                    href={app.websiteUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 px-6 py-3 rounded-md bg-[#ff4500] text-white transition-colors"
-                    whileTap={{ scale: 0.97 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                  >
-                <span>Visit Website</span>
-                <ExternalLink className="w-4 h-4" />
-              </motion.a>
+                    <motion.a
+                      href={app.websiteUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-2 px-6 py-3 rounded-md bg-background-primary text-text-primary border border-border hover:bg-background-secondary transition-all duration-200"
+                      whileTap={{ scale: 0.97 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                    >
+                  <span>Visit Website</span>
+                  <ExternalLink className="w-4 h-4" />
+                </motion.a>
                   <motion.button
                     onClick={handleBookmark}
                     className="flex items-center justify-center gap-2 px-6 py-3 rounded-md bg-[#ff4500] text-white transition-colors"
