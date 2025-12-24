@@ -4,6 +4,7 @@ export interface Website {
   description: string;
   href: string;
   faviconUrl: string;
+  previewImage: string;
   category?: string;
 }
 
