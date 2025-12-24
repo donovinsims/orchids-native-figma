@@ -3,6 +3,7 @@ import { useMobileNav } from "../../hooks/useMobileNav.tsx";
 import { MobileNavOverlay, MobileNavTrigger } from "../mobile-nav/MobileNav";
 import { Button } from "../ui/button";
 import { ThemeToggle } from "../theme-toggle";
+import { useAuth } from "../../hooks/use-auth";
 
 const MagicIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
