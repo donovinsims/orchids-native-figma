@@ -97,17 +97,15 @@ export function SubmitAppModal({ isOpen, onClose }: SubmitAppModalProps) {
 
       setIsSuccess(true);
       setFormData({
-        appName: "",
         appUrl: "",
         category: "",
         platforms: [],
         email: "",
-        reason: "",
       });
       toast.success("App submitted successfully!");
     } catch (err) {
       setErrors({
-        appName: err instanceof Error ? err.message : "Something went wrong",
+        appUrl: err instanceof Error ? err.message : "Something went wrong",
       });
       toast.error("Failed to submit app. Please try again.");
     } finally {
@@ -128,12 +126,10 @@ export function SubmitAppModal({ isOpen, onClose }: SubmitAppModalProps) {
   const handleClose = () => {
     setTimeout(() => {
       setFormData({
-        appName: "",
         appUrl: "",
         category: "",
         platforms: [],
         email: "",
-        reason: "",
       });
       setErrors({});
       setIsSuccess(false);
