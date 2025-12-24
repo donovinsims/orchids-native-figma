@@ -42,16 +42,12 @@ export default function App() {
     }
   };
 
-  const handleBackToList = () => {
-    setSelectedAppId(null);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+    const handleBackToList = () => {
+      setSelectedAppId(null);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
 
-  const handleCloseBottomSheet = () => {
-    setSelectedAppId(null);
-  };
-
-  const selectedApp = selectedAppId ? appDetailsData[selectedAppId] : null;
+    const selectedApp = selectedAppId ? appDetailsData[selectedAppId] : null;
 
   return (
     <AuthProvider>
