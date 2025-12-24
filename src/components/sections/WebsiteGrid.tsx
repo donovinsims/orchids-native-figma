@@ -90,21 +90,21 @@ function WebsiteCard({ item, onClick }: { item: Website; onClick?: (id: string) 
           )}
         </button>
 
-          <div className="flex items-center gap-1 flex-shrink-0">
-            <button
-              onClick={handleBookmark}
-              className="p-1.5 rounded-md transition-colors text-text-secondary hover:text-text-primary"
-              aria-label={isBookmarked ? "Remove bookmark" : "Add bookmark"}
-            >
-              <motion.div
-                animate={isBookmarked ? { scale: [1, 1.35, 1] } : { scale: 1 }}
-                transition={{ duration: 0.3, times: [0, 0.5, 1], ease: "easeInOut" }}
+            <div className="flex items-center gap-1 flex-shrink-0">
+              <button
+                onClick={handleBookmark}
+                className="p-0.5 transition-colors text-text-secondary hover:text-text-primary bg-transparent focus:ring-0"
+                aria-label={isBookmarked ? "Remove bookmark" : "Add bookmark"}
               >
-                <Bookmark 
-                  className={`w-4 h-4 ${isBookmarked ? "fill-[#ff4500] text-[#ff4500]" : ""}`}
-                />
-              </motion.div>
-            </button>
+                <motion.div
+                  animate={isBookmarked ? { scale: [1, 1.35, 1] } : { scale: 1 }}
+                  transition={{ duration: 0.3, times: [0, 0.5, 1], ease: "easeInOut" }}
+                >
+                  <Bookmark 
+                    className={`w-4 h-4 ${isBookmarked ? "fill-[#ff4500] text-[#ff4500]" : ""}`}
+                  />
+                </motion.div>
+              </button>
 
             <motion.button
               onClick={handleExternalLink}
