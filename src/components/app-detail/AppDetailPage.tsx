@@ -215,7 +215,12 @@ export default function AppDetailPage({ app, onBack, onNavigateToApp, onSubscrib
                   className="flex items-center justify-center gap-2 w-full px-6 py-3 rounded-md bg-[#ff4500] text-white hover:opacity-90 transition-colors"
                 >
                   <span>{isBookmarked ? "Bookmarked" : "Bookmark"}</span>
-                  <Bookmark className={`w-4 h-4 ${isBookmarked ? "fill-current" : ""}`} />
+                  <motion.div
+                    animate={isBookmarked ? { scale: [1, 1.4, 1] } : { scale: 1 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Bookmark className={`w-4 h-4 ${isBookmarked ? "fill-current" : ""}`} />
+                  </motion.div>
                 </button>
 
                 {/* App Information Card */}
