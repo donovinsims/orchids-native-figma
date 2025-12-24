@@ -52,6 +52,8 @@ export default function AppDetailBottomSheet({
 }: AppDetailBottomSheetProps) {
   const { isBookmarked, toggleBookmark } = useBookmarks();
   const { user } = useAuth();
+  const y = useMotionValue(0);
+  const opacity = useTransform(y, [0, 300], [0.4, 0]);
   const bookmarked = app ? isBookmarked(app.id) : false;
 
   const handleBookmark = async () => {
