@@ -1,5 +1,3 @@
-"use client";
-
 import { useState, useEffect } from "react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { useModal } from "./hooks/useModal";
