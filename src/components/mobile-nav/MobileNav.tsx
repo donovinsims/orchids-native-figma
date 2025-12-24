@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { X, Menu, Search, Paintbrush, Code, ListChecks, Shield, Zap, MessageSquare, Wrench, Sparkles, ArrowUpRight, Mail } from "lucide-react";
+import { X, Menu, Paintbrush, Code, ListChecks, Shield, Zap, MessageSquare, Wrench, Sparkles, ArrowUpRight, Mail } from "lucide-react";
 
 interface MobileNavTriggerProps {
   onClick: () => void;
