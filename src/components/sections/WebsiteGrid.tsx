@@ -34,7 +34,6 @@ export default function WebsiteGrid({ items, onItemClick }: WebsiteGridProps) {
 
 function WebsiteCard({ item, onClick }: { item: Website; onClick?: (id: string) => void }) {
   const [isHovered, setIsHovered] = useState(false);
-  const [videoError, setVideoError] = useState(false);
   const [isBookmarked, setIsBookmarked] = useState(false);
 
   const handleClick = (e: React.MouseEvent) => {
@@ -67,31 +66,7 @@ function WebsiteCard({ item, onClick }: { item: Website; onClick?: (id: string) 
         whileTap={{ scale: 0.97 }}
         transition={{ type: "spring", stiffness: 400, damping: 17 }}
       >
-        <div className="relative w-full aspect-[333/225]">
-          {!videoError ? (
-            <video
-              className="w-full h-full object-cover"
-              muted
-              loop
-              playsInline
-              autoPlay={isHovered}
-              onError={() => setVideoError(true)}
-            >
-              <source src={item.video.webm} type="video/webm" />
-              <source src={item.video.mp4} type="video/mp4" />
-            </video>
-          ) : (
-            <div className="w-full h-full flex items-center justify-center bg-gray-100">
-              <img
-                src={item.faviconUrl}
-                alt={item.title}
-                className="w-16 h-16 object-contain"
-                onError={(e) => {
-                  e.currentTarget.style.display = 'none';
-                }}
-              />
-            </div>
-          )}
+        <div className="relative w-full aspect-[333/225] bg-gray-50">
           {/* Border overlay */}
           <div 
             className="absolute inset-0 pointer-events-none rounded-lg border border-gray-200"
