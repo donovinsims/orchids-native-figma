@@ -319,7 +319,7 @@ export default function AppDetailBottomSheet({
                           onNavigateToApp?.(relatedApp.id);
                         }, 300);
                       }}
-                      className="block w-full bg-background rounded-md border border-border overflow-hidden transition-all text-left"
+                        className="block w-full bg-background-primary rounded-md border border-border overflow-hidden transition-all text-left"
                       whileTap={{ scale: 0.98 }}
                       transition={{ type: "spring", stiffness: 400, damping: 17 }}
                     >
