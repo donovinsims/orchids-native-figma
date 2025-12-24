@@ -41,7 +41,7 @@ export const websitesData: Website[] = [
     category: "Productivity",
     href: "/apps/akiflow",
     faviconUrl: "https://www.google.com/s2/favicons?domain=akiflow.com&sz=128",
-    previewImage: "https://api.microlink.io/?url=https%3A%2F%2Fakiflow.com&screenshot=true&meta=false&embed=screenshot.url&viewport.width=1280&viewport.height=720",
+    previewImage: "https://api.microlink.io/?url=https%3A%2F%2Fakiflow.com&screenshot=true&meta=false&embed=screenshot.url&viewport.width=1280&viewport.height=865",
   },
   {
     id: "cleanclip",
@@ -50,7 +50,7 @@ export const websitesData: Website[] = [
     category: "Productivity",
     href: "/apps/cleanclip",
     faviconUrl: "https://www.google.com/s2/favicons?domain=cleanclip.cc&sz=128",
-    previewImage: "https://api.microlink.io/?url=https%3A%2F%2Fcleanclip.cc&screenshot=true&meta=false&embed=screenshot.url&viewport.width=1280&viewport.height=720",
+    previewImage: "https://api.microlink.io/?url=https%3A%2F%2Fcleanclip.cc&screenshot=true&meta=false&embed=screenshot.url&viewport.width=1280&viewport.height=865",
   },
   {
     id: "designcode",
@@ -140,7 +140,7 @@ export const websitesData: Website[] = [
     category: "Development",
     href: "/apps/orchids",
     faviconUrl: "https://orchids.app/favicon.ico",
-    previewImage: "https://api.microlink.io/?url=https%3A%2F%2Forchids.app&screenshot=true&meta=false&embed=screenshot.url&viewport.width=1280&viewport.height=720",
+    previewImage: "https://api.microlink.io/?url=https%3A%2F%2Forchids.app&screenshot=true&meta=false&embed=screenshot.url&viewport.width=1280&viewport.height=865",
   },
   {
     id: "polar",
@@ -203,7 +203,7 @@ export const websitesData: Website[] = [
     category: "Communication",
     href: "/apps/texts",
     faviconUrl: "https://www.google.com/s2/favicons?domain=texts.com&sz=128",
-    previewImage: "https://api.microlink.io/?url=https%3A%2F%2Ftexts.com&screenshot=true&meta=false&embed=screenshot.url&viewport.width=1280&viewport.height=720",
+    previewImage: "https://api.microlink.io/?url=https%3A%2F%2Ftexts.com&screenshot=true&meta=false&embed=screenshot.url&viewport.width=1280&viewport.height=865",
   },
   {
     id: "beehiiv",
@@ -291,7 +291,7 @@ export const appDetailsData: Record<string, AppDetail> = {
     lastUpdated: "Today",
     websiteUrl: "https://akiflow.com",
     faviconUrl: "https://www.google.com/s2/favicons?domain=akiflow.com&sz=128",
-    previewImage: "https://api.microlink.io/?url=https%3A%2F%2Fakiflow.com&screenshot=true&meta=false&embed=screenshot.url&viewport.width=1280&viewport.height=720",
+    previewImage: "https://api.microlink.io/?url=https%3A%2F%2Fakiflow.com&screenshot=true&meta=false&embed=screenshot.url&viewport.width=1280&viewport.height=865",
     about: "Akiflow is an all-in-one AI productivity suite that unifies calendars and inbox for seamless flow. Save hours weekly with AI time-blocking, a universal inbox for integrations, and an AI assistant (Aki) to plan and prioritize. It's the ultimate tool for task and calendar management.",
     features: [
       "AI time-blocking",
@@ -312,7 +312,7 @@ export const appDetailsData: Record<string, AppDetail> = {
     lastUpdated: "Today",
     websiteUrl: "https://cleanclip.cc",
     faviconUrl: "https://www.google.com/s2/favicons?domain=cleanclip.cc&sz=128",
-    previewImage: "https://api.microlink.io/?url=https%3A%2F%2Fcleanclip.cc&screenshot=true&meta=false&embed=screenshot.url&viewport.width=1280&viewport.height=720",
+    previewImage: "https://api.microlink.io/?url=https%3A%2F%2Fcleanclip.cc&screenshot=true&meta=false&embed=screenshot.url&viewport.width=1280&viewport.height=865",
     about: "CleanClip is a powerful clipboard management software for extreme efficiency and minimal context switching. Features include auto-saving, smart content management, a quick menu, and 'Paste Stack' for sequential pasting. This Mac utility is designed to double user productivity.",
     features: [
       "Auto-saving clipboard history",
@@ -522,7 +522,7 @@ export const appDetailsData: Record<string, AppDetail> = {
     lastUpdated: "Today",
     websiteUrl: "https://orchids.app",
     faviconUrl: "https://orchids.app/favicon.ico",
-    previewImage: "https://api.microlink.io/?url=https%3A%2F%2Forchids.app&screenshot=true&meta=false&embed=screenshot.url&viewport.width=1280&viewport.height=720",
+    previewImage: "https://api.microlink.io/?url=https%3A%2F%2Forchids.app&screenshot=true&meta=false&embed=screenshot.url&viewport.width=1280&viewport.height=865",
     about: "Orchids is The Vibe Coding IDE, a powerful AI development tool designed to help users build applications, games, tools, websites, and UI. It stands out by allowing users to chat to build, edit, and fix code, much like interacting with a human developer.",
     features: [
       "Chat-to-build AI code generation",
@@ -669,7 +669,7 @@ export const appDetailsData: Record<string, AppDetail> = {
     lastUpdated: "Today",
     websiteUrl: "https://texts.com",
     faviconUrl: "https://www.google.com/s2/favicons?domain=texts.com&sz=128",
-    previewImage: "https://api.microlink.io/?url=https%3A%2F%2Ftexts.com&screenshot=true&meta=false&embed=screenshot.url&viewport.width=1280&viewport.height=720",
+    previewImage: "https://api.microlink.io/?url=https%3A%2F%2Ftexts.com&screenshot=true&meta=false&embed=screenshot.url&viewport.width=1280&viewport.height=865",
     about: "Texts aims to simplify your digital life by consolidating all your messaging apps into one intuitive interface. Manage chats, respond to messages, and organize conversations from various platforms without switching applications.",
     features: [
       "Unified inbox for all messaging apps",
