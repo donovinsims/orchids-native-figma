@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { useModal } from "./hooks/useModal";
 import HeaderNavigation from "./components/sections/HeaderNavigation";
-import SidebarNavigation from "./components/sections/SidebarNavigation";
 import HeroHeader from "./components/sections/HeroHeader";
 import WebsiteGrid from "./components/sections/WebsiteGrid";
 import AppDetailPage from "./components/app-detail/AppDetailPage";
