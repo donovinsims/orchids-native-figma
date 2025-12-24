@@ -53,13 +53,13 @@ export default function AppDetailBottomSheet({
   const { isBookmarked, toggleBookmark } = useBookmarks();
   const { user } = useAuth();
   const y = useMotionValue(0);
-  const opacity = useTransform(y, [0, 300], [0.4, 0]);
+  const backdropOpacity = useTransform(y, [0, 300], [0.4, 0]);
   const bookmarked = app ? isBookmarked(app.id) : false;
 
   const handleBookmark = async () => {
     if (!app) return;
     if (!user) {
-      toast.error("Please sign in to bookmark apps");
+      onLoginClick?.();
       return;
     }
     const { error } = await toggleBookmark(app.id);
