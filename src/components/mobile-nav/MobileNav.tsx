@@ -88,7 +88,7 @@ export function MobileNavOverlay({
       {/* Menu Panel */}
       <div className="absolute top-0 right-0 w-full max-w-lg h-full bg-background-primary shadow-2xl overflow-y-auto border-l border-border">
         {/* Header */}
-        <div className="flex items-center justify-between p-4 border-b border-border bg-background-primary">
+        <div className="sticky top-0 z-10 flex items-center justify-between p-4 bg-background-primary/80 backdrop-blur-md transition-colors">
           <div className="flex items-center gap-[6px] text-text-primary">
             <span className="text-lg font-medium">SEE</span>
             <span className="text-lg">+</span>
