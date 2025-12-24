@@ -16,14 +16,14 @@ export function ThemeToggle() {
 
   if (!mounted) {
     return (
-      <div className="fixed top-4 right-4 z-50 w-12 h-12 rounded-[12px] border border-[#e5e5e5] dark:border-[#262626] bg-transparent" />
+      <div className="fixed top-4 right-4 z-50 w-12 h-12 rounded-md border border-[#e5e5e5] dark:border-[#262626] bg-transparent" />
     );
   }
 
   return (
     <button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="fixed top-4 right-4 z-50 flex items-center justify-center w-12 h-12 rounded-[12px] border border-[#e5e5e5] dark:border-[#262626] bg-transparent hover:bg-[#fafafa] dark:hover:bg-[#1a1a1a] transition-all duration-200"
+      className="fixed top-4 right-4 z-50 flex items-center justify-center w-12 h-12 rounded-md border border-[#e5e5e5] dark:border-[#262626] bg-transparent hover:bg-[#fafafa] dark:hover:bg-[#1a1a1a] transition-all duration-200"
       aria-label="Toggle theme"
     >
       <Sun className="size-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 text-text-primary" />
