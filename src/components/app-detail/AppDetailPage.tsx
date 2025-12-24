@@ -113,7 +113,7 @@ export default function AppDetailPage({
 
         {/* Sheet Container */}
         <motion.div
-          className="relative w-full max-w-4xl mx-auto bg-background-primary rounded-t-xl shadow-2xl overflow-hidden flex flex-col border-t border-border"
+          className="relative w-full max-w-4xl mx-auto bg-background-primary rounded-t-[32px] shadow-[0_-8px_40px_rgba(0,0,0,0.5)] overflow-hidden flex flex-col"
           initial={{ y: "100%" }}
           animate={{ y: 0 }}
           exit={{ y: "100%" }}
@@ -132,12 +132,15 @@ export default function AppDetailPage({
           dragElastic={{ top: 0, bottom: 0.3 }}
           onDragEnd={handleDragEnd}
         >
+          {/* Top Blur Effect (The "Blurred Border") */}
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent blur-[1px] z-50 pointer-events-none" />
+
           {/* Sticky Header Bar - Modal Style */}
-          <div className="sticky top-0 z-30 bg-background-primary/80 backdrop-blur-md border-b border-border">
-            <div className="flex items-center justify-between px-4 h-16">
+          <div className="sticky top-0 z-30 bg-background-primary/80 backdrop-blur-md">
+            <div className="flex items-center justify-between px-6 h-16">
               <button
                 onClick={onBack}
-                className="flex items-center justify-center w-10 h-10 rounded-md hover:bg-background-secondary transition-colors"
+                className="flex items-center justify-center w-10 h-10 rounded-full hover:bg-background-secondary transition-colors"
                 aria-label="Close"
               >
                 <X className="w-6 h-6 text-text-primary" />
@@ -145,12 +148,12 @@ export default function AppDetailPage({
               
               {/* Drag Handle */}
               <div className="flex-grow flex justify-center cursor-grab active:cursor-grabbing py-4">
-                <div className="w-12 h-1.5 bg-border rounded-full" />
+                <div className="w-12 h-1.5 bg-white/10 rounded-full" />
               </div>
 
               <button
                 onClick={handleShare}
-                className="flex items-center justify-center w-10 h-10 rounded-md hover:bg-background-secondary transition-colors"
+                className="flex items-center justify-center w-10 h-10 rounded-full hover:bg-background-secondary transition-colors"
                 aria-label="Share"
               >
                 <Share2 className="w-5 h-5 text-text-primary" />
