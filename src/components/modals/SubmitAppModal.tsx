@@ -288,11 +288,11 @@ export function SubmitAppModal({ isOpen, onClose }: SubmitAppModalProps) {
                 )}
               </div>
 
-              <button
-                type="submit"
-                disabled={isLoading}
-                className="w-full min-h-[44px] px-4 py-3 rounded-md bg-primary text-primary-foreground hover:opacity-90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-              >
+                <button
+                  type="submit"
+                  disabled={isLoading}
+                  className="w-full min-h-[44px] px-4 py-3 rounded-md bg-[#ff4500] text-white hover:opacity-90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                >
                 {isLoading ? (
                   <>
                     <Loader2 className="w-4 h-4 animate-spin" />
