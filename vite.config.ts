@@ -116,8 +116,9 @@ export default defineConfig(({ mode }) => ({
       '@': path.resolve(__dirname, './src'),
     },
   },
-  build: {
-    target: 'esnext',
-  },
+    build: {
+      outDir: 'dist',
+      target: 'esnext',
+    },
 }));
 // Orchids restart: 1766614161202
