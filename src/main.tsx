@@ -1,6 +1,7 @@
 import { createRoot } from 'react-dom/client';
 import App from "./App";
 import "./styles/globals.css";
+import { AuthProvider } from "./hooks/use-auth";
 
 if (typeof window !== "undefined") {
   const sendToParent = (data: any) => {
