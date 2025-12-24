@@ -51,7 +51,6 @@ export function MobileNavOverlay({
   onSubmitClick,
   onLoginClick,
 }: MobileNavOverlayProps) {
-  const [searchQuery, setSearchQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("All");
 
   if (!isOpen) return null;
