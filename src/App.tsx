@@ -72,53 +72,55 @@ export default function App() {
         )}
         
         <div className="flex-grow">
-          {selectedApp && !isMobile ? (
-            <AppDetailPage 
-              app={selectedApp} 
-              onBack={handleBackToList}
-              onNavigateToApp={handleAppClick}
+            {selectedApp && !isMobile ? (
+              <AppDetailPage 
+                app={selectedApp} 
+                onBack={handleBackToList}
+                onNavigateToApp={handleAppClick}
+                onSubscribeClick={subscribeModal.open}
+                onSubmitClick={submitModal.open}
+                onLoginClick={authModal.open}
+              />
+            ) : currentView === 'profile' ? (
+              <div className="pt-[67px]">
+                <Container className="py-md md:py-xl">
+                  <ProfileView onAppClick={handleAppClick} />
+                </Container>
+              </div>
+            ) : (
+              <div className="pt-[67px]">
+                <main>
+                  <Container className="py-md md:py-xl">
+                    <HeroHeader onSubscribeClick={subscribeModal.open} />
+                    <WebsiteGrid items={websitesData} onItemClick={handleAppClick} onLoginClick={authModal.open} />
+                  </Container>
+                </main>
+              </div>
+            )}
+          </div>
+
+          {(!selectedApp || isMobile) && (
+            <Footer 
               onSubscribeClick={subscribeModal.open}
               onSubmitClick={submitModal.open}
             />
-          ) : currentView === 'profile' ? (
-            <div className="pt-[67px]">
-              <Container className="py-md md:py-xl">
-                <ProfileView onAppClick={handleAppClick} />
-              </Container>
-            </div>
-          ) : (
-            <div className="pt-[67px]">
-              <main>
-                <Container className="py-md md:py-xl">
-                  <HeroHeader onSubscribeClick={subscribeModal.open} />
-                  <WebsiteGrid items={websitesData} onItemClick={handleAppClick} />
-                </Container>
-              </main>
-            </div>
           )}
-        </div>
 
-        {(!selectedApp || isMobile) && (
-          <Footer 
+          {/* Modals */}
+          <SubscribeModal isOpen={subscribeModal.isOpen} onClose={subscribeModal.close} />
+          <SubmitAppModal isOpen={submitModal.isOpen} onClose={submitModal.close} />
+          <AuthModal isOpen={authModal.isOpen} onClose={authModal.close} />
+          
+          {/* Bottom Sheet for Mobile */}
+          <AppDetailBottomSheet
+            app={selectedApp}
+            isOpen={!!selectedApp && isMobile}
+            onClose={handleCloseBottomSheet}
+            onNavigateToApp={handleAppClick}
             onSubscribeClick={subscribeModal.open}
             onSubmitClick={submitModal.open}
+            onLoginClick={authModal.open}
           />
-        )}
-
-        {/* Modals */}
-        <SubscribeModal isOpen={subscribeModal.isOpen} onClose={subscribeModal.close} />
-        <SubmitAppModal isOpen={submitModal.isOpen} onClose={submitModal.close} />
-        <AuthModal isOpen={authModal.isOpen} onClose={authModal.close} />
-        
-        {/* Bottom Sheet for Mobile */}
-        <AppDetailBottomSheet
-          app={selectedApp}
-          isOpen={!!selectedApp && isMobile}
-          onClose={handleCloseBottomSheet}
-          onNavigateToApp={handleAppClick}
-          onSubscribeClick={subscribeModal.open}
-          onSubmitClick={submitModal.open}
-        />
         
         <Toaster position="bottom-center" />
       </div>
