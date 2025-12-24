@@ -37,7 +37,7 @@ const logErrorsPlugin = () => ({
                           lineno: undefined,
                           colno: undefined,
                           source: 'vite.overlay',
-                        },
+                          },
                         timestamp: Date.now(),
                       }, '*');
                     }
@@ -118,5 +118,6 @@ export default defineConfig(({ mode }) => ({
   },
   build: {
     target: 'esnext',
+    outDir: 'dist',
   },
 }));
