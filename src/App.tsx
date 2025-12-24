@@ -84,9 +84,7 @@ export default function App() {
       />
       
       <div className="flex pt-[67px]">
-        <SidebarNavigation onSubmitClick={submitModal.open} />
-        
-        <main className="flex-1 sm:ml-[250px]">
+        <main className="flex-1">
           <div className="mx-auto px-3 sm:px-5 py-4 sm:py-8">
             <HeroHeader onSubscribeClick={subscribeModal.open} />
             
