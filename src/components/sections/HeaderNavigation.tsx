@@ -26,32 +26,46 @@ interface HeaderNavigationProps {
 
 const HeaderNavigation = ({ onSubscribeClick, onSubmitClick, onLoginClick }: HeaderNavigationProps) => {
   const mobileNav = useMobileNav();
+  const { user, signOut } = useAuth();
 
   return (
     <>
-          <nav className="fixed top-0 z-20 h-[67px] w-full">
-            <div className="absolute top-0 left-0 flex h-[67px] w-full items-center justify-between bg-background-primary/80 backdrop-blur-md px-md md:px-lg transition-colors">
-            <a
-              className="flex w-max cursor-pointer items-center gap-xs rounded-full border border-border bg-background-primary px-md py-sm text-h1 leading-none transition-all duration-200 ease-in-out hover:-rotate-3 hover:border-border-strong hover:bg-background-secondary"
-              href="/"
-            >
+      <nav className="fixed top-0 z-20 h-[67px] w-full">
+        <div className="absolute top-0 left-0 flex h-[67px] w-full items-center justify-between bg-background-primary/80 backdrop-blur-md px-md md:px-lg transition-colors">
+          <a
+            className="flex w-max cursor-pointer items-center gap-xs rounded-full border border-border bg-background-primary px-md py-sm text-h1 leading-none transition-all duration-200 ease-in-out hover:-rotate-3 hover:border-border-strong hover:bg-background-secondary"
+            href="/"
+          >
             <span>see</span>
             <MagicIcon className="w-[10.67px]" />
             <span>saw</span>
           </a>
-          
+
           <div className="flex items-center gap-sm">
             <div className="hidden md:flex items-center gap-sm">
               <ThemeToggle />
-              <Button
-                variant="secondary"
-                onClick={onLoginClick}
-                className="min-w-[100px]"
-              >
-                Sign In
-              </Button>
+              {user ? (
+                <div className="flex items-center gap-sm">
+                  <span className="text-sm text-text-secondary">{user.email}</span>
+                  <Button
+                    variant="secondary"
+                    onClick={() => signOut()}
+                    className="min-w-[100px]"
+                  >
+                    Log Out
+                  </Button>
+                </div>
+              ) : (
+                <Button
+                  variant="secondary"
+                  onClick={onLoginClick}
+                  className="min-w-[100px]"
+                >
+                  Sign In
+                </Button>
+              )}
             </div>
-            
+
             <Button
               variant="primary"
               onClick={onSubscribeClick}
@@ -59,7 +73,7 @@ const HeaderNavigation = ({ onSubscribeClick, onSubmitClick, onLoginClick }: Hea
             >
               Subscribe
             </Button>
-            
+
             <MobileNavTrigger onClick={mobileNav.open} />
           </div>
         </div>
