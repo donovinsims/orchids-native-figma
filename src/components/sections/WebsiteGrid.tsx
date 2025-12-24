@@ -57,12 +57,12 @@ function WebsiteCard({ item, onClick }: { item: Website; onClick?: (id: string) 
         transition={{ type: "spring", stiffness: 400, damping: 17 }}
       >
         <div className="relative w-full aspect-[333/225]">
-          {/* Favicon Placeholder / Content */}
-          <div className="absolute inset-0 flex items-center justify-center bg-background-secondary/50">
+          {/* Thumbnail Preview */}
+          <div className="absolute inset-0 bg-background-secondary/50 overflow-hidden">
             <img 
-              src={item.faviconUrl} 
-              alt="" 
-              className="w-8 h-8 rounded-md shadow-sm"
+              src={item.previewImage} 
+              alt={item.title} 
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               onError={(e) => {
                 (e.target as HTMLImageElement).style.display = 'none';
               }}
