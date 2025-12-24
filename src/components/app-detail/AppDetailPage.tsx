@@ -41,9 +41,20 @@ interface AppDetailPageProps {
   onSubscribeClick?: () => void;
   onSubmitClick?: () => void;
   onLoginClick?: () => void;
+  onProfileClick?: () => void;
+  onHomeClick?: () => void;
 }
 
-export default function AppDetailPage({ app, onBack, onNavigateToApp, onSubscribeClick, onSubmitClick, onLoginClick }: AppDetailPageProps) {
+export default function AppDetailPage({ 
+  app, 
+  onBack, 
+  onNavigateToApp, 
+  onSubscribeClick, 
+  onSubmitClick, 
+  onLoginClick,
+  onProfileClick,
+  onHomeClick
+}: AppDetailPageProps) {
   const { isBookmarked, toggleBookmark } = useBookmarks();
   const { user } = useAuth();
   const bookmarked = isBookmarked(app.id);
@@ -85,6 +96,9 @@ export default function AppDetailPage({ app, onBack, onNavigateToApp, onSubscrib
       <HeaderNavigation 
         onSubscribeClick={onSubscribeClick}
         onSubmitClick={onSubmitClick}
+        onLoginClick={onLoginClick}
+        onProfileClick={onProfileClick}
+        onHomeClick={onHomeClick}
       />
 
       {/* Main Content */}
