@@ -119,21 +119,17 @@ export function MobileNavOverlay({
           </div>
         </div>
 
-        {/* Sign In Button */}
-        <div className="px-4 py-4 pt-6">
+        {/* Auth & Subscribe Buttons */}
+        <div className="px-4 pt-6 pb-2 space-y-3">
           <button 
             onClick={handleLogin}
             className="w-full py-3 rounded-md border border-border bg-background-primary text-text-primary hover:bg-background-secondary transition-colors text-sm font-medium"
           >
             Sign in
           </button>
-        </div>
-
-        {/* Subscribe Button */}
-        <div className="px-4 pb-4">
           <button
             onClick={handleSubscribe}
-            className="w-full py-3 rounded-md bg-foreground text-background-primary hover:opacity-90 transition-colors text-sm font-medium"
+            className="w-full py-3 rounded-md bg-[#ff4500] text-white hover:opacity-90 transition-colors text-sm font-medium"
           >
             Subscribe
           </button>
