@@ -211,7 +211,7 @@ export default function AppDetailPage({ app, onBack, onNavigateToApp, onSubscrib
                 {/* Bookmark Button */}
                 <button
                   onClick={handleBookmark}
-                  className="flex items-center justify-center gap-2 w-full px-6 py-3 rounded-md bg-accent text-accent-foreground hover:opacity-90 transition-colors"
+                  className="flex items-center justify-center gap-2 w-full px-6 py-3 rounded-md bg-[#ff4500] text-white hover:opacity-90 transition-colors"
                 >
                   <span>{isBookmarked ? "Bookmarked" : "Bookmark"}</span>
                   <Bookmark className={`w-4 h-4 ${isBookmarked ? "fill-current" : ""}`} />
