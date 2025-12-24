@@ -86,9 +86,9 @@ export function MobileNavOverlay({
       />
 
       {/* Menu Panel */}
-      <div className="absolute top-0 right-0 w-full max-w-lg h-full bg-background shadow-2xl overflow-y-auto border-l border-border">
+      <div className="absolute top-0 right-0 w-full max-w-lg h-full bg-background-primary shadow-2xl overflow-y-auto border-l border-border">
         {/* Header */}
-        <div className="flex items-center justify-between p-4 border-b border-border">
+        <div className="flex items-center justify-between p-4 border-b border-border bg-background-primary">
           <div className="flex items-center gap-[6px] text-text-primary">
             <span className="text-lg font-medium">SEE</span>
             <span className="text-lg">+</span>
@@ -110,7 +110,7 @@ export function MobileNavOverlay({
         <div className="px-4 py-4 pt-6">
           <button 
             onClick={handleLogin}
-            className="w-full py-3 rounded-md border border-border bg-background text-text-primary hover:bg-background-secondary transition-colors text-sm font-medium"
+            className="w-full py-3 rounded-md border border-border bg-background-primary text-text-primary hover:bg-background-secondary transition-colors text-sm font-medium"
           >
             Sign in
           </button>
@@ -120,7 +120,7 @@ export function MobileNavOverlay({
         <div className="px-4 pb-4">
           <button
             onClick={handleSubscribe}
-            className="w-full py-3 rounded-md bg-foreground text-background hover:opacity-90 transition-colors text-sm font-medium"
+            className="w-full py-3 rounded-md bg-foreground text-background-primary hover:opacity-90 transition-colors text-sm font-medium"
           >
             Subscribe
           </button>
@@ -135,7 +135,7 @@ export function MobileNavOverlay({
                 onClick={() => handleCategoryClick(category.label)}
                 className={`w-full flex items-center gap-3 px-4 py-3 rounded-md transition-colors ${
                   activeCategory === category.label
-                    ? "bg-text-primary text-background"
+                    ? "bg-text-primary text-background-primary"
                     : "text-text-secondary hover:bg-background-secondary"
                 }`}
               >
@@ -162,7 +162,7 @@ export function MobileNavOverlay({
           {/* Submit Button */}
           <button
             onClick={handleSubmit}
-            className="w-full py-3 rounded-md border border-border bg-background text-text-primary hover:bg-background-secondary transition-colors text-sm font-medium"
+            className="w-full py-3 rounded-md border border-border bg-background-primary text-text-primary hover:bg-background-secondary transition-colors text-sm font-medium"
           >
             Submit
           </button>
