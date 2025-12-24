@@ -66,7 +66,7 @@ export default function AppDetailPage({ app, onBack, onNavigateToApp, onSubscrib
   };
 
   return (
-    <div className="min-h-screen bg-background-primary text-foreground">
+    <div className="min-h-screen bg-background-primary text-foreground flex flex-col">
       {/* Header */}
       <HeaderNavigation 
         onSubscribeClick={onSubscribeClick}
@@ -74,7 +74,7 @@ export default function AppDetailPage({ app, onBack, onNavigateToApp, onSubscrib
       />
 
       {/* Main Content */}
-      <main className="pt-[67px]">
+      <main className="pt-[67px] flex-grow">
         <div className="max-w-[1400px] mx-auto px-4 md:px-6 py-6">
           {/* Breadcrumbs & Share */}
           <div className="flex items-center justify-between mb-6">
@@ -247,6 +247,10 @@ export default function AppDetailPage({ app, onBack, onNavigateToApp, onSubscrib
           </div>
         </div>
       </main>
+      <Footer 
+        onSubscribeClick={onSubscribeClick}
+        onSubmitClick={onSubmitClick}
+      />
     </div>
   );
 }
