@@ -113,7 +113,7 @@ export default function AppDetailPage({
 
         {/* Sheet Container */}
         <motion.div
-          className="relative w-full max-w-4xl mx-auto bg-background-primary rounded-t-[32px] shadow-[0_-8px_40px_rgba(0,0,0,0.5)] overflow-hidden flex flex-col"
+          className="relative w-full max-w-4xl mx-auto bg-background-primary rounded-t-[32px] shadow-[0_-12px_60px_rgba(0,0,0,0.4)] overflow-hidden flex flex-col"
           initial={{ y: "100%" }}
           animate={{ y: 0 }}
           exit={{ y: "100%" }}
@@ -125,7 +125,7 @@ export default function AppDetailPage({
           }}
           style={{ 
             y,
-            height: '90vh',
+            height: '88vh',
           }}
           drag="y"
           dragConstraints={{ top: 0, bottom: 0 }}
@@ -133,7 +133,9 @@ export default function AppDetailPage({
           onDragEnd={handleDragEnd}
         >
           {/* Top Blur Effect (The "Blurred Border") */}
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent blur-[1px] z-50 pointer-events-none" />
+          <div className="absolute top-0 left-0 right-0 h-6 bg-gradient-to-b from-white/10 via-white/5 to-transparent blur-xl z-50 pointer-events-none opacity-60" />
+          <div className="absolute top-0 left-0 right-0 h-[2px] bg-white/10 blur-[3px] z-50 pointer-events-none" />
+          <div className="absolute top-0 left-0 right-0 h-[1px] bg-white/5 blur-[0.5px] z-50 pointer-events-none" />
 
           {/* Sticky Header Bar - Modal Style */}
           <div className="sticky top-0 z-30 bg-background-primary/80 backdrop-blur-md">
