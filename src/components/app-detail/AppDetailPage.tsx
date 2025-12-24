@@ -6,7 +6,7 @@ import { toast } from "sonner";
 import Footer from "../sections/Footer";
 import { useBookmarks } from "@/hooks/use-bookmarks";
 import { useAuth } from "@/hooks/use-auth";
-import { motion, useMotionValue, useTransform, PanInfo, AnimatePresence } from "motion/react";
+import { motion, useMotionValue, useTransform, PanInfo, AnimatePresence, useDragControls } from "motion/react";
 
 interface AppDetail {
   id: string;
