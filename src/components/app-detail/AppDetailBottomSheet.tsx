@@ -226,15 +226,15 @@ export default function AppDetailBottomSheet({
                 <span>Visit Website</span>
                 <ExternalLink className="w-4 h-4" />
               </motion.a>
-              <motion.button
-                onClick={handleBookmark}
-                className="flex items-center justify-center gap-2 px-6 py-3 rounded-md bg-accent text-accent-foreground transition-colors"
-                whileTap={{ scale: 0.97 }}
-                transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              >
-                <span>{isBookmarked ? "Bookmarked" : "Bookmark"}</span>
-                <Bookmark className={`w-4 h-4 ${isBookmarked ? "fill-current" : ""}`} />
-              </motion.button>
+                <motion.button
+                  onClick={handleBookmark}
+                  className="flex items-center justify-center gap-2 px-6 py-3 rounded-md bg-[#ff4500] text-white transition-colors"
+                  whileTap={{ scale: 0.97 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                >
+                  <span>{isBookmarked ? "Bookmarked" : "Bookmark"}</span>
+                  <Bookmark className={`w-4 h-4 ${isBookmarked ? "fill-current" : ""}`} />
+                </motion.button>
             </motion.div>
 
             {/* App Information */}
