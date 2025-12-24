@@ -1,7 +1,6 @@
 import { createRoot } from 'react-dom/client';
 import App from "./App";
 import "./styles/globals.css";
-import { AuthProvider } from "./hooks/use-auth";
 
 if (typeof window !== "undefined") {
   const sendToParent = (data: any) => {
@@ -52,8 +51,4 @@ if (typeof window !== "undefined") {
   });
 }
 
-createRoot(document.getElementById("root")!).render(
-  <AuthProvider>
-    <App />
-  </AuthProvider>
-);
+createRoot(document.getElementById("root")!).render(<App />);
