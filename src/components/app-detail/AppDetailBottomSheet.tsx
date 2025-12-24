@@ -112,7 +112,7 @@ export default function AppDetailBottomSheet({
 
       {/* Bottom Sheet */}
       <motion.div
-        className="fixed bottom-0 left-0 right-0 bg-background rounded-t-md shadow-2xl z-50 lg:hidden border-t border-border"
+        className="fixed bottom-0 left-0 right-0 bg-background-primary rounded-t-md shadow-2xl z-50 lg:hidden border-t border-border"
         initial={{ y: "100%" }}
         animate={{ y: isOpen ? "4vh" : "100%" }}
         exit={{ y: "100%" }}
