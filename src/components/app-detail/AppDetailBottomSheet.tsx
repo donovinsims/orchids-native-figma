@@ -5,6 +5,8 @@ import { motion, useMotionValue, useTransform, PanInfo } from "motion/react";
 import { X, ExternalLink, Bookmark, Check, Share2 } from "lucide-react";
 import { toast } from "sonner";
 import Footer from "../sections/Footer";
+import { useBookmarks } from "@/hooks/use-bookmarks";
+import { useAuth } from "@/hooks/use-auth";
 
 interface AppDetail {
   id: string;
