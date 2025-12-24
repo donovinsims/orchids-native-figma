@@ -90,6 +90,13 @@ export default function AppDetailPage({
     }
   };
 
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, []);
+
   const handleDragEnd = (_event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
     const shouldClose = info.velocity.y > 500 || (info.velocity.y >= 0 && info.offset.y > 150);
     if (shouldClose) {
