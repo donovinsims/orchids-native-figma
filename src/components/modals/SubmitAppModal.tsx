@@ -31,22 +31,18 @@ const platforms = [
 ];
 
 interface FormData {
-  appName: string;
   appUrl: string;
   category: string;
   platforms: string[];
   email: string;
-  reason: string;
 }
 
 export function SubmitAppModal({ isOpen, onClose }: SubmitAppModalProps) {
   const [formData, setFormData] = useState<FormData>({
-    appName: "",
     appUrl: "",
     category: "",
     platforms: [],
     email: "",
-    reason: "",
   });
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
