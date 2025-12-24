@@ -43,11 +43,21 @@ interface AppDetailPageProps {
 }
 
 export default function AppDetailPage({ app, onBack, onNavigateToApp, onSubscribeClick, onSubmitClick }: AppDetailPageProps) {
-  const [isBookmarked, setIsBookmarked] = useState(false);
+  const { isBookmarked, toggleBookmark } = useBookmarks();
+  const { user } = useAuth();
+  const bookmarked = isBookmarked(app.id);
 
-  const handleBookmark = () => {
-    setIsBookmarked(!isBookmarked);
-    toast.success(isBookmarked ? "Removed from bookmarks" : "Added to bookmarks");
+  const handleBookmark = async () => {
+    if (!user) {
+      toast.error("Please sign in to bookmark apps");
+      return;
+    }
+    const { error } = await toggleBookmark(app.id);
+    if (error) {
+      toast.error("Failed to update bookmark");
+    } else {
+      toast.success(bookmarked ? "Removed from bookmarks" : "Added to bookmarks");
+    }
   };
 
   const handleShare = async () => {
