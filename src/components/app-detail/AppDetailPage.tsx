@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { Share2, ExternalLink, Bookmark, Check } from "lucide-react";
-import { toast } from "sonner@2.0.3";
+import { toast } from "sonner";
 import HeaderNavigation from "../sections/HeaderNavigation";
 import Footer from "../sections/Footer";
 

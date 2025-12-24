@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Sparkles, Loader2, CheckCircle } from "lucide-react";
 import { Modal } from "./Modal";
-import { toast } from "sonner@2.0.3";
+import { toast } from "sonner";
 
 interface SubscribeModalProps {
   isOpen: boolean;
