@@ -101,12 +101,12 @@ export default function App() {
             )}
           </div>
 
-          {(!selectedApp || isMobile) && (
-            <Footer 
-              onSubscribeClick={subscribeModal.open}
-              onSubmitClick={submitModal.open}
-            />
-          )}
+        {!selectedApp && (
+          <Footer 
+            onSubscribeClick={subscribeModal.open}
+            onSubmitClick={submitModal.open}
+          />
+        )}
 
           {/* Modals */}
           <SubscribeModal isOpen={subscribeModal.isOpen} onClose={subscribeModal.close} />
