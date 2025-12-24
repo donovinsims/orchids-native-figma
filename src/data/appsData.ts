@@ -5,10 +5,6 @@ export interface Website {
   href: string;
   faviconUrl: string;
   category?: string;
-  video: {
-    webm: string;
-    mp4: string;
-  };
 }
 
 export interface AppDetail {
@@ -44,10 +40,6 @@ export const websitesData: Website[] = [
     category: "Productivity",
     href: "/apps/tame",
     faviconUrl: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/1afdc242-c723-4eb2-85bd-3bd7b1f2b1be-seesaw-website/assets/images/images_1.png",
-    video: {
-      webm: "https://res.cloudinary.com/seesawsite/video/upload/w_640,du_5/q_50/tame_sml_ewunci.webm",
-      mp4: "https://res.cloudinary.com/seesawsite/video/upload/w_640,du_5/q_50/tame_sml_ewunci.mp4"
-    }
   },
   {
     id: "antigravity",
@@ -56,10 +48,6 @@ export const websitesData: Website[] = [
     category: "Development",
     href: "/apps/antigravity",
     faviconUrl: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/1afdc242-c723-4eb2-85bd-3bd7b1f2b1be-seesaw-website/assets/images/images_2.png",
-    video: {
-      webm: "https://res.cloudinary.com/seesawsite/video/upload/w_640,du_5/q_50/antigravity_sml_y5qhb4.webm",
-      mp4: "https://res.cloudinary.com/seesawsite/video/upload/w_640,du_5/q_50/antigravity_sml_y5qhb4.mp4"
-    }
   },
   {
     id: "hill",
@@ -68,10 +56,6 @@ export const websitesData: Website[] = [
     category: "Fintech",
     href: "/apps/hill",
     faviconUrl: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/1afdc242-c723-4eb2-85bd-3bd7b1f2b1be-seesaw-website/assets/images/images_3.png",
-    video: {
-      webm: "https://res.cloudinary.com/seesawsite/video/upload/w_640,du_5/q_50/hill_sml_jgchbq.webm",
-      mp4: "https://res.cloudinary.com/seesawsite/video/upload/w_640,du_5/q_50/hill_sml_jgchbq.mp4"
-    }
   },
   {
     id: "aave-app",
@@ -80,10 +64,6 @@ export const websitesData: Website[] = [
     category: "Crypto",
     href: "/apps/aave-app",
     faviconUrl: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/1afdc242-c723-4eb2-85bd-3bd7b1f2b1be-seesaw-website/assets/images/images_4.png",
-    video: {
-      webm: "https://res.cloudinary.com/seesawsite/video/upload/w_640,du_5/q_50/aaveapp_sml_y4x5vd.webm",
-      mp4: "https://res.cloudinary.com/seesawsite/video/upload/w_640,du_5/q_50/aaveapp_sml_y4x5vd.mp4"
-    }
   },
   {
     id: "collins",
@@ -92,10 +72,6 @@ export const websitesData: Website[] = [
     category: "Design",
     href: "/apps/collins",
     faviconUrl: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/1afdc242-c723-4eb2-85bd-3bd7b1f2b1be-seesaw-website/assets/images/images_5.png",
-    video: {
-      webm: "https://res.cloudinary.com/seesawsite/video/upload/w_640,du_5/q_50/collins_sml_idacug.webm",
-      mp4: "https://res.cloudinary.com/seesawsite/video/upload/w_640,du_5/q_50/collins_sml_idacug.mp4"
-    }
   },
   {
     id: "bonside",
@@ -104,10 +80,6 @@ export const websitesData: Website[] = [
     category: "E-Commerce",
     href: "/apps/bonside",
     faviconUrl: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/1afdc242-c723-4eb2-85bd-3bd7b1f2b1be-seesaw-website/assets/images/images_6.png",
-    video: {
-      webm: "https://res.cloudinary.com/seesawsite/video/upload/w_640,du_5/q_50/bonside_sml_fu2dho.webm",
-      mp4: "https://res.cloudinary.com/seesawsite/video/upload/w_640,du_5/q_50/bonside_sml_fu2dho.mp4"
-    }
   }
 ];
 
