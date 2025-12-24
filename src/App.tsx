@@ -58,7 +58,7 @@ export default function App() {
     <AuthProvider>
       <NextThemesProvider attribute="class" defaultTheme="light" enableSystem>
       <div className="relative min-h-screen bg-background-primary text-foreground transition-colors duration-200 flex flex-col">
-        {(!selectedApp || isMobile) && (
+        {!selectedApp && (
           <HeaderNavigation 
             onSubscribeClick={subscribeModal.open}
             onSubmitClick={submitModal.open}
