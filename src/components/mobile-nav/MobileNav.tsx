@@ -101,13 +101,13 @@ export function MobileNavOverlay({
       {/* Menu Panel */}
       <div className="absolute top-0 right-0 w-full max-w-lg h-full bg-background-primary shadow-2xl overflow-y-auto border-l border-border">
         {/* Header */}
-        <div className="sticky top-0 z-10 flex items-center justify-between p-4 bg-background-primary/80 backdrop-blur-md transition-colors">
-          <div className="flex items-center gap-[6px] text-text-primary">
-            <span className="text-lg font-medium">SEE</span>
-            <span className="text-lg">+</span>
-            <span className="text-lg font-medium">SAW</span>
-          </div>
-          <div className="flex items-center gap-2">
+          <div className="sticky top-0 z-10 flex items-center justify-between p-4 bg-background-primary/80 backdrop-blur-md transition-colors">
+            <div className="flex w-max items-center gap-xs rounded-full border border-border bg-background-primary px-md py-sm text-h1 leading-none transition-all duration-200 ease-in-out">
+              <span>see</span>
+              <MagicIcon className="w-[10.67px]" />
+              <span>saw</span>
+            </div>
+            <div className="flex items-center gap-2">
             <ThemeToggle />
             <button
               onClick={onClose}
