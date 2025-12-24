@@ -53,6 +53,7 @@ export default function App() {
   return (
     <NextThemesProvider attribute="class" defaultTheme="light" enableSystem>
       <div className="relative min-h-screen bg-background-primary text-foreground transition-colors duration-200">
+        <ThemeToggle />
         {!selectedApp || isMobile ? (
           <>
             <HeaderNavigation 
