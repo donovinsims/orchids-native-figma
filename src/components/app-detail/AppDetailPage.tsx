@@ -130,15 +130,17 @@ export default function AppDetailPage({
             stiffness: 300,
             mass: 0.8
           }}
-          style={{ 
-            y,
-            height: '88vh',
-          }}
-          drag="y"
-          dragConstraints={{ top: 0, bottom: 0 }}
-          dragElastic={{ top: 0, bottom: 0.3 }}
-          onDragEnd={handleDragEnd}
-        >
+            style={{ 
+              y,
+              height: '98vh',
+            }}
+            drag="y"
+            dragListener={false}
+            dragControls={dragControls}
+            dragConstraints={{ top: 0, bottom: 0 }}
+            dragElastic={{ top: 0, bottom: 0.1 }}
+            onDragEnd={handleDragEnd}
+          >
           {/* Top Blur Effect (The "Blurred Border") */}
           <div className="absolute top-0 left-0 right-0 h-6 bg-gradient-to-b from-white/10 via-white/5 to-transparent blur-xl z-50 pointer-events-none opacity-60" />
           <div className="absolute top-0 left-0 right-0 h-[2px] bg-white/10 blur-[3px] z-50 pointer-events-none" />
