@@ -103,22 +103,8 @@ export function MobileNavOverlay({
           </button>
         </div>
 
-        {/* Search */}
-        <div className="p-4">
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search for apps, categories..."
-              className="w-full pl-10 pr-4 py-3 rounded-lg bg-gray-100 border-none focus:outline-none focus:ring-2 focus:ring-gray-900 text-sm"
-            />
-          </div>
-        </div>
-
         {/* Sign In Button */}
-        <div className="px-4 pb-3">
+        <div className="px-4 py-4 pt-6">
           <button 
             onClick={handleLogin}
             className="w-full py-3 rounded-lg border border-gray-300 bg-white text-black hover:bg-gray-50 transition-colors text-sm"
