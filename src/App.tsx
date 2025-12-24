@@ -52,7 +52,7 @@ export default function App() {
 
   return (
     <NextThemesProvider attribute="class" defaultTheme="light" enableSystem>
-      <div className="relative min-h-screen bg-background-primary text-foreground transition-colors duration-200">
+      <div className="relative min-h-screen bg-background-primary text-foreground transition-colors duration-200 flex flex-col">
         {!selectedApp || isMobile ? (
           <>
             <HeaderNavigation 
@@ -61,7 +61,7 @@ export default function App() {
               onLoginClick={authModal.open}
             />
             
-            <div className="pt-[67px]">
+            <div className="pt-[67px] flex-grow">
               <main>
                 <Container className="py-md md:py-xl">
                   <HeroHeader onSubscribeClick={subscribeModal.open} />
@@ -69,6 +69,10 @@ export default function App() {
                 </Container>
               </main>
             </div>
+            <Footer 
+              onSubscribeClick={subscribeModal.open}
+              onSubmitClick={submitModal.open}
+            />
           </>
         ) : (
           <AppDetailPage 
