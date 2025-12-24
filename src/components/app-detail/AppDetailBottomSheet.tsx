@@ -129,7 +129,7 @@ export default function AppDetailBottomSheet({
         }}
         style={{ 
           y,
-          height: '90vh',
+            height: '88vh',
           touchAction: 'none'
         }}
         drag="y"
