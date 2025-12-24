@@ -40,16 +40,17 @@ interface AppDetailPageProps {
   onNavigateToApp?: (appId: string) => void;
   onSubscribeClick?: () => void;
   onSubmitClick?: () => void;
+  onLoginClick?: () => void;
 }
 
-export default function AppDetailPage({ app, onBack, onNavigateToApp, onSubscribeClick, onSubmitClick }: AppDetailPageProps) {
+export default function AppDetailPage({ app, onBack, onNavigateToApp, onSubscribeClick, onSubmitClick, onLoginClick }: AppDetailPageProps) {
   const { isBookmarked, toggleBookmark } = useBookmarks();
   const { user } = useAuth();
   const bookmarked = isBookmarked(app.id);
 
   const handleBookmark = async () => {
     if (!user) {
-      toast.error("Please sign in to bookmark apps");
+      onLoginClick?.();
       return;
     }
     const { error } = await toggleBookmark(app.id);
