@@ -156,22 +156,24 @@ export default function AppDetailPage({ app, onBack, onNavigateToApp, onSubscrib
                     Related Apps
                   </h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    {app.relatedApps.map((relatedApp) => (
-                      <button
-                        key={relatedApp.id}
-                        onClick={() => onNavigateToApp?.(relatedApp.id)}
-                        className="block bg-background-primary rounded-md border border-border hover:border-border-strong transition-all duration-200 hover:shadow-md text-left"
-                      >
-                        <div className="relative w-full aspect-video bg-background-secondary">
-                          <img
-                            src={relatedApp.previewImage}
-                            alt={relatedApp.title}
-                            className="w-full h-full object-cover"
-                            onError={(e) => {
-                              e.currentTarget.style.display = 'none';
-                            }}
-                          />
-                        </div>
+                      {app.relatedApps.map((relatedApp) => (
+                        <button
+                          key={relatedApp.id}
+                          onClick={() => onNavigateToApp?.(relatedApp.id)}
+                          className="block bg-background-primary rounded-md border border-border hover:border-border-strong transition-all duration-200 hover:shadow-md text-left group"
+                        >
+                          <div className="relative w-full aspect-video bg-background-secondary overflow-hidden">
+                            <img
+                              src={relatedApp.previewImage}
+                              alt={relatedApp.title}
+                              className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                              loading="lazy"
+                              onError={(e) => {
+                                e.currentTarget.style.display = 'none';
+                              }}
+                            />
+                            <div className="absolute inset-0 shadow-[inset_0_0_40px_rgba(0,0,0,0.02)] pointer-events-none" />
+                          </div>
                         <div className="p-4">
                           <h3 className="text-text-primary mb-1">
                             {relatedApp.title}
