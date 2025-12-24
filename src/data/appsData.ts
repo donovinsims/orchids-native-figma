@@ -80,24 +80,6 @@ export const websitesData: Website[] = [
     previewImage: "https://flylighter.com/flylighter-banner.jpeg",
   },
   {
-    id: "matter",
-    title: "Matter",
-    description: "Modern read-later app for iPhone, iPad, and web.",
-    category: "Productivity",
-    href: "/apps/matter",
-    faviconUrl: "https://getmatter.com/favicon.ico",
-    previewImage: "https://main--matter-website-e45df7.netlify.app/images/og-index.jpg",
-  },
-  {
-    id: "humblytics",
-    title: "Humblytics",
-    description: "Run conversion experiments without waiting on developers.",
-    category: "Analytics",
-    href: "/apps/humblytics",
-    faviconUrl: "https://framerusercontent.com/images/xGpQ9r5keeG3F7rc3hM4Dg3Rks.png",
-    previewImage: "https://framerusercontent.com/images/60HjhXRBD6ChqxMX3f9cRoAYB4.png",
-  },
-  {
     id: "kortex",
     title: "Kortex",
     description: "AI-powered platform for interconnected writing and note-taking.",
@@ -152,15 +134,6 @@ export const websitesData: Website[] = [
     previewImage: "https://polar.sh/assets/brand/polar_og.jpg",
   },
   {
-    id: "rows",
-    title: "Rows",
-    description: "AI spreadsheet that connects to all your data sources.",
-    category: "Productivity",
-    href: "/apps/rows",
-    faviconUrl: "https://rows.com/favicon-db1159ebe7660d30970d9d49ad633a8396ee236c89eb06e2b9878f1a5a72573c/favicon.ico",
-    previewImage: "https://rows.com/media/share.png",
-  },
-  {
     id: "segmentui",
     title: "SegmentUI",
     description: "UI Kits and Components for Framer & Figma.",
@@ -168,15 +141,6 @@ export const websitesData: Website[] = [
     href: "/apps/segmentui",
     faviconUrl: "https://framerusercontent.com/images/mFyfqomzD8KEi8lZPvsm5xEF4l8.png",
     previewImage: "https://framerusercontent.com/images/nyd0tjQO5GGX3cbjqNuScyoqI0.png",
-  },
-  {
-    id: "superhuman",
-    title: "Superhuman",
-    description: "AI-powered suite of tools including mail and docs.",
-    category: "Productivity",
-    href: "/apps/superhuman",
-    faviconUrl: "https://superhumanstatic.com/super-funnel/main/public/images/v1/favicons/superhuman-icon.svg",
-    previewImage: "https://superhumanstatic.com/super-funnel/main/public/images/v1/social-share.png",
   },
   {
     id: "tally",
@@ -195,33 +159,6 @@ export const websitesData: Website[] = [
     href: "/apps/dan-koe",
     faviconUrl: "https://thedankoe.com/wp-content/uploads/2022/04/koe-favicon-150x150.jpg",
     previewImage: "https://thedankoe.com/wp-content/uploads/2023/10/1-square.jpg",
-  },
-  {
-    id: "texts",
-    title: "Texts",
-    description: "A unified messaging platform for all your communication needs.",
-    category: "Communication",
-    href: "/apps/texts",
-    faviconUrl: "https://www.google.com/s2/favicons?domain=texts.com&sz=128",
-    previewImage: "https://api.microlink.io/?url=https%3A%2F%2Ftexts.com&screenshot=true&meta=false&embed=screenshot.url&viewport.width=1280&viewport.height=865",
-  },
-  {
-    id: "beehiiv",
-    title: "beehiiv",
-    description: "All-in-one platform for newsletters, websites, and growth tools.",
-    category: "Marketing",
-    href: "/apps/beehiiv",
-    faviconUrl: "https://beehiiv-marketing-images.s3.amazonaws.com/Redesign2023/favicon.png",
-    previewImage: "https://media.beehiiv.com/www/og-image/og-beehiiv.png",
-  },
-  {
-    id: "flow",
-    title: "Flow",
-    description: "Voice-to-text AI that turns speech into polished writing.",
-    category: "AI Tools",
-    href: "/apps/flow",
-    faviconUrl: "https://cdn.prod.website-files.com/682f84b3838c89f8ff7667db/684b3be32acf9b372f54d041_ws-favi.png",
-    previewImage: "https://cdn.prod.website-files.com/682f84b3838c89f8ff7667db/683c611aba65ade013982bcd_wispr-og-min.jpg",
   },
   {
     id: "onetap",
@@ -251,15 +188,6 @@ export const websitesData: Website[] = [
     previewImage: "https://www.useplunk.com/assets/card.png",
   },
   {
-    id: "spiral",
-    title: "Spiral",
-    description: "The AI Writing Partner for Social.",
-    category: "AI Tools",
-    href: "/apps/spiral",
-    faviconUrl: "https://framerusercontent.com/images/ZJjuhw9IT16KQiTUilnGpsrxuVw.svg",
-    previewImage: "https://framerusercontent.com/assets/cumaHssCSvnociQcbq08BlpGHPc.png",
-  },
-  {
     id: "monologue",
     title: "Monologue",
     description: "Effortless voice dictation that understands your work.",
@@ -267,15 +195,6 @@ export const websitesData: Website[] = [
     href: "/apps/monologue",
     faviconUrl: "https://framerusercontent.com/images/aF3yOlwFNUtfqtTdVBPl2pbUP3o.png",
     previewImage: "https://framerusercontent.com/images/iDZTa4NQGEBJEibFjQlfeCQyag.png",
-  },
-  {
-    id: "youform",
-    title: "Youform",
-    description: "Free Typeform alternative with unlimited submissions.",
-    category: "No-code",
-    href: "/apps/youform",
-    faviconUrl: "https://youform.io/assets/images/favicon.ico",
-    previewImage: "https://youform.com/assets/images/youform-builder.png",
   }
 ];
 
@@ -383,48 +302,6 @@ export const appDetailsData: Record<string, AppDetail> = {
       "Support for web tables and code blocks",
       "Create read-it-later lists and swipe files",
       "Flexible and customizable workflows"
-    ]
-  },
-  "matter": {
-    id: "matter",
-    title: "Matter",
-    description: "Modern read-later app for iPhone, iPad, and web.",
-    category: "Productivity",
-    platforms: ["iOS", "iPadOS", "Web"],
-    pricing: "Freemium & Paid",
-    developer: "Matter",
-    lastUpdated: "Today",
-    websiteUrl: "https://getmatter.com",
-    faviconUrl: "https://getmatter.com/favicon.ico",
-    previewImage: "https://main--matter-website-e45df7.netlify.app/images/og-index.jpg",
-    about: "Matter is the modern read-later app for iPhone, iPad, and web. Its simplicity, power, and award-winning design have earned it three Apple “App of the Day” honors. Built by a small team of avid readers, Matter is crafted to stand the test of time.",
-    features: [
-      "Save articles, threads, and PDFs",
-      "Advanced parsing technology for distraction-free reading",
-      "Newsletter integration via Gmail or unique email",
-      "Seamless switching between audio and text",
-      "Offline search and full-text tagging"
-    ]
-  },
-  "humblytics": {
-    id: "humblytics",
-    title: "Humblytics",
-    description: "Run conversion experiments without waiting on developers.",
-    category: "Analytics",
-    platforms: ["Web"],
-    pricing: "Paid",
-    developer: "Humblytics",
-    lastUpdated: "Today",
-    websiteUrl: "https://humblytics.com",
-    faviconUrl: "https://framerusercontent.com/images/xGpQ9r5keeG3F7rc3hM4Dg3Rks.png",
-    previewImage: "https://framerusercontent.com/images/60HjhXRBD6ChqxMX3f9cRoAYB4.png",
-    about: "Humblytics is an all-in-one platform for conversion optimization, offering analytics, heatmaps, split testing, and funnels. It enables marketing teams to run conversion experiments without needing developers, using a visual editor to deploy changes in 60 seconds.",
-    features: [
-      "Visual A/B split testing",
-      "Click heatmaps and scroll depth tracking",
-      "User journey and funnel tracking",
-      "Privacy-first tracking without cookies",
-      "Unified dashboard for site traffic"
     ]
   },
   "kortex": {
@@ -553,27 +430,6 @@ export const appDetailsData: Record<string, AppDetail> = {
       "Detailed revenue and cost analytics"
     ]
   },
-  "rows": {
-    id: "rows",
-    title: "Rows",
-    description: "AI spreadsheet that connects to all your data sources.",
-    category: "Productivity",
-    platforms: ["Web"],
-    pricing: "Freemium & Paid",
-    developer: "Rows",
-    lastUpdated: "Today",
-    websiteUrl: "https://rows.com",
-    faviconUrl: "https://rows.com/favicon-db1159ebe7660d30970d9d49ad633a8396ee236c89eb06e2b9878f1a5a72573c/favicon.ico",
-    previewImage: "https://rows.com/media/share.png",
-    about: "Rows reimagines the traditional spreadsheet by integrating powerful AI capabilities and direct connections to popular business applications like Google Analytics, Salesforce, and Facebook Ads. Users can import data and automate analysis.",
-    features: [
-      "AI-powered functions and automation",
-      "Direct connections to business tools",
-      "Interactive reports and dashboards",
-      "Automated data analysis",
-      "Collaborative spreadsheet environment"
-    ]
-  },
   "segmentui": {
     id: "segmentui",
     title: "SegmentUI",
@@ -593,27 +449,6 @@ export const appDetailsData: Record<string, AppDetail> = {
       "Framer AI Code Generator",
       "Figma and Framer production-ready kits",
       "Lifetime updates and asset library"
-    ]
-  },
-  "superhuman": {
-    id: "superhuman",
-    title: "Superhuman",
-    description: "AI-powered suite of tools including mail and docs.",
-    category: "Productivity",
-    platforms: ["macOS", "Windows", "iOS", "Android", "Web"],
-    pricing: "Paid",
-    developer: "Superhuman",
-    lastUpdated: "Today",
-    websiteUrl: "https://superhuman.com",
-    faviconUrl: "https://superhumanstatic.com/super-funnel/main/public/images/v1/favicons/superhuman-icon.svg",
-    previewImage: "https://superhumanstatic.com/super-funnel/main/public/images/v1/social-share.png",
-    about: "Superhuman integrates Mail, Docs, and a proactive AI assistant (Go) to revolutionize work. The Mail component is designed to make email management twice as fast, saving users 4 hours weekly with features like AI-powered writing.",
-    features: [
-      "AI-powered email management and writing",
-      "Integrated Docs and team wikis",
-      "Proactive AI assistant (Go)",
-      "Cross-app scheduling and help",
-      "Blazing fast keyboard-first interface"
     ]
   },
   "tally": {
@@ -656,69 +491,6 @@ export const appDetailsData: Record<string, AppDetail> = {
       "Focus and productivity training",
       "Insights into the creator economy",
       "Personal development and growth systems"
-    ]
-  },
-  "texts": {
-    id: "texts",
-    title: "Texts",
-    description: "A unified messaging platform for all your communication needs.",
-    category: "Communication",
-    platforms: ["macOS", "Windows", "iOS"],
-    pricing: "Freemium & Paid",
-    developer: "Texts",
-    lastUpdated: "Today",
-    websiteUrl: "https://texts.com",
-    faviconUrl: "https://www.google.com/s2/favicons?domain=texts.com&sz=128",
-    previewImage: "https://api.microlink.io/?url=https%3A%2F%2Ftexts.com&screenshot=true&meta=false&embed=screenshot.url&viewport.width=1280&viewport.height=865",
-    about: "Texts aims to simplify your digital life by consolidating all your messaging apps into one intuitive interface. Manage chats, respond to messages, and organize conversations from various platforms without switching applications.",
-    features: [
-      "Unified inbox for all messaging apps",
-      "Multi-platform chat management",
-      "Keyboard-first navigation",
-      "End-to-end encryption support",
-      "No app switching required"
-    ]
-  },
-  "beehiiv": {
-    id: "beehiiv",
-    title: "beehiiv",
-    description: "All-in-one platform for newsletters, websites, and growth tools.",
-    category: "Marketing",
-    platforms: ["Web"],
-    pricing: "Freemium & Paid",
-    developer: "beehiiv",
-    lastUpdated: "Today",
-    websiteUrl: "https://www.beehiiv.com",
-    faviconUrl: "https://beehiiv-marketing-images.s3.amazonaws.com/Redesign2023/favicon.png",
-    previewImage: "https://media.beehiiv.com/www/og-image/og-beehiiv.png",
-    about: "beehiiv is a comprehensive platform designed for publishers, creators, and brands to build, publish, grow, and monetize their content. It offers a powerful newsletter builder and a no-code website builder.",
-    features: [
-      "Powerful newsletter builder",
-      "No-code website creation",
-      "Built-in ad network and monetization",
-      "Advanced campaign analytics",
-      "Growth tools and recommendation network"
-    ]
-  },
-  "flow": {
-    id: "flow",
-    title: "Flow",
-    description: "Voice-to-text AI that turns speech into polished writing.",
-    category: "AI Tools",
-    platforms: ["macOS", "Windows", "iOS"],
-    pricing: "Freemium & Paid",
-    developer: "Wispr",
-    lastUpdated: "Today",
-    websiteUrl: "https://www.flowvoice.ai",
-    faviconUrl: "https://cdn.prod.website-files.com/682f84b3838c89f8ff7667db/684b3be32acf9b372f54d041_ws-favi.png",
-    previewImage: "https://cdn.prod.website-files.com/682f84b3838c89f8ff7667db/683c611aba65ade013982bcd_wispr-og-min.jpg",
-    about: "Flow is an advanced voice-to-text AI designed to transform spoken words into clear, polished writing across all applications. It allows users to write up to 4x faster than traditional typing by speaking naturally.",
-    features: [
-      "AI Auto Edits for polished text",
-      "Personal dictionary for unique words",
-      "Snippet library for voice shortcuts",
-      "Context-aware tone adjustment",
-      "Support for over 100 languages"
     ]
   },
   "onetap": {
@@ -784,27 +556,6 @@ export const appDetailsData: Record<string, AppDetail> = {
       "Open-source and privacy-focused"
     ]
   },
-  "spiral": {
-    id: "spiral",
-    title: "Spiral",
-    description: "The AI Writing Partner for Social.",
-    category: "AI Tools",
-    platforms: ["Web"],
-    pricing: "Paid",
-    developer: "Every",
-    lastUpdated: "Today",
-    websiteUrl: "https://writewithspiral.com/",
-    faviconUrl: "https://framerusercontent.com/images/ZJjuhw9IT16KQiTUilnGpsrxuVw.svg",
-    previewImage: "https://framerusercontent.com/assets/cumaHssCSvnociQcbq08BlpGHPc.png",
-    about: "Spiral is an AI writing partner designed to produce high-quality, tasteful content with natural rhythm. It actively works with users by asking targeted questions and ensuring content captures actual meaning.",
-    features: [
-      "Targeted AI questioning for better content",
-      "Multiple drafts from different angles",
-      "Grounded writing to avoid hallucinations",
-      "Custom brand voice and style matching",
-      "Integrated editorial standards"
-    ]
-  },
   "monologue": {
     id: "monologue",
     title: "Monologue",
@@ -824,27 +575,6 @@ export const appDetailsData: Record<string, AppDetail> = {
       "Adapts to individual writing style",
       "3x faster content creation",
       "Built on advanced open AI models"
-    ]
-  },
-  "youform": {
-    id: "youform",
-    title: "Youform",
-    description: "Free Typeform alternative with unlimited submissions.",
-    category: "No-code",
-    platforms: ["Web"],
-    pricing: "Free",
-    developer: "Youform",
-    lastUpdated: "Today",
-    websiteUrl: "https://youform.io",
-    faviconUrl: "https://youform.io/assets/images/favicon.ico",
-    previewImage: "https://youform.com/assets/images/youform-builder.png",
-    about: "Youform is a free Typeform alternative that allows unlimited forms and unlimited responses on the free plan. It provides a simple and powerful way to collect data without restrictions.",
-    features: [
-      "Unlimited forms and responses on free plan",
-      "Intuitive form builder interface",
-      "Mobile-responsive forms",
-      "Custom branding options",
-      "Data collection without paywalls"
     ]
   }
 };
