@@ -51,7 +51,7 @@ function WebsiteCard({ item, onClick }: { item: Website; onClick?: (id: string) 
       {/* Card Preview */}
       <motion.button
         onClick={handleClick}
-        className="relative w-full block overflow-hidden transition-all duration-200 bg-[#fafafa] dark:bg-[#0a0a0a] border border-[#e5e5e5] dark:border-[#262626] rounded-[12px] hover:border-[#d1d1d1] dark:hover:border-[#3a3a3a] hover:shadow-sm dark:hover:shadow-[0_0_0_1px_rgba(255,255,255,0.05)]"
+        className="relative w-full block overflow-hidden transition-all duration-200 bg-[#fafafa] dark:bg-[#0a0a0a] border border-[#e5e5e5] dark:border-[#262626] rounded-md hover:border-[#d1d1d1] dark:hover:border-[#3a3a3a] hover:shadow-sm dark:hover:shadow-[0_0_0_1px_rgba(255,255,255,0.05)]"
         whileTap={{ scale: 0.98 }}
         transition={{ type: "spring", stiffness: 400, damping: 17 }}
       >
