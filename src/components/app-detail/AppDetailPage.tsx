@@ -248,5 +248,4 @@ export default function AppDetailPage({ app, onBack, onNavigateToApp, onSubscrib
       </main>
     </div>
   );
-  );
 }
