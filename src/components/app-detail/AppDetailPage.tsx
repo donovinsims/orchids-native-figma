@@ -65,7 +65,7 @@ export default function AppDetailPage({ app, onBack, onNavigateToApp, onSubscrib
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background-primary text-foreground">
       {/* Header */}
       <HeaderNavigation 
         onSubscribeClick={onSubscribeClick}
