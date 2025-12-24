@@ -90,28 +90,31 @@ function WebsiteCard({ item, onClick }: { item: Website; onClick?: (id: string) 
           )}
         </button>
 
-        {/* Bookmark and External Icons */}
-        <div className="flex items-center gap-1 flex-shrink-0">
-          <motion.button
-            onClick={handleBookmark}
-            className="p-1.5 rounded-md hover:bg-background-tertiary transition-colors text-text-secondary hover:text-text-primary"
-            whileTap={{ scale: 0.9 }}
-            aria-label={isBookmarked ? "Remove bookmark" : "Add bookmark"}
-          >
-            <Bookmark 
-              className={`w-4 h-4 ${isBookmarked ? "fill-current text-accent" : ""}`}
-            />
-          </motion.button>
+          <div className="flex items-center gap-1 flex-shrink-0">
+            <button
+              onClick={handleBookmark}
+              className="p-1.5 rounded-md transition-colors text-text-secondary hover:text-text-primary"
+              aria-label={isBookmarked ? "Remove bookmark" : "Add bookmark"}
+            >
+              <motion.div
+                animate={isBookmarked ? { scale: [1, 1.35, 1] } : { scale: 1 }}
+                transition={{ duration: 0.3, times: [0, 0.5, 1], ease: "easeInOut" }}
+              >
+                <Bookmark 
+                  className={`w-4 h-4 ${isBookmarked ? "fill-[#ff4500] text-[#ff4500]" : ""}`}
+                />
+              </motion.div>
+            </button>
 
-          <motion.button
-            onClick={handleExternalLink}
-            className="p-1.5 rounded-md hover:bg-background-tertiary transition-colors text-text-secondary hover:text-text-primary"
-            whileTap={{ scale: 0.9 }}
-            aria-label="Open in new tab"
-          >
-            <ExternalLink className="w-4 h-4" />
-          </motion.button>
-        </div>
+            <motion.button
+              onClick={handleExternalLink}
+              className="p-1.5 rounded-md hover:bg-background-tertiary transition-colors text-text-secondary hover:text-text-primary"
+              whileTap={{ scale: 0.9 }}
+              aria-label="Open in new tab"
+            >
+              <ExternalLink className="w-4 h-4" />
+            </motion.button>
+          </div>
       </div>
     </div>
   );
