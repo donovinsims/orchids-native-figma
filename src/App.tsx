@@ -11,6 +11,8 @@ import { SubscribeModal } from "./components/modals/SubscribeModal";
 import { SubmitAppModal } from "./components/modals/SubmitAppModal";
 import { AuthModal } from "./components/modals/AuthModal";
 import { Toaster } from "./components/ui/sonner";
+import { ThemeProvider } from "./components/theme-provider";
+import { Container } from "./components/ui/container";
 import { websitesData, appDetailsData } from "./data/appsData";
 
 export default function App() {
@@ -34,7 +36,6 @@ export default function App() {
   const handleAppClick = (appId: string) => {
     setSelectedAppId(appId);
     if (!isMobile) {
-      // Scroll to top only on desktop
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
@@ -48,62 +49,53 @@ export default function App() {
     setSelectedAppId(null);
   };
 
-  // Get the selected app details
   const selectedApp = selectedAppId ? appDetailsData[selectedAppId] : null;
 
-  // Show detail page on desktop if an app is selected
-  if (selectedApp && !isMobile) {
-    return (
-      <>
-        <AppDetailPage 
-          app={selectedApp} 
-          onBack={handleBackToList}
-          onNavigateToApp={handleAppClick}
-          onSubscribeClick={subscribeModal.open}
-          onSubmitClick={submitModal.open}
-        />
+  return (
+    <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+      <div className="relative min-h-screen bg-background text-foreground transition-colors duration-200">
+        {!selectedApp || isMobile ? (
+          <>
+            <HeaderNavigation 
+              onSubscribeClick={subscribeModal.open}
+              onSubmitClick={submitModal.open}
+              onLoginClick={authModal.open}
+            />
+            
+            <div className="pt-[67px]">
+              <main>
+                <Container className="py-md md:py-xl">
+                  <HeroHeader onSubscribeClick={subscribeModal.open} />
+                  <WebsiteGrid items={websitesData} onItemClick={handleAppClick} />
+                </Container>
+              </main>
+            </div>
+          </>
+        ) : (
+          <AppDetailPage 
+            app={selectedApp} 
+            onBack={handleBackToList}
+            onNavigateToApp={handleAppClick}
+            onSubscribeClick={subscribeModal.open}
+            onSubmitClick={submitModal.open}
+          />
+        )}
+
+        {/* Modals */}
         <SubscribeModal isOpen={subscribeModal.isOpen} onClose={subscribeModal.close} />
         <SubmitAppModal isOpen={submitModal.isOpen} onClose={submitModal.close} />
         <AuthModal isOpen={authModal.isOpen} onClose={authModal.close} />
+        
+        {/* Bottom Sheet for Mobile */}
+        <AppDetailBottomSheet
+          app={selectedApp}
+          isOpen={!!selectedApp && isMobile}
+          onClose={handleCloseBottomSheet}
+          onNavigateToApp={handleAppClick}
+        />
+        
         <Toaster position="bottom-center" />
-      </>
-    );
-  }
-
-  // Show main list view with bottom sheet on mobile
-  return (
-    <div className="relative min-h-screen bg-white">
-      <HeaderNavigation 
-        onSubscribeClick={subscribeModal.open}
-        onSubmitClick={submitModal.open}
-        onLoginClick={authModal.open}
-      />
-      
-      <div className="flex pt-[67px]">
-        <main className="flex-1">
-          <div className="mx-auto px-3 sm:px-5 py-4 sm:py-8">
-            <HeroHeader onSubscribeClick={subscribeModal.open} />
-            
-            <WebsiteGrid items={websitesData} onItemClick={handleAppClick} />
-          </div>
-        </main>
       </div>
-
-      {/* Modals */}
-      <SubscribeModal isOpen={subscribeModal.isOpen} onClose={subscribeModal.close} />
-      <SubmitAppModal isOpen={submitModal.isOpen} onClose={submitModal.close} />
-      <AuthModal isOpen={authModal.isOpen} onClose={authModal.close} />
-      
-      {/* Bottom Sheet for Mobile */}
-      <AppDetailBottomSheet
-        app={selectedApp}
-        isOpen={!!selectedApp && isMobile}
-        onClose={handleCloseBottomSheet}
-        onNavigateToApp={handleAppClick}
-      />
-      
-      {/* Toast notifications */}
-      <Toaster position="bottom-center" />
-    </div>
+    </ThemeProvider>
   );
 }
