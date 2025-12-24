@@ -37,14 +37,10 @@ export default function App() {
 
   const handleAppClick = (appId: string) => {
     setSelectedAppId(appId);
-    if (!isMobile) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
   };
 
     const handleBackToList = () => {
       setSelectedAppId(null);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
     const selectedApp = selectedAppId ? appDetailsData[selectedAppId] : null;
@@ -53,32 +49,19 @@ export default function App() {
     <AuthProvider>
       <NextThemesProvider attribute="class" defaultTheme="light" enableSystem>
       <div className="relative min-h-screen bg-background-primary text-foreground transition-colors duration-200 flex flex-col">
-        {!selectedApp && (
-          <HeaderNavigation 
-            onSubscribeClick={subscribeModal.open}
-            onSubmitClick={submitModal.open}
-            onLoginClick={authModal.open}
-            onProfileClick={() => setCurrentView('profile')}
-            onHomeClick={() => {
-              setCurrentView('home');
-              setSelectedAppId(null);
-            }}
-          />
-        )}
+        <HeaderNavigation 
+          onSubscribeClick={subscribeModal.open}
+          onSubmitClick={submitModal.open}
+          onLoginClick={authModal.open}
+          onProfileClick={() => setCurrentView('profile')}
+          onHomeClick={() => {
+            setCurrentView('home');
+            setSelectedAppId(null);
+          }}
+        />
         
         <div className="flex-grow">
-            {selectedApp ? (
-              <AppDetailPage 
-                app={selectedApp} 
-                onBack={handleBackToList}
-                onNavigateToApp={handleAppClick}
-                onSubscribeClick={subscribeModal.open}
-                onSubmitClick={submitModal.open}
-                onLoginClick={authModal.open}
-                onProfileClick={() => setCurrentView('profile')}
-                onHomeClick={handleBackToList}
-              />
-            ) : currentView === 'profile' ? (
+            {currentView === 'profile' ? (
               <div className="pt-[67px]">
                 <Container className="py-md md:py-xl">
                   <ProfileView onAppClick={handleAppClick} />
@@ -96,10 +79,22 @@ export default function App() {
             )}
           </div>
 
-        {!selectedApp && (
-          <Footer 
+        <Footer 
+          onSubscribeClick={subscribeModal.open}
+          onSubmitClick={submitModal.open}
+        />
+
+        {/* App Detail Overlay */}
+        {selectedApp && (
+          <AppDetailPage 
+            app={selectedApp} 
+            onBack={handleBackToList}
+            onNavigateToApp={handleAppClick}
             onSubscribeClick={subscribeModal.open}
             onSubmitClick={submitModal.open}
+            onLoginClick={authModal.open}
+            onProfileClick={() => setCurrentView('profile')}
+            onHomeClick={handleBackToList}
           />
         )}
 
@@ -114,4 +109,3 @@ export default function App() {
     </AuthProvider>
   );
 }
-
