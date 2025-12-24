@@ -112,7 +112,7 @@ export default function AppDetailBottomSheet({
 
       {/* Bottom Sheet */}
       <motion.div
-        className="fixed bottom-0 left-0 right-0 bg-white rounded-t-3xl shadow-2xl z-50 lg:hidden"
+        className="fixed bottom-0 left-0 right-0 bg-background rounded-t-md shadow-2xl z-50 lg:hidden border-t border-border"
         initial={{ y: "100%" }}
         animate={{ y: isOpen ? "4vh" : "100%" }}
         exit={{ y: "100%" }}
@@ -135,35 +135,35 @@ export default function AppDetailBottomSheet({
       >
         {/* Drag Handle */}
         <div className="w-full flex justify-center pt-3 pb-2">
-          <div className="w-12 h-1 bg-gray-300 rounded-full" />
+          <div className="w-12 h-1 bg-border rounded-full" />
         </div>
 
         {/* Header */}
-        <div className="flex items-center justify-between px-4 pb-3 border-b border-gray-100">
+        <div className="flex items-center justify-between px-4 pb-3 border-b border-border">
           <motion.button
             onClick={onClose}
-            className="flex items-center justify-center w-10 h-10 rounded-lg active:bg-gray-100 transition-colors"
+            className="flex items-center justify-center w-10 h-10 rounded-md active:bg-background-secondary transition-colors"
             whileTap={{ scale: 0.95 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
           >
-            <X className="w-6 h-6 text-gray-900" />
+            <X className="w-6 h-6 text-text-primary" />
           </motion.button>
           <motion.button
             onClick={handleShare}
-            className="flex items-center justify-center w-10 h-10 rounded-lg active:bg-gray-100 transition-colors"
+            className="flex items-center justify-center w-10 h-10 rounded-md active:bg-background-secondary transition-colors"
             whileTap={{ scale: 0.95 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
           >
-            <Share2 className="w-5 h-5 text-gray-900" />
+            <Share2 className="w-5 h-5 text-text-primary" />
           </motion.button>
         </div>
 
         {/* Scrollable Content */}
         <div className="overflow-y-auto h-[calc(100%-60px)] overscroll-contain">
-          <div className="px-4 py-4 space-y-6">
+          <div className="px-4 py-4 space-y-6 text-text-primary">
             {/* Preview Image */}
             <motion.div 
-              className="relative w-full aspect-video bg-gray-100 rounded-xl overflow-hidden"
+              className="relative w-full aspect-video bg-background-secondary rounded-md overflow-hidden border border-border"
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{
@@ -195,10 +195,10 @@ export default function AppDetailBottomSheet({
                 delay: 0.15
               }}
             >
-              <h1 className="text-3xl text-black mb-2 tracking-tight">
+              <h1 className="text-3xl text-text-primary mb-2 tracking-tight">
                 {app.title}
               </h1>
-              <p className="text-gray-500">
+              <p className="text-text-secondary">
                 {app.description}
               </p>
             </motion.div>
@@ -219,7 +219,7 @@ export default function AppDetailBottomSheet({
                 href={app.websiteUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 px-6 py-3 rounded-lg border border-gray-300 bg-white text-black transition-colors"
+                className="flex items-center justify-center gap-2 px-6 py-3 rounded-md border border-border bg-background text-text-primary transition-colors"
                 whileTap={{ scale: 0.97 }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
@@ -228,7 +228,7 @@ export default function AppDetailBottomSheet({
               </motion.a>
               <motion.button
                 onClick={handleBookmark}
-                className="flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-orange-500 text-white transition-colors"
+                className="flex items-center justify-center gap-2 px-6 py-3 rounded-md bg-accent text-accent-foreground transition-colors"
                 whileTap={{ scale: 0.97 }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
@@ -248,38 +248,38 @@ export default function AppDetailBottomSheet({
                 delay: 0.25
               }}
             >
-              <h2 className="text-xl text-black mb-4">
+              <h2 className="text-xl text-text-primary mb-4">
                 App Information
               </h2>
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="text-gray-500 text-sm">Category</span>
-                  <span className="text-black text-sm">{app.category}</span>
+                  <span className="text-text-secondary text-sm">Category</span>
+                  <span className="text-text-primary text-sm">{app.category}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-gray-500 text-sm">Platforms</span>
-                  <span className="text-black text-sm">{app.platforms.join(", ")}</span>
+                  <span className="text-text-secondary text-sm">Platforms</span>
+                  <span className="text-text-primary text-sm">{app.platforms.join(", ")}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-gray-500 text-sm">Pricing</span>
-                  <span className="text-black text-sm">{app.pricing}</span>
+                  <span className="text-text-secondary text-sm">Pricing</span>
+                  <span className="text-text-primary text-sm">{app.pricing}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-gray-500 text-sm">Last Updated</span>
-                  <span className="text-black text-sm">{app.lastUpdated}</span>
+                  <span className="text-text-secondary text-sm">Last Updated</span>
+                  <span className="text-text-primary text-sm">{app.lastUpdated}</span>
                 </div>
               </div>
             </motion.section>
 
             {/* About */}
             <section>
-              <h2 className="text-xl text-black mb-3">
+              <h2 className="text-xl text-text-primary mb-3">
                 About {app.title}
               </h2>
-              <p className="text-gray-700 leading-relaxed mb-4">
+              <p className="text-text-secondary leading-relaxed mb-4">
                 {app.about}
               </p>
-              <p className="text-gray-500 leading-relaxed">
+              <p className="text-text-tertiary leading-relaxed">
                 This is a demo description for {app.title}. It represents the kind of content you would find on the detail page.
               </p>
             </section>
@@ -287,16 +287,16 @@ export default function AppDetailBottomSheet({
             {/* Key Features */}
             {app.features && app.features.length > 0 && (
               <section>
-                <h2 className="text-xl text-black mb-4">
+                <h2 className="text-xl text-text-primary mb-4">
                   Key Features
                 </h2>
                 <ul className="space-y-3">
                   {app.features.map((feature, index) => (
                     <li key={index} className="flex items-start gap-3">
-                      <div className="flex-shrink-0 w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mt-0.5">
-                        <Check className="w-3 h-3 text-green-600" />
+                      <div className="flex-shrink-0 w-5 h-5 rounded-full bg-success/10 flex items-center justify-center mt-0.5">
+                        <Check className="w-3 h-3 text-success" />
                       </div>
-                      <span className="text-gray-700 text-sm">{feature}</span>
+                      <span className="text-text-secondary text-sm">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -306,7 +306,7 @@ export default function AppDetailBottomSheet({
             {/* Related Apps */}
             {app.relatedApps && app.relatedApps.length > 0 && (
               <section className="pb-6">
-                <h2 className="text-xl text-black mb-4">
+                <h2 className="text-xl text-text-primary mb-4">
                   Related Apps
                 </h2>
                 <div className="space-y-4">
@@ -319,11 +319,11 @@ export default function AppDetailBottomSheet({
                           onNavigateToApp?.(relatedApp.id);
                         }, 300);
                       }}
-                      className="block w-full bg-white rounded-xl border border-gray-200 overflow-hidden transition-all text-left"
+                      className="block w-full bg-background rounded-md border border-border overflow-hidden transition-all text-left"
                       whileTap={{ scale: 0.98 }}
                       transition={{ type: "spring", stiffness: 400, damping: 17 }}
                     >
-                      <div className="relative w-full aspect-video bg-gray-100">
+                      <div className="relative w-full aspect-video bg-background-secondary">
                         <img
                           src={relatedApp.previewImage}
                           alt={relatedApp.title}
@@ -334,10 +334,10 @@ export default function AppDetailBottomSheet({
                         />
                       </div>
                       <div className="p-4">
-                        <h3 className="text-black mb-1">
+                        <h3 className="text-text-primary mb-1">
                           {relatedApp.title}
                         </h3>
-                        <p className="text-sm text-gray-500 line-clamp-2">
+                        <p className="text-sm text-text-secondary line-clamp-2">
                           {relatedApp.description}
                         </p>
                       </div>
