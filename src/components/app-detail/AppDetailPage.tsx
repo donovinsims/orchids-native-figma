@@ -162,7 +162,7 @@ export default function AppDetailPage({ app, onBack, onNavigateToApp, onSubscrib
                           onClick={() => onNavigateToApp?.(relatedApp.id)}
                           className="block bg-background-primary rounded-md border border-border hover:border-border-strong transition-all duration-200 hover:shadow-md text-left group"
                         >
-                          <div className="relative w-full aspect-video bg-background-secondary overflow-hidden">
+                          <div className="relative w-full aspect-[16/10] bg-background-secondary overflow-hidden">
                             <img
                               src={relatedApp.previewImage}
                               alt={relatedApp.title}
