@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import { Button } from '../ui/button';
 
 interface HeroHeaderProps {
   onSubscribeClick?: () => void;
@@ -9,20 +10,21 @@ interface HeroHeaderProps {
 const HeroHeader = ({ onSubscribeClick }: HeroHeaderProps) => {
   return (
     <section className="py-3 md:py-8">
-      <h1 className="md:text-4xl md:leading-10 text-black tracking-[-2px] leading-none text-[39px]">
+      <h1 className="md:text-4xl md:leading-10 text-text-primary tracking-[-2px] leading-none text-[39px] font-semibold">
         The best web design inspiration
       </h1>
-      <h3 className="mt-2 text-base md:text-xl leading-6 md:leading-8 text-gray-500">
+      <h3 className="mt-2 text-base md:text-xl leading-6 md:leading-8 text-text-secondary">
         Browse the best of the internet. Hand-picked and updated daily.
       </h3>
-      <div className="mt-6 flex items-baseline">
-        <button
+      <div className="mt-6 flex items-baseline gap-3">
+        <Button
           onClick={onSubscribeClick}
-          className="min-h-[40px] flex items-center justify-center px-6 py-2 rounded-xl border border-[#d1d1d1] hover:bg-gray-50 transition-colors text-sm bg-neutral-950 text-white"
+          variant="primary"
+          className="rounded-xl"
         >
           Subscribe for free
-        </button>
-        <span className="ml-3 text-sm text-gray-400">97 joined today</span>
+        </Button>
+        <span className="text-body-md text-text-tertiary">97 joined today</span>
       </div>
     </section>
   );
