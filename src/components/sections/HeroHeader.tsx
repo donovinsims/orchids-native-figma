@@ -16,12 +16,12 @@ const HeroHeader = ({ onSubscribeClick }: HeroHeaderProps) => {
       <h3 className="mt-2 text-base md:text-xl leading-6 md:leading-8 text-text-secondary">
         Browse the best of the internet. Hand-picked and updated daily.
       </h3>
-      <div className="mt-6 flex items-baseline gap-3">
-        <Button
-          onClick={onSubscribeClick}
-          variant="primary"
-          className="rounded-xl"
-        >
+        <div className="mt-6 flex items-baseline gap-3">
+          <Button
+            onClick={onSubscribeClick}
+            variant="primary"
+            className="rounded-md"
+          >
           Subscribe for free
         </Button>
         <span className="text-body-md text-text-tertiary">97 joined today</span>
