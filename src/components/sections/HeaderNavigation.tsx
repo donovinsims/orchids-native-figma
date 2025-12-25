@@ -22,11 +22,12 @@ interface HeaderNavigationProps {
   onSubscribeClick?: () => void;
   onSubmitClick?: () => void;
   onLoginClick?: () => void;
+  onSignUpClick?: () => void;
   onProfileClick?: () => void;
   onHomeClick?: () => void;
 }
 
-const HeaderNavigation = ({ onSubscribeClick, onSubmitClick, onLoginClick, onProfileClick, onHomeClick }: HeaderNavigationProps) => {
+const HeaderNavigation = ({ onSubscribeClick, onSubmitClick, onLoginClick, onSignUpClick, onProfileClick, onHomeClick }: HeaderNavigationProps) => {
   const mobileNav = useMobileNav();
   const { user, signOut, profile } = useAuth();
 
@@ -70,20 +71,29 @@ const HeaderNavigation = ({ onSubscribeClick, onSubmitClick, onLoginClick, onPro
                   </Button>
                 </div>
               ) : (
-                <Button
-                  variant="secondary"
-                  onClick={onLoginClick}
-                  className="min-w-[100px]"
-                >
-                  Sign In
-                </Button>
+                <div className="flex items-center gap-2">
+                  <Button
+                    variant="secondary"
+                    onClick={onLoginClick}
+                    className="min-w-[100px]"
+                  >
+                    Sign In
+                  </Button>
+                  <Button
+                    variant="primary"
+                    onClick={onSignUpClick}
+                    className="min-w-[100px]"
+                  >
+                    Sign Up
+                  </Button>
+                </div>
               )}
             </div>
 
             <Button
               variant="primary"
               onClick={onSubscribeClick}
-              className="hidden md:flex min-w-[97px]"
+              className={`hidden md:flex min-w-[97px] ${user ? '' : 'md:hidden'}`}
             >
               Subscribe
             </Button>
@@ -99,6 +109,7 @@ const HeaderNavigation = ({ onSubscribeClick, onSubmitClick, onLoginClick, onPro
         onSubscribeClick={onSubscribeClick}
         onSubmitClick={onSubmitClick}
         onLoginClick={onLoginClick}
+        onSignUpClick={onSignUpClick}
       />
     </>
   );
