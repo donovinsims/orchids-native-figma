@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { useModal } from "./hooks/useModal.tsx";
 import HeaderNavigation from "./components/sections/HeaderNavigation";
@@ -12,7 +12,7 @@ import { SubmitAppModal } from "./components/modals/SubmitAppModal";
 import { AuthModal } from "./components/modals/AuthModal";
 import { Toaster } from "./components/ui/sonner";
 import { Container } from "./components/ui/container";
-import { websitesData, appDetailsData } from "./data/appsData";
+import { getApps, getAppDetail, App as AppType, AppDetail } from "./lib/apps";
 import { AuthProvider } from "./hooks/use-auth";
 import { AnimatePresence } from "motion/react";
 import { useIsMobile } from "./hooks/use-mobile";
@@ -25,8 +25,22 @@ export default function App() {
   const authModal = useModal();
   const [authMode, setAuthMode] = useState<"signin" | "signup">("signin");
   const [selectedAppId, setSelectedAppId] = useState<string | null>(null);
+  const [selectedApp, setSelectedApp] = useState<AppDetail | null>(null);
+  const [apps, setApps] = useState<AppType[]>([]);
   const [currentView, setCurrentView] = useState<'home' | 'profile' | 'app-detail'>('home');
   const isMobile = useIsMobile();
+
+  useEffect(() => {
+    getApps().then(setApps);
+  }, []);
+
+  useEffect(() => {
+    if (selectedAppId) {
+      getAppDetail(selectedAppId).then(setSelectedApp);
+    } else {
+      setSelectedApp(null);
+    }
+  }, [selectedAppId]);
 
   const handleAppClick = (appId: string) => {
     setSelectedAppId(appId);
@@ -51,8 +65,6 @@ export default function App() {
     setAuthMode("signup");
     authModal.open();
   };
-
-  const selectedApp = selectedAppId ? appDetailsData[selectedAppId] : null;
 
   return (
     <AuthProvider>
@@ -93,7 +105,7 @@ export default function App() {
                   <main>
                     <Container className="py-md md:py-xl">
                       <HeroHeader onSubscribeClick={subscribeModal.open} />
-                      <WebsiteGrid items={websitesData} onItemClick={handleAppClick} onLoginClick={handleLoginClick} />
+                      <WebsiteGrid items={apps} onItemClick={handleAppClick} onLoginClick={handleLoginClick} />
                     </Container>
                   </main>
                 </div>
