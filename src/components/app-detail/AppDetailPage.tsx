@@ -93,7 +93,7 @@ export default function AppDetailPage({
 
   const content = (
     <motion.div
-      className={`relative w-full ${isInline ? 'max-w-4xl mx-auto' : isMobile ? 'max-w-4xl bg-background-primary rounded-t-[32px] border-t border-border shadow-[0_-8px_30px_rgba(0,0,0,0.12)]' : 'max-w-3xl bg-background-primary rounded-2xl border border-border shadow-2xl'} overflow-hidden flex flex-col ${isInline ? 'shadow-none border-none' : ''}`}
+      className={`relative w-full ${isInline ? 'max-w-4xl mx-auto' : isMobile ? 'max-w-4xl bg-background-primary rounded-t-[32px] border-t border-border shadow-[0_-12px_40px_rgba(0,0,0,0.25)] ring-1 ring-white/5' : 'max-w-3xl bg-background-primary rounded-2xl border border-border shadow-2xl'} overflow-hidden flex flex-col ${isInline ? 'shadow-none border-none' : ''}`}
       initial={isInline ? { opacity: 0, y: 20 } : isMobile ? { y: "100%" } : { opacity: 0, scale: 0.95 }}
       animate={isInline ? { opacity: 1, y: 0 } : isMobile ? { y: 0 } : { opacity: 1, scale: 1 }}
       exit={isInline ? { opacity: 0, y: 20 } : isMobile ? { y: "100%" } : { opacity: 0, scale: 0.95 }}
