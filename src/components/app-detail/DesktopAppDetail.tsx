@@ -86,67 +86,88 @@ export default function DesktopAppDetail({
 
   return (
     <motion.div 
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 10 }}
-      className="min-h-screen bg-background-primary pt-8 pb-24"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="min-h-screen bg-background-primary transition-colors duration-300"
     >
-      <Container>
-        {/* Back Navigation */}
-        <button
-          onClick={onBack}
-          className="group flex items-center gap-2 text-text-secondary hover:text-text-primary transition-colors mb-8"
-        >
-          <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
-          <span className="font-medium">Back to directory</span>
-        </button>
+      <div className="border-b border-border/50 bg-background-primary/50 backdrop-blur-sm sticky top-[67px] z-10 py-4">
+        <Container>
+          <button
+            onClick={onBack}
+            className="group flex items-center gap-2 text-text-secondary hover:text-text-primary transition-colors"
+          >
+            <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
+            <span className="text-sm font-semibold tracking-wide uppercase">Back to Directory</span>
+          </button>
+        </Container>
+      </div>
 
-        <div className="grid grid-cols-12 gap-12">
+      <Container className="py-12 pb-32">
+        <div className="grid grid-cols-12 gap-16">
           {/* Main Content Column */}
-          <div className="col-span-8 space-y-12">
-            {/* Hero Preview */}
-            <div className="relative aspect-[16/10] bg-background-secondary rounded-2xl overflow-hidden border border-border shadow-sm">
-              <img
-                src={app.previewImage}
-                alt={app.title}
-                className="w-full h-full object-cover object-top"
-                loading="lazy"
-                onError={(e) => {
-                  e.currentTarget.src = app.faviconUrl;
-                  e.currentTarget.className = "w-full h-full object-contain p-24";
-                }}
-              />
+          <div className="col-span-8 space-y-16">
+            {/* App Hero Section */}
+            <div className="space-y-8">
+              <div className="flex items-center gap-6">
+                <div className="w-20 h-20 rounded-2xl border border-border bg-white dark:bg-black p-3 shadow-sm overflow-hidden flex-shrink-0">
+                  <img src={app.faviconUrl} alt="" className="w-full h-full object-contain" />
+                </div>
+                <div>
+                  <h1 className="text-5xl font-bold text-text-primary tracking-tight mb-2">
+                    {app.title}
+                  </h1>
+                  <p className="text-2xl text-text-secondary font-medium">
+                    {app.category}
+                  </p>
+                </div>
+              </div>
+
+              <div className="relative aspect-[16/10] bg-background-secondary rounded-[32px] overflow-hidden border border-border shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] transition-transform hover:scale-[1.01] duration-500">
+                <img
+                  src={app.previewImage}
+                  alt={app.title}
+                  className="w-full h-full object-cover object-top"
+                  loading="lazy"
+                  onError={(e) => {
+                    e.currentTarget.src = app.faviconUrl;
+                    e.currentTarget.className = "w-full h-full object-contain p-24";
+                  }}
+                />
+              </div>
             </div>
 
             {/* About Section */}
-            <section>
-              <h2 className="text-3xl font-bold text-text-primary mb-6 tracking-tight">
-                About {app.title}
+            <section className="max-w-3xl">
+              <h2 className="text-3xl font-bold text-text-primary mb-8 tracking-tight">
+                About the App
               </h2>
-              <div className="prose prose-lg dark:prose-invert max-w-none">
-                <p className="text-text-secondary leading-relaxed text-xl mb-6">
+              <div className="space-y-6">
+                <p className="text-text-secondary leading-relaxed text-2xl font-light">
                   {app.about}
                 </p>
                 <p className="text-text-tertiary leading-relaxed text-lg">
-                  This is a premium directory entry for {app.title}. It features detailed insights, 
-                  key functionalities, and integration possibilities to help you streamline your workflow.
+                  Experience {app.title}'s innovative approach to {app.category.toLowerCase()}. 
+                  Designed for modern workflows and built with attention to detail, 
+                  it offers a seamless experience that sets it apart from the competition.
                 </p>
               </div>
             </section>
 
             {/* Features Section */}
             {app.features && app.features.length > 0 && (
-              <section className="bg-background-secondary/30 rounded-3xl p-10 border border-border/50">
-                <h2 className="text-2xl font-bold text-text-primary mb-8 tracking-tight">
-                  Key Features
+              <section className="bg-background-secondary/30 rounded-[40px] p-12 border border-border/50">
+                <h2 className="text-2xl font-bold text-text-primary mb-10 tracking-tight flex items-center gap-3">
+                  <div className="w-2 h-2 rounded-full bg-success" />
+                  Key Features & Capabilities
                 </h2>
-                <div className="grid grid-cols-2 gap-x-12 gap-y-6">
+                <div className="grid grid-cols-2 gap-x-16 gap-y-8">
                   {app.features.map((feature, index) => (
-                    <div key={index} className="flex items-start gap-4">
-                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-success/10 flex items-center justify-center mt-1">
-                        <Check className="w-3.5 h-3.5 text-success" />
+                    <div key={index} className="flex items-start gap-4 group">
+                      <div className="flex-shrink-0 w-8 h-8 rounded-xl bg-background-primary border border-border flex items-center justify-center mt-0.5 group-hover:border-success/50 transition-colors">
+                        <Check className="w-4 h-4 text-success" />
                       </div>
-                      <span className="text-text-secondary text-lg leading-snug">{feature}</span>
+                      <span className="text-text-secondary text-lg leading-relaxed">{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -156,37 +177,28 @@ export default function DesktopAppDetail({
 
           {/* Sidebar Column */}
           <div className="col-span-4">
-            <div className="sticky top-[100px] space-y-8">
-              {/* App Identity Card */}
-              <div className="bg-background-primary border border-border rounded-2xl p-8 shadow-sm">
-                <div className="flex items-start justify-between mb-6">
-                  <div className="space-y-2">
-                    <h1 className="text-4xl font-bold text-text-primary tracking-tight">
-                      {app.title}
-                    </h1>
-                    <p className="text-text-secondary text-lg font-medium">
-                      {app.category}
-                    </p>
-                  </div>
+            <div className="sticky top-[160px] space-y-8">
+              {/* Primary Actions Card */}
+              <div className="bg-background-primary border border-border rounded-[32px] p-8 shadow-xl shadow-black/[0.02]">
+                <div className="flex items-center justify-between mb-8">
+                  <span className="px-3 py-1 rounded-full bg-success/10 text-success text-xs font-bold uppercase tracking-wider">
+                    Official Website
+                  </span>
                   <button
                     onClick={handleShare}
-                    className="p-2.5 rounded-full hover:bg-background-secondary border border-border transition-colors"
+                    className="p-3 rounded-xl hover:bg-background-secondary border border-border transition-all hover:scale-105 active:scale-95"
                     title="Share app"
                   >
                     <Share2 className="w-5 h-5 text-text-secondary" />
                   </button>
                 </div>
 
-                <p className="text-text-secondary text-lg mb-8 leading-relaxed">
-                  {app.shortDescription || app.description}
-                </p>
-
                 <div className="space-y-4">
                   <a
                     href={app.websiteUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 w-full px-6 py-4 rounded-xl bg-text-primary text-background-primary hover:opacity-90 transition-opacity text-lg font-semibold shadow-md"
+                    className="flex items-center justify-center gap-3 w-full px-6 py-5 rounded-2xl bg-text-primary text-background-primary hover:opacity-90 transition-all text-xl font-bold shadow-lg shadow-text-primary/10 hover:-translate-y-0.5"
                   >
                     <span>Visit Website</span>
                     <ExternalLink className="w-5 h-5" />
@@ -194,65 +206,33 @@ export default function DesktopAppDetail({
 
                   <button
                     onClick={handleBookmark}
-                    className={`flex items-center justify-center gap-2 w-full px-6 py-4 rounded-xl border-2 transition-all text-lg font-semibold ${
+                    className={`flex items-center justify-center gap-3 w-full px-6 py-5 rounded-2xl border-2 transition-all text-xl font-bold ${
                       bookmarked 
                         ? "border-[#ff4500] bg-[#ff4500]/5 text-[#ff4500]" 
-                        : "border-border hover:bg-background-secondary text-text-primary"
+                        : "border-border hover:bg-background-secondary text-text-primary hover:border-border-strong"
                     }`}
                   >
                     <Bookmark className={`w-5 h-5 ${bookmarked ? "fill-current" : ""}`} />
                     <span>{bookmarked ? "Bookmarked" : "Bookmark App"}</span>
                   </button>
                 </div>
+
+                <p className="text-text-tertiary text-sm text-center mt-6 px-4">
+                  By visiting this website you agree to their terms of service and privacy policy.
+                </p>
               </div>
 
-              {/* App Metadata Card */}
-              <div className="bg-background-secondary/20 border border-border rounded-2xl p-8">
-                <h3 className="text-sm font-bold text-text-tertiary uppercase tracking-widest mb-6">
-                  App Information
+              {/* Information Card */}
+              <div className="bg-background-secondary/40 border border-border rounded-[32px] p-8">
+                <h3 className="text-sm font-bold text-text-tertiary uppercase tracking-[0.2em] mb-8">
+                  App Intelligence
                 </h3>
-                <div className="space-y-6">
-                  <div className="flex items-start gap-4">
-                    <Globe className="w-5 h-5 text-text-tertiary mt-0.5" />
-                    <div className="space-y-1">
-                      <p className="text-xs text-text-tertiary font-medium">Website</p>
-                      <a href={app.websiteUrl} target="_blank" className="text-sm font-semibold text-text-primary hover:underline truncate block max-w-[200px]">
-                        {new URL(app.websiteUrl).hostname}
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <Monitor className="w-5 h-5 text-text-tertiary mt-0.5" />
-                    <div className="space-y-1">
-                      <p className="text-xs text-text-tertiary font-medium">Platforms</p>
-                      <p className="text-sm font-semibold text-text-primary">{app.platforms.join(", ")}</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <CreditCard className="w-5 h-5 text-text-tertiary mt-0.5" />
-                    <div className="space-y-1">
-                      <p className="text-xs text-text-tertiary font-medium">Pricing</p>
-                      <p className="text-sm font-semibold text-text-primary">{app.pricing}</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <User className="w-5 h-5 text-text-tertiary mt-0.5" />
-                    <div className="space-y-1">
-                      <p className="text-xs text-text-tertiary font-medium">Developer</p>
-                      <p className="text-sm font-semibold text-text-primary">{app.developer}</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <Clock className="w-5 h-5 text-text-tertiary mt-0.5" />
-                    <div className="space-y-1">
-                      <p className="text-xs text-text-tertiary font-medium">Last Updated</p>
-                      <p className="text-sm font-semibold text-text-primary">{app.lastUpdated}</p>
-                    </div>
-                  </div>
+                <div className="space-y-8">
+                  <InfoItem icon={Globe} label="Website" value={new URL(app.websiteUrl).hostname} href={app.websiteUrl} />
+                  <InfoItem icon={Monitor} label="Platforms" value={app.platforms.join(", ")} />
+                  <InfoItem icon={CreditCard} label="Pricing Model" value={app.pricing} />
+                  <InfoItem icon={User} label="Developer" value={app.developer} />
+                  <InfoItem icon={Clock} label="Last Inspected" value={app.lastUpdated} />
                 </div>
               </div>
             </div>
@@ -261,11 +241,24 @@ export default function DesktopAppDetail({
 
         {/* Related Apps Section */}
         {app.relatedApps && app.relatedApps.length > 0 && (
-          <section className="mt-24 pt-16 border-t border-border">
-            <h2 className="text-3xl font-bold text-text-primary mb-10 tracking-tight">
-              You might also like
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-8">
+          <section className="mt-32 pt-20 border-t border-border">
+            <div className="flex items-end justify-between mb-12">
+              <div>
+                <h2 className="text-4xl font-bold text-text-primary tracking-tight mb-4">
+                  Discover Similar Apps
+                </h2>
+                <p className="text-text-secondary text-xl font-light">
+                  Hand-picked alternatives that match your taste for quality design.
+                </p>
+              </div>
+              <button 
+                onClick={onBack}
+                className="text-text-primary font-bold hover:underline underline-offset-8"
+              >
+                View all apps
+              </button>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-10">
               {app.relatedApps.map((relatedApp) => {
                 const websiteItem = websitesData.find(w => w.id === relatedApp.id);
                 if (!websiteItem) return null;
@@ -284,5 +277,25 @@ export default function DesktopAppDetail({
         )}
       </Container>
     </motion.div>
+  );
+}
+
+function InfoItem({ icon: Icon, label, value, href }: { icon: any, label: string, value: string, href?: string }) {
+  return (
+    <div className="flex items-start gap-4">
+      <div className="w-10 h-10 rounded-xl bg-background-primary border border-border flex items-center justify-center flex-shrink-0 mt-0.5">
+        <Icon className="w-5 h-5 text-text-secondary" />
+      </div>
+      <div className="space-y-1 overflow-hidden">
+        <p className="text-[10px] text-text-tertiary font-bold uppercase tracking-wider">{label}</p>
+        {href ? (
+          <a href={href} target="_blank" className="text-base font-semibold text-text-primary hover:text-success transition-colors truncate block">
+            {value}
+          </a>
+        ) : (
+          <p className="text-base font-semibold text-text-primary truncate">{value}</p>
+        )}
+      </div>
+    </div>
   );
 }
