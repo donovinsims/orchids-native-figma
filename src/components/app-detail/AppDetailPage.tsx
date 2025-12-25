@@ -291,44 +291,29 @@ export default function AppDetailPage({
                 </section>
               )}
 
-              {/* Related Apps */}
-              {app.relatedApps && app.relatedApps.length > 0 && (
-                <section className="border-t border-border pt-8 pb-12">
-                  <h2 className="text-2xl text-text-primary mb-6">
-                    Related Apps
-                  </h2>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                      {app.relatedApps.map((relatedApp) => (
-                        <button
-                          key={relatedApp.id}
-                          onClick={() => onNavigateToApp?.(relatedApp.id)}
-                          className="block bg-background-primary rounded-md border border-border hover:border-border-strong transition-all duration-200 hover:shadow-md text-left group"
-                        >
-                          <div className="relative w-full aspect-[16/10] bg-background-secondary overflow-hidden">
-                            <img
-                              src={relatedApp.previewImage}
-                              alt={relatedApp.title}
-                              className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                              loading="lazy"
-                              onError={(e) => {
-                                e.currentTarget.style.display = 'none';
-                              }}
+                {/* Related Apps */}
+                {app.relatedApps && app.relatedApps.length > 0 && (
+                  <section className="border-t border-border pt-8 pb-12">
+                    <h2 className="text-2xl text-text-primary mb-6">
+                      Related Apps
+                    </h2>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                        {app.relatedApps.map((relatedApp) => {
+                          const websiteItem = websitesData.find(w => w.id === relatedApp.id);
+                          if (!websiteItem) return null;
+                          
+                          return (
+                            <WebsiteCard 
+                              key={relatedApp.id} 
+                              item={websiteItem} 
+                              onClick={onNavigateToApp}
+                              onLoginClick={onLoginClick}
                             />
-                            <div className="absolute inset-0 shadow-[inset_0_0_40px_rgba(0,0,0,0.02)] pointer-events-none" />
-                          </div>
-                          <div className="p-4">
-                            <h3 className="text-text-primary mb-1">
-                              {relatedApp.title}
-                            </h3>
-                            <p className="text-sm text-text-secondary line-clamp-2">
-                              {relatedApp.shortDescription || relatedApp.description}
-                            </p>
-                          </div>
-                      </button>
-                    ))}
-                  </div>
-                </section>
-              )}
+                          );
+                        })}
+                    </div>
+                  </section>
+                )}
             </div>
             <Footer 
               onSubscribeClick={onSubscribeClick}
