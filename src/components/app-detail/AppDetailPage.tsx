@@ -87,7 +87,7 @@ export default function AppDetailPage({
           text: app.description,
           url: window.location.href,
         });
-      } catch (err) {
+      } catch {
         // User cancelled or error
       }
     } else {
