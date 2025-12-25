@@ -10,10 +10,10 @@ const Container = React.forwardRef<HTMLDivElement, ContainerProps>(
     return (
       <Component
         ref={ref}
-        className={cn(
-          "mx-auto w-full max-w-[1200px] px-md md:px-lg",
-          className
-        )}
+          className={cn(
+            "mx-auto w-full max-w-[1800px] px-md md:px-lg",
+            className
+          )}
         {...props}
       />
     );
