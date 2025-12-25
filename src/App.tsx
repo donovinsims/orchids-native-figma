@@ -59,20 +59,35 @@ export default function App() {
         
         <div className="flex-grow">
             {currentView === 'profile' ? (
-              <div className="pt-[67px]">
-                <Container className="py-md md:py-xl">
-                  <ProfileView onAppClick={handleAppClick} />
-                </Container>
-              </div>
-            ) : (
-              <div className="pt-[67px]">
-                <main>
+                <div className="pt-[67px]">
                   <Container className="py-md md:py-xl">
-                    <HeroHeader onSubscribeClick={subscribeModal.open} />
-                    <WebsiteGrid items={websitesData} onItemClick={handleAppClick} onLoginClick={authModal.open} />
+                    <ProfileView onAppClick={handleAppClick} />
                   </Container>
-                </main>
-              </div>
+                </div>
+            ) : currentView === 'app-detail' && selectedApp ? (
+                <div className="pt-[67px]">
+                   <AppDetailPage 
+                     key={selectedApp.id}
+                     app={selectedApp} 
+                     onBack={handleBackToList}
+                     onNavigateToApp={handleAppClick}
+                     onSubscribeClick={subscribeModal.open}
+                     onSubmitClick={submitModal.open}
+                     onLoginClick={authModal.open}
+                     onProfileClick={() => setCurrentView('profile')}
+                     onHomeClick={handleBackToList}
+                     isInline={true}
+                   />
+                </div>
+            ) : (
+                <div className="pt-[67px]">
+                  <main>
+                    <Container className="py-md md:py-xl">
+                      <HeroHeader onSubscribeClick={subscribeModal.open} />
+                      <WebsiteGrid items={websitesData} onItemClick={handleAppClick} onLoginClick={authModal.open} />
+                    </Container>
+                  </main>
+                </div>
             )}
           </div>
 
@@ -81,9 +96,9 @@ export default function App() {
           onSubmitClick={submitModal.open}
         />
 
-        {/* App Detail Overlay */}
+        {/* App Detail Overlay (Mobile Only) */}
         <AnimatePresence>
-          {selectedApp && (
+          {isMobile && selectedApp && currentView === 'home' && (
             <AppDetailPage 
               key={selectedApp.id}
               app={selectedApp} 
@@ -94,6 +109,7 @@ export default function App() {
               onLoginClick={authModal.open}
               onProfileClick={() => setCurrentView('profile')}
               onHomeClick={handleBackToList}
+              isInline={false}
             />
           )}
         </AnimatePresence>
