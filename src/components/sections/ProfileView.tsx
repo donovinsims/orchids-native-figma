@@ -4,7 +4,7 @@ import { useBookmarks } from "@/hooks/use-bookmarks";
 import { websitesData } from "@/data/appsData";
 import WebsiteGrid from "./WebsiteGrid";
 import { Container } from "../ui/container";
-import { User, Mail, Camera, Loader2, Bookmark } from "lucide-react";
+import { User, Mail, Loader2, Bookmark } from "lucide-react";
 import { toast } from "sonner";
 
 interface ProfileViewProps {
