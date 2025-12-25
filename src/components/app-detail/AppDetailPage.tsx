@@ -315,24 +315,3 @@ export default function AppDetailPage({
       </div>
   );
 }
-
-  
-    if (isInline) {
-      return content;
-    }
-  
-    return (
-      <div className={`fixed inset-0 z-50 flex flex-col ${isMobile ? 'justify-end' : 'justify-center items-center p-6 md:p-12'}`}>
-          {/* Backdrop */}
-          <motion.div
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            style={isMobile ? { opacity: bgOpacity } : undefined}
-            onClick={onBack}
-          />
-          {content}
-        </div>
-    );
-  }
