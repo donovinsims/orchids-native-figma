@@ -17,10 +17,10 @@ const HeroHeader = ({ onSubscribeClick }: HeroHeaderProps) => {
         Browse the best of the internet. Hand-picked and updated daily.
       </h3>
         <div className="mt-6 flex items-center gap-3">
-          <Button
-            onClick={onSubscribeClick}
-            className="rounded-md bg-[#ff4500] text-white border-none hover:bg-[#ff4500]/90 transition-colors h-11 px-6"
-          >
+            <Button
+              onClick={onSubscribeClick}
+              className="rounded-xl bg-[#ff4500] text-white border-none hover:bg-[#ff4500]/90 transition-colors h-11 px-6"
+            >
             Subscribe for free
           </Button>
           <span className="text-body-md text-text-tertiary">97 joined today</span>
