@@ -193,29 +193,29 @@ export default function DesktopAppDetail({
                   </button>
                 </div>
 
-                <div className="space-y-3">
-                  <a
-                    href={app.websiteUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-3 w-full px-6 py-3.5 rounded-xl bg-text-primary text-background-primary hover:opacity-90 transition-all text-base font-bold shadow-lg shadow-text-primary/10 hover:-translate-y-0.5"
-                  >
-                    <span>Visit Website</span>
-                    <ExternalLink className="w-5 h-5" />
-                  </a>
-
-                  <button
-                    onClick={handleBookmark}
-                    className={`flex items-center justify-center gap-3 w-full px-6 py-3.5 rounded-xl border-2 transition-all text-base font-bold ${
-                      bookmarked 
-                        ? "border-[#ff4500] bg-[#ff4500]/5 text-[#ff4500]" 
-                        : "border-border hover:bg-background-secondary text-text-primary hover:border-border-strong"
-                    }`}
-                  >
-                    <Bookmark className={`w-5 h-5 ${bookmarked ? "fill-current" : ""}`} />
-                    <span>{bookmarked ? "Bookmarked" : "Bookmark App"}</span>
-                  </button>
-                </div>
+                  <div className="space-y-3">
+                    <a
+                      href={app.websiteUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-3 w-full px-6 py-3.5 rounded-lg bg-text-primary text-background-primary hover:opacity-90 transition-all text-base font-bold shadow-lg shadow-text-primary/10 hover:-translate-y-0.5"
+                    >
+                      <span>Visit Website</span>
+                      <ExternalLink className="w-5 h-5" />
+                    </a>
+  
+                    <button
+                      onClick={handleBookmark}
+                      className={`flex items-center justify-center gap-3 w-full px-6 py-3.5 rounded-lg border-2 transition-all text-base font-bold ${
+                        bookmarked 
+                          ? "border-[#ff4500] bg-[#ff4500]/5 text-[#ff4500]" 
+                          : "border-border hover:bg-background-secondary text-text-primary hover:border-border-strong"
+                      }`}
+                    >
+                      <Bookmark className={`w-5 h-5 ${bookmarked ? "fill-current" : ""}`} />
+                      <span>{bookmarked ? "Bookmarked" : "Bookmark App"}</span>
+                    </button>
+                  </div>
 
                 <p className="text-text-tertiary text-sm text-center mt-4 px-4">
                   By visiting this website you agree to their terms of service and privacy policy.
