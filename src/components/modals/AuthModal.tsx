@@ -36,8 +36,9 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
 
       toast.success("Magic link sent to your email!");
       onClose();
-    } catch (error: any) {
-      toast.error(error.message || "Authentication failed. Please try again.");
+    } catch (error) {
+      const authError = error as AuthError;
+      toast.error(authError.message || "Authentication failed. Please try again.");
     } finally {
       setIsLoading(false);
     }
@@ -52,8 +53,9 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
         },
       });
       if (error) throw error;
-    } catch (error: any) {
-      toast.error(error.message || "Google authentication failed.");
+    } catch (error) {
+      const authError = error as AuthError;
+      toast.error(authError.message || "Google authentication failed.");
     }
   };
 
@@ -66,8 +68,9 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
         },
       });
       if (error) throw error;
-    } catch (error: any) {
-      toast.error(error.message || "Twitter authentication failed.");
+    } catch (error) {
+      const authError = error as AuthError;
+      toast.error(authError.message || "Twitter authentication failed.");
     }
   };
 
