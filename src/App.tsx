@@ -80,17 +80,12 @@ export default function App() {
                 </div>
             ) : currentView === 'app-detail' && selectedApp ? (
                 <div className="pt-[67px]">
-                   <AppDetailPage 
+                   <DesktopAppDetail 
                      key={selectedApp.id}
                      app={selectedApp} 
                      onBack={handleBackToList}
                      onNavigateToApp={handleAppClick}
-                     onSubscribeClick={subscribeModal.open}
-                     onSubmitClick={submitModal.open}
                      onLoginClick={authModal.open}
-                     onProfileClick={() => setCurrentView('profile')}
-                     onHomeClick={handleBackToList}
-                     isInline={true}
                    />
                 </div>
             ) : (
