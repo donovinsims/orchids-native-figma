@@ -102,12 +102,12 @@ export function Modal({
       />
 
         {/* Modal content */}
-        <div
-          ref={modalRef}
-          className={`relative w-full max-w-md bg-background-primary rounded-lg shadow-2xl animate-in fade-in slide-in-from-bottom-4 sm:zoom-in-95 duration-200 max-h-[90vh] overflow-y-auto border border-border ${className}`}
-          onTouchStart={handleTouchStart}
-          onTouchEnd={handleTouchEnd}
-        >
+          <div
+            ref={modalRef}
+            className={`relative w-full max-w-md bg-background-primary rounded-2xl shadow-2xl animate-in fade-in slide-in-from-bottom-4 sm:zoom-in-95 duration-200 max-h-[90vh] overflow-y-auto border border-border ${className}`}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+          >
           {/* Swipe indicator for mobile */}
           <div className="md:hidden flex justify-center pt-3 pb-1">
             <div className="w-10 h-1 bg-border rounded-full" />
