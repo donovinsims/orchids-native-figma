@@ -21,26 +21,37 @@ import ProfileView from "./components/sections/ProfileView";
 export default function App() {
   const subscribeModal = useModal();
   const submitModal = useModal();
-    const authModal = useModal();
-    const [selectedAppId, setSelectedAppId] = useState<string | null>(null);
-    const [currentView, setCurrentView] = useState<'home' | 'profile' | 'app-detail'>('home');
-    const isMobile = useIsMobile();
+  const authModal = useModal();
+  const [authMode, setAuthMode] = useState<"signin" | "signup">("signin");
+  const [selectedAppId, setSelectedAppId] = useState<string | null>(null);
+  const [currentView, setCurrentView] = useState<'home' | 'profile' | 'app-detail'>('home');
+  const isMobile = useIsMobile();
 
-    const handleAppClick = (appId: string) => {
-      setSelectedAppId(appId);
-      if (!isMobile) {
-        setCurrentView('app-detail');
-      }
-    };
+  const handleAppClick = (appId: string) => {
+    setSelectedAppId(appId);
+    if (!isMobile) {
+      setCurrentView('app-detail');
+    }
+  };
 
-    const handleBackToList = () => {
-      setSelectedAppId(null);
-      if (currentView === 'app-detail') {
-        setCurrentView('home');
-      }
-    };
+  const handleBackToList = () => {
+    setSelectedAppId(null);
+    if (currentView === 'app-detail') {
+      setCurrentView('home');
+    }
+  };
 
-    const selectedApp = selectedAppId ? appDetailsData[selectedAppId] : null;
+  const handleLoginClick = () => {
+    setAuthMode("signin");
+    authModal.open();
+  };
+
+  const handleSignUpClick = () => {
+    setAuthMode("signup");
+    authModal.open();
+  };
+
+  const selectedApp = selectedAppId ? appDetailsData[selectedAppId] : null;
 
   return (
     <AuthProvider>
@@ -49,13 +60,15 @@ export default function App() {
         <HeaderNavigation 
           onSubscribeClick={subscribeModal.open}
           onSubmitClick={submitModal.open}
-          onLoginClick={authModal.open}
+          onLoginClick={handleLoginClick}
+          onSignUpClick={handleSignUpClick}
           onProfileClick={() => setCurrentView('profile')}
           onHomeClick={() => {
             setCurrentView('home');
             setSelectedAppId(null);
           }}
         />
+
         
         <div className="flex-grow">
             {currentView === 'profile' ? (
