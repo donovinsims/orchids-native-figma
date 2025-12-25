@@ -7,6 +7,8 @@ import Footer from "../sections/Footer";
 import { useBookmarks } from "@/hooks/use-bookmarks";
 import { useAuth } from "@/hooks/use-auth";
 import { motion, useMotionValue, useTransform, PanInfo, AnimatePresence, useDragControls } from "motion/react";
+import { WebsiteCard } from "../sections/WebsiteGrid";
+import { websitesData, Website } from "@/data/appsData";
 
 interface AppDetail {
   id: string;
