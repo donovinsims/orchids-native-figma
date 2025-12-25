@@ -5,6 +5,7 @@ import { motion } from "motion/react";
 import { Bookmark, ExternalLink } from "lucide-react";
 import { useBookmarks } from "@/hooks/use-bookmarks";
 import { useAuth } from "@/hooks/use-auth";
+import { useIsMobile } from "@/hooks/use-mobile";
 import { toast } from "sonner";
 
 interface Website {
