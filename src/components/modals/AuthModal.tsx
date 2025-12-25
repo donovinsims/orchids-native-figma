@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Sparkles, Loader2 } from "lucide-react";
+import { Sparkles, Loader2, Mail, Lock, UserPlus, LogIn } from "lucide-react";
 import { toast } from "sonner";
 import { Modal } from "./Modal";
 import { supabase } from "@/lib/supabase";
@@ -12,30 +12,62 @@ interface AuthModalProps {
   onClose: () => void;
 }
 
+type AuthMode = "signin" | "signup";
+type AuthMethod = "magic-link" | "password";
+
 export function AuthModal({ isOpen, onClose }: AuthModalProps) {
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [mode, setMode] = useState<AuthMode>("signin");
+  const [method, setMethod] = useState<AuthMethod>("magic-link");
 
-  const handleEmailAuth = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || !email.includes("@")) {
       toast.error("Please enter a valid email address");
       return;
     }
 
+    if (method === "password" && password.length < 6) {
+      toast.error("Password must be at least 6 characters");
+      return;
+    }
+
     setIsLoading(true);
     try {
-      const { error } = await supabase.auth.signInWithOtp({
-        email,
-        options: {
-          emailRedirectTo: window.location.origin,
-        },
-      });
-
-      if (error) throw error;
-
-      toast.success("Magic link sent to your email!");
-      onClose();
+      if (method === "magic-link") {
+        const { error } = await supabase.auth.signInWithOtp({
+          email,
+          options: {
+            emailRedirectTo: window.location.origin,
+          },
+        });
+        if (error) throw error;
+        toast.success("Magic link sent to your email!");
+        onClose();
+      } else {
+        if (mode === "signup") {
+          const { error } = await supabase.auth.signUp({
+            email,
+            password,
+            options: {
+              emailRedirectTo: window.location.origin,
+            },
+          });
+          if (error) throw error;
+          toast.success("Check your email to confirm your account!");
+          onClose();
+        } else {
+          const { error } = await supabase.auth.signInWithPassword({
+            email,
+            password,
+          });
+          if (error) throw error;
+          toast.success("Signed in successfully!");
+          onClose();
+        }
+      }
     } catch (error) {
       const authError = error as AuthError;
       toast.error(authError.message || "Authentication failed. Please try again.");
@@ -44,10 +76,10 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
     }
   };
 
-  const handleGoogle = async () => {
+  const handleOAuth = async (provider: 'google' | 'twitter') => {
     try {
       const { error } = await supabase.auth.signInWithOAuth({
-        provider: 'google',
+        provider,
         options: {
           redirectTo: window.location.origin,
         },
@@ -55,92 +87,138 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
       if (error) throw error;
     } catch (error) {
       const authError = error as AuthError;
-      toast.error(authError.message || "Google authentication failed.");
-    }
-  };
-
-  const handleTwitter = async () => {
-    try {
-      const { error } = await supabase.auth.signInWithOAuth({
-        provider: 'twitter',
-        options: {
-          redirectTo: window.location.origin,
-        },
-      });
-      if (error) throw error;
-    } catch (error) {
-      const authError = error as AuthError;
-      toast.error(authError.message || "Twitter authentication failed.");
+      toast.error(`${provider.charAt(0).toUpperCase() + provider.slice(1)} authentication failed.`);
     }
   };
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} showCloseButton={true}>
       <div className="p-8">
-        <div className="mb-6">
-          <Sparkles className="w-8 h-8 text-text-primary" fill="currentColor" />
+        <div className="mb-6 flex justify-between items-center">
+          <div className="p-2 bg-primary/10 rounded-xl">
+            <Sparkles className="w-6 h-6 text-primary" fill="currentColor" />
+          </div>
+          <div className="flex bg-background-tertiary p-1 rounded-lg border border-border">
+            <button
+              onClick={() => setMode("signin")}
+              className={`px-4 py-1.5 text-sm font-medium rounded-md transition-all ${
+                mode === "signin"
+                  ? "bg-background shadow-sm text-text-primary"
+                  : "text-text-muted hover:text-text-secondary"
+              }`}
+            >
+              Sign In
+            </button>
+            <button
+              onClick={() => setMode("signup")}
+              className={`px-4 py-1.5 text-sm font-medium rounded-md transition-all ${
+                mode === "signup"
+                  ? "bg-background shadow-sm text-text-primary"
+                  : "text-text-muted hover:text-text-secondary"
+              }`}
+            >
+              Sign Up
+            </button>
+          </div>
         </div>
 
         <div>
-          <h2 className="text-3xl font-medium text-text-primary mb-3">
-            Get Started
+          <h2 className="text-3xl font-medium text-text-primary mb-2">
+            {mode === "signin" ? "Welcome Back" : "Create Account"}
           </h2>
           <p className="text-text-secondary mb-8 leading-relaxed">
-            Register for events, subscribe to calendars and manage events you're going to.
+            {mode === "signin" 
+              ? "Sign in to access your saved apps and preferences." 
+              : "Join our community to discover and share the best tools."}
           </p>
 
-          <form onSubmit={handleEmailAuth} className="space-y-3 mb-6">
-            <div>
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="you@example.com"
-                className="w-full min-h-[44px] px-4 py-3 rounded-md border border-border bg-background focus:ring-2 focus:ring-primary/20 focus:outline-none transition-colors text-text-primary placeholder:text-text-muted"
-                disabled={isLoading}
-                required
-              />
+          <form onSubmit={handleSubmit} className="space-y-4 mb-6">
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-text-secondary ml-1">Email Address</label>
+              <div className="relative">
+                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-text-muted" />
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="you@example.com"
+                  className="w-full pl-10 pr-4 py-3 rounded-xl border border-border bg-background focus:ring-2 focus:ring-primary/20 focus:border-primary focus:outline-none transition-all text-text-primary placeholder:text-text-muted"
+                  disabled={isLoading}
+                  required
+                />
+              </div>
             </div>
+
+            {method === "password" && (
+              <div className="space-y-2 animate-in fade-in slide-in-from-top-2">
+                <label className="text-sm font-medium text-text-secondary ml-1">Password</label>
+                <div className="relative">
+                  <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-text-muted" />
+                  <input
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="••••••••"
+                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-border bg-background focus:ring-2 focus:ring-primary/20 focus:border-primary focus:outline-none transition-all text-text-primary placeholder:text-text-muted"
+                    disabled={isLoading}
+                    required
+                  />
+                </div>
+              </div>
+            )}
+
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full py-4 rounded-md bg-black text-white hover:opacity-90 transition-colors font-medium flex items-center justify-center gap-2"
+              className="w-full py-3.5 rounded-xl bg-primary text-primary-foreground hover:opacity-90 transition-all font-semibold flex items-center justify-center gap-2 shadow-lg shadow-primary/20"
             >
               {isLoading ? (
-                <>
-                  <Loader2 className="w-4 h-4 animate-spin" />
-                  <span>Sending link...</span>
-                </>
+                <Loader2 className="w-5 h-5 animate-spin" />
               ) : (
-                "Continue with Email"
+                <>
+                  {mode === "signin" ? <LogIn className="w-4 h-4" /> : <UserPlus className="w-4 h-4" />}
+                  {mode === "signin" 
+                    ? (method === "magic-link" ? "Send Magic Link" : "Sign In") 
+                    : (method === "magic-link" ? "Sign Up with Email" : "Create Account")}
+                </>
               )}
             </button>
           </form>
+
+          <div className="flex justify-center mb-8">
+            <button
+              type="button"
+              onClick={() => setMethod(method === "magic-link" ? "password" : "magic-link")}
+              className="text-sm font-medium text-primary hover:underline transition-all"
+            >
+              {method === "magic-link" ? "Use password instead" : "Use magic link instead"}
+            </button>
+          </div>
 
           <div className="relative mb-6">
             <div className="absolute inset-0 flex items-center">
               <div className="w-full border-t border-border"></div>
             </div>
             <div className="relative flex justify-center text-xs uppercase">
-              <span className="bg-background-primary px-2 text-text-muted">Or continue with</span>
+              <span className="bg-background px-4 text-text-muted font-medium tracking-wider">Or continue with</span>
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-2 gap-4">
             <button
-              onClick={handleTwitter}
-              className="flex items-center justify-center py-4 rounded-md bg-background-tertiary hover:bg-background-secondary transition-colors border border-border"
+              onClick={() => handleOAuth('twitter')}
+              className="flex items-center justify-center py-3.5 rounded-xl bg-background border border-border hover:bg-background-secondary transition-all group"
             >
-              <svg className="w-6 h-6 text-text-primary" viewBox="0 0 24 24" fill="currentColor">
+              <svg className="w-5 h-5 text-text-primary group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
               </svg>
             </button>
 
             <button
-              onClick={handleGoogle}
-              className="flex items-center justify-center py-4 rounded-md bg-background-tertiary hover:bg-background-secondary transition-colors border border-border"
+              onClick={() => handleOAuth('google')}
+              className="flex items-center justify-center py-3.5 rounded-xl bg-background border border-border hover:bg-background-secondary transition-all group"
             >
-              <svg className="w-6 h-6" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 group-hover:scale-110 transition-transform" viewBox="0 0 24 24">
                 <path
                   fill="#4285F4"
                   d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
