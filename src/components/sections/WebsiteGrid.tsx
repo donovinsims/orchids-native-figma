@@ -26,7 +26,7 @@ interface WebsiteGridProps {
 
 export default function WebsiteGrid({ items, onItemClick, onLoginClick }: WebsiteGridProps) {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 mt-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-8 md:gap-10 mt-6">
       {items.map((item) => (
         <WebsiteCard key={item.id} item={item} onClick={onItemClick} onLoginClick={onLoginClick} />
       ))}
