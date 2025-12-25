@@ -232,19 +232,14 @@ export default function DesktopAppDetail({
               </button>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-10">
-              {app.relatedApps.map((relatedApp) => {
-                const websiteItem = websitesData.find(w => w.id === relatedApp.id);
-                if (!websiteItem) return null;
-                
-                return (
-                  <WebsiteCard 
-                    key={relatedApp.id} 
-                    item={websiteItem} 
-                    onClick={onNavigateToApp}
-                    onLoginClick={onLoginClick}
-                  />
-                );
-              })}
+              {app.relatedApps.map((relatedApp) => (
+                <WebsiteCard 
+                  key={relatedApp.id} 
+                  item={relatedApp} 
+                  onClick={onNavigateToApp}
+                  onLoginClick={onLoginClick}
+                />
+              ))}
             </div>
           </section>
         )}
