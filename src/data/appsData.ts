@@ -2,6 +2,7 @@ export interface Website {
   id: string;
   title: string;
   description: string;
+  shortDescription?: string;
   href: string;
   faviconUrl: string;
   previewImage: string;
@@ -12,6 +13,7 @@ export interface AppDetail {
   id: string;
   title: string;
   description: string;
+  shortDescription?: string;
   category: string;
   platforms: string[];
   pricing: string;
@@ -29,6 +31,7 @@ export interface RelatedApp {
   id: string;
   title: string;
   description: string;
+  shortDescription?: string;
   previewImage: string;
   href: string;
 }
@@ -38,6 +41,7 @@ export const websitesData: Website[] = [
     id: "akiflow",
     title: "Akiflow",
     description: "AI Productivity Suite: Tasks",
+    shortDescription: "All-in-one AI productivity suite for tasks and calendars.",
     category: "Productivity",
     href: "/apps/akiflow",
     faviconUrl: "https://www.google.com/s2/favicons?domain=akiflow.com&sz=128",
@@ -47,6 +51,7 @@ export const websitesData: Website[] = [
     id: "cleanclip",
     title: "CleanClip",
     description: "Mac Clipboard Manager: Sequential Paste",
+    shortDescription: "Clipboard management for extreme efficiency and minimal switching.",
     category: "Productivity",
     href: "/apps/cleanclip",
     faviconUrl: "https://www.google.com/s2/favicons?domain=cleanclip.cc&sz=128",
@@ -56,6 +61,7 @@ export const websitesData: Website[] = [
     id: "designcode",
     title: "Design+Code",
     description: "Learn design and code by building real apps with React and Swift.",
+    shortDescription: "Complete courses on design and code for building real apps.",
     category: "Education",
     href: "/apps/designcode",
     faviconUrl: "https://designcode.io/favicon-32x32.png?v=42a278c0c94e914295c7dd0eddf50492",
@@ -65,6 +71,7 @@ export const websitesData: Website[] = [
     id: "eden",
     title: "Eden",
     description: "One Place For All Your Creative Work",
+    shortDescription: "AI-powered workspace for consolidating creative work.",
     category: "Productivity",
     href: "/apps/eden",
     faviconUrl: "https://framerusercontent.com/images/NBzdgTQOtcwXsJCJCgnkx1jShg.png",
@@ -74,6 +81,7 @@ export const websitesData: Website[] = [
     id: "flylighter",
     title: "Flylighter",
     description: "Notion web clipper focused on speed and flexibility.",
+    shortDescription: "Fast and flexible Notion web clipper for organizing digital life.",
     category: "Productivity",
     href: "/apps/flylighter",
     faviconUrl: "https://flylighter.com/favicon.png",
@@ -83,6 +91,7 @@ export const websitesData: Website[] = [
     id: "kortex",
     title: "Kortex",
     description: "AI-powered platform for interconnected writing and note-taking.",
+    shortDescription: "Interconnected writing and note-taking platform for creators.",
     category: "AI Tools",
     href: "/apps/kortex",
     faviconUrl: "https://cdn.prod.website-files.com/66e2be2343a7c5501a5a7fe2/66eda605d155545da532ad77_Kortex%20Favicon.png",
@@ -92,6 +101,7 @@ export const websitesData: Website[] = [
     id: "lazy",
     title: "Lazy",
     description: "Universal clipper and note-taking tool.",
+    shortDescription: "Universal clipper for capturing anything from anywhere instantly.",
     category: "Productivity",
     href: "/apps/lazy",
     faviconUrl: "https://lazy.so/favicon_io/favicon-32x32.png",
@@ -101,6 +111,7 @@ export const websitesData: Website[] = [
     id: "creator-mba",
     title: "The Creator MBA",
     description: "Complete blueprint for starting a profitable Internet business.",
+    shortDescription: "Comprehensive blueprint for building a profitable Internet business.",
     category: "Education",
     href: "/apps/creator-mba",
     faviconUrl: "https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/sites/2147532368/images/2a3651-6835-e853-dc4e-a11552b52c4_JustinWelsh-Monogram_4_.png?v=2",
@@ -110,6 +121,7 @@ export const websitesData: Website[] = [
     id: "mimestream",
     title: "Mimestream",
     description: "Fast email client for Mac, optimized for Gmail.",
+    shortDescription: "Native macOS email client optimized specifically for Gmail.",
     category: "Productivity",
     href: "/apps/mimestream",
     faviconUrl: "https://mimestream.com/assets/icons/app-icon_32x32.png",
@@ -119,6 +131,7 @@ export const websitesData: Website[] = [
     id: "orchids",
     title: "Orchids",
     description: "The Vibe Coding IDE, an AI-powered tool for building apps.",
+    shortDescription: "The Vibe Coding IDE for building apps with AI through chat.",
     category: "Development",
     href: "/apps/orchids",
     faviconUrl: "https://orchids.app/favicon.ico",
@@ -128,6 +141,7 @@ export const websitesData: Website[] = [
     id: "polar",
     title: "Polar",
     description: "Monetize your software with 6 lines of code.",
+    shortDescription: "Monetize your software with billing and subscription infrastructure.",
     category: "Fintech",
     href: "/apps/polar",
     faviconUrl: "https://polar.sh/favicon.png",
@@ -137,6 +151,7 @@ export const websitesData: Website[] = [
     id: "segmentui",
     title: "SegmentUI",
     description: "UI Kits and Components for Framer & Figma.",
+    shortDescription: "Comprehensive UI kits and components for Framer and Figma.",
     category: "Design",
     href: "/apps/segmentui",
     faviconUrl: "https://framerusercontent.com/images/mFyfqomzD8KEi8lZPvsm5xEF4l8.png",
@@ -146,6 +161,7 @@ export const websitesData: Website[] = [
     id: "tally",
     title: "Tally",
     description: "Free and intuitive form builder that works like a text document.",
+    shortDescription: "Simple and powerful form builder with a Notion-like interface.",
     category: "No-code",
     href: "/apps/tally",
     faviconUrl: "https://tally.so/favicon.svg",
@@ -155,6 +171,7 @@ export const websitesData: Website[] = [
     id: "dan-koe",
     title: "Dan Koe",
     description: "Resources for personal growth and digital business.",
+    shortDescription: "Systems for personal growth, focus, and digital business building.",
     category: "Education",
     href: "/apps/dan-koe",
     faviconUrl: "https://thedankoe.com/wp-content/uploads/2022/04/koe-favicon-150x150.jpg",
@@ -164,6 +181,7 @@ export const websitesData: Website[] = [
     id: "onetap",
     title: "OneTap",
     description: "Copy-paste everything instantly from your keyboard.",
+    shortDescription: "Instant copy-paste snippets and ChatGPT access from your keyboard.",
     category: "Productivity",
     href: "/apps/onetap",
     faviconUrl: "https://framerusercontent.com/images/KwRNiJTpOyodG3xW6SXTxmVnnc.png",
@@ -173,6 +191,7 @@ export const websitesData: Website[] = [
     id: "screen-studio",
     title: "Screen Studio",
     description: "Screen recorder for macOS that enhances recordings.",
+    shortDescription: "Professional screen recorder for Mac with automatic zoom and effects.",
     category: "Video",
     href: "/apps/screen-studio",
     faviconUrl: "https://www.screen.studio/icon.png",
@@ -182,6 +201,7 @@ export const websitesData: Website[] = [
     id: "plunk",
     title: "Plunk",
     description: "Open-source, affordable email platform for marketing.",
+    shortDescription: "Open-source email platform for marketing and transactional emails.",
     category: "Marketing",
     href: "/apps/plunk",
     faviconUrl: "https://www.useplunk.com/favicon/favicon-32x32.png",
@@ -191,6 +211,7 @@ export const websitesData: Website[] = [
     id: "monologue",
     title: "Monologue",
     description: "Effortless voice dictation that understands your work.",
+    shortDescription: "AI voice dictation for Mac that adapts to your writing style.",
     category: "Productivity",
     href: "/apps/monologue",
     faviconUrl: "https://framerusercontent.com/images/aF3yOlwFNUtfqtTdVBPl2pbUP3o.png",
@@ -203,6 +224,7 @@ export const appDetailsData: Record<string, AppDetail> = {
     id: "akiflow",
     title: "Akiflow",
     description: "AI Productivity Suite: Tasks",
+    shortDescription: "All-in-one AI productivity suite for tasks and calendars.",
     category: "Productivity",
     platforms: ["macOS", "Windows", "iOS", "Android"],
     pricing: "Paid",
@@ -218,12 +240,31 @@ export const appDetailsData: Record<string, AppDetail> = {
       "AI assistant (Aki) to plan and prioritize",
       "Streamlining task and calendar management",
       "Consolidating work inputs from various tools"
+    ],
+    relatedApps: [
+      {
+        id: "lazy",
+        title: "Lazy",
+        description: "Universal clipper and note-taking tool.",
+        shortDescription: "Universal clipper for capturing anything from anywhere instantly.",
+        previewImage: "https://lazy.so/images/lazy-og.jpg?4362984378",
+        href: "/apps/lazy"
+      },
+      {
+        id: "mimestream",
+        title: "Mimestream",
+        description: "Fast email client for Mac, optimized for Gmail.",
+        shortDescription: "Native macOS email client optimized specifically for Gmail.",
+        previewImage: "https://mimestream.com/assets/images/site-preview.png",
+        href: "/apps/mimestream"
+      }
     ]
   },
   "cleanclip": {
     id: "cleanclip",
     title: "CleanClip",
     description: "Mac Clipboard Manager: Sequential Paste",
+    shortDescription: "Clipboard management for extreme efficiency and minimal switching.",
     category: "Productivity",
     platforms: ["macOS"],
     pricing: "Free",
@@ -245,6 +286,7 @@ export const appDetailsData: Record<string, AppDetail> = {
     id: "designcode",
     title: "Design+Code",
     description: "Learn design and code by building real apps with React and Swift.",
+    shortDescription: "Complete courses on design and code for building real apps.",
     category: "Education",
     platforms: ["Web", "iOS"],
     pricing: "Paid",
@@ -266,6 +308,7 @@ export const appDetailsData: Record<string, AppDetail> = {
     id: "eden",
     title: "Eden",
     description: "One Place For All Your Creative Work",
+    shortDescription: "AI-powered workspace for consolidating creative work.",
     category: "Productivity",
     platforms: ["Web"],
     pricing: "Contact for Pricing",
@@ -287,6 +330,7 @@ export const appDetailsData: Record<string, AppDetail> = {
     id: "flylighter",
     title: "Flylighter",
     description: "Notion web clipper focused on speed and flexibility.",
+    shortDescription: "Fast and flexible Notion web clipper for organizing digital life.",
     category: "Productivity",
     platforms: ["Web", "Browser Extension"],
     pricing: "Contact for Pricing",
@@ -308,6 +352,7 @@ export const appDetailsData: Record<string, AppDetail> = {
     id: "kortex",
     title: "Kortex",
     description: "AI-powered platform for interconnected writing and note-taking.",
+    shortDescription: "Interconnected writing and note-taking platform for creators.",
     category: "AI Tools",
     platforms: ["Web"],
     pricing: "Freemium & Paid",
@@ -329,6 +374,7 @@ export const appDetailsData: Record<string, AppDetail> = {
     id: "lazy",
     title: "Lazy",
     description: "Universal clipper and note-taking tool.",
+    shortDescription: "Universal clipper for capturing anything from anywhere instantly.",
     category: "Productivity",
     platforms: ["Web", "macOS", "Windows"],
     pricing: "Freemium & Paid",
@@ -350,6 +396,7 @@ export const appDetailsData: Record<string, AppDetail> = {
     id: "creator-mba",
     title: "The Creator MBA",
     description: "Complete blueprint for starting a profitable Internet business.",
+    shortDescription: "Comprehensive blueprint for building a profitable Internet business.",
     category: "Education",
     platforms: ["Web"],
     pricing: "One-Time Payment",
@@ -371,6 +418,7 @@ export const appDetailsData: Record<string, AppDetail> = {
     id: "mimestream",
     title: "Mimestream",
     description: "Fast email client for Mac, optimized for Gmail.",
+    shortDescription: "Native macOS email client optimized specifically for Gmail.",
     category: "Productivity",
     platforms: ["macOS"],
     pricing: "Freemium & Paid",
@@ -392,6 +440,7 @@ export const appDetailsData: Record<string, AppDetail> = {
     id: "orchids",
     title: "Orchids",
     description: "The Vibe Coding IDE, an AI-powered tool for building apps.",
+    shortDescription: "The Vibe Coding IDE for building apps with AI through chat.",
     category: "Development",
     platforms: ["Web", "macOS", "Windows"],
     pricing: "Free",
@@ -413,6 +462,7 @@ export const appDetailsData: Record<string, AppDetail> = {
     id: "polar",
     title: "Polar",
     description: "Monetize your software with 6 lines of code.",
+    shortDescription: "Monetize your software with billing and subscription infrastructure.",
     category: "Fintech",
     platforms: ["Web"],
     pricing: "Paid",
@@ -434,6 +484,7 @@ export const appDetailsData: Record<string, AppDetail> = {
     id: "segmentui",
     title: "SegmentUI",
     description: "UI Kits and Components for Framer & Figma.",
+    shortDescription: "Comprehensive UI kits and components for Framer and Figma.",
     category: "Design",
     platforms: ["Web", "Framer", "Figma"],
     pricing: "One-Time Payment",
@@ -455,6 +506,7 @@ export const appDetailsData: Record<string, AppDetail> = {
     id: "tally",
     title: "Tally",
     description: "Free and intuitive form builder that works like a text document.",
+    shortDescription: "Simple and powerful form builder with a Notion-like interface.",
     category: "No-code",
     platforms: ["Web"],
     pricing: "Free",
@@ -476,6 +528,7 @@ export const appDetailsData: Record<string, AppDetail> = {
     id: "dan-koe",
     title: "Dan Koe",
     description: "Resources for personal growth and digital business.",
+    shortDescription: "Systems for personal growth, focus, and digital business building.",
     category: "Education",
     platforms: ["Web"],
     pricing: "Freemium & Paid",
@@ -497,6 +550,7 @@ export const appDetailsData: Record<string, AppDetail> = {
     id: "onetap",
     title: "OneTap",
     description: "Copy-paste everything instantly from your keyboard.",
+    shortDescription: "Instant copy-paste snippets and ChatGPT access from your keyboard.",
     category: "Productivity",
     platforms: ["iOS", "macOS"],
     pricing: "Freemium & Paid",
@@ -518,6 +572,7 @@ export const appDetailsData: Record<string, AppDetail> = {
     id: "screen-studio",
     title: "Screen Studio",
     description: "Screen recorder for macOS that enhances recordings.",
+    shortDescription: "Professional screen recorder for Mac with automatic zoom and effects.",
     category: "Video",
     platforms: ["macOS"],
     pricing: "Paid",
@@ -539,6 +594,7 @@ export const appDetailsData: Record<string, AppDetail> = {
     id: "plunk",
     title: "Plunk",
     description: "Open-source, affordable email platform for marketing.",
+    shortDescription: "Open-source email platform for marketing and transactional emails.",
     category: "Marketing",
     platforms: ["Web"],
     pricing: "Freemium & Paid",
@@ -560,6 +616,7 @@ export const appDetailsData: Record<string, AppDetail> = {
     id: "monologue",
     title: "Monologue",
     description: "Effortless voice dictation that understands your work.",
+    shortDescription: "AI voice dictation for Mac that adapts to your writing style.",
     category: "Productivity",
     platforms: ["macOS"],
     pricing: "Paid",
