@@ -21,10 +21,10 @@ import ProfileView from "./components/sections/ProfileView";
 export default function App() {
   const subscribeModal = useModal();
   const submitModal = useModal();
-  const authModal = useModal();
-  const [selectedAppId, setSelectedAppId] = useState<string | null>(null);
-  const isMobile = useIsMobile();
-  const [currentView, setCurrentView] = useState<'home' | 'profile'>('home');
+    const authModal = useModal();
+    const [selectedAppId, setSelectedAppId] = useState<string | null>(null);
+    const [currentView, setCurrentView] = useState<'home' | 'profile'>('home');
+
 
   const handleAppClick = (appId: string) => {
     setSelectedAppId(appId);
