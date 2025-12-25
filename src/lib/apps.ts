@@ -26,6 +26,8 @@ export interface RelatedApp {
   description: string;
   shortDescription?: string;
   previewImage: string;
+  faviconUrl: string;
+  category: string;
   href: string;
 }
 
@@ -86,7 +88,7 @@ export const getAppDetail = async (id: string): Promise<AppDetail | null> => {
   if (app.relatedAppIds && app.relatedAppIds.length > 0) {
     const { data: relatedData, error: relatedError } = await supabase
       .from('apps')
-      .select('id, title, description, short_description, preview_image')
+      .select('id, title, description, short_description, preview_image, favicon_url, category')
       .in('id', app.relatedAppIds);
     
     if (!relatedError && relatedData) {
@@ -96,6 +98,8 @@ export const getAppDetail = async (id: string): Promise<AppDetail | null> => {
         description: r.description,
         shortDescription: r.short_description,
         previewImage: r.preview_image,
+        faviconUrl: r.favicon_url,
+        category: r.category,
         href: `/apps/${r.id}`
       }));
     }
