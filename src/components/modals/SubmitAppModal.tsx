@@ -161,7 +161,7 @@ export function SubmitAppModal({ isOpen, onClose }: SubmitAppModalProps) {
               </p>
               <button
                 onClick={handleClose}
-                className="w-full min-h-[44px] px-4 py-3 rounded-xl bg-primary text-primary-foreground hover:opacity-90 transition-colors"
+                className="w-full min-h-[44px] px-4 py-3 rounded-lg bg-primary text-primary-foreground hover:opacity-90 transition-colors"
               >
                 Done
               </button>
@@ -194,7 +194,7 @@ export function SubmitAppModal({ isOpen, onClose }: SubmitAppModalProps) {
                       setErrors((prev) => ({ ...prev, appUrl: undefined }));
                     }}
                     placeholder="https://example.com"
-                    className={`w-full min-h-[44px] px-4 py-3 rounded-xl border bg-background ${
+                    className={`w-full min-h-[44px] px-4 py-3 rounded-lg border bg-background ${
                       errors.appUrl ? "border-error" : "border-border"
                     } focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-transparent text-text-primary placeholder:text-text-muted`}
                     disabled={isLoading}
@@ -216,7 +216,7 @@ export function SubmitAppModal({ isOpen, onClose }: SubmitAppModalProps) {
                       setFormData((prev) => ({ ...prev, category: e.target.value }));
                       setErrors((prev) => ({ ...prev, category: undefined }));
                     }}
-                    className={`w-full min-h-[44px] px-4 py-3 rounded-xl border bg-background ${
+                    className={`w-full min-h-[44px] px-4 py-3 rounded-lg border bg-background ${
                       errors.category ? "border-error" : "border-border"
                     } focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-transparent text-text-primary`}
                     disabled={isLoading}
@@ -241,7 +241,7 @@ export function SubmitAppModal({ isOpen, onClose }: SubmitAppModalProps) {
                     {platforms.map((platform) => (
                       <label
                         key={platform.value}
-                        className={`inline-flex items-center justify-center min-h-[44px] px-3 py-2 rounded-xl border cursor-pointer transition-colors ${
+                        className={`inline-flex items-center justify-center min-h-[44px] px-3 py-2 rounded-lg border cursor-pointer transition-colors ${
                           formData.platforms.includes(platform.value)
                             ? "bg-primary text-primary-foreground border-primary"
                             : "bg-background text-text-secondary border-border hover:bg-background-secondary"
@@ -277,7 +277,7 @@ export function SubmitAppModal({ isOpen, onClose }: SubmitAppModalProps) {
                       setErrors((prev) => ({ ...prev, email: undefined }));
                     }}
                     placeholder="you@example.com"
-                    className={`w-full min-h-[44px] px-4 py-3 rounded-xl border bg-background ${
+                    className={`w-full min-h-[44px] px-4 py-3 rounded-lg border bg-background ${
                       errors.email ? "border-error" : "border-border"
                     } focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-transparent text-text-primary placeholder:text-text-muted`}
                     disabled={isLoading}
@@ -291,7 +291,7 @@ export function SubmitAppModal({ isOpen, onClose }: SubmitAppModalProps) {
                   <button
                     type="submit"
                     disabled={isLoading}
-                    className="w-full min-h-[44px] px-4 py-3 rounded-xl bg-[#ff4500] text-white hover:opacity-90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    className="w-full min-h-[44px] px-4 py-3 rounded-lg bg-[#ff4500] text-white hover:opacity-90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                   >
                 {isLoading ? (
                   <>
