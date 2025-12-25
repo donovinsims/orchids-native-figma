@@ -68,59 +68,59 @@ export function SubscribeModal({ isOpen, onClose }: SubscribeModalProps) {
         </div>
 
         {isSuccess ? (
-          <div className="text-center">
-            <h2 className="text-xl text-text-primary mb-2">
-              You&apos;re subscribed!
-            </h2>
-            <p className="text-text-secondary mb-6">
-              Thanks for subscribing. You&apos;ll receive our weekly curated software picks in your inbox.
-            </p>
-            <button
-              onClick={handleClose}
-              className="w-full min-h-[44px] px-4 py-3 rounded-md bg-primary text-primary-foreground hover:opacity-90 transition-colors"
-            >
-              Done
-            </button>
-          </div>
-        ) : (
-          <>
-            {/* Heading */}
-            <h2 className="text-xl text-text-primary text-center mb-2">
-              Weekly inspiration
-            </h2>
-
-            {/* Description */}
-            <p className="text-text-secondary text-center mb-6">
-              Stay up to date on the latest software discoveries and get the best apps delivered to your email inbox every week.
-            </p>
-
-            {/* Form */}
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => {
-                    setEmail(e.target.value);
-                    setError(null);
-                  }}
-                  placeholder="you@example.com"
-                  className={`w-full min-h-[44px] px-4 py-3 rounded-md border bg-background ${
-                    error ? "border-error focus:ring-error/20" : "border-border focus:ring-primary/20"
-                  } focus:outline-none focus:ring-2 focus:border-transparent transition-colors text-text-primary placeholder:text-text-muted`}
-                  disabled={isLoading}
-                  autoComplete="email"
-                />
-                {error && (
-                  <p className="mt-2 text-sm text-error">{error}</p>
-                )}
-              </div>
-
+            <div className="text-center">
+              <h2 className="text-xl text-text-primary mb-2">
+                You&apos;re subscribed!
+              </h2>
+              <p className="text-text-secondary mb-6">
+                Thanks for subscribing. You&apos;ll receive our weekly curated software picks in your inbox.
+              </p>
               <button
-                type="submit"
-                disabled={isLoading}
-                className="w-full min-h-[44px] px-4 py-3 rounded-md bg-primary text-primary-foreground hover:opacity-90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                onClick={handleClose}
+                className="w-full min-h-[44px] px-4 py-3 rounded-xl bg-primary text-primary-foreground hover:opacity-90 transition-colors"
               >
+                Done
+              </button>
+            </div>
+          ) : (
+            <>
+              {/* Heading */}
+              <h2 className="text-xl text-text-primary text-center mb-2">
+                Weekly inspiration
+              </h2>
+  
+              {/* Description */}
+              <p className="text-text-secondary text-center mb-6">
+                Stay up to date on the latest software discoveries and get the best apps delivered to your email inbox every week.
+              </p>
+  
+              {/* Form */}
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div>
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                      setError(null);
+                    }}
+                    placeholder="you@example.com"
+                    className={`w-full min-h-[44px] px-4 py-3 rounded-xl border bg-background ${
+                      error ? "border-error focus:ring-error/20" : "border-border focus:ring-primary/20"
+                    } focus:outline-none focus:ring-2 focus:border-transparent transition-colors text-text-primary placeholder:text-text-muted`}
+                    disabled={isLoading}
+                    autoComplete="email"
+                  />
+                  {error && (
+                    <p className="mt-2 text-sm text-error">{error}</p>
+                  )}
+                </div>
+  
+                <button
+                  type="submit"
+                  disabled={isLoading}
+                  className="w-full min-h-[44px] px-4 py-3 rounded-xl bg-primary text-primary-foreground hover:opacity-90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                >
                 {isLoading ? (
                   <>
                     <Loader2 className="w-4 h-4 animate-spin" />
