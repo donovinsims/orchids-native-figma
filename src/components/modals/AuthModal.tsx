@@ -10,17 +10,31 @@ import { AuthError } from "@supabase/supabase-js";
 interface AuthModalProps {
   isOpen: boolean;
   onClose: () => void;
+  initialMode?: AuthMode;
 }
 
 type AuthMode = "signin" | "signup";
 type AuthMethod = "magic-link" | "password";
 
-export function AuthModal({ isOpen, onClose }: AuthModalProps) {
+export function AuthModal({ isOpen, onClose, initialMode = "signin" }: AuthModalProps) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [mode, setMode] = useState<AuthMode>("signin");
+  const [mode, setMode] = useState<AuthMode>(initialMode);
   const [method, setMethod] = useState<AuthMethod>("magic-link");
+
+  // Sync mode with initialMode when modal opens
+  React.useEffect(() => {
+    if (isOpen) {
+      setMode(initialMode);
+    }
+  }, [isOpen, initialMode]);
+
+  const getRedirectUrl = () => {
+    // Priority: VITE_APP_URL > window.location.origin
+    const url = import.meta.env.VITE_APP_URL || window.location.origin;
+    return url.endsWith('/') ? url : `${url}/`;
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -36,11 +50,12 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
 
     setIsLoading(true);
     try {
+      const redirectTo = getRedirectUrl();
       if (method === "magic-link") {
         const { error } = await supabase.auth.signInWithOtp({
           email,
           options: {
-            emailRedirectTo: window.location.origin,
+            emailRedirectTo: redirectTo,
           },
         });
         if (error) throw error;
@@ -52,7 +67,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
             email,
             password,
             options: {
-              emailRedirectTo: window.location.origin,
+              emailRedirectTo: redirectTo,
             },
           });
           if (error) throw error;
