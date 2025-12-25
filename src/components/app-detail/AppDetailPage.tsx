@@ -314,14 +314,14 @@ export default function AppDetailPage({
                             />
                             <div className="absolute inset-0 shadow-[inset_0_0_40px_rgba(0,0,0,0.02)] pointer-events-none" />
                           </div>
-                        <div className="p-4">
-                          <h3 className="text-text-primary mb-1">
-                            {relatedApp.title}
-                          </h3>
-                          <p className="text-sm text-text-secondary line-clamp-2">
-                            {relatedApp.description}
-                          </p>
-                        </div>
+                          <div className="p-4">
+                            <h3 className="text-text-primary mb-1">
+                              {relatedApp.title}
+                            </h3>
+                            <p className="text-sm text-text-secondary line-clamp-2">
+                              {relatedApp.shortDescription || relatedApp.description}
+                            </p>
+                          </div>
                       </button>
                     ))}
                   </div>
