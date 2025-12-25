@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { supabase } from '@/lib/supabase';
 import { useAuth } from './use-auth';
 
@@ -7,7 +7,7 @@ export const useBookmarks = () => {
   const [bookmarks, setBookmarks] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
 
-  const fetchBookmarks = async () => {
+  const fetchBookmarks = useCallback(async () => {
     if (!user) {
       setBookmarks([]);
       setLoading(false);
@@ -21,13 +21,13 @@ export const useBookmarks = () => {
         .eq('user_id', user.id);
 
       if (error) throw error;
-      setBookmarks(data.map((b: any) => b.app_id));
+      setBookmarks(data.map((b: { app_id: string }) => b.app_id));
     } catch (error) {
       console.error('Error fetching bookmarks:', error);
     } finally {
       setLoading(false);
     }
-  };
+  }, [user]);
 
   useEffect(() => {
     fetchBookmarks();
@@ -54,7 +54,7 @@ export const useBookmarks = () => {
         supabase.removeChannel(channel);
       };
     }
-  }, [user]);
+  }, [user, fetchBookmarks]);
 
   const toggleBookmark = async (appId: string) => {
     if (!user) return { error: 'Please sign in to bookmark' };
