@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useAuth } from "@/hooks/use-auth";
 import { useBookmarks } from "@/hooks/use-bookmarks";
-import { websitesData } from "@/data/appsData";
+import { App } from "@/lib/apps";
 import WebsiteGrid from "./WebsiteGrid";
 import { Container } from "../ui/container";
 import { User, Mail, Loader2, Bookmark } from "lucide-react";
@@ -9,16 +9,17 @@ import { toast } from "sonner";
 
 interface ProfileViewProps {
   onAppClick: (appId: string) => void;
+  apps: App[];
 }
 
-export default function ProfileView({ onAppClick }: ProfileViewProps) {
+export default function ProfileView({ onAppClick, apps }: ProfileViewProps) {
   const { user, profile, updateProfile } = useAuth();
   const { bookmarks, loading: bookmarksLoading } = useBookmarks();
   const [isEditing, setIsEditing] = useState(false);
   const [fullName, setFullName] = useState(profile?.full_name || "");
   const [isUpdating, setIsUpdating] = useState(false);
 
-  const bookmarkedApps = websitesData.filter((app) => bookmarks.includes(app.id));
+  const bookmarkedApps = apps.filter((app) => bookmarks.includes(app.id));
 
   const handleUpdateProfile = async (e: React.FormEvent) => {
     e.preventDefault();
