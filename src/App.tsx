@@ -22,15 +22,21 @@ export default function App() {
   const submitModal = useModal();
     const authModal = useModal();
     const [selectedAppId, setSelectedAppId] = useState<string | null>(null);
-    const [currentView, setCurrentView] = useState<'home' | 'profile'>('home');
+    const [currentView, setCurrentView] = useState<'home' | 'profile' | 'app-detail'>('home');
+    const isMobile = useIsMobile();
 
-
-  const handleAppClick = (appId: string) => {
-    setSelectedAppId(appId);
-  };
+    const handleAppClick = (appId: string) => {
+      setSelectedAppId(appId);
+      if (!isMobile) {
+        setCurrentView('app-detail');
+      }
+    };
 
     const handleBackToList = () => {
       setSelectedAppId(null);
+      if (currentView === 'app-detail') {
+        setCurrentView('home');
+      }
     };
 
     const selectedApp = selectedAppId ? appDetailsData[selectedAppId] : null;
