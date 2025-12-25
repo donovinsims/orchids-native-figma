@@ -179,7 +179,7 @@ export default function DesktopAppDetail({
           <div className="col-span-4">
             <div className="sticky top-[160px] space-y-8">
               {/* Primary Actions Card */}
-              <div className="bg-background-primary border border-border rounded-[32px] p-8 shadow-xl shadow-black/[0.02]">
+              <div className="bg-background-primary border border-border rounded-[32px] p-6 shadow-xl shadow-black/[0.02]">
                 <div className="flex items-center justify-between mb-8">
                   <span className="px-3 py-1 rounded-full bg-success/10 text-success text-xs font-bold uppercase tracking-wider">
                     Official Website
@@ -193,12 +193,12 @@ export default function DesktopAppDetail({
                   </button>
                 </div>
 
-                <div className="space-y-4">
+                <div className="space-y-3">
                   <a
                     href={app.websiteUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-3 w-full px-6 py-5 rounded-2xl bg-text-primary text-background-primary hover:opacity-90 transition-all text-xl font-bold shadow-lg shadow-text-primary/10 hover:-translate-y-0.5"
+                    className="flex items-center justify-center gap-3 w-full px-6 py-3.5 rounded-xl bg-text-primary text-background-primary hover:opacity-90 transition-all text-base font-bold shadow-lg shadow-text-primary/10 hover:-translate-y-0.5"
                   >
                     <span>Visit Website</span>
                     <ExternalLink className="w-5 h-5" />
@@ -206,7 +206,7 @@ export default function DesktopAppDetail({
 
                   <button
                     onClick={handleBookmark}
-                    className={`flex items-center justify-center gap-3 w-full px-6 py-5 rounded-2xl border-2 transition-all text-xl font-bold ${
+                    className={`flex items-center justify-center gap-3 w-full px-6 py-3.5 rounded-xl border-2 transition-all text-base font-bold ${
                       bookmarked 
                         ? "border-[#ff4500] bg-[#ff4500]/5 text-[#ff4500]" 
                         : "border-border hover:bg-background-secondary text-text-primary hover:border-border-strong"
@@ -217,13 +217,13 @@ export default function DesktopAppDetail({
                   </button>
                 </div>
 
-                <p className="text-text-tertiary text-sm text-center mt-6 px-4">
+                <p className="text-text-tertiary text-sm text-center mt-4 px-4">
                   By visiting this website you agree to their terms of service and privacy policy.
                 </p>
               </div>
 
               {/* Information Card */}
-              <div className="bg-background-secondary/40 border border-border rounded-[32px] p-8">
+              <div className="bg-background-secondary/40 border border-border rounded-[32px] p-6">
                 <h3 className="text-sm font-bold text-text-tertiary uppercase tracking-[0.2em] mb-8">
                   App Intelligence
                 </h3>
