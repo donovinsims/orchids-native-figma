@@ -3,13 +3,16 @@ import App from "./App";
 import "./styles/globals.css";
 
 if (typeof window !== "undefined") {
-  const sendToParent = (data: any) => {
+  const sendToParent = (data: unknown) => {
     try {
       if (window.parent && window.parent !== window) {
         window.parent.postMessage(data, "*");
       }
-    } catch {}
+    } catch {
+      // Ignore errors when sending to parent
+    }
   };
+
 
   window.addEventListener("error", (event) => {
     // Send structured payload to parent iframe
