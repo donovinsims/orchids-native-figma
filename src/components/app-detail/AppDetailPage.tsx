@@ -219,15 +219,15 @@ interface RelatedApp {
                 href={app.websiteUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 w-full px-6 py-4 rounded-md bg-background-primary text-text-primary border border-border hover:bg-background-secondary hover:border-border-strong transition-all duration-200 text-lg font-medium"
+                className="flex items-center justify-center gap-2 w-full px-6 py-3 rounded-xl bg-background-primary text-text-primary border border-border hover:bg-background-secondary hover:border-border-strong transition-all duration-200 text-base font-medium"
               >
                 <span>Visit Website</span>
                 <ExternalLink className="w-5 h-5" />
               </a>
-  
+
               <button
                 onClick={handleBookmark}
-                className="flex items-center justify-center gap-2 w-full px-6 py-4 rounded-md bg-[#ff4500] text-white hover:opacity-90 transition-colors text-lg font-medium"
+                className="flex items-center justify-center gap-2 w-full px-6 py-3 rounded-xl bg-[#ff4500] text-white hover:opacity-90 transition-colors text-base font-medium"
               >
                 <span>{bookmarked ? "Bookmarked" : "Bookmark"}</span>
                 <motion.div
