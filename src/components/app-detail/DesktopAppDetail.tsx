@@ -7,35 +7,8 @@ import { useBookmarks } from "@/hooks/use-bookmarks";
 import { useAuth } from "@/hooks/use-auth";
 import { motion } from "motion/react";
 import { WebsiteCard } from "../sections/WebsiteGrid";
-import { websitesData } from "@/data/appsData";
+import { AppDetail } from "@/lib/apps";
 import { Container } from "../ui/container";
-
-interface AppDetail {
-  id: string;
-  title: string;
-  description: string;
-  shortDescription?: string;
-  category: string;
-  platforms: string[];
-  pricing: string;
-  developer: string;
-  lastUpdated: string;
-  websiteUrl: string;
-  faviconUrl: string;
-  previewImage: string;
-  about: string;
-  features: string[];
-  relatedApps?: RelatedApp[];
-}
-
-interface RelatedApp {
-  id: string;
-  title: string;
-  description: string;
-  shortDescription?: string;
-  previewImage: string;
-  href: string;
-}
 
 interface DesktopAppDetailProps {
   app: AppDetail;
