@@ -87,7 +87,7 @@ export default function App() {
             {currentView === 'profile' ? (
                 <div className="pt-[67px]">
                   <Container className="py-md md:py-xl">
-                    <ProfileView onAppClick={handleAppClick} />
+                    <ProfileView apps={apps} onAppClick={handleAppClick} />
                   </Container>
                 </div>
             ) : currentView === 'app-detail' && selectedApp ? (
