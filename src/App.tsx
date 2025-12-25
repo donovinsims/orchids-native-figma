@@ -14,6 +14,7 @@ import { Container } from "./components/ui/container";
 import { websitesData, appDetailsData } from "./data/appsData";
 import { AuthProvider } from "./hooks/use-auth";
 import { AnimatePresence } from "motion/react";
+import { useIsMobile } from "./hooks/use-mobile";
 
 import ProfileView from "./components/sections/ProfileView";
 
