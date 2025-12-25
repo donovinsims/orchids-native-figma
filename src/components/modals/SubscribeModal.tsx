@@ -77,7 +77,7 @@ export function SubscribeModal({ isOpen, onClose }: SubscribeModalProps) {
               </p>
               <button
                 onClick={handleClose}
-                className="w-full min-h-[44px] px-4 py-3 rounded-xl bg-primary text-primary-foreground hover:opacity-90 transition-colors"
+                className="w-full min-h-[44px] px-4 py-3 rounded-lg bg-primary text-primary-foreground hover:opacity-90 transition-colors"
               >
                 Done
               </button>
@@ -105,7 +105,7 @@ export function SubscribeModal({ isOpen, onClose }: SubscribeModalProps) {
                       setError(null);
                     }}
                     placeholder="you@example.com"
-                    className={`w-full min-h-[44px] px-4 py-3 rounded-xl border bg-background ${
+                    className={`w-full min-h-[44px] px-4 py-3 rounded-lg border bg-background ${
                       error ? "border-error focus:ring-error/20" : "border-border focus:ring-primary/20"
                     } focus:outline-none focus:ring-2 focus:border-transparent transition-colors text-text-primary placeholder:text-text-muted`}
                     disabled={isLoading}
@@ -119,7 +119,7 @@ export function SubscribeModal({ isOpen, onClose }: SubscribeModalProps) {
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full min-h-[44px] px-4 py-3 rounded-xl bg-primary text-primary-foreground hover:opacity-90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  className="w-full min-h-[44px] px-4 py-3 rounded-lg bg-primary text-primary-foreground hover:opacity-90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
                 {isLoading ? (
                   <>
