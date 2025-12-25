@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { useModal } from "./hooks/useModal.tsx";
 import HeaderNavigation from "./components/sections/HeaderNavigation";
@@ -14,6 +14,7 @@ import { Container } from "./components/ui/container";
 import { websitesData, appDetailsData } from "./data/appsData";
 import { AuthProvider } from "./hooks/use-auth";
 import { AnimatePresence } from "motion/react";
+import { useIsMobile } from "./hooks/use-mobile";
 
 import ProfileView from "./components/sections/ProfileView";
 
@@ -22,19 +23,8 @@ export default function App() {
   const submitModal = useModal();
   const authModal = useModal();
   const [selectedAppId, setSelectedAppId] = useState<string | null>(null);
-  const [isMobile, setIsMobile] = useState(false);
+  const isMobile = useIsMobile();
   const [currentView, setCurrentView] = useState<'home' | 'profile'>('home');
-
-  // Detect mobile viewport
-    useEffect(() => {
-      const checkMobile = () => {
-        setIsMobile(window.innerWidth < 768);
-      };
-      
-      checkMobile();
-      window.addEventListener('resize', checkMobile);
-      return () => window.removeEventListener('resize', checkMobile);
-    }, []);
 
   const handleAppClick = (appId: string) => {
     setSelectedAppId(appId);
