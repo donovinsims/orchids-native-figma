@@ -40,14 +40,10 @@ export function WebsiteCard({ item, onClick, onLoginClick }: { item: Website; on
   const isMobile = useIsMobile();
   const bookmarked = isBookmarked(item.id);
 
-  const handleClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    if (!isMobile) {
-      window.open(item.href, '_blank', 'noopener,noreferrer');
-    } else {
+    const handleClick = (e: React.MouseEvent) => {
+      e.preventDefault();
       onClick?.(item.id);
-    }
-  };
+    };
 
   const handleBookmark = async (e: React.MouseEvent) => {
     e.stopPropagation();
