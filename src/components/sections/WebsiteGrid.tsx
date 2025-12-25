@@ -33,7 +33,7 @@ export default function WebsiteGrid({ items, onItemClick, onLoginClick }: Websit
   );
 }
 
-function WebsiteCard({ item, onClick, onLoginClick }: { item: Website; onClick?: (id: string) => void; onLoginClick?: () => void }) {
+export function WebsiteCard({ item, onClick, onLoginClick }: { item: Website; onClick?: (id: string) => void; onLoginClick?: () => void }) {
   const { isBookmarked, toggleBookmark } = useBookmarks();
   const { user } = useAuth();
   const bookmarked = isBookmarked(item.id);
