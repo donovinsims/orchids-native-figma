@@ -196,15 +196,15 @@ export default function AppDetailPage({
                 <div className="absolute inset-0 shadow-[inset_0_0_40px_rgba(0,0,0,0.02)] pointer-events-none" />
               </div>
 
-              {/* Title & Description */}
-              <div>
-                <h1 className="text-4xl text-text-primary mb-2 tracking-tight">
-                  {app.title}
-                </h1>
-                <p className="text-text-secondary text-lg">
-                  {app.description}
-                </p>
-              </div>
+                {/* Title & Description */}
+                <div>
+                  <h1 className="text-4xl text-text-primary mb-2 tracking-tight">
+                    {app.title}
+                  </h1>
+                  <p className="text-text-secondary text-lg">
+                    {app.shortDescription || app.description}
+                  </p>
+                </div>
 
               {/* Action Buttons */}
               <div className="flex flex-col gap-3">
