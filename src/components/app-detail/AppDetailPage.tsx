@@ -6,9 +6,9 @@ import { toast } from "sonner";
 import Footer from "../sections/Footer";
 import { useBookmarks } from "@/hooks/use-bookmarks";
 import { useAuth } from "@/hooks/use-auth";
-import { motion, useMotionValue, useTransform, PanInfo, AnimatePresence, useDragControls } from "motion/react";
+import { motion, useMotionValue, useTransform, PanInfo, useDragControls } from "motion/react";
 import { WebsiteCard } from "../sections/WebsiteGrid";
-import { websitesData, Website } from "@/data/appsData";
+import { websitesData } from "@/data/appsData";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 interface AppDetail {
