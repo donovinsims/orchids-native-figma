@@ -9,6 +9,7 @@ import { useAuth } from "@/hooks/use-auth";
 import { motion, useMotionValue, useTransform, PanInfo, AnimatePresence, useDragControls } from "motion/react";
 import { WebsiteCard } from "../sections/WebsiteGrid";
 import { websitesData, Website } from "@/data/appsData";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface AppDetail {
   id: string;
