@@ -5,6 +5,7 @@ import { Sparkles, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { Modal } from "./Modal";
 import { supabase } from "@/lib/supabase";
+import { AuthError } from "@supabase/supabase-js";
 
 interface AuthModalProps {
   isOpen: boolean;
