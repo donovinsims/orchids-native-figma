@@ -109,33 +109,33 @@ export function AuthModal({ isOpen, onClose, initialMode = "signin" }: AuthModal
   return (
     <Modal isOpen={isOpen} onClose={onClose} showCloseButton={true}>
       <div className="p-8">
-          <div className="mb-6 flex justify-between items-center">
-            <div className="p-2 bg-primary/10 rounded-xl">
-              <Sparkles className="w-6 h-6 text-primary" fill="currentColor" />
+            <div className="mb-6 flex justify-between items-center">
+              <div className="p-2 bg-primary/10 rounded-lg">
+                <Sparkles className="w-6 h-6 text-primary" fill="currentColor" />
+              </div>
+              <div className="flex bg-background-tertiary p-1 rounded-lg border border-border">
+                <button
+                  onClick={() => setMode("signin")}
+                  className={`px-4 py-1.5 text-sm font-medium rounded-lg transition-all ${
+                    mode === "signin"
+                      ? "bg-background shadow-sm text-text-primary"
+                      : "text-text-muted hover:text-text-secondary"
+                  }`}
+                >
+                  Sign In
+                </button>
+                <button
+                  onClick={() => setMode("signup")}
+                  className={`px-4 py-1.5 text-sm font-medium rounded-lg transition-all ${
+                    mode === "signup"
+                      ? "bg-background shadow-sm text-text-primary"
+                      : "text-text-muted hover:text-text-secondary"
+                  }`}
+                >
+                  Sign Up
+                </button>
+              </div>
             </div>
-            <div className="flex bg-background-tertiary p-1 rounded-xl border border-border">
-              <button
-                onClick={() => setMode("signin")}
-                className={`px-4 py-1.5 text-sm font-medium rounded-lg transition-all ${
-                  mode === "signin"
-                    ? "bg-background shadow-sm text-text-primary"
-                    : "text-text-muted hover:text-text-secondary"
-                }`}
-              >
-                Sign In
-              </button>
-              <button
-                onClick={() => setMode("signup")}
-                className={`px-4 py-1.5 text-sm font-medium rounded-lg transition-all ${
-                  mode === "signup"
-                    ? "bg-background shadow-sm text-text-primary"
-                    : "text-text-muted hover:text-text-secondary"
-                }`}
-              >
-                Sign Up
-              </button>
-            </div>
-          </div>
 
         <div>
           <h2 className="text-3xl font-medium text-text-primary mb-2">
