@@ -43,6 +43,7 @@ interface MobileNavOverlayProps {
   onSubscribeClick?: () => void;
   onSubmitClick?: () => void;
   onLoginClick?: () => void;
+  onSignUpClick?: () => void;
 }
 
 export function MobileNavOverlay({
@@ -51,6 +52,7 @@ export function MobileNavOverlay({
   onSubscribeClick,
   onSubmitClick,
   onLoginClick,
+  onSignUpClick,
 }: MobileNavOverlayProps) {
   const [activeCategory, setActiveCategory] = useState("All");
 
@@ -82,6 +84,11 @@ export function MobileNavOverlay({
   const handleLogin = () => {
     onClose();
     onLoginClick?.();
+  };
+
+  const handleSignUp = () => {
+    onClose();
+    onSignUpClick?.();
   };
 
   const handleCategoryClick = (label: string) => {
@@ -121,12 +128,20 @@ export function MobileNavOverlay({
 
         {/* Auth & Subscribe Buttons */}
         <div className="px-4 pt-8 pb-8 space-y-4">
-          <button 
-            onClick={handleLogin}
-            className="w-full py-3 rounded-md border border-border bg-background-primary text-text-primary hover:bg-background-secondary transition-colors text-sm font-medium"
-          >
-            Sign in
-          </button>
+          <div className="grid grid-cols-2 gap-3">
+            <button 
+              onClick={handleLogin}
+              className="w-full py-3 rounded-md border border-border bg-background-primary text-text-primary hover:bg-background-secondary transition-colors text-sm font-medium"
+            >
+              Sign in
+            </button>
+            <button 
+              onClick={handleSignUp}
+              className="w-full py-3 rounded-md border border-border bg-background-primary text-text-primary hover:bg-background-secondary transition-colors text-sm font-medium"
+            >
+              Sign up
+            </button>
+          </div>
           <button
             onClick={handleSubscribe}
             className="w-full py-3 rounded-md bg-[#ff4500] text-white hover:opacity-90 transition-colors text-sm font-medium"
