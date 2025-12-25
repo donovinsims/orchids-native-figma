@@ -12,6 +12,7 @@ interface AppDetail {
   id: string;
   title: string;
   description: string;
+  shortDescription?: string;
   category: string;
   platforms: string[];
   pricing: string;
@@ -29,6 +30,7 @@ interface RelatedApp {
   id: string;
   title: string;
   description: string;
+  shortDescription?: string;
   previewImage: string;
   href: string;
 }
