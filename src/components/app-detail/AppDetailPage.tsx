@@ -57,6 +57,7 @@ export default function AppDetailPage({
   onSubmitClick, 
   onLoginClick,
 }: AppDetailPageProps) {
+  const isMobile = useIsMobile();
   const { isBookmarked, toggleBookmark } = useBookmarks();
     const { user } = useAuth();
     const bookmarked = isBookmarked(app.id);
@@ -104,6 +105,7 @@ export default function AppDetailPage({
   }, []);
 
   const handleDragEnd = (_event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+    if (!isMobile) return;
     const shouldClose = info.velocity.y > 500 || (info.velocity.y >= 0 && info.offset.y > 150);
     if (shouldClose) {
       onBack();
@@ -113,77 +115,87 @@ export default function AppDetailPage({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex flex-col justify-end">
+    <div className={`fixed inset-0 z-50 flex flex-col ${isMobile ? 'justify-end' : 'justify-center items-center p-6 md:p-12'}`}>
         {/* Backdrop */}
         <motion.div
-          className="fixed inset-0 bg-black/40"
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          style={{ opacity: bgOpacity }}
+          style={isMobile ? { opacity: bgOpacity } : undefined}
           onClick={onBack}
         />
 
-        {/* Sheet Container */}
+        {/* Sheet/Modal Container */}
         <motion.div
-          className="relative w-full max-w-4xl mx-auto bg-background-primary rounded-t-[32px] shadow-[0_-12px_60px_rgba(0,0,0,0.4)] overflow-hidden flex flex-col"
-          initial={{ y: "100%" }}
-          animate={{ y: 0 }}
-          exit={{ y: "100%" }}
+          className={`relative w-full ${isMobile ? 'max-w-4xl bg-background-primary rounded-t-[32px]' : 'max-w-3xl bg-background-primary rounded-2xl border border-border'} shadow-2xl overflow-hidden flex flex-col`}
+          initial={isMobile ? { y: "100%" } : { opacity: 0, scale: 0.95 }}
+          animate={isMobile ? { y: 0 } : { opacity: 1, scale: 1 }}
+          exit={isMobile ? { y: "100%" } : { opacity: 0, scale: 0.95 }}
           transition={{
             type: "spring",
             damping: 30,
             stiffness: 300,
             mass: 0.8
           }}
-            style={{ 
+            style={isMobile ? { 
               y,
               height: '88vh',
+            } : {
+              maxHeight: '90vh'
             }}
-            drag="y"
+            drag={isMobile ? "y" : false}
             dragListener={false}
             dragControls={dragControls}
             dragConstraints={{ top: 0, bottom: 0 }}
             dragElastic={{ top: 0, bottom: 0.1 }}
             onDragEnd={handleDragEnd}
           >
-          {/* Top Blur Effect (The "Blurred Border") */}
-          <div className="absolute top-0 left-0 right-0 h-6 bg-gradient-to-b from-white/10 via-white/5 to-transparent blur-xl z-50 pointer-events-none opacity-60" />
-          <div className="absolute top-0 left-0 right-0 h-[2px] bg-white/10 blur-[3px] z-50 pointer-events-none" />
-          <div className="absolute top-0 left-0 right-0 h-[1px] bg-white/5 blur-[0.5px] z-50 pointer-events-none" />
-
-          {/* Sticky Header Bar - Modal Style */}
-          <div className="sticky top-0 z-30 bg-background-primary/80 backdrop-blur-md">
-            <div className="flex items-center justify-between px-6 h-16">
+          {/* Top Decorative Effects */}
+          <div className="absolute top-0 left-0 right-0 h-6 bg-gradient-to-b from-white/10 via-white/5 to-transparent blur-xl z-50 pointer-events-none opacity-40" />
+          
+          {/* Sticky Header Bar */}
+          <div className="sticky top-0 z-30 bg-background-primary/80 backdrop-blur-md border-b border-border/40">
+            <div className="flex items-center justify-between px-4 md:px-6 h-14 md:h-16">
               <button
                 onClick={onBack}
-                className="flex items-center justify-center w-10 h-10 rounded-full hover:bg-background-secondary transition-colors"
+                className="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full hover:bg-background-secondary transition-colors"
                 aria-label="Close"
               >
-                <X className="w-6 h-6 text-text-primary" />
+                <X className="w-5 h-5 md:w-6 md:h-6 text-text-primary" />
               </button>
               
-                {/* Drag Handle */}
-                <div 
-                  onPointerDown={(e) => dragControls.start(e)}
-                  className="flex-grow flex justify-center cursor-grab active:cursor-grabbing py-4"
-                >
-                  <div className="w-12 h-1.5 bg-white/10 rounded-full" />
-                </div>
+                {/* Drag Handle - Mobile Only */}
+                {isMobile && (
+                  <div 
+                    onPointerDown={(e) => dragControls.start(e)}
+                    className="flex-grow flex justify-center cursor-grab active:cursor-grabbing py-4"
+                  >
+                    <div className="w-12 h-1.5 bg-white/10 rounded-full" />
+                  </div>
+                )}
+
+                {!isMobile && (
+                  <div className="flex-grow flex justify-center px-4">
+                    <span className="text-sm font-medium text-text-secondary truncate max-w-[200px]">
+                      {app.title}
+                    </span>
+                  </div>
+                )}
 
               <button
                 onClick={handleShare}
-                className="flex items-center justify-center w-10 h-10 rounded-full hover:bg-background-secondary transition-colors"
+                className="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full hover:bg-background-secondary transition-colors"
                 aria-label="Share"
               >
-                <Share2 className="w-5 h-5 text-text-primary" />
+                <Share2 className="w-4 h-4 md:w-5 md:h-5 text-text-primary" />
               </button>
             </div>
           </div>
 
           {/* Scrollable Content */}
-          <div className="flex-grow overflow-y-auto overflow-x-hidden">
-            <div className="max-w-3xl mx-auto px-4 py-8 space-y-8">
+          <div className="flex-grow overflow-y-auto overflow-x-hidden custom-scrollbar">
+            <div className={`mx-auto px-4 md:px-8 py-6 md:py-8 space-y-6 md:space-y-8 ${isMobile ? 'max-w-3xl' : 'w-full'}`}>
               {/* Preview Image */}
               <div className="relative w-full aspect-[16/10] bg-background-secondary rounded-md overflow-hidden border border-border">
                 <img
