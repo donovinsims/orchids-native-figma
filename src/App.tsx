@@ -97,7 +97,7 @@ export default function App() {
                   <main>
                     <Container className="py-md md:py-xl">
                       <HeroHeader onSubscribeClick={subscribeModal.open} />
-                      <WebsiteGrid items={websitesData} onItemClick={handleAppClick} onLoginClick={authModal.open} />
+                      <WebsiteGrid items={websitesData} onItemClick={handleAppClick} onLoginClick={handleLoginClick} />
                     </Container>
                   </main>
                 </div>
@@ -119,7 +119,7 @@ export default function App() {
               onNavigateToApp={handleAppClick}
               onSubscribeClick={subscribeModal.open}
               onSubmitClick={submitModal.open}
-              onLoginClick={authModal.open}
+              onLoginClick={handleLoginClick}
               onProfileClick={() => setCurrentView('profile')}
               onHomeClick={handleBackToList}
               isInline={false}
@@ -130,7 +130,11 @@ export default function App() {
           {/* Modals */}
           <SubscribeModal isOpen={subscribeModal.isOpen} onClose={subscribeModal.close} />
           <SubmitAppModal isOpen={submitModal.isOpen} onClose={submitModal.close} />
-          <AuthModal isOpen={authModal.isOpen} onClose={authModal.close} />
+          <AuthModal 
+            isOpen={authModal.isOpen} 
+            onClose={authModal.close} 
+            initialMode={authMode}
+          />
         
         <Toaster position="bottom-center" />
       </div>
