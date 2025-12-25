@@ -37,11 +37,16 @@ export default function WebsiteGrid({ items, onItemClick, onLoginClick }: Websit
 export function WebsiteCard({ item, onClick, onLoginClick }: { item: Website; onClick?: (id: string) => void; onLoginClick?: () => void }) {
   const { isBookmarked, toggleBookmark } = useBookmarks();
   const { user } = useAuth();
+  const isMobile = useIsMobile();
   const bookmarked = isBookmarked(item.id);
 
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    onClick?.(item.id);
+    if (!isMobile) {
+      window.open(item.href, '_blank', 'noopener,noreferrer');
+    } else {
+      onClick?.(item.id);
+    }
   };
 
   const handleBookmark = async (e: React.MouseEvent) => {
