@@ -96,7 +96,7 @@ export default function DesktopAppDetail({
                 </div>
               </div>
 
-                  <div className="relative aspect-[16/10] bg-surface rounded-[22px] overflow-hidden border border-border/40 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.04)] dark:hover:shadow-[0_0_0_1px_rgba(255,255,255,0.05)]">
+                  <div className="relative aspect-[16/10] bg-surface rounded-sm overflow-hidden border border-border/40 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.04)] dark:hover:shadow-[0_0_0_1px_rgba(255,255,255,0.05)]">
                   <img
                     src={app.previewImage}
                     alt={app.title}
