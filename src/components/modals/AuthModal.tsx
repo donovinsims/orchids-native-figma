@@ -109,131 +109,131 @@ export function AuthModal({ isOpen, onClose, initialMode = "signin" }: AuthModal
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} showCloseButton={true}>
-      <div className="p-8">
-            <div className="mb-6 flex justify-between items-center">
-              <div className="p-2 bg-primary/10 rounded-lg">
-                <Sparkles className="w-6 h-6 text-primary" fill="currentColor" />
-              </div>
-              <div className="flex bg-surface-raised p-1 rounded-lg border border-border">
-                <button
-                  onClick={() => setMode("signin")}
-                  className={`px-4 py-1.5 text-sm font-medium rounded-lg transition-all ${
-                    mode === "signin"
-                      ? "bg-background shadow-sm text-primary"
-                      : "text-text-muted hover:text-secondary"
-                  }`}
-                >
-                  Sign In
-                </button>
-                <button
-                  onClick={() => setMode("signup")}
-                  className={`px-4 py-1.5 text-sm font-medium rounded-lg transition-all ${
-                    mode === "signup"
-                      ? "bg-background shadow-sm text-primary"
-                      : "text-text-muted hover:text-secondary"
-                  }`}
-                >
-                  Sign Up
-                </button>
-              </div>
-            </div>
-
-        <div>
-          <h2 className="text-3xl font-medium text-primary mb-2">
-            {mode === "signin" ? "Welcome Back" : "Create Account"}
-          </h2>
-          <p className="text-secondary mb-8 leading-relaxed">
-            {mode === "signin" 
-              ? "Sign in to access your saved apps and preferences." 
-              : "Join our community to discover and share the best tools."}
-          </p>
-
-          <form onSubmit={handleSubmit} className="space-y-4 mb-6">
-            <div className="space-y-2">
-              <label className="text-sm font-medium text-secondary ml-1">Email Address</label>
-              <div className="relative">
-                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-text-muted" />
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="you@example.com"
-                    className="w-full pl-10 pr-4 py-3 rounded-lg border border-border bg-background focus:ring-2 focus:ring-primary/20 focus:border-primary focus:outline-none transition-all text-primary placeholder:text-text-muted"
-                    disabled={isLoading}
-                    required
-                  />
+        <div className="p-8">
+              <div className="mb-6 flex justify-between items-center">
+                <div className="p-2 bg-primary/10 rounded-pill">
+                  <Sparkles className="w-6 h-6 text-primary" fill="currentColor" />
+                </div>
+                <div className="flex bg-surface-raised p-1 rounded-pill border border-border">
+                  <button
+                    onClick={() => setMode("signin")}
+                    className={`px-4 py-1.5 text-sm font-medium rounded-pill transition-all ${
+                      mode === "signin"
+                        ? "bg-background shadow-sm text-primary"
+                        : "text-text-muted hover:text-secondary"
+                    }`}
+                  >
+                    Sign In
+                  </button>
+                  <button
+                    onClick={() => setMode("signup")}
+                    className={`px-4 py-1.5 text-sm font-medium rounded-pill transition-all ${
+                      mode === "signup"
+                        ? "bg-background shadow-sm text-primary"
+                        : "text-text-muted hover:text-secondary"
+                    }`}
+                  >
+                    Sign Up
+                  </button>
                 </div>
               </div>
 
-              {method === "password" && (
-                <div className="space-y-2 animate-in fade-in slide-in-from-top-2">
-                  <label className="text-sm font-medium text-secondary ml-1">Password</label>
-                  <div className="relative">
-                    <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-text-muted" />
+          <div>
+            <h2 className="text-3xl font-medium text-primary mb-2">
+              {mode === "signin" ? "Welcome Back" : "Create Account"}
+            </h2>
+            <p className="text-secondary mb-8 leading-relaxed">
+              {mode === "signin" 
+                ? "Sign in to access your saved apps and preferences." 
+                : "Join our community to discover and share the best tools."}
+            </p>
+
+            <form onSubmit={handleSubmit} className="space-y-4 mb-6">
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-secondary ml-1">Email Address</label>
+                <div className="relative">
+                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-text-muted" />
                     <input
-                      type="password"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      placeholder="••••••••"
-                      className="w-full pl-10 pr-4 py-3 rounded-lg border border-border bg-background focus:ring-2 focus:ring-primary/20 focus:border-primary focus:outline-none transition-all text-primary placeholder:text-text-muted"
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="you@example.com"
+                      className="w-full pl-10 pr-4 py-3 rounded-pill border border-border bg-background focus:ring-2 focus:ring-primary/20 focus:border-primary focus:outline-none transition-all text-primary placeholder:text-text-muted"
                       disabled={isLoading}
                       required
                     />
                   </div>
                 </div>
-              )}
 
-              <button
-                type="submit"
-                disabled={isLoading}
-                className="w-full py-3.5 rounded-lg bg-primary text-primary-foreground hover:opacity-90 transition-all font-semibold flex items-center justify-center gap-2 shadow-lg shadow-primary/20"
-              >
-                {isLoading ? (
-                  <Loader2 className="w-5 h-5 animate-spin" />
-                ) : (
-                  <>
-                    {mode === "signin" ? <LogIn className="w-4 h-4" /> : <UserPlus className="w-4 h-4" />}
-                    {mode === "signin" 
-                      ? (method === "magic-link" ? "Send Magic Link" : "Sign In") 
-                      : (method === "magic-link" ? "Sign Up with Email" : "Create Account")}
-                  </>
+                {method === "password" && (
+                  <div className="space-y-2 animate-in fade-in slide-in-from-top-2">
+                    <label className="text-sm font-medium text-secondary ml-1">Password</label>
+                    <div className="relative">
+                      <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-text-muted" />
+                      <input
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        placeholder="••••••••"
+                        className="w-full pl-10 pr-4 py-3 rounded-pill border border-border bg-background focus:ring-2 focus:ring-primary/20 focus:border-primary focus:outline-none transition-all text-primary placeholder:text-text-muted"
+                        disabled={isLoading}
+                        required
+                      />
+                    </div>
+                  </div>
                 )}
-              </button>
-            </form>
 
-            <div className="flex justify-center mb-8">
-              <button
-                type="button"
-                onClick={() => setMethod(method === "magic-link" ? "password" : "magic-link")}
-                className="text-sm font-medium text-primary hover:underline transition-all"
-              >
-                {method === "magic-link" ? "Use password instead" : "Use magic link instead"}
-              </button>
-            </div>
+                <Button
+                  type="submit"
+                  disabled={isLoading}
+                  className="w-full h-12 text-base font-bold shadow-lg shadow-primary/20"
+                >
+                  {isLoading ? (
+                    <Loader2 className="w-5 h-5 animate-spin" />
+                  ) : (
+                    <>
+                      {mode === "signin" ? <LogIn className="w-4 h-4" /> : <UserPlus className="w-4 h-4" />}
+                      {mode === "signin" 
+                        ? (method === "magic-link" ? "Send Magic Link" : "Sign In") 
+                        : (method === "magic-link" ? "Sign Up with Email" : "Create Account")}
+                    </>
+                  )}
+                </Button>
+              </form>
 
-            <div className="relative mb-6">
-              <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-border"></div>
+              <div className="flex justify-center mb-8">
+                <button
+                  type="button"
+                  onClick={() => setMethod(method === "magic-link" ? "password" : "magic-link")}
+                  className="text-sm font-medium text-primary hover:underline transition-all"
+                >
+                  {method === "magic-link" ? "Use password instead" : "Use magic link instead"}
+                </button>
               </div>
-              <div className="relative flex justify-center text-xs uppercase">
-                <span className="bg-background px-4 text-text-muted font-medium tracking-wider">Or continue with</span>
+
+              <div className="relative mb-6">
+                <div className="absolute inset-0 flex items-center">
+                  <div className="w-full border-t border-border"></div>
+                </div>
+                <div className="relative flex justify-center text-xs uppercase">
+                  <span className="bg-background px-4 text-text-muted font-medium tracking-wider">Or continue with</span>
+                </div>
               </div>
-            </div>
 
-            <div className="grid grid-cols-2 gap-4">
-              <button
-                onClick={() => handleOAuth('twitter')}
-                className="flex items-center justify-center py-3.5 rounded-lg bg-background border border-border hover:bg-surface transition-all group"
-              >
-                <svg className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                </svg>
-              </button>
+              <div className="grid grid-cols-2 gap-4">
+                <button
+                  onClick={() => handleOAuth('twitter')}
+                  className="flex items-center justify-center py-3.5 rounded-pill bg-background border border-border hover:bg-surface transition-all group"
+                >
+                  <svg className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                  </svg>
+                </button>
 
-              <button
-                onClick={() => handleOAuth('google')}
-                className="flex items-center justify-center py-3.5 rounded-lg bg-background border border-border hover:bg-surface transition-all group"
-              >
+                <button
+                  onClick={() => handleOAuth('google')}
+                  className="flex items-center justify-center py-3.5 rounded-pill bg-background border border-border hover:bg-surface transition-all group"
+                >
               <svg className="w-5 h-5 group-hover:scale-110 transition-transform" viewBox="0 0 24 24">
                 <path
                   fill="#4285F4"
