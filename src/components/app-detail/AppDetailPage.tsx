@@ -186,41 +186,41 @@ export default function AppDetailPage({
               </p>
             </div>
 
-          {/* Action Buttons */}
-          <div className="flex flex-col gap-3">
-            <Button
-              asChild
-              variant="secondary"
-              className="w-full h-12 text-base"
-            >
-              <a
-                href={app.websiteUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+            {/* Action Buttons */}
+            <div className="flex flex-col gap-3">
+              <Button
+                asChild
+                variant="primary"
+                className="w-full h-12 text-base font-bold shadow-lg shadow-text-primary/10 hover:-translate-y-0.5 dark:text-black"
               >
-                <span>Visit Website</span>
-                <ExternalLink className="w-5 h-5" />
-              </a>
-            </Button>
+                <a
+                  href={app.websiteUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span>Visit Website</span>
+                  <ExternalLink className="w-5 h-5" />
+                </a>
+              </Button>
 
-            <Button
-              onClick={handleBookmark}
-              variant="secondary"
-              className={`w-full h-12 text-base font-bold ${
-                bookmarked 
-                  ? "border-[#ff4500] bg-[#ff4500]/5 text-[#ff4500] hover:bg-[#ff4500]/10 hover:border-[#ff4500]" 
-                  : "border-border hover:bg-surface text-primary hover:border"
-              }`}
-            >
-              <span>{bookmarked ? "Bookmarked" : "Bookmark App"}</span>
-              <motion.div
-                animate={bookmarked ? { scale: [1, 1.4, 1] } : { scale: 1 }}
-                transition={{ duration: 0.3 }}
+              <Button
+                onClick={handleBookmark}
+                variant="secondary"
+                className={`w-full h-12 text-base font-bold ${
+                  bookmarked 
+                    ? "border-[#ff4500] bg-[#ff4500]/5 text-[#ff4500] hover:bg-[#ff4500]/10 hover:border-[#ff4500]" 
+                    : "border-border hover:bg-surface text-primary hover:border"
+                }`}
               >
-                <Bookmark className={`w-5 h-5 ${bookmarked ? "fill-current" : ""}`} />
-              </motion.div>
-            </Button>
-          </div>
+                <motion.div
+                  animate={bookmarked ? { scale: [1, 1.4, 1] } : { scale: 1 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Bookmark className={`w-5 h-5 ${bookmarked ? "fill-current" : ""}`} />
+                </motion.div>
+                <span>{bookmarked ? "Bookmarked" : "Bookmark App"}</span>
+              </Button>
+            </div>
 
           {/* App Information Section */}
           <section className="border-t border-border pt-8">
