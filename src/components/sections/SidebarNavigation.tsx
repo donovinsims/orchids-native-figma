@@ -66,7 +66,7 @@ export default function SidebarNavigation({ onSubmitClick }: SidebarNavigationPr
             <div className="w-full flex gap-3 items-center px-3 py-2 rounded-lg cursor-pointer text-primary group transition-colors relative z-0 hover:bg-surface">
               <div
                 className={`flex items-center justify-center w-[14px] h-[14px] group-hover:text-primary transition z-10 ${
-                  index === 0 ? "text-primary" : "text-text-tertiary"
+                  index === 0 ? "text-primary" : "text-secondary"
                 }`}
               >
                 <category.icon className="w-full h-full" />
@@ -87,16 +87,16 @@ export default function SidebarNavigation({ onSubmitClick }: SidebarNavigationPr
             href="https://tally.so/r/wLP5VG"
             target="_blank"
             rel="noopener noreferrer"
-            className="h-[40px] w-full py-[10px] px-[18px] bg-surface-raised rounded-xl hover:bg-surface cursor-pointer flex items-center justify-between transition-colors text-secondary hover:text-primary"
+            className="h-[40px] w-full py-[10px] px-[18px] bg-surface-raised rounded-lg hover:bg-surface cursor-pointer flex items-center justify-between transition-colors text-secondary hover:text-primary"
           >
             <span className="text-sm">Sponsor us</span>
-            <ArrowUpRight className="w-[14px] h-[14px] text-text-tertiary" />
+            <ArrowUpRight className="w-[14px] h-[14px] text-secondary" />
           </a>
           <a
             href="https://x.com/seesawsite"
             target="_blank"
             rel="noopener noreferrer"
-            className="h-[40px] py-[10px] px-[18px] bg-surface-raised rounded-xl hover:bg-surface cursor-pointer flex items-center justify-between transition-colors text-secondary hover:text-primary"
+            className="h-[40px] py-[10px] px-[18px] bg-surface-raised rounded-lg hover:bg-surface cursor-pointer flex items-center justify-between transition-colors text-secondary hover:text-primary"
           >
             <XIcon className="w-[14px] h-[14px]" />
           </a>
@@ -104,11 +104,11 @@ export default function SidebarNavigation({ onSubmitClick }: SidebarNavigationPr
         <Button
           onClick={onSubmitClick}
           variant="secondary"
-          className="w-full rounded-xl"
+          className="w-full rounded-pill"
         >
           Submit
         </Button>
-        <span className="text-body-sm text-text-muted leading-5">
+        <span className="text-caption text-secondary leading-5">
           © 2025 SEESAW Studios
         </span>
       </div>
