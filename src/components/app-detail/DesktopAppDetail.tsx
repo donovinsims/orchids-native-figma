@@ -84,9 +84,6 @@ export default function DesktopAppDetail({
             {/* App Hero Section */}
             <div className="space-y-8">
               <div className="flex items-center gap-6">
-                <div className="w-20 h-20 rounded-2xl border border-border bg-white dark:bg-black p-3 shadow-sm overflow-hidden flex-shrink-0">
-                  <img src={app.faviconUrl} alt="" className="w-full h-full object-contain" />
-                </div>
                 <div>
                   <h1 className="text-5xl font-bold text-primary tracking-tight mb-2">
                     {app.title}
