@@ -188,19 +188,28 @@ export default function AppDetailPage({
 
           {/* Action Buttons */}
           <div className="flex flex-col gap-3">
-            <a
-              href={app.websiteUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-full px-6 py-3 rounded-xl bg-background text-primary border border-border hover:bg-surface hover:border transition-all duration-200 text-base font-medium"
+            <Button
+              asChild
+              variant="secondary"
+              className="w-full h-12 text-base"
             >
-              <span>Visit Website</span>
-              <ExternalLink className="w-5 h-5" />
-            </a>
+              <a
+                href={app.websiteUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>Visit Website</span>
+                <ExternalLink className="w-5 h-5" />
+              </a>
+            </Button>
 
-            <button
+            <Button
               onClick={handleBookmark}
-              className="flex items-center justify-center gap-2 w-full px-6 py-3 rounded-xl bg-[#ff4500] text-white hover:opacity-90 transition-colors text-base font-medium"
+              className={`w-full h-12 text-base transition-colors ${
+                bookmarked 
+                  ? "bg-[#ff4500] hover:bg-[#ff4500]/90" 
+                  : "bg-[#ff4500] hover:bg-[#ff4500]/90"
+              } text-white border-none`}
             >
               <span>{bookmarked ? "Bookmarked" : "Bookmark"}</span>
               <motion.div
@@ -209,7 +218,7 @@ export default function AppDetailPage({
               >
                 <Bookmark className={`w-5 h-5 ${bookmarked ? "fill-current" : ""}`} />
               </motion.div>
-            </button>
+            </Button>
           </div>
 
           {/* App Information Section */}
