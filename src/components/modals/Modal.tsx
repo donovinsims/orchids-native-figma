@@ -96,22 +96,22 @@ export function Modal({
       aria-label={title}
       onKeyDown={handleKeyDown}
     >
-      {/* Backdrop */}
-      <div
-        className="absolute inset-0 bg-black/40 backdrop-blur-md animate-in fade-in duration-200"
-        onClick={handleBackdropClick}
-      />
+        {/* Backdrop */}
+        <div
+          className="absolute inset-0 bg-black/60 animate-in fade-in duration-200"
+          onClick={handleBackdropClick}
+        />
 
-        {/* Modal content */}
-            <div
-              ref={modalRef}
-              className={cn(
-                "relative w-full max-w-md bg-surface rounded-lg shadow-card ring-1 ring-white/5 sm:shadow-card animate-in fade-in slide-in-from-bottom-4 sm:zoom-in-95 duration-200 max-h-[90vh] overflow-y-auto border border-border",
-                className
-              )}
-              onTouchStart={handleTouchStart}
-            onTouchEnd={handleTouchEnd}
-          >
+          {/* Modal content */}
+              <div
+                ref={modalRef}
+                className={cn(
+                  "relative w-full max-w-md bg-background rounded-[32px] shadow-2xl ring-1 ring-white/5 animate-in fade-in slide-in-from-bottom-4 sm:zoom-in-95 duration-200 max-h-[90vh] overflow-y-auto border border-border",
+                  className
+                )}
+                onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
+            >
           {/* Swipe indicator for mobile */}
           <div className="md:hidden flex justify-center pt-sm pb-xs">
             <div className="w-10 h-1 bg-border rounded-full" />
