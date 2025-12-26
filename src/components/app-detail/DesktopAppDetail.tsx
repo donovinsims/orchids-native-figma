@@ -154,41 +154,49 @@ export default function DesktopAppDetail({
             <div className="sticky top-[160px] space-y-8">
               {/* Primary Actions Card */}
               <div className="bg-background border border-border rounded-[32px] p-6 shadow-xl shadow-black/[0.02]">
-                <div className="flex items-center justify-between mb-8">
-                  <span className="px-3 py-1 rounded-full bg-success/10 text-success text-xs font-bold uppercase tracking-wider">
-                    Official Website
-                  </span>
-                  <button
-                    onClick={handleShare}
-                    className="p-3 rounded-xl hover:bg-surface border border-border transition-all hover:scale-105 active:scale-95"
-                    title="Share app"
-                  >
-                    <Share2 className="w-5 h-5 text-secondary" />
-                  </button>
-                </div>
+                  <div className="flex items-center justify-between mb-8">
+                    <span className="px-3 py-1 rounded-full bg-success/10 text-success text-xs font-bold uppercase tracking-wider">
+                      Official Website
+                    </span>
+                    <Button
+                      variant="secondary"
+                      size="icon"
+                      onClick={handleShare}
+                      className="rounded-xl border border-border transition-all hover:scale-105 active:scale-95"
+                      title="Share app"
+                    >
+                      <Share2 className="w-5 h-5 text-secondary" />
+                    </Button>
+                  </div>
 
                   <div className="space-y-3">
-                    <a
-                      href={app.websiteUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-3 w-full px-6 py-3.5 rounded-lg bg-text-primary text-background-primary hover:opacity-90 transition-all text-base font-bold shadow-lg shadow-text-primary/10 hover:-translate-y-0.5"
+                    <Button
+                      asChild
+                      variant="primary"
+                      className="w-full h-12 text-base font-bold shadow-lg shadow-text-primary/10 hover:-translate-y-0.5"
                     >
-                      <span>Visit Website</span>
-                      <ExternalLink className="w-5 h-5" />
-                    </a>
+                      <a
+                        href={app.websiteUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <span>Visit Website</span>
+                        <ExternalLink className="w-5 h-5" />
+                      </a>
+                    </Button>
   
-                    <button
+                    <Button
                       onClick={handleBookmark}
-                      className={`flex items-center justify-center gap-3 w-full px-6 py-3.5 rounded-lg border-2 transition-all text-base font-bold ${
+                      variant="secondary"
+                      className={`w-full h-12 text-base font-bold ${
                         bookmarked 
-                          ? "border-[#ff4500] bg-[#ff4500]/5 text-[#ff4500]" 
+                          ? "border-[#ff4500] bg-[#ff4500]/5 text-[#ff4500] hover:bg-[#ff4500]/10 hover:border-[#ff4500]" 
                           : "border-border hover:bg-surface text-primary hover:border"
                       }`}
                     >
                       <Bookmark className={`w-5 h-5 ${bookmarked ? "fill-current" : ""}`} />
                       <span>{bookmarked ? "Bookmarked" : "Bookmark App"}</span>
-                    </button>
+                    </Button>
                   </div>
 
                 <p className="text-text-tertiary text-sm text-center mt-4 px-4">
