@@ -160,12 +160,12 @@ export function SubmitAppModal({ isOpen, onClose }: SubmitAppModalProps) {
               <p className="text-secondary mb-6">
                 Thanks for sharing! We&apos;ll review your submission and add it to our directory if it meets our quality standards.
               </p>
-              <button
+              <Button
                 onClick={handleClose}
-                className="w-full min-h-[44px] px-4 py-3 rounded-lg bg-primary text-primary-foreground hover:opacity-90 transition-colors"
+                className="w-full h-12"
               >
                 Done
-              </button>
+              </Button>
             </div>
           ) : (
             <>
@@ -195,7 +195,7 @@ export function SubmitAppModal({ isOpen, onClose }: SubmitAppModalProps) {
                       setErrors((prev) => ({ ...prev, appUrl: undefined }));
                     }}
                     placeholder="https://example.com"
-                    className={`w-full min-h-[44px] px-4 py-3 rounded-lg border bg-background ${
+                    className={`w-full min-h-[44px] px-4 py-3 rounded-pill border bg-background ${
                       errors.appUrl ? "border-error" : "border-border"
                     } focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-transparent text-primary placeholder:text-text-muted`}
                     disabled={isLoading}
@@ -217,7 +217,7 @@ export function SubmitAppModal({ isOpen, onClose }: SubmitAppModalProps) {
                       setFormData((prev) => ({ ...prev, category: e.target.value }));
                       setErrors((prev) => ({ ...prev, category: undefined }));
                     }}
-                    className={`w-full min-h-[44px] px-4 py-3 rounded-lg border bg-background ${
+                    className={`w-full min-h-[44px] px-4 py-3 rounded-pill border bg-background ${
                       errors.category ? "border-error" : "border-border"
                     } focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-transparent text-primary`}
                     disabled={isLoading}
@@ -242,9 +242,9 @@ export function SubmitAppModal({ isOpen, onClose }: SubmitAppModalProps) {
                     {platforms.map((platform) => (
                       <label
                         key={platform.value}
-                        className={`inline-flex items-center justify-center min-h-[44px] px-3 py-2 rounded-lg border cursor-pointer transition-colors ${
+                        className={`inline-flex items-center justify-center min-h-[44px] px-3 py-2 rounded-pill border cursor-pointer transition-colors ${
                           formData.platforms.includes(platform.value)
-                            ? "bg-primary text-primary-foreground border-primary"
+                            ? "bg-primary text-background border-primary"
                             : "bg-background text-secondary border-border hover:bg-surface"
                         }`}
                       >
@@ -278,7 +278,7 @@ export function SubmitAppModal({ isOpen, onClose }: SubmitAppModalProps) {
                       setErrors((prev) => ({ ...prev, email: undefined }));
                     }}
                     placeholder="you@example.com"
-                    className={`w-full min-h-[44px] px-4 py-3 rounded-lg border bg-background ${
+                    className={`w-full min-h-[44px] px-4 py-3 rounded-pill border bg-background ${
                       errors.email ? "border-error" : "border-border"
                     } focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-transparent text-primary placeholder:text-text-muted`}
                     disabled={isLoading}
@@ -289,10 +289,10 @@ export function SubmitAppModal({ isOpen, onClose }: SubmitAppModalProps) {
                   )}
                 </div>
   
-                  <button
+                  <Button
                     type="submit"
                     disabled={isLoading}
-                    className="w-full min-h-[44px] px-4 py-3 rounded-lg bg-[#ff4500] text-white hover:opacity-90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    className="w-full h-12 bg-[#ff4500] hover:bg-[#ff4500]/90 border-none shadow-lg shadow-[#ff4500]/20"
                   >
                 {isLoading ? (
                   <>
@@ -302,8 +302,9 @@ export function SubmitAppModal({ isOpen, onClose }: SubmitAppModalProps) {
                 ) : (
                   "Submit App"
                 )}
-              </button>
+              </Button>
             </form>
+
 
             {/* Footer text */}
             <p className="text-sm text-text-tertiary text-center mt-4">
