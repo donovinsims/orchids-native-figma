@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { X, Menu, Paintbrush, Code, ListChecks, Shield, Zap, MessageSquare, Wrench, Sparkles, ArrowUpRight, Mail } from "lucide-react";
 import { ThemeToggle } from "../theme-toggle";
+import { Button } from "../ui/button";
 
 interface MobileNavTriggerProps {
   onClick: () => void;
