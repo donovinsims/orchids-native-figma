@@ -47,31 +47,30 @@ const HeaderNavigation = ({ onSubscribeClick, onSubmitClick, onLoginClick, onSig
           <div className="flex items-center gap-sm">
             <div className="hidden md:flex items-center gap-sm">
               <ThemeToggle />
-              {user ? (
-                <div className="flex items-center gap-sm">
-                  <button
-                    onClick={onProfileClick}
-                    className="flex items-center gap-2 px-3 py-1.5 rounded-full hover:bg-surface transition-colors"
-                  >
-                    <div className="w-6 h-6 rounded-full bg-surface-raised flex items-center justify-center overflow-hidden border border-border">
-                      {profile?.avatar_url ? (
-                        <img src={profile.avatar_url} alt={profile.full_name || ""} className="w-full h-full object-cover" />
-                      ) : (
-                        <span className="text-[10px] font-bold">{user.email?.[0].toUpperCase()}</span>
-                      )}
-                    </div>
-                    <span className="text-sm font-medium text-primary">Profile</span>
-                  </button>
-                  <Button
-                    variant="secondary"
-                    onClick={() => signOut()}
-                    className="min-w-[100px]"
-                  >
-                    Log Out
-                  </Button>
-                </div>
-              ) : (
-                <div className="flex items-center gap-2">
+                {user ? (
+                  <div className="flex items-center gap-sm">
+                    <button
+                      onClick={onProfileClick}
+                      className="flex items-center gap-2 px-3 py-1.5 rounded-full hover:bg-surface transition-colors"
+                    >
+                      <div className="w-6 h-6 rounded-full bg-surface-raised flex items-center justify-center overflow-hidden border border-border">
+                        {profile?.avatar_url ? (
+                          <img src={profile.avatar_url} alt={profile.full_name || ""} className="w-full h-full object-cover" />
+                        ) : (
+                          <span className="text-[10px] font-bold">{user.email?.[0].toUpperCase()}</span>
+                        )}
+                      </div>
+                      <span className="text-sm font-medium text-primary">Profile</span>
+                    </button>
+                    <Button
+                      variant="secondary"
+                      onClick={() => signOut()}
+                      className="min-w-[100px]"
+                    >
+                      Log Out
+                    </Button>
+                  </div>
+                ) : (
                   <Button
                     variant="secondary"
                     onClick={onLoginClick}
@@ -79,15 +78,7 @@ const HeaderNavigation = ({ onSubscribeClick, onSubmitClick, onLoginClick, onSig
                   >
                     Sign In
                   </Button>
-                  <Button
-                    variant="primary"
-                    onClick={onSignUpClick}
-                    className="min-w-[100px]"
-                  >
-                    Sign Up
-                  </Button>
-                </div>
-              )}
+                )}
             </div>
 
             <Button
