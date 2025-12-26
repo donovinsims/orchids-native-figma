@@ -162,7 +162,7 @@ export default function AppDetailPage({
       <div className={`flex-grow ${isInline ? '' : 'overflow-y-auto overflow-x-hidden custom-scrollbar'}`}>
         <div className={`mx-auto px-4 md:px-8 py-6 md:py-8 space-y-6 md:space-y-8 ${isMobile && !isInline ? 'max-w-3xl' : 'w-full max-w-4xl'}`}>
           {/* Preview Image */}
-          <div className="relative w-full aspect-[16/10] bg-surface rounded-md overflow-hidden border border-border">
+          <div className="relative w-full aspect-[16/10] bg-surface rounded-[22px] overflow-hidden border border-border">
             <img
               src={app.previewImage}
               alt={app.title}
