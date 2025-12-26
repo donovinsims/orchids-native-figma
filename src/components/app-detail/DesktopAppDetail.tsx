@@ -166,21 +166,21 @@ export default function DesktopAppDetail({
                     </Button>
                   </div>
 
-                  <div className="space-y-3">
-                    <Button
-                      asChild
-                      variant="primary"
-                      className="w-full h-12 text-base font-bold shadow-lg shadow-text-primary/10 hover:-translate-y-0.5"
-                    >
-                      <a
-                        href={app.websiteUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    <div className="space-y-3">
+                      <Button
+                        asChild
+                        variant="primary"
+                        className="w-full h-12 text-base font-bold text-white shadow-lg shadow-text-primary/10 hover:-translate-y-0.5"
                       >
-                        <span>Visit Website</span>
-                        <ExternalLink className="w-5 h-5" />
-                      </a>
-                    </Button>
+                        <a
+                          href={app.websiteUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <span className="text-white">Visit Website</span>
+                          <ExternalLink className="w-5 h-5 text-white" />
+                        </a>
+                      </Button>
   
                     <Button
                       onClick={handleBookmark}
