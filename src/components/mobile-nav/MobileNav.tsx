@@ -109,8 +109,8 @@ export function MobileNavOverlay({
       {/* Menu Panel */}
       <div className="absolute top-0 right-0 w-full max-w-lg h-full bg-background shadow-2xl overflow-y-auto border-l border-border">
         {/* Header */}
-          <div className="sticky top-0 z-10 flex items-center justify-between p-4 bg-background/80 backdrop-blur-md transition-colors">
-            <div className="flex w-max items-center gap-xs rounded-full border border-border bg-background px-md py-sm text-h1 leading-none transition-all duration-200 ease-in-out">
+          <div className="sticky top-0 z-10 flex items-center justify-between p-4 bg-background transition-colors">
+            <div className="flex w-max items-center gap-xs rounded-pill border border-border bg-background px-md py-sm text-h1 leading-none transition-all duration-200 ease-in-out">
               <span>see</span>
               <MagicIcon className="w-[10.67px]" />
               <span>saw</span>
@@ -119,7 +119,7 @@ export function MobileNavOverlay({
             <ThemeToggle />
             <button
               onClick={onClose}
-              className="flex items-center justify-center w-10 h-10 rounded-md hover:bg-surface transition-colors"
+              className="flex items-center justify-center w-10 h-10 rounded-full hover:bg-surface transition-colors"
               aria-label="Close menu"
             >
               <X className="w-6 h-6 text-primary" />
@@ -130,25 +130,28 @@ export function MobileNavOverlay({
         {/* Auth & Subscribe Buttons */}
         <div className="px-4 pt-8 pb-8 space-y-4">
           <div className="grid grid-cols-2 gap-3">
-            <button 
+            <Button 
+              variant="secondary"
               onClick={handleLogin}
-              className="w-full py-3 rounded-md border border-border bg-background text-primary hover:bg-surface transition-colors text-sm font-medium"
+              className="w-full h-12 text-base font-bold"
             >
               Sign in
-            </button>
-            <button 
+            </Button>
+            <Button 
+              variant="secondary"
               onClick={handleSignUp}
-              className="w-full py-3 rounded-md border border-border bg-background text-primary hover:bg-surface transition-colors text-sm font-medium"
+              className="w-full h-12 text-base font-bold"
             >
               Sign up
-            </button>
+            </Button>
           </div>
-          <button
+          <Button
+            variant="primary"
             onClick={handleSubscribe}
-            className="w-full py-3 rounded-md bg-[#ff4500] text-white hover:opacity-90 transition-colors text-sm font-medium"
+            className="w-full h-12 text-base font-bold bg-[#ff4500] hover:bg-[#ff4500]/90 border-none"
           >
             Subscribe
-          </button>
+          </Button>
         </div>
 
         {/* Categories */}
@@ -158,14 +161,14 @@ export function MobileNavOverlay({
               <button
                 key={category.label}
                 onClick={() => handleCategoryClick(category.label)}
-                className={`w-full flex items-center gap-3 px-4 py-3 rounded-md transition-colors ${
+                className={`w-full flex items-center gap-3 px-4 py-3 rounded-pill transition-colors ${
                   activeCategory === category.label
-                    ? "bg-text-primary text-background-primary"
+                    ? "bg-primary text-background"
                     : "text-secondary hover:bg-surface"
                 }`}
               >
                 <category.icon className="w-5 h-5" />
-                <span className="text-sm">{category.label}</span>
+                <span className="text-sm font-medium">{category.label}</span>
               </button>
             ))}
           </nav>
@@ -178,24 +181,25 @@ export function MobileNavOverlay({
             href="https://tally.so/r/wLP5VG"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-between px-4 py-3 rounded-md bg-surface hover:bg-border transition-colors border border-border"
+            className="flex items-center justify-between px-4 py-3 rounded-pill bg-surface hover:bg-surface-raised transition-colors border border-border"
           >
-            <span className="text-sm text-secondary">Sponsor us</span>
-            <ArrowUpRight className="w-4 h-4 text-text-tertiary" />
+            <span className="text-sm font-medium text-secondary">Sponsor us</span>
+            <ArrowUpRight className="w-4 h-4 text-secondary" />
           </a>
 
           {/* Submit Button */}
-          <button
+          <Button
+            variant="secondary"
             onClick={handleSubmit}
-            className="w-full py-3 rounded-md border border-border bg-background text-primary hover:bg-surface transition-colors text-sm font-medium"
+            className="w-full h-12 text-base font-bold"
           >
             Submit
-          </button>
+          </Button>
 
           {/* Email */}
-          <div className="flex items-center justify-between px-4 py-3 rounded-md bg-surface border border-border">
-            <span className="text-sm text-text-tertiary">hi@seesaw.website</span>
-            <Mail className="w-4 h-4 text-text-tertiary" />
+          <div className="flex items-center justify-between px-4 py-3 rounded-pill bg-surface border border-border">
+            <span className="text-sm font-medium text-secondary">hi@seesaw.website</span>
+            <Mail className="w-4 h-4 text-secondary" />
           </div>
 
           {/* Copyright */}
