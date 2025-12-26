@@ -66,87 +66,85 @@ export default function App() {
     authModal.open();
   };
 
-  return (
-    <AuthProvider>
-      <NextThemesProvider attribute="class" defaultTheme="light" enableSystem>
-      <div className="relative min-h-screen bg-background text-foreground transition-colors duration-200 flex flex-col">
-        <HeaderNavigation 
-          onSubscribeClick={subscribeModal.open}
-          onSubmitClick={submitModal.open}
-          onLoginClick={handleLoginClick}
-          onSignUpClick={handleSignUpClick}
-          onProfileClick={() => setCurrentView('profile')}
-          onHomeClick={() => {
-            setCurrentView('home');
-            setSelectedAppId(null);
-          }}
-        />
-
-        
-        <div className="flex-grow">
-            {currentView === 'profile' ? (
-                <div className="pt-[67px]">
-                  <Container className="py-md md:py-xl">
-                    <ProfileView apps={apps} onAppClick={handleAppClick} />
-                  </Container>
-                </div>
-            ) : currentView === 'app-detail' && selectedApp ? (
-                <div className="pt-[67px]">
-                   <DesktopAppDetail 
-                     key={selectedApp.id}
-                     app={selectedApp} 
-                     onBack={handleBackToList}
-                     onNavigateToApp={handleAppClick}
-                     onLoginClick={authModal.open}
-                   />
-                </div>
-            ) : (
-                <div className="pt-[67px]">
-                  <main>
-                    <Container className="py-md md:py-xl">
-                      <HeroHeader onSubscribeClick={subscribeModal.open} />
-                      <WebsiteGrid items={apps} onItemClick={handleAppClick} onLoginClick={handleLoginClick} />
-                    </Container>
-                  </main>
-                </div>
-            )}
-          </div>
-
-        <Footer 
-          onSubscribeClick={subscribeModal.open}
-          onSubmitClick={submitModal.open}
-        />
-
-        {/* App Detail Overlay (Mobile Only) */}
-        <AnimatePresence>
-          {isMobile && selectedApp && currentView === 'home' && (
-            <AppDetailPage 
-              key={selectedApp.id}
-              app={selectedApp} 
-              onBack={handleBackToList}
-              onNavigateToApp={handleAppClick}
-              onSubscribeClick={subscribeModal.open}
-              onSubmitClick={submitModal.open}
-              onLoginClick={handleLoginClick}
-              onProfileClick={() => setCurrentView('profile')}
-              onHomeClick={handleBackToList}
-              isInline={false}
-            />
-          )}
-        </AnimatePresence>
-
-          {/* Modals */}
-          <SubscribeModal isOpen={subscribeModal.isOpen} onClose={subscribeModal.close} />
-          <SubmitAppModal isOpen={submitModal.isOpen} onClose={submitModal.close} />
-          <AuthModal 
-            isOpen={authModal.isOpen} 
-            onClose={authModal.close} 
-            initialMode={authMode}
+    return (
+      <AuthProvider>
+        <div className="relative min-h-screen bg-background text-primary transition-colors duration-200 flex flex-col">
+          <HeaderNavigation 
+            onSubscribeClick={subscribeModal.open}
+            onSubmitClick={submitModal.open}
+            onLoginClick={handleLoginClick}
+            onSignUpClick={handleSignUpClick}
+            onProfileClick={() => setCurrentView('profile')}
+            onHomeClick={() => {
+              setCurrentView('home');
+              setSelectedAppId(null);
+            }}
           />
-        
-        <Toaster position="bottom-center" />
-      </div>
-      </NextThemesProvider>
-    </AuthProvider>
-  );
+
+          
+          <div className="flex-grow">
+              {currentView === 'profile' ? (
+                  <div className="pt-[67px]">
+                    <Container className="py-md md:py-xl">
+                      <ProfileView apps={apps} onAppClick={handleAppClick} />
+                    </Container>
+                  </div>
+              ) : currentView === 'app-detail' && selectedApp ? (
+                  <div className="pt-[67px]">
+                     <DesktopAppDetail 
+                       key={selectedApp.id}
+                       app={selectedApp} 
+                       onBack={handleBackToList}
+                       onNavigateToApp={handleAppClick}
+                       onLoginClick={authModal.open}
+                     />
+                  </div>
+              ) : (
+                  <div className="pt-[67px]">
+                    <main>
+                      <Container className="py-md md:py-xl">
+                        <HeroHeader onSubscribeClick={subscribeModal.open} />
+                        <WebsiteGrid items={apps} onItemClick={handleAppClick} onLoginClick={handleLoginClick} />
+                      </Container>
+                    </main>
+                  </div>
+              )}
+            </div>
+
+          <Footer 
+            onSubscribeClick={subscribeModal.open}
+            onSubmitClick={submitModal.open}
+          />
+
+          {/* App Detail Overlay (Mobile Only) */}
+          <AnimatePresence>
+            {isMobile && selectedApp && currentView === 'home' && (
+              <AppDetailPage 
+                key={selectedApp.id}
+                app={selectedApp} 
+                onBack={handleBackToList}
+                onNavigateToApp={handleAppClick}
+                onSubscribeClick={subscribeModal.open}
+                onSubmitClick={submitModal.open}
+                onLoginClick={handleLoginClick}
+                onProfileClick={() => setCurrentView('profile')}
+                onHomeClick={handleBackToList}
+                isInline={false}
+              />
+            )}
+          </AnimatePresence>
+
+            {/* Modals */}
+            <SubscribeModal isOpen={subscribeModal.isOpen} onClose={subscribeModal.close} />
+            <SubmitAppModal isOpen={submitModal.isOpen} onClose={submitModal.close} />
+            <AuthModal 
+              isOpen={authModal.isOpen} 
+              onClose={authModal.close} 
+              initialMode={authMode}
+            />
+          
+          <Toaster position="bottom-center" />
+        </div>
+      </AuthProvider>
+    );
 }
