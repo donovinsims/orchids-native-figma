@@ -93,14 +93,13 @@ const HeaderNavigation = ({ onSubscribeClick, onSubmitClick, onLoginClick, onPro
         </div>
       </nav>
 
-      <MobileNavOverlay
-        isOpen={mobileNav.isOpen}
-        onClose={mobileNav.close}
-        onSubscribeClick={onSubscribeClick}
-        onSubmitClick={onSubmitClick}
-        onLoginClick={onLoginClick}
-        onSignUpClick={onSignUpClick}
-      />
+        <MobileNavOverlay
+          isOpen={mobileNav.isOpen}
+          onClose={mobileNav.close}
+          onSubscribeClick={onSubscribeClick}
+          onSubmitClick={onSubmitClick}
+          onLoginClick={onLoginClick}
+        />
     </>
   );
 };
