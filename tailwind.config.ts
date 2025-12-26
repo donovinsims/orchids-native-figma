@@ -2,7 +2,7 @@ import type { Config } from "tailwindcss";
 import tailwindAnimate from "tailwindcss-animate";
 
 export default {
-	darkMode: ["class"],
+	darkMode: ["class", '[data-theme="dark"]'],
 	content: [
 		"./pages/**/*.{ts,tsx}",
 		"./components/**/*.{ts,tsx}",
@@ -20,89 +20,40 @@ export default {
 		},
 		extend: {
 			colors: {
-				border: {
-					DEFAULT: 'var(--border)',
-					subtle: 'var(--border-subtle)',
-					strong: 'var(--border-strong)',
-				},
-				background: {
-					DEFAULT: 'var(--background)',
-					primary: 'var(--background)',
-					secondary: 'var(--background-secondary)',
-					tertiary: 'var(--background-tertiary)',
-				},
-				text: {
-					primary: 'var(--text-primary)',
-					secondary: 'var(--text-secondary)',
-					tertiary: 'var(--text-tertiary)',
-					muted: 'var(--text-muted)',
-				},
-				primary: {
-					DEFAULT: 'var(--primary)',
-					foreground: 'var(--primary-foreground)'
-				},
-				secondary: {
-					DEFAULT: 'var(--secondary)',
-					foreground: 'var(--secondary-foreground)'
-				},
-				accent: {
-					DEFAULT: 'var(--accent)',
-					foreground: 'var(--accent-foreground)'
-				},
-				success: 'var(--success)',
-				warning: 'var(--warning)',
-				error: 'var(--error)',
-				info: 'var(--info)',
-				muted: {
-					DEFAULT: 'var(--muted)',
-					foreground: 'var(--muted-foreground)'
-				},
-				card: {
-					DEFAULT: 'var(--card)',
-					foreground: 'var(--card-foreground)'
-				},
-				popover: {
-					DEFAULT: 'var(--popover)',
-					foreground: 'var(--popover-foreground)'
-				},
+				background: 'var(--color-background)',
+				surface: 'var(--color-surface)',
+				'surface-raised': 'var(--color-surface-raised)',
+				border: 'var(--color-border)',
+				primary: 'var(--color-text-primary)',
+				secondary: 'var(--color-text-secondary)',
+				'accent-dot': 'var(--color-accent-dot)',
+				'black-solid': 'var(--color-black-solid)',
+				'white-translucent': 'var(--color-white-translucent)',
 			},
 			spacing: {
-				xs: 'var(--spacing-xs)',
-				sm: 'var(--spacing-sm)',
-				md: 'var(--spacing-md)',
-				lg: 'var(--spacing-lg)',
-				xl: 'var(--spacing-xl)',
-				'2xl': 'var(--spacing-2xl)',
+				xs: 'var(--space-xs)',
+				sm: 'var(--space-sm)',
+				md: 'var(--space-md)',
+				lg: 'var(--space-lg)',
+				xl: 'var(--space-xl)',
+				xxl: 'var(--space-xxl)',
 			},
 			borderRadius: {
-				none: 'var(--radius-none)',
 				sm: 'var(--radius-sm)',
 				md: 'var(--radius-md)',
 				lg: 'var(--radius-lg)',
-				xl: 'var(--radius-xl)',
-				full: 'var(--radius-full)',
+				avatar: 'var(--radius-avatar)',
+				pill: 'var(--radius-pill)',
 			},
 			boxShadow: {
-				xs: 'var(--shadow-xs)',
-				sm: 'var(--shadow-sm)',
-				md: 'var(--shadow-md)',
-				lg: 'var(--shadow-lg)',
-				xl: 'var(--shadow-xl)',
-			},
-			fontFamily: {
-				sans: ['var(--font-inter)', 'Inter', 'sans-serif'],
+				card: 'var(--shadow-card)',
+				inset: 'var(--shadow-inset)',
 			},
 			fontSize: {
-				'display-xl': ['48px', { lineHeight: '1.2', letterSpacing: '-0.02em', fontWeight: '700' }],
-				'display-lg': ['36px', { lineHeight: '1.2', letterSpacing: '-0.02em', fontWeight: '600' }],
-				'h1': ['24px', { lineHeight: '1.4', letterSpacing: '-0.01em', fontWeight: '600' }],
-				'h2': ['20px', { lineHeight: '1.5', letterSpacing: '-0.01em', fontWeight: '600' }],
-				'h3': ['18px', { lineHeight: '1.5', fontWeight: '500' }],
-				'h4': ['16px', { lineHeight: '1.6', fontWeight: '500' }],
-				'body-md': ['14px', { lineHeight: '1.6', fontWeight: '400' }],
-				'body-sm': ['12px', { lineHeight: '1.5', fontWeight: '400' }],
-				'label-md': ['12px', { lineHeight: '1.4', fontWeight: '500' }],
-				'caption': ['10px', { lineHeight: '1.4', fontWeight: '400' }],
+				'h1': ['var(--type-h1-size)', { lineHeight: 'var(--type-h1-line-height)', letterSpacing: 'var(--type-h1-letter-spacing)', fontWeight: 'var(--type-h1-weight)' }],
+				'h2': ['var(--type-h2-size)', { lineHeight: 'var(--type-h2-line-height)', letterSpacing: 'var(--type-h2-letter-spacing)', fontWeight: 'var(--type-h2-weight)' }],
+				'body': ['var(--type-body-size)', { lineHeight: 'var(--type-body-line-height)', letterSpacing: 'var(--type-body-letter-spacing)', fontWeight: 'var(--type-body-weight)' }],
+				'caption': ['var(--type-caption-size)', { lineHeight: 'var(--type-caption-line-height)', fontWeight: 'var(--type-caption-weight)' }],
 			},
 			keyframes: {
 				'accordion-down': {
