@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import { Share2, ExternalLink, Bookmark, Check, X } from "lucide-react";
 import { toast } from "sonner";
 import Footer from "../sections/Footer";
+import { Button } from "../ui/button";
 import { useBookmarks } from "@/hooks/use-bookmarks";
 import { useAuth } from "@/hooks/use-auth";
 import { motion, useMotionValue, useTransform, PanInfo, useDragControls } from "motion/react";
