@@ -97,25 +97,26 @@ export function SubscribeModal({ isOpen, onClose }: SubscribeModalProps) {
                 Stay up to date on the latest software discoveries and get the best apps delivered to your email inbox every week.
               </p>
     
-              {/* Form */}
-              <form onSubmit={handleSubmit} className="space-y-md">
-                <div className="space-y-xs">
-                  <Input
-                    type="email"
-                    value={email}
-                    onChange={(e) => {
-                      setEmail(e.target.value);
-                      setError(null);
-                    }}
-                    placeholder="you@example.com"
-                    className={error ? "border-red-500" : ""}
-                    disabled={isLoading}
-                    autoComplete="email"
-                  />
-                  {error && (
-                    <p className="text-caption text-red-500 ml-xs">{error}</p>
-                  )}
-                </div>
+                {/* Form */}
+                <form onSubmit={handleSubmit} className="space-y-md">
+                  <div className="space-y-xs">
+                    <Input
+                      type="email"
+                      value={email}
+                      onChange={(e) => {
+                        setEmail(e.target.value);
+                        setError(null);
+                      }}
+                      placeholder="you@example.com"
+                      className={`rounded-pill ${error ? "border-red-500" : ""}`}
+                      disabled={isLoading}
+                      autoComplete="email"
+                    />
+                    {error && (
+                      <p className="text-caption text-red-500 ml-xs">{error}</p>
+                    )}
+                  </div>
+
     
                 <Button
                   type="submit"
