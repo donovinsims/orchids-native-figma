@@ -3,18 +3,16 @@ import * as React from "react";
 import { cn } from "./utils";
 
 export interface TextareaProps
-  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
-  _placeholder?: string; // Add a dummy member to avoid empty interface warning
-}
+  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {}
 
 const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   ({ className, ...props }, ref) => {
     return (
         <textarea
-          className={cn(
-            "flex min-h-[100px] w-full rounded-lg border border-border bg-surface-raised px-md py-sm text-body-md transition-all placeholder:text-text-muted outline-none disabled:cursor-not-allowed disabled:opacity-50 focus-visible:ring-2 focus-visible:ring-accent/10 focus-visible:border-accent",
-            className
-          )}
+            className={cn(
+              "flex min-h-[100px] w-full rounded-md border border-border bg-surface px-md py-sm text-body transition-all placeholder:text-secondary outline-none disabled:cursor-not-allowed disabled:opacity-50 shadow-inset",
+              className
+            )}
         ref={ref}
         {...props}
       />
