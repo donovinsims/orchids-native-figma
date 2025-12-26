@@ -3,18 +3,6 @@
 :root {
   /* Default to light, but these will be overridden by data-theme attributes */
   color-scheme: light dark;
-}
-
-:root[data-theme="light"] {
-  --color-background: #FFFFFF;
-  --color-surface: #FCFCFC;
-  --color-surface-raised: #F7F7F7;
-  --color-border: #E8E8E8;
-  --color-text-primary: #000000;
-  --color-text-secondary: #757575;
-  --color-accent-dot: #000000;
-  --color-black-solid: #000000;
-  --color-white-translucent: rgba(255,255,255,0.7);
 
   --type-h1-size: 16px;
   --type-h1-weight: 600;
@@ -44,18 +32,31 @@
 
   --radius-sm: 8px;
   --radius-md: 12px;
-  --radius-lg: 16px;
+  --radius-lg: 22px;
   --radius-avatar: 60px;
   --radius-pill: 16px;
-
-  --shadow-card: 0 0 0 1px #E8E8E8;
-  --shadow-inset: inset 0 0 0 1px #E8E8E8;
-  --shadow-overlay-gradient: linear-gradient(241deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
 
   --opacity-strong: 1;
   --opacity-muted: 0.72;
   --opacity-icon-bg: 0.7;
   --opacity-divider: 0.24;
+
+  --shadow-overlay-gradient: linear-gradient(241deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+}
+
+:root[data-theme="light"] {
+  --color-background: #FFFFFF;
+  --color-surface: #FCFCFC;
+  --color-surface-raised: #F7F7F7;
+  --color-border: #E8E8E8;
+  --color-text-primary: #000000;
+  --color-text-secondary: #757575;
+  --color-accent-dot: #000000;
+  --color-black-solid: #000000;
+  --color-white-translucent: rgba(255,255,255,0.7);
+
+  --shadow-card: 0 0 0 1px #E8E8E8;
+  --shadow-inset: inset 0 0 0 1px #E8E8E8;
 }
 
 :root[data-theme="dark"] {
@@ -69,7 +70,6 @@
   --color-black-solid: #000000;
   --color-white-translucent: rgba(255,255,255,0.7);
 
-  /* Spacing/Type/Radius usually remain consistent, but re-declared if needed */
   --shadow-card: 0 0 0 1px #212121;
   --shadow-inset: inset 0 0 0 1px #212121;
 }
