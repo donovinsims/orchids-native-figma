@@ -4,6 +4,8 @@ import { useState } from "react";
 import { Sparkles, Loader2, CheckCircle } from "lucide-react";
 import { Modal } from "./Modal";
 import { toast } from "sonner";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 interface SubscribeModalProps {
   isOpen: boolean;
@@ -55,49 +57,50 @@ export function SubscribeModal({ isOpen, onClose }: SubscribeModalProps) {
 
   return (
     <Modal isOpen={isOpen} onClose={handleClose} title="Subscribe to newsletter">
-      <div className="p-6 pt-4 md:pt-6">
+      <div className="p-xl pt-lg">
         {/* Icon */}
-        <div className="flex justify-center mb-4">
-          <div className="w-12 h-12 flex items-center justify-center bg-surface rounded-full">
+        <div className="flex justify-center mb-md">
+          <div className="size-12 flex items-center justify-center bg-surface-raised rounded-full shadow-inset">
             {isSuccess ? (
-              <CheckCircle className="w-6 h-6 text-success" />
+              <CheckCircle className="size-6 text-green-500" />
             ) : (
-              <Sparkles className="w-6 h-6 text-primary" />
+              <Sparkles className="size-6 text-primary" />
             )}
           </div>
         </div>
 
         {isSuccess ? (
             <div className="text-center">
-              <h2 className="text-xl text-primary mb-2">
+              <h2 className="text-h1 mb-xs">
                 You&apos;re subscribed!
               </h2>
-              <p className="text-secondary mb-6">
+              <p className="text-body text-secondary mb-lg">
                 Thanks for subscribing. You&apos;ll receive our weekly curated software picks in your inbox.
               </p>
-              <button
+              <Button
                 onClick={handleClose}
-                className="w-full min-h-[44px] px-4 py-3 rounded-lg bg-primary text-primary-foreground hover:opacity-90 transition-colors"
+                className="w-full"
+                rounded="pill"
               >
                 Done
-              </button>
+              </Button>
             </div>
           ) : (
             <>
               {/* Heading */}
-              <h2 className="text-xl text-primary text-center mb-2">
+              <h2 className="text-h1 text-center mb-xs">
                 Weekly inspiration
               </h2>
-  
+    
               {/* Description */}
-              <p className="text-secondary text-center mb-6">
+              <p className="text-body text-secondary text-center mb-lg">
                 Stay up to date on the latest software discoveries and get the best apps delivered to your email inbox every week.
               </p>
-  
+    
               {/* Form */}
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <input
+              <form onSubmit={handleSubmit} className="space-y-md">
+                <div className="space-y-xs">
+                  <Input
                     type="email"
                     value={email}
                     onChange={(e) => {
@@ -105,39 +108,38 @@ export function SubscribeModal({ isOpen, onClose }: SubscribeModalProps) {
                       setError(null);
                     }}
                     placeholder="you@example.com"
-                    className={`w-full min-h-[44px] px-4 py-3 rounded-lg border bg-background ${
-                      error ? "border-error focus:ring-error/20" : "border-border focus:ring-primary/20"
-                    } focus:outline-none focus:ring-2 focus:border-transparent transition-colors text-primary placeholder:text-text-muted`}
+                    className={error ? "border-red-500" : ""}
                     disabled={isLoading}
                     autoComplete="email"
                   />
                   {error && (
-                    <p className="mt-2 text-sm text-error">{error}</p>
+                    <p className="text-caption text-red-500 ml-xs">{error}</p>
                   )}
                 </div>
-  
-                <button
+    
+                <Button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full min-h-[44px] px-4 py-3 rounded-lg bg-primary text-primary-foreground hover:opacity-90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  className="w-full"
+                  rounded="pill"
                 >
-                {isLoading ? (
-                  <>
-                    <Loader2 className="w-4 h-4 animate-spin" />
-                    <span>Subscribing...</span>
-                  </>
-                ) : (
-                  "Subscribe"
-                )}
-              </button>
-            </form>
-
-            {/* Footer text */}
-            <p className="text-sm text-text-tertiary text-center mt-4">
-              No spam — just curated software
-            </p>
-          </>
-        )}
+                  {isLoading ? (
+                    <>
+                      <Loader2 className="size-4 animate-spin mr-xs" />
+                      <span>Subscribing...</span>
+                    </>
+                  ) : (
+                    "Subscribe"
+                  )}
+                </Button>
+              </form>
+  
+              {/* Footer text */}
+              <p className="text-caption text-secondary text-center mt-md">
+                No spam — just curated software
+              </p>
+            </>
+          )}
       </div>
     </Modal>
   );
