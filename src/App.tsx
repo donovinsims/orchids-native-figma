@@ -61,11 +61,6 @@ export default function App() {
     authModal.open();
   };
 
-  const handleSignUpClick = () => {
-    setAuthMode("signup");
-    authModal.open();
-  };
-
     return (
       <AuthProvider>
         <div className="relative min-h-screen bg-background text-primary transition-colors duration-200 flex flex-col">
@@ -73,7 +68,6 @@ export default function App() {
             onSubscribeClick={subscribeModal.open}
             onSubmitClick={submitModal.open}
             onLoginClick={handleLoginClick}
-            onSignUpClick={handleSignUpClick}
             onProfileClick={() => setCurrentView('profile')}
             onHomeClick={() => {
               setCurrentView('home');
