@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useCallback } from "react";
 import { X } from "lucide-react";
+import { cn } from "@/components/ui/utils";
 
 interface ModalProps {
   isOpen: boolean;
@@ -89,7 +90,7 @@ export function Modal({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-end justify-center sm:items-center p-4 sm:p-6"
+      className="fixed inset-0 z-50 flex items-end justify-center sm:items-center p-md sm:p-lg"
       role="dialog"
       aria-modal="true"
       aria-label={title}
@@ -104,12 +105,15 @@ export function Modal({
         {/* Modal content */}
             <div
               ref={modalRef}
-              className={`relative w-full max-w-md bg-background rounded-2xl shadow-[0_-12px_40px_rgba(0,0,0,0.25)] ring-1 ring-white/5 sm:shadow-2xl animate-in fade-in slide-in-from-bottom-4 sm:zoom-in-95 duration-200 max-h-[90vh] overflow-y-auto border border-border ${className}`}
+              className={cn(
+                "relative w-full max-w-md bg-surface rounded-lg shadow-card ring-1 ring-white/5 sm:shadow-card animate-in fade-in slide-in-from-bottom-4 sm:zoom-in-95 duration-200 max-h-[90vh] overflow-y-auto border border-border",
+                className
+              )}
               onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
           >
           {/* Swipe indicator for mobile */}
-          <div className="md:hidden flex justify-center pt-3 pb-1">
+          <div className="md:hidden flex justify-center pt-sm pb-xs">
             <div className="w-10 h-1 bg-border rounded-full" />
           </div>
 
@@ -118,10 +122,10 @@ export function Modal({
             <button
               ref={closeButtonRef}
               onClick={onClose}
-              className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full hover:bg-surface transition-colors z-10"
+              className="absolute top-md right-md size-10 flex items-center justify-center rounded-full hover:bg-surface-raised transition-colors z-10"
               aria-label="Close modal"
             >
-              <X className="w-5 h-5 text-text-tertiary" />
+              <X className="size-5 text-secondary" />
             </button>
           )}
 
