@@ -162,7 +162,7 @@ export default function AppDetailPage({
       <div className={`flex-grow ${isInline ? '' : 'overflow-y-auto overflow-x-hidden custom-scrollbar'}`}>
         <div className={`mx-auto px-4 md:px-8 py-6 md:py-8 space-y-6 md:space-y-8 ${isMobile && !isInline ? 'max-w-3xl' : 'w-full max-w-4xl'}`}>
           {/* Preview Image */}
-          <div className="relative w-full aspect-[16/10] bg-surface rounded-[22px] overflow-hidden border border-border">
+          <div className="relative w-full aspect-[16/10] bg-surface rounded-[22px] overflow-hidden border border-border/40">
             <img
               src={app.previewImage}
               alt={app.title}
@@ -173,7 +173,6 @@ export default function AppDetailPage({
                 e.currentTarget.className = "w-full h-full object-contain p-16";
               }}
             />
-            <div className="absolute inset-0 shadow-[inset_0_0_40px_rgba(0,0,0,0.02)] pointer-events-none" />
           </div>
 
             {/* Title & Description */}
