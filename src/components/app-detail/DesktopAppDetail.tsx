@@ -65,7 +65,7 @@ export default function DesktopAppDetail({
       exit={{ opacity: 0 }}
       className="min-h-screen bg-background transition-colors duration-300"
     >
-      <div className="border-b border-border/50 bg-background/50 backdrop-blur-sm sticky top-[67px] z-10 py-4">
+      <div className="bg-background sticky top-[67px] z-10 py-4 shadow-[0_4px_20px_rgba(0,0,0,0.03)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.2)]">
         <Container>
           <button
             onClick={onBack}
