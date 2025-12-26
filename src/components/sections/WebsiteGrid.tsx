@@ -69,7 +69,7 @@ export function WebsiteCard({ item, onClick, onLoginClick }: { item: Website; on
       {/* Card Preview */}
         <motion.button
           onClick={handleClick}
-          className="relative w-full block overflow-hidden transition-all duration-500 bg-surface dark:bg-surface border border-border/40 rounded-[22px] hover:border-border/80 shadow-card"
+          className="relative w-full block overflow-hidden transition-all duration-500 bg-surface dark:bg-surface border border-border/40 rounded-[22px] hover:border-border/80"
           whileTap={{ scale: 0.98 }}
           transition={{ type: "spring", stiffness: 400, damping: 17 }}
         >
@@ -85,7 +85,6 @@ export function WebsiteCard({ item, onClick, onLoginClick }: { item: Website; on
                     (e.target as HTMLImageElement).style.display = 'none';
                   }}
                 />
-              <div className="absolute inset-0 shadow-inset pointer-events-none" />
             </div>
         </div>
       </motion.button>
