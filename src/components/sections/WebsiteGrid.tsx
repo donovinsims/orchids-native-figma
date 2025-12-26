@@ -125,12 +125,12 @@ export function WebsiteCard({ item, onClick, onLoginClick }: { item: Website; on
                 </motion.div>
               </button>
 
-            <motion.button
-              onClick={handleExternalLink}
-              className="p-1.5 rounded-md hover:bg-surface-raised transition-colors text-secondary hover:text-primary"
-              whileTap={{ scale: 0.9 }}
-              aria-label="Open in new tab"
-            >
+              <motion.button
+                onClick={handleExternalLink}
+                className="p-1.5 rounded-sm hover:bg-surface-raised transition-colors text-secondary hover:text-primary"
+                whileTap={{ scale: 0.9 }}
+                aria-label="Open in new tab"
+              >
               <ExternalLink className="w-4 h-4" />
             </motion.button>
           </div>
