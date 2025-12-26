@@ -1,10 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>native</title>
-  </head>
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>native</title>
+      <script>
+        (function() {
+          try {
+            var localTheme = localStorage.getItem('orchids:theme');
+            var supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (localTheme === 'dark' || (!localTheme && supportDarkMode)) {
+              document.documentElement.setAttribute('data-theme', 'dark');
+            } else {
+              document.documentElement.setAttribute('data-theme', 'light');
+            }
+          } catch (e) {}
+        })();
+      </script>
+    </head>
 
   <body>
     <div id="root"></div>
