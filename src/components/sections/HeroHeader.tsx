@@ -19,11 +19,11 @@ const HeroHeader = ({ onSubscribeClick }: HeroHeaderProps) => {
         <div className="mt-6 flex items-center gap-3">
             <Button
               onClick={onSubscribeClick}
-              className="bg-[#ff4500] text-white border-none hover:bg-[#ff4500]/90 transition-colors h-11 px-6"
+              className="bg-black-solid text-white border-none hover:bg-black-solid/90 transition-colors h-11 px-6 rounded-pill"
             >
             Subscribe for free
           </Button>
-          <span className="text-body-md text-text-tertiary">97 joined today</span>
+          <span className="text-body text-secondary">97 joined today</span>
         </div>
     </section>
   );
