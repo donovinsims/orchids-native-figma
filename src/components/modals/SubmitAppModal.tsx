@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Upload, Loader2, CheckCircle } from "lucide-react";
 import { Modal } from "./Modal";
 import { toast } from "sonner";
+import { Button } from "../ui/button";
 
 interface SubmitAppModalProps {
   isOpen: boolean;
