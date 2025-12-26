@@ -113,13 +113,13 @@ export function AuthModal({ isOpen, onClose, initialMode = "signin" }: AuthModal
               <div className="p-2 bg-primary/10 rounded-lg">
                 <Sparkles className="w-6 h-6 text-primary" fill="currentColor" />
               </div>
-              <div className="flex bg-background-tertiary p-1 rounded-lg border border-border">
+              <div className="flex bg-surface-raised p-1 rounded-lg border border-border">
                 <button
                   onClick={() => setMode("signin")}
                   className={`px-4 py-1.5 text-sm font-medium rounded-lg transition-all ${
                     mode === "signin"
-                      ? "bg-background shadow-sm text-text-primary"
-                      : "text-text-muted hover:text-text-secondary"
+                      ? "bg-background shadow-sm text-primary"
+                      : "text-text-muted hover:text-secondary"
                   }`}
                 >
                   Sign In
@@ -128,8 +128,8 @@ export function AuthModal({ isOpen, onClose, initialMode = "signin" }: AuthModal
                   onClick={() => setMode("signup")}
                   className={`px-4 py-1.5 text-sm font-medium rounded-lg transition-all ${
                     mode === "signup"
-                      ? "bg-background shadow-sm text-text-primary"
-                      : "text-text-muted hover:text-text-secondary"
+                      ? "bg-background shadow-sm text-primary"
+                      : "text-text-muted hover:text-secondary"
                   }`}
                 >
                   Sign Up
@@ -138,10 +138,10 @@ export function AuthModal({ isOpen, onClose, initialMode = "signin" }: AuthModal
             </div>
 
         <div>
-          <h2 className="text-3xl font-medium text-text-primary mb-2">
+          <h2 className="text-3xl font-medium text-primary mb-2">
             {mode === "signin" ? "Welcome Back" : "Create Account"}
           </h2>
-          <p className="text-text-secondary mb-8 leading-relaxed">
+          <p className="text-secondary mb-8 leading-relaxed">
             {mode === "signin" 
               ? "Sign in to access your saved apps and preferences." 
               : "Join our community to discover and share the best tools."}
@@ -149,7 +149,7 @@ export function AuthModal({ isOpen, onClose, initialMode = "signin" }: AuthModal
 
           <form onSubmit={handleSubmit} className="space-y-4 mb-6">
             <div className="space-y-2">
-              <label className="text-sm font-medium text-text-secondary ml-1">Email Address</label>
+              <label className="text-sm font-medium text-secondary ml-1">Email Address</label>
               <div className="relative">
                 <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-text-muted" />
                   <input
@@ -157,7 +157,7 @@ export function AuthModal({ isOpen, onClose, initialMode = "signin" }: AuthModal
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="you@example.com"
-                    className="w-full pl-10 pr-4 py-3 rounded-lg border border-border bg-background focus:ring-2 focus:ring-primary/20 focus:border-primary focus:outline-none transition-all text-text-primary placeholder:text-text-muted"
+                    className="w-full pl-10 pr-4 py-3 rounded-lg border border-border bg-background focus:ring-2 focus:ring-primary/20 focus:border-primary focus:outline-none transition-all text-primary placeholder:text-text-muted"
                     disabled={isLoading}
                     required
                   />
@@ -166,7 +166,7 @@ export function AuthModal({ isOpen, onClose, initialMode = "signin" }: AuthModal
 
               {method === "password" && (
                 <div className="space-y-2 animate-in fade-in slide-in-from-top-2">
-                  <label className="text-sm font-medium text-text-secondary ml-1">Password</label>
+                  <label className="text-sm font-medium text-secondary ml-1">Password</label>
                   <div className="relative">
                     <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-text-muted" />
                     <input
@@ -174,7 +174,7 @@ export function AuthModal({ isOpen, onClose, initialMode = "signin" }: AuthModal
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       placeholder="••••••••"
-                      className="w-full pl-10 pr-4 py-3 rounded-lg border border-border bg-background focus:ring-2 focus:ring-primary/20 focus:border-primary focus:outline-none transition-all text-text-primary placeholder:text-text-muted"
+                      className="w-full pl-10 pr-4 py-3 rounded-lg border border-border bg-background focus:ring-2 focus:ring-primary/20 focus:border-primary focus:outline-none transition-all text-primary placeholder:text-text-muted"
                       disabled={isLoading}
                       required
                     />
@@ -222,16 +222,16 @@ export function AuthModal({ isOpen, onClose, initialMode = "signin" }: AuthModal
             <div className="grid grid-cols-2 gap-4">
               <button
                 onClick={() => handleOAuth('twitter')}
-                className="flex items-center justify-center py-3.5 rounded-lg bg-background border border-border hover:bg-background-secondary transition-all group"
+                className="flex items-center justify-center py-3.5 rounded-lg bg-background border border-border hover:bg-surface transition-all group"
               >
-                <svg className="w-5 h-5 text-text-primary group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="currentColor">
+                <svg className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                 </svg>
               </button>
 
               <button
                 onClick={() => handleOAuth('google')}
-                className="flex items-center justify-center py-3.5 rounded-lg bg-background border border-border hover:bg-background-secondary transition-all group"
+                className="flex items-center justify-center py-3.5 rounded-lg bg-background border border-border hover:bg-surface transition-all group"
               >
               <svg className="w-5 h-5 group-hover:scale-110 transition-transform" viewBox="0 0 24 24">
                 <path

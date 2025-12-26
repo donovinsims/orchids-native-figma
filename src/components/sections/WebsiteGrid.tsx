@@ -75,7 +75,7 @@ export function WebsiteCard({ item, onClick, onLoginClick }: { item: Website; on
         >
           <div className="relative w-full aspect-[16/10]">
               {/* Thumbnail Preview */}
-              <div className="absolute inset-0 bg-background-secondary/50 overflow-hidden">
+              <div className="absolute inset-0 bg-surface/50 overflow-hidden">
                 <img 
                   src={item.previewImage} 
                   alt={item.title} 
@@ -97,13 +97,13 @@ export function WebsiteCard({ item, onClick, onLoginClick }: { item: Website; on
           onClick={handleClick}
           className="flex items-center gap-1.5 text-left flex-1 min-w-0"
         >
-          <span className="text-body-md font-semibold text-text-primary truncate">
+          <span className="text-body-md font-semibold text-primary truncate">
             {item.title}
           </span>
           {item.category && (
             <>
               <span className="text-text-tertiary font-medium">·</span>
-              <span className="text-text-secondary text-body-md font-medium truncate">
+              <span className="text-secondary text-body-md font-medium truncate">
                 {item.category}
               </span>
             </>
@@ -113,7 +113,7 @@ export function WebsiteCard({ item, onClick, onLoginClick }: { item: Website; on
             <div className="flex items-center gap-1 flex-shrink-0">
               <button
                 onClick={handleBookmark}
-                className="p-0.5 transition-colors text-text-secondary hover:text-text-primary bg-transparent focus:ring-0"
+                className="p-0.5 transition-colors text-secondary hover:text-primary bg-transparent focus:ring-0"
                 aria-label={bookmarked ? "Remove bookmark" : "Add bookmark"}
               >
                 <motion.div
@@ -128,7 +128,7 @@ export function WebsiteCard({ item, onClick, onLoginClick }: { item: Website; on
 
             <motion.button
               onClick={handleExternalLink}
-              className="p-1.5 rounded-md hover:bg-background-tertiary transition-colors text-text-secondary hover:text-text-primary"
+              className="p-1.5 rounded-md hover:bg-surface-raised transition-colors text-secondary hover:text-primary"
               whileTap={{ scale: 0.9 }}
               aria-label="Open in new tab"
             >

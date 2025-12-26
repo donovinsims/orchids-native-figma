@@ -142,21 +142,21 @@ export function SubmitAppModal({ isOpen, onClose }: SubmitAppModalProps) {
       <div className="p-6 pt-4 md:pt-6">
         {/* Icon */}
         <div className="flex justify-center mb-4">
-          <div className="w-12 h-12 flex items-center justify-center bg-background-secondary rounded-full">
+          <div className="w-12 h-12 flex items-center justify-center bg-surface rounded-full">
             {isSuccess ? (
               <CheckCircle className="w-6 h-6 text-success" />
             ) : (
-              <Upload className="w-6 h-6 text-text-primary" />
+              <Upload className="w-6 h-6 text-primary" />
             )}
           </div>
         </div>
 
         {isSuccess ? (
             <div className="text-center">
-              <h2 className="text-xl text-text-primary mb-2">
+              <h2 className="text-xl text-primary mb-2">
                 Submission received!
               </h2>
-              <p className="text-text-secondary mb-6">
+              <p className="text-secondary mb-6">
                 Thanks for sharing! We&apos;ll review your submission and add it to our directory if it meets our quality standards.
               </p>
               <button
@@ -169,12 +169,12 @@ export function SubmitAppModal({ isOpen, onClose }: SubmitAppModalProps) {
           ) : (
             <>
               {/* Heading */}
-              <h2 className="text-xl text-text-primary text-center mb-2">
+              <h2 className="text-xl text-primary text-center mb-2">
                 Submit Software
               </h2>
   
               {/* Description */}
-              <p className="text-text-secondary text-center mb-6">
+              <p className="text-secondary text-center mb-6">
                 Know a great software application? Share it with the community.
               </p>
   
@@ -182,7 +182,7 @@ export function SubmitAppModal({ isOpen, onClose }: SubmitAppModalProps) {
               <form onSubmit={handleSubmit} className="space-y-4">
                 {/* App URL */}
                 <div>
-                  <label htmlFor="appUrl" className="block text-sm text-text-secondary mb-1">
+                  <label htmlFor="appUrl" className="block text-sm text-secondary mb-1">
                     App URL <span className="text-error">*</span>
                   </label>
                   <input
@@ -196,7 +196,7 @@ export function SubmitAppModal({ isOpen, onClose }: SubmitAppModalProps) {
                     placeholder="https://example.com"
                     className={`w-full min-h-[44px] px-4 py-3 rounded-lg border bg-background ${
                       errors.appUrl ? "border-error" : "border-border"
-                    } focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-transparent text-text-primary placeholder:text-text-muted`}
+                    } focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-transparent text-primary placeholder:text-text-muted`}
                     disabled={isLoading}
                   />
                   {errors.appUrl && (
@@ -206,7 +206,7 @@ export function SubmitAppModal({ isOpen, onClose }: SubmitAppModalProps) {
   
                 {/* Category */}
                 <div>
-                  <label htmlFor="category" className="block text-sm text-text-secondary mb-1">
+                  <label htmlFor="category" className="block text-sm text-secondary mb-1">
                     Category <span className="text-error">*</span>
                   </label>
                   <select
@@ -218,7 +218,7 @@ export function SubmitAppModal({ isOpen, onClose }: SubmitAppModalProps) {
                     }}
                     className={`w-full min-h-[44px] px-4 py-3 rounded-lg border bg-background ${
                       errors.category ? "border-error" : "border-border"
-                    } focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-transparent text-text-primary`}
+                    } focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-transparent text-primary`}
                     disabled={isLoading}
                   >
                     {categories.map((cat) => (
@@ -234,7 +234,7 @@ export function SubmitAppModal({ isOpen, onClose }: SubmitAppModalProps) {
   
                 {/* Platforms */}
                 <div>
-                  <label className="block text-sm text-text-secondary mb-2">
+                  <label className="block text-sm text-secondary mb-2">
                     Platform <span className="text-error">*</span>
                   </label>
                   <div className="flex flex-wrap gap-2">
@@ -244,7 +244,7 @@ export function SubmitAppModal({ isOpen, onClose }: SubmitAppModalProps) {
                         className={`inline-flex items-center justify-center min-h-[44px] px-3 py-2 rounded-lg border cursor-pointer transition-colors ${
                           formData.platforms.includes(platform.value)
                             ? "bg-primary text-primary-foreground border-primary"
-                            : "bg-background text-text-secondary border-border hover:bg-background-secondary"
+                            : "bg-background text-secondary border-border hover:bg-surface"
                         }`}
                       >
                         <input
@@ -265,7 +265,7 @@ export function SubmitAppModal({ isOpen, onClose }: SubmitAppModalProps) {
   
                 {/* Email (optional) */}
                 <div>
-                  <label htmlFor="email" className="block text-sm text-text-secondary mb-1">
+                  <label htmlFor="email" className="block text-sm text-secondary mb-1">
                     Your email <span className="text-text-muted">(optional)</span>
                   </label>
                   <input
@@ -279,7 +279,7 @@ export function SubmitAppModal({ isOpen, onClose }: SubmitAppModalProps) {
                     placeholder="you@example.com"
                     className={`w-full min-h-[44px] px-4 py-3 rounded-lg border bg-background ${
                       errors.email ? "border-error" : "border-border"
-                    } focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-transparent text-text-primary placeholder:text-text-muted`}
+                    } focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-transparent text-primary placeholder:text-text-muted`}
                     disabled={isLoading}
                     autoComplete="email"
                   />

@@ -58,21 +58,21 @@ export function SubscribeModal({ isOpen, onClose }: SubscribeModalProps) {
       <div className="p-6 pt-4 md:pt-6">
         {/* Icon */}
         <div className="flex justify-center mb-4">
-          <div className="w-12 h-12 flex items-center justify-center bg-background-secondary rounded-full">
+          <div className="w-12 h-12 flex items-center justify-center bg-surface rounded-full">
             {isSuccess ? (
               <CheckCircle className="w-6 h-6 text-success" />
             ) : (
-              <Sparkles className="w-6 h-6 text-text-primary" />
+              <Sparkles className="w-6 h-6 text-primary" />
             )}
           </div>
         </div>
 
         {isSuccess ? (
             <div className="text-center">
-              <h2 className="text-xl text-text-primary mb-2">
+              <h2 className="text-xl text-primary mb-2">
                 You&apos;re subscribed!
               </h2>
-              <p className="text-text-secondary mb-6">
+              <p className="text-secondary mb-6">
                 Thanks for subscribing. You&apos;ll receive our weekly curated software picks in your inbox.
               </p>
               <button
@@ -85,12 +85,12 @@ export function SubscribeModal({ isOpen, onClose }: SubscribeModalProps) {
           ) : (
             <>
               {/* Heading */}
-              <h2 className="text-xl text-text-primary text-center mb-2">
+              <h2 className="text-xl text-primary text-center mb-2">
                 Weekly inspiration
               </h2>
   
               {/* Description */}
-              <p className="text-text-secondary text-center mb-6">
+              <p className="text-secondary text-center mb-6">
                 Stay up to date on the latest software discoveries and get the best apps delivered to your email inbox every week.
               </p>
   
@@ -107,7 +107,7 @@ export function SubscribeModal({ isOpen, onClose }: SubscribeModalProps) {
                     placeholder="you@example.com"
                     className={`w-full min-h-[44px] px-4 py-3 rounded-lg border bg-background ${
                       error ? "border-error focus:ring-error/20" : "border-border focus:ring-primary/20"
-                    } focus:outline-none focus:ring-2 focus:border-transparent transition-colors text-text-primary placeholder:text-text-muted`}
+                    } focus:outline-none focus:ring-2 focus:border-transparent transition-colors text-primary placeholder:text-text-muted`}
                     disabled={isLoading}
                     autoComplete="email"
                   />

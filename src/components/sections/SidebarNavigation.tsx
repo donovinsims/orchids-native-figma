@@ -59,35 +59,35 @@ interface SidebarNavigationProps {
 
 export default function SidebarNavigation({ onSubmitClick }: SidebarNavigationProps) {
   return (
-    <aside className="w-full border-r border-border flex-col justify-between bg-background-primary p-4 max-w-[250px] h-[calc(100vh-67px)] hidden sm:flex fixed top-[67px]">
+    <aside className="w-full border-r border-border flex-col justify-between bg-background p-4 max-w-[250px] h-[calc(100vh-67px)] hidden sm:flex fixed top-[67px]">
       <div className="overflow-y-auto">
         {categories.map((category, index) => (
           <a href={category.href} key={category.text}>
-            <div className="w-full flex gap-3 items-center px-3 py-2 rounded-lg cursor-pointer text-text-primary group transition-colors relative z-0 hover:bg-background-secondary">
+            <div className="w-full flex gap-3 items-center px-3 py-2 rounded-lg cursor-pointer text-primary group transition-colors relative z-0 hover:bg-surface">
               <div
-                className={`flex items-center justify-center w-[14px] h-[14px] group-hover:text-text-primary transition z-10 ${
-                  index === 0 ? "text-text-primary" : "text-text-tertiary"
+                className={`flex items-center justify-center w-[14px] h-[14px] group-hover:text-primary transition z-10 ${
+                  index === 0 ? "text-primary" : "text-text-tertiary"
                 }`}
               >
                 <category.icon className="w-full h-full" />
               </div>
-              <span className="text-text-primary text-sm select-none z-10">
+              <span className="text-primary text-sm select-none z-10">
                 {category.text}
               </span>
               {index === 0 && (
-                <div className="bg-background-tertiary rounded-lg w-full h-full absolute top-0 left-0 z-0"></div>
+                <div className="bg-surface-raised rounded-lg w-full h-full absolute top-0 left-0 z-0"></div>
               )}
             </div>
           </a>
         ))}
       </div>
-      <div className="w-full pt-2 flex items-center flex-col gap-3 bg-background-primary">
+      <div className="w-full pt-2 flex items-center flex-col gap-3 bg-background">
         <div className="w-full flex items-center gap-2">
           <a
             href="https://tally.so/r/wLP5VG"
             target="_blank"
             rel="noopener noreferrer"
-            className="h-[40px] w-full py-[10px] px-[18px] bg-background-tertiary rounded-xl hover:bg-background-secondary cursor-pointer flex items-center justify-between transition-colors text-text-secondary hover:text-text-primary"
+            className="h-[40px] w-full py-[10px] px-[18px] bg-surface-raised rounded-xl hover:bg-surface cursor-pointer flex items-center justify-between transition-colors text-secondary hover:text-primary"
           >
             <span className="text-sm">Sponsor us</span>
             <ArrowUpRight className="w-[14px] h-[14px] text-text-tertiary" />
@@ -96,7 +96,7 @@ export default function SidebarNavigation({ onSubmitClick }: SidebarNavigationPr
             href="https://x.com/seesawsite"
             target="_blank"
             rel="noopener noreferrer"
-            className="h-[40px] py-[10px] px-[18px] bg-background-tertiary rounded-xl hover:bg-background-secondary cursor-pointer flex items-center justify-between transition-colors text-text-secondary hover:text-text-primary"
+            className="h-[40px] py-[10px] px-[18px] bg-surface-raised rounded-xl hover:bg-surface cursor-pointer flex items-center justify-between transition-colors text-secondary hover:text-primary"
           >
             <XIcon className="w-[14px] h-[14px]" />
           </a>

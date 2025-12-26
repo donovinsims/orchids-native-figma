@@ -93,7 +93,7 @@ export default function AppDetailPage({
 
   const content = (
     <motion.div
-      className={`relative w-full ${isInline ? 'max-w-4xl mx-auto' : isMobile ? 'max-w-4xl bg-background-primary rounded-t-[32px] border-t border-border shadow-[0_-12px_40px_rgba(0,0,0,0.25)] ring-1 ring-white/5' : 'max-w-3xl bg-background-primary rounded-2xl border border-border shadow-2xl'} overflow-hidden flex flex-col ${isInline ? 'shadow-none border-none' : ''}`}
+      className={`relative w-full ${isInline ? 'max-w-4xl mx-auto' : isMobile ? 'max-w-4xl bg-background rounded-t-[32px] border-t border-border shadow-[0_-12px_40px_rgba(0,0,0,0.25)] ring-1 ring-white/5' : 'max-w-3xl bg-background rounded-2xl border border-border shadow-2xl'} overflow-hidden flex flex-col ${isInline ? 'shadow-none border-none' : ''}`}
       initial={isInline ? { opacity: 0, y: 20 } : isMobile ? { y: "100%" } : { opacity: 0, scale: 0.95 }}
       animate={isInline ? { opacity: 1, y: 0 } : isMobile ? { y: 0 } : { opacity: 1, scale: 1 }}
       exit={isInline ? { opacity: 0, y: 20 } : isMobile ? { y: "100%" } : { opacity: 0, scale: 0.95 }}
@@ -120,14 +120,14 @@ export default function AppDetailPage({
       {!isInline && <div className="absolute top-0 left-0 right-0 h-6 bg-gradient-to-b from-white/10 via-white/5 to-transparent blur-xl z-50 pointer-events-none opacity-40" />}
       
       {/* Sticky Header Bar */}
-      <div className={`sticky top-0 z-30 bg-background-primary/80 backdrop-blur-md border-b border-border/40 ${isInline ? 'hidden md:block' : ''}`}>
+      <div className={`sticky top-0 z-30 bg-background/80 backdrop-blur-md border-b border-border/40 ${isInline ? 'hidden md:block' : ''}`}>
         <div className="flex items-center justify-between px-4 md:px-6 h-14 md:h-16">
           <button
             onClick={onBack}
-            className="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full hover:bg-background-secondary transition-colors"
+            className="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full hover:bg-surface transition-colors"
             aria-label="Close"
           >
-            <X className="w-5 h-5 md:w-6 md:h-6 text-text-primary" />
+            <X className="w-5 h-5 md:w-6 md:h-6 text-primary" />
           </button>
           
             {/* Drag Handle - Mobile Only */}
@@ -142,7 +142,7 @@ export default function AppDetailPage({
 
             {(!isMobile || isInline) && (
               <div className="flex-grow flex justify-center px-4">
-                <span className="text-sm font-medium text-text-secondary truncate max-w-[200px]">
+                <span className="text-sm font-medium text-secondary truncate max-w-[200px]">
                   {app.title}
                 </span>
               </div>
@@ -150,10 +150,10 @@ export default function AppDetailPage({
 
           <button
             onClick={handleShare}
-            className="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full hover:bg-background-secondary transition-colors"
+            className="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full hover:bg-surface transition-colors"
             aria-label="Share"
           >
-            <Share2 className="w-4 h-4 md:w-5 md:h-5 text-text-primary" />
+            <Share2 className="w-4 h-4 md:w-5 md:h-5 text-primary" />
           </button>
         </div>
       </div>
@@ -162,7 +162,7 @@ export default function AppDetailPage({
       <div className={`flex-grow ${isInline ? '' : 'overflow-y-auto overflow-x-hidden custom-scrollbar'}`}>
         <div className={`mx-auto px-4 md:px-8 py-6 md:py-8 space-y-6 md:space-y-8 ${isMobile && !isInline ? 'max-w-3xl' : 'w-full max-w-4xl'}`}>
           {/* Preview Image */}
-          <div className="relative w-full aspect-[16/10] bg-background-secondary rounded-md overflow-hidden border border-border">
+          <div className="relative w-full aspect-[16/10] bg-surface rounded-md overflow-hidden border border-border">
             <img
               src={app.previewImage}
               alt={app.title}
@@ -178,10 +178,10 @@ export default function AppDetailPage({
 
             {/* Title & Description */}
             <div>
-              <h1 className="text-4xl text-text-primary mb-2 tracking-tight">
+              <h1 className="text-4xl text-primary mb-2 tracking-tight">
                 {app.title}
               </h1>
-              <p className="text-text-secondary text-lg">
+              <p className="text-secondary text-lg">
                 {app.shortDescription || app.description}
               </p>
             </div>
@@ -192,7 +192,7 @@ export default function AppDetailPage({
               href={app.websiteUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-full px-6 py-3 rounded-xl bg-background-primary text-text-primary border border-border hover:bg-background-secondary hover:border-border-strong transition-all duration-200 text-base font-medium"
+              className="flex items-center justify-center gap-2 w-full px-6 py-3 rounded-xl bg-background text-primary border border-border hover:bg-surface hover:border transition-all duration-200 text-base font-medium"
             >
               <span>Visit Website</span>
               <ExternalLink className="w-5 h-5" />
@@ -214,35 +214,35 @@ export default function AppDetailPage({
 
           {/* App Information Section */}
           <section className="border-t border-border pt-8">
-            <h3 className="text-2xl text-text-primary mb-6">
+            <h3 className="text-2xl text-primary mb-6">
               App Information
             </h3>
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <span className="text-text-secondary text-base">Category</span>
-                <span className="text-text-primary text-base font-medium">{app.category}</span>
+                <span className="text-secondary text-base">Category</span>
+                <span className="text-primary text-base font-medium">{app.category}</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-text-secondary text-base">Platforms</span>
-                <span className="text-text-primary text-base text-right font-medium">{app.platforms.join(", ")}</span>
+                <span className="text-secondary text-base">Platforms</span>
+                <span className="text-primary text-base text-right font-medium">{app.platforms.join(", ")}</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-text-secondary text-base">Pricing</span>
-                <span className="text-text-primary text-base font-medium">{app.pricing}</span>
+                <span className="text-secondary text-base">Pricing</span>
+                <span className="text-primary text-base font-medium">{app.pricing}</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-text-secondary text-base">Last Updated</span>
-                <span className="text-text-primary text-base font-medium">{app.lastUpdated}</span>
+                <span className="text-secondary text-base">Last Updated</span>
+                <span className="text-primary text-base font-medium">{app.lastUpdated}</span>
               </div>
             </div>
           </section>
 
           {/* About Section */}
           <section className="border-t border-border pt-8">
-            <h2 className="text-2xl text-text-primary mb-4">
+            <h2 className="text-2xl text-primary mb-4">
               About {app.title}
             </h2>
-            <p className="text-text-secondary text-lg leading-relaxed mb-4">
+            <p className="text-secondary text-lg leading-relaxed mb-4">
               {app.about}
             </p>
             <p className="text-text-tertiary text-base leading-relaxed">
@@ -253,7 +253,7 @@ export default function AppDetailPage({
           {/* Key Features */}
           {app.features && app.features.length > 0 && (
             <section className="border-t border-border pt-8">
-              <h2 className="text-2xl text-text-primary mb-6">
+              <h2 className="text-2xl text-primary mb-6">
                 Key Features
               </h2>
               <ul className="space-y-4">
@@ -262,7 +262,7 @@ export default function AppDetailPage({
                     <div className="flex-shrink-0 w-6 h-6 rounded-full bg-success/10 flex items-center justify-center mt-0.5">
                       <Check className="w-4 h-4 text-success" />
                     </div>
-                    <span className="text-text-secondary text-lg">{feature}</span>
+                    <span className="text-secondary text-lg">{feature}</span>
                   </li>
                 ))}
               </ul>
@@ -272,7 +272,7 @@ export default function AppDetailPage({
             {/* Related Apps */}
             {app.relatedApps && app.relatedApps.length > 0 && (
               <section className="border-t border-border pt-8 pb-12">
-                <h2 className="text-2xl text-text-primary mb-6">
+                <h2 className="text-2xl text-primary mb-6">
                   Related Apps
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">

@@ -45,10 +45,10 @@ export default function ProfileView({ onAppClick, apps }: ProfileViewProps) {
   return (
     <div className="space-y-12">
       {/* Profile Header */}
-      <section className="bg-background-secondary border border-border rounded-md p-8">
+      <section className="bg-surface border border-border rounded-md p-8">
         <div className="flex flex-col md:flex-row gap-8 items-start">
           <div className="relative group">
-            <div className="w-24 h-24 rounded-full bg-background-tertiary flex items-center justify-center overflow-hidden border border-border">
+            <div className="w-24 h-24 rounded-full bg-surface-raised flex items-center justify-center overflow-hidden border border-border">
               {profile?.avatar_url ? (
                 <img src={profile.avatar_url} alt={profile.full_name || ""} className="w-full h-full object-cover" />
               ) : (
@@ -59,11 +59,11 @@ export default function ProfileView({ onAppClick, apps }: ProfileViewProps) {
 
           <div className="flex-1 space-y-4 w-full">
             <div className="flex items-center justify-between">
-              <h1 className="text-3xl font-bold text-text-primary">Profile Settings</h1>
+              <h1 className="text-3xl font-bold text-primary">Profile Settings</h1>
               {!isEditing && (
                 <button
                   onClick={() => setIsEditing(true)}
-                  className="text-sm font-medium text-text-secondary hover:text-text-primary transition-colors"
+                  className="text-sm font-medium text-secondary hover:text-primary transition-colors"
                 >
                   Edit Profile
                 </button>
@@ -73,12 +73,12 @@ export default function ProfileView({ onAppClick, apps }: ProfileViewProps) {
             {isEditing ? (
               <form onSubmit={handleUpdateProfile} className="space-y-4 max-w-md">
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-text-secondary">Full Name</label>
+                  <label className="text-sm font-medium text-secondary">Full Name</label>
                   <input
                     type="text"
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
-                    className="w-full px-4 py-2 rounded-md bg-background-primary border border-border focus:border-text-primary outline-none transition-colors"
+                    className="w-full px-4 py-2 rounded-md bg-background border border-border focus:border-text-primary outline-none transition-colors"
                     placeholder="Enter your name"
                   />
                 </div>
@@ -97,7 +97,7 @@ export default function ProfileView({ onAppClick, apps }: ProfileViewProps) {
                       setIsEditing(false);
                       setFullName(profile?.full_name || "");
                     }}
-                    className="px-6 py-2 rounded-md border border-border text-text-secondary font-medium hover:bg-background-tertiary transition-colors"
+                    className="px-6 py-2 rounded-md border border-border text-secondary font-medium hover:bg-surface-raised transition-colors"
                   >
                     Cancel
                   </button>
@@ -105,18 +105,18 @@ export default function ProfileView({ onAppClick, apps }: ProfileViewProps) {
               </form>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="flex items-center gap-3 text-text-secondary">
+                <div className="flex items-center gap-3 text-secondary">
                   <User className="w-5 h-5" />
                   <div>
                     <p className="text-xs font-medium uppercase tracking-wider text-text-tertiary">Full Name</p>
-                    <p className="text-text-primary font-medium">{profile?.full_name || "Not set"}</p>
+                    <p className="text-primary font-medium">{profile?.full_name || "Not set"}</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-3 text-text-secondary">
+                <div className="flex items-center gap-3 text-secondary">
                   <Mail className="w-5 h-5" />
                   <div>
                     <p className="text-xs font-medium uppercase tracking-wider text-text-tertiary">Email Address</p>
-                    <p className="text-text-primary font-medium">{user.email}</p>
+                    <p className="text-primary font-medium">{user.email}</p>
                   </div>
                 </div>
               </div>
@@ -129,8 +129,8 @@ export default function ProfileView({ onAppClick, apps }: ProfileViewProps) {
       <section>
         <div className="flex items-center gap-3 mb-8">
           <Bookmark className="w-6 h-6 text-[#ff4500] fill-[#ff4500]" />
-          <h2 className="text-2xl font-bold text-text-primary">Your Bookmarks</h2>
-          <span className="px-2 py-0.5 rounded-full bg-background-tertiary text-text-secondary text-sm font-medium">
+          <h2 className="text-2xl font-bold text-primary">Your Bookmarks</h2>
+          <span className="px-2 py-0.5 rounded-full bg-surface-raised text-secondary text-sm font-medium">
             {bookmarks.length}
           </span>
         </div>
@@ -144,7 +144,7 @@ export default function ProfileView({ onAppClick, apps }: ProfileViewProps) {
         ) : (
           <div className="text-center py-20 border-2 border-dashed border-border rounded-md">
             <Bookmark className="w-12 h-12 text-text-tertiary mx-auto mb-4" />
-            <p className="text-text-secondary text-lg">You haven't bookmarked any apps yet.</p>
+            <p className="text-secondary text-lg">You haven't bookmarked any apps yet.</p>
             <p className="text-text-tertiary">Explore the directory and save your favorites here.</p>
           </div>
         )}

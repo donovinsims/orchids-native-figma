@@ -62,13 +62,13 @@ export default function DesktopAppDetail({
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="min-h-screen bg-background-primary transition-colors duration-300"
+      className="min-h-screen bg-background transition-colors duration-300"
     >
-      <div className="border-b border-border/50 bg-background-primary/50 backdrop-blur-sm sticky top-[67px] z-10 py-4">
+      <div className="border-b border-border/50 bg-background/50 backdrop-blur-sm sticky top-[67px] z-10 py-4">
         <Container>
           <button
             onClick={onBack}
-            className="group flex items-center gap-2 text-text-secondary hover:text-text-primary transition-colors"
+            className="group flex items-center gap-2 text-secondary hover:text-primary transition-colors"
           >
             <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
             <span className="text-sm font-semibold tracking-wide uppercase">Back to Directory</span>
@@ -87,16 +87,16 @@ export default function DesktopAppDetail({
                   <img src={app.faviconUrl} alt="" className="w-full h-full object-contain" />
                 </div>
                 <div>
-                  <h1 className="text-5xl font-bold text-text-primary tracking-tight mb-2">
+                  <h1 className="text-5xl font-bold text-primary tracking-tight mb-2">
                     {app.title}
                   </h1>
-                  <p className="text-2xl text-text-secondary font-medium">
+                  <p className="text-2xl text-secondary font-medium">
                     {app.category}
                   </p>
                 </div>
               </div>
 
-                <div className="relative aspect-[16/10] bg-background-secondary rounded-[32px] overflow-hidden border border-border shadow-sm transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.04)] dark:hover:shadow-[0_0_0_1px_rgba(255,255,255,0.05)]">
+                <div className="relative aspect-[16/10] bg-surface rounded-[32px] overflow-hidden border border-border shadow-sm transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.04)] dark:hover:shadow-[0_0_0_1px_rgba(255,255,255,0.05)]">
                 <img
                   src={app.previewImage}
                   alt={app.title}
@@ -112,11 +112,11 @@ export default function DesktopAppDetail({
 
             {/* About Section */}
             <section className="max-w-3xl">
-              <h2 className="text-3xl font-bold text-text-primary mb-8 tracking-tight">
+              <h2 className="text-3xl font-bold text-primary mb-8 tracking-tight">
                 About the App
               </h2>
               <div className="space-y-6">
-                <p className="text-text-secondary leading-relaxed text-2xl font-light">
+                <p className="text-secondary leading-relaxed text-2xl font-light">
                   {app.about}
                 </p>
                 <p className="text-text-tertiary leading-relaxed text-lg">
@@ -129,18 +129,18 @@ export default function DesktopAppDetail({
 
             {/* Features Section */}
             {app.features && app.features.length > 0 && (
-              <section className="bg-background-secondary/30 rounded-[40px] p-12 border border-border/50">
-                <h2 className="text-2xl font-bold text-text-primary mb-10 tracking-tight flex items-center gap-3">
+              <section className="bg-surface/30 rounded-[40px] p-12 border border-border/50">
+                <h2 className="text-2xl font-bold text-primary mb-10 tracking-tight flex items-center gap-3">
                   <div className="w-2 h-2 rounded-full bg-success" />
                   Key Features & Capabilities
                 </h2>
                 <div className="grid grid-cols-2 gap-x-16 gap-y-8">
                   {app.features.map((feature, index) => (
                     <div key={index} className="flex items-start gap-4 group">
-                      <div className="flex-shrink-0 w-8 h-8 rounded-xl bg-background-primary border border-border flex items-center justify-center mt-0.5 group-hover:border-success/50 transition-colors">
+                      <div className="flex-shrink-0 w-8 h-8 rounded-xl bg-background border border-border flex items-center justify-center mt-0.5 group-hover:border-success/50 transition-colors">
                         <Check className="w-4 h-4 text-success" />
                       </div>
-                      <span className="text-text-secondary text-lg leading-relaxed">{feature}</span>
+                      <span className="text-secondary text-lg leading-relaxed">{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -152,17 +152,17 @@ export default function DesktopAppDetail({
           <div className="col-span-4">
             <div className="sticky top-[160px] space-y-8">
               {/* Primary Actions Card */}
-              <div className="bg-background-primary border border-border rounded-[32px] p-6 shadow-xl shadow-black/[0.02]">
+              <div className="bg-background border border-border rounded-[32px] p-6 shadow-xl shadow-black/[0.02]">
                 <div className="flex items-center justify-between mb-8">
                   <span className="px-3 py-1 rounded-full bg-success/10 text-success text-xs font-bold uppercase tracking-wider">
                     Official Website
                   </span>
                   <button
                     onClick={handleShare}
-                    className="p-3 rounded-xl hover:bg-background-secondary border border-border transition-all hover:scale-105 active:scale-95"
+                    className="p-3 rounded-xl hover:bg-surface border border-border transition-all hover:scale-105 active:scale-95"
                     title="Share app"
                   >
-                    <Share2 className="w-5 h-5 text-text-secondary" />
+                    <Share2 className="w-5 h-5 text-secondary" />
                   </button>
                 </div>
 
@@ -182,7 +182,7 @@ export default function DesktopAppDetail({
                       className={`flex items-center justify-center gap-3 w-full px-6 py-3.5 rounded-lg border-2 transition-all text-base font-bold ${
                         bookmarked 
                           ? "border-[#ff4500] bg-[#ff4500]/5 text-[#ff4500]" 
-                          : "border-border hover:bg-background-secondary text-text-primary hover:border-border-strong"
+                          : "border-border hover:bg-surface text-primary hover:border"
                       }`}
                     >
                       <Bookmark className={`w-5 h-5 ${bookmarked ? "fill-current" : ""}`} />
@@ -196,7 +196,7 @@ export default function DesktopAppDetail({
               </div>
 
               {/* Information Card */}
-              <div className="bg-background-secondary/40 border border-border rounded-[32px] p-6">
+              <div className="bg-surface/40 border border-border rounded-[32px] p-6">
                 <h3 className="text-sm font-bold text-text-tertiary uppercase tracking-[0.2em] mb-8">
                   App Intelligence
                 </h3>
@@ -217,16 +217,16 @@ export default function DesktopAppDetail({
           <section className="mt-32 pt-20 border-t border-border">
             <div className="flex items-end justify-between mb-12">
               <div>
-                <h2 className="text-4xl font-bold text-text-primary tracking-tight mb-4">
+                <h2 className="text-4xl font-bold text-primary tracking-tight mb-4">
                   Discover Similar Apps
                 </h2>
-                <p className="text-text-secondary text-xl font-light">
+                <p className="text-secondary text-xl font-light">
                   Hand-picked alternatives that match your taste for quality design.
                 </p>
               </div>
               <button 
                 onClick={onBack}
-                className="text-text-primary font-bold hover:underline underline-offset-8"
+                className="text-primary font-bold hover:underline underline-offset-8"
               >
                 View all apps
               </button>
@@ -251,17 +251,17 @@ export default function DesktopAppDetail({
 function InfoItem({ icon: Icon, label, value, href }: { icon: any, label: string, value: string, href?: string }) {
   return (
     <div className="flex items-start gap-4">
-      <div className="w-10 h-10 rounded-xl bg-background-primary border border-border flex items-center justify-center flex-shrink-0 mt-0.5">
-        <Icon className="w-5 h-5 text-text-secondary" />
+      <div className="w-10 h-10 rounded-xl bg-background border border-border flex items-center justify-center flex-shrink-0 mt-0.5">
+        <Icon className="w-5 h-5 text-secondary" />
       </div>
       <div className="space-y-1 overflow-hidden">
         <p className="text-[10px] text-text-tertiary font-bold uppercase tracking-wider">{label}</p>
         {href ? (
-          <a href={href} target="_blank" className="text-base font-semibold text-text-primary hover:text-success transition-colors truncate block">
+          <a href={href} target="_blank" className="text-base font-semibold text-primary hover:text-success transition-colors truncate block">
             {value}
           </a>
         ) : (
-          <p className="text-base font-semibold text-text-primary truncate">{value}</p>
+          <p className="text-base font-semibold text-primary truncate">{value}</p>
         )}
       </div>
     </div>

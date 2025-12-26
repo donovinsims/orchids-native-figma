@@ -34,9 +34,9 @@ const HeaderNavigation = ({ onSubscribeClick, onSubmitClick, onLoginClick, onSig
   return (
     <>
       <nav className="fixed top-0 z-20 h-[67px] w-full">
-        <div className="absolute top-0 left-0 flex h-[67px] w-full items-center justify-between bg-background-primary/80 backdrop-blur-md px-md md:px-lg transition-colors">
+        <div className="absolute top-0 left-0 flex h-[67px] w-full items-center justify-between bg-background/80 backdrop-blur-md px-md md:px-lg transition-colors">
           <button
-            className="flex w-max cursor-pointer items-center gap-xs rounded-full border border-border bg-background-primary px-md py-sm text-h1 leading-none transition-all duration-200 ease-in-out hover:-rotate-3 hover:border-border-strong hover:bg-background-secondary"
+            className="flex w-max cursor-pointer items-center gap-xs rounded-full border border-border bg-background px-md py-sm text-h1 leading-none transition-all duration-200 ease-in-out hover:-rotate-3 hover:border hover:bg-surface"
             onClick={onHomeClick}
           >
             <span>see</span>
@@ -51,16 +51,16 @@ const HeaderNavigation = ({ onSubscribeClick, onSubmitClick, onLoginClick, onSig
                 <div className="flex items-center gap-sm">
                   <button
                     onClick={onProfileClick}
-                    className="flex items-center gap-2 px-3 py-1.5 rounded-full hover:bg-background-secondary transition-colors"
+                    className="flex items-center gap-2 px-3 py-1.5 rounded-full hover:bg-surface transition-colors"
                   >
-                    <div className="w-6 h-6 rounded-full bg-background-tertiary flex items-center justify-center overflow-hidden border border-border">
+                    <div className="w-6 h-6 rounded-full bg-surface-raised flex items-center justify-center overflow-hidden border border-border">
                       {profile?.avatar_url ? (
                         <img src={profile.avatar_url} alt={profile.full_name || ""} className="w-full h-full object-cover" />
                       ) : (
                         <span className="text-[10px] font-bold">{user.email?.[0].toUpperCase()}</span>
                       )}
                     </div>
-                    <span className="text-sm font-medium text-text-primary">Profile</span>
+                    <span className="text-sm font-medium text-primary">Profile</span>
                   </button>
                   <Button
                     variant="secondary"

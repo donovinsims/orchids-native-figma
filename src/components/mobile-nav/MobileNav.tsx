@@ -12,10 +12,10 @@ export function MobileNavTrigger({ onClick }: MobileNavTriggerProps) {
   return (
     <button
       onClick={onClick}
-      className="lg:hidden flex items-center justify-center w-10 h-10 rounded-md hover:bg-background-secondary transition-colors"
+      className="lg:hidden flex items-center justify-center w-10 h-10 rounded-md hover:bg-surface transition-colors"
       aria-label="Open menu"
     >
-      <Menu className="w-6 h-6 text-text-primary" />
+      <Menu className="w-6 h-6 text-primary" />
     </button>
   );
 }
@@ -106,10 +106,10 @@ export function MobileNavOverlay({
       />
 
       {/* Menu Panel */}
-      <div className="absolute top-0 right-0 w-full max-w-lg h-full bg-background-primary shadow-2xl overflow-y-auto border-l border-border">
+      <div className="absolute top-0 right-0 w-full max-w-lg h-full bg-background shadow-2xl overflow-y-auto border-l border-border">
         {/* Header */}
-          <div className="sticky top-0 z-10 flex items-center justify-between p-4 bg-background-primary/80 backdrop-blur-md transition-colors">
-            <div className="flex w-max items-center gap-xs rounded-full border border-border bg-background-primary px-md py-sm text-h1 leading-none transition-all duration-200 ease-in-out">
+          <div className="sticky top-0 z-10 flex items-center justify-between p-4 bg-background/80 backdrop-blur-md transition-colors">
+            <div className="flex w-max items-center gap-xs rounded-full border border-border bg-background px-md py-sm text-h1 leading-none transition-all duration-200 ease-in-out">
               <span>see</span>
               <MagicIcon className="w-[10.67px]" />
               <span>saw</span>
@@ -118,10 +118,10 @@ export function MobileNavOverlay({
             <ThemeToggle />
             <button
               onClick={onClose}
-              className="flex items-center justify-center w-10 h-10 rounded-md hover:bg-background-secondary transition-colors"
+              className="flex items-center justify-center w-10 h-10 rounded-md hover:bg-surface transition-colors"
               aria-label="Close menu"
             >
-              <X className="w-6 h-6 text-text-primary" />
+              <X className="w-6 h-6 text-primary" />
             </button>
           </div>
         </div>
@@ -131,13 +131,13 @@ export function MobileNavOverlay({
           <div className="grid grid-cols-2 gap-3">
             <button 
               onClick={handleLogin}
-              className="w-full py-3 rounded-md border border-border bg-background-primary text-text-primary hover:bg-background-secondary transition-colors text-sm font-medium"
+              className="w-full py-3 rounded-md border border-border bg-background text-primary hover:bg-surface transition-colors text-sm font-medium"
             >
               Sign in
             </button>
             <button 
               onClick={handleSignUp}
-              className="w-full py-3 rounded-md border border-border bg-background-primary text-text-primary hover:bg-background-secondary transition-colors text-sm font-medium"
+              className="w-full py-3 rounded-md border border-border bg-background text-primary hover:bg-surface transition-colors text-sm font-medium"
             >
               Sign up
             </button>
@@ -160,7 +160,7 @@ export function MobileNavOverlay({
                 className={`w-full flex items-center gap-3 px-4 py-3 rounded-md transition-colors ${
                   activeCategory === category.label
                     ? "bg-text-primary text-background-primary"
-                    : "text-text-secondary hover:bg-background-secondary"
+                    : "text-secondary hover:bg-surface"
                 }`}
               >
                 <category.icon className="w-5 h-5" />
@@ -177,22 +177,22 @@ export function MobileNavOverlay({
             href="https://tally.so/r/wLP5VG"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-between px-4 py-3 rounded-md bg-background-secondary hover:bg-border transition-colors border border-border"
+            className="flex items-center justify-between px-4 py-3 rounded-md bg-surface hover:bg-border transition-colors border border-border"
           >
-            <span className="text-sm text-text-secondary">Sponsor us</span>
+            <span className="text-sm text-secondary">Sponsor us</span>
             <ArrowUpRight className="w-4 h-4 text-text-tertiary" />
           </a>
 
           {/* Submit Button */}
           <button
             onClick={handleSubmit}
-            className="w-full py-3 rounded-md border border-border bg-background-primary text-text-primary hover:bg-background-secondary transition-colors text-sm font-medium"
+            className="w-full py-3 rounded-md border border-border bg-background text-primary hover:bg-surface transition-colors text-sm font-medium"
           >
             Submit
           </button>
 
           {/* Email */}
-          <div className="flex items-center justify-between px-4 py-3 rounded-md bg-background-secondary border border-border">
+          <div className="flex items-center justify-between px-4 py-3 rounded-md bg-surface border border-border">
             <span className="text-sm text-text-tertiary">hi@seesaw.website</span>
             <Mail className="w-4 h-4 text-text-tertiary" />
           </div>

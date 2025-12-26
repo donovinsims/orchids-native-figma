@@ -69,7 +69,7 @@ export default function App() {
   return (
     <AuthProvider>
       <NextThemesProvider attribute="class" defaultTheme="light" enableSystem>
-      <div className="relative min-h-screen bg-background-primary text-foreground transition-colors duration-200 flex flex-col">
+      <div className="relative min-h-screen bg-background text-foreground transition-colors duration-200 flex flex-col">
         <HeaderNavigation 
           onSubscribeClick={subscribeModal.open}
           onSubmitClick={submitModal.open}
