@@ -6,6 +6,7 @@ import { toast } from "sonner";
 import { Modal } from "./Modal";
 import { supabase } from "@/lib/supabase";
 import { AuthError } from "@supabase/supabase-js";
+import { Button } from "../ui/button";
 
 interface AuthModalProps {
   isOpen: boolean;
