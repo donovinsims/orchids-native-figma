@@ -33,12 +33,12 @@ const HeaderNavigation = ({ onSubscribeClick, onSubmitClick, onLoginClick, onSig
 
   return (
     <>
-      <nav className="fixed top-0 z-20 h-[67px] w-full">
-        <div className="absolute top-0 left-0 flex h-[67px] w-full items-center justify-between bg-background/80 backdrop-blur-md px-md md:px-lg transition-colors">
-          <button
-            className="flex w-max cursor-pointer items-center gap-xs rounded-full border border-border bg-background px-md py-sm text-h1 leading-none transition-all duration-200 ease-in-out hover:-rotate-3 hover:border hover:bg-surface"
-            onClick={onHomeClick}
-          >
+        <nav className="fixed top-0 z-20 h-[67px] w-full">
+          <div className="absolute top-0 left-0 flex h-[67px] w-full items-center justify-between bg-background px-md md:px-lg transition-colors">
+            <button
+              className="flex w-max cursor-pointer items-center gap-xs rounded-pill border border-border bg-background px-md py-sm text-h1 leading-none transition-all duration-200 ease-in-out hover:-rotate-3 hover:border hover:bg-surface"
+              onClick={onHomeClick}
+            >
             <span>see</span>
             <MagicIcon className="w-[10.67px]" />
             <span>saw</span>
