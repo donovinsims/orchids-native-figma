@@ -31,10 +31,10 @@ const buttonVariants = cva(
     defaultVariants: {
       variant: "primary",
       size: "default",
-      rounded: "default",
+        rounded: "pill",
+      },
     },
-  },
-);
+  );
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
