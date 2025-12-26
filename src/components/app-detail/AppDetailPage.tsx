@@ -205,13 +205,14 @@ export default function AppDetailPage({
 
             <Button
               onClick={handleBookmark}
-              className={`w-full h-12 text-base transition-colors ${
+              variant="secondary"
+              className={`w-full h-12 text-base font-bold ${
                 bookmarked 
-                  ? "bg-[#ff4500] hover:bg-[#ff4500]/90" 
-                  : "bg-[#ff4500] hover:bg-[#ff4500]/90"
-              } text-white border-none`}
+                  ? "border-[#ff4500] bg-[#ff4500]/5 text-[#ff4500] hover:bg-[#ff4500]/10 hover:border-[#ff4500]" 
+                  : "border-border hover:bg-surface text-primary hover:border"
+              }`}
             >
-              <span>{bookmarked ? "Bookmarked" : "Bookmark"}</span>
+              <span>{bookmarked ? "Bookmarked" : "Bookmark App"}</span>
               <motion.div
                 animate={bookmarked ? { scale: [1, 1.4, 1] } : { scale: 1 }}
                 transition={{ duration: 0.3 }}
