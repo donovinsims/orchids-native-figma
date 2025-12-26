@@ -69,7 +69,7 @@ export function WebsiteCard({ item, onClick, onLoginClick }: { item: Website; on
       {/* Card Preview */}
         <motion.button
           onClick={handleClick}
-          className="relative w-full block overflow-hidden transition-all duration-500 bg-surface dark:bg-surface border border-border/40 rounded-[22px] hover:border-border/80"
+          className="relative w-full block overflow-hidden transition-all duration-500 bg-surface dark:bg-surface border border-border/40 rounded-sm hover:border-border/80"
           whileTap={{ scale: 0.98 }}
           transition={{ type: "spring", stiffness: 400, damping: 17 }}
         >
