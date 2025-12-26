@@ -5,27 +5,33 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "./utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-xs whitespace-nowrap rounded-lg text-body-md font-medium transition-all duration-200 disabled:pointer-events-none disabled:opacity-50 min-h-[44px] outline-none focus-visible:ring-2 focus-visible:ring-accent/10 focus-visible:ring-offset-0 focus-visible:border-accent",
+  "inline-flex items-center justify-center gap-xs whitespace-nowrap rounded-lg text-body font-medium transition-all duration-200 disabled:pointer-events-none disabled:opacity-50 min-h-[44px] outline-none active:scale-[0.98]",
   {
     variants: {
       variant: {
-        primary: "bg-primary text-primary-foreground border-none hover:bg-[#1a1a1a] dark:hover:bg-[#e5e5e5] hover:-translate-y-[1px]",
-        secondary: "bg-[#fafafa] dark:bg-[#1a1a1a] text-[#000000] dark:text-[#ffffff] border border-[#e5e5e5] dark:border-[#262626] hover:bg-[#f5f5f5] dark:hover:bg-[#262626]",
+        primary: "bg-black-solid text-white-translucent border-none hover:opacity-strong dark:bg-primary dark:text-background",
+        secondary: "bg-surface-raised text-primary border border-border hover:bg-surface",
         tertiary: "bg-transparent text-secondary hover:text-primary hover:bg-surface-raised",
-          ghost: "bg-transparent border-none p-2 rounded-lg min-w-[40px] min-h-[40px] hover:bg-[#f5f5f5] dark:hover:bg-[#1a1a1a]",
-        link: "text-accent underline-offset-4 hover:underline",
-        destructive: "bg-error text-white hover:bg-error/90",
+        ghost: "bg-transparent border-none p-2 rounded-lg min-w-[40px] min-h-[40px] hover:bg-surface-raised",
+        link: "text-primary underline-offset-4 hover:underline",
+        destructive: "bg-red-500 text-white hover:bg-red-600",
       },
       size: {
-        default: "px-lg py-3",
-        sm: "px-md py-sm text-body-sm min-h-[36px]",
-        lg: "px-xl py-lg text-h4 min-h-[52px]",
+        default: "px-md py-sm",
+        sm: "px-sm py-xs text-caption min-h-[32px]",
+        lg: "px-lg py-md text-h2 min-h-[52px]",
         icon: "size-10 p-0",
       },
+      rounded: {
+        default: "rounded-lg",
+        pill: "rounded-pill",
+        avatar: "rounded-avatar",
+      }
     },
     defaultVariants: {
       variant: "primary",
       size: "default",
+      rounded: "default",
     },
   },
 );
@@ -37,11 +43,11 @@ export interface ButtonProps
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
+  ({ className, variant, size, rounded, asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot : "button";
     return (
       <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
+        className={cn(buttonVariants({ variant, size, rounded, className }))}
         ref={ref}
         {...props}
       />
