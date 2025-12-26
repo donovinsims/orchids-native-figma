@@ -44,7 +44,6 @@ interface MobileNavOverlayProps {
   onSubscribeClick?: () => void;
   onSubmitClick?: () => void;
   onLoginClick?: () => void;
-  onSignUpClick?: () => void;
 }
 
 export function MobileNavOverlay({
@@ -53,7 +52,6 @@ export function MobileNavOverlay({
   onSubscribeClick,
   onSubmitClick,
   onLoginClick,
-  onSignUpClick,
 }: MobileNavOverlayProps) {
   const [activeCategory, setActiveCategory] = useState("All");
 
@@ -85,11 +83,6 @@ export function MobileNavOverlay({
   const handleLogin = () => {
     onClose();
     onLoginClick?.();
-  };
-
-  const handleSignUp = () => {
-    onClose();
-    onSignUpClick?.();
   };
 
   const handleCategoryClick = (label: string) => {
