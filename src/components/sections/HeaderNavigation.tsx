@@ -22,12 +22,11 @@ interface HeaderNavigationProps {
   onSubscribeClick?: () => void;
   onSubmitClick?: () => void;
   onLoginClick?: () => void;
-  onSignUpClick?: () => void;
   onProfileClick?: () => void;
   onHomeClick?: () => void;
 }
 
-const HeaderNavigation = ({ onSubscribeClick, onSubmitClick, onLoginClick, onSignUpClick, onProfileClick, onHomeClick }: HeaderNavigationProps) => {
+const HeaderNavigation = ({ onSubscribeClick, onSubmitClick, onLoginClick, onProfileClick, onHomeClick }: HeaderNavigationProps) => {
   const mobileNav = useMobileNav();
   const { user, signOut, profile } = useAuth();
 
