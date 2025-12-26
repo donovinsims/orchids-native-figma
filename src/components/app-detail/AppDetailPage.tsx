@@ -121,7 +121,7 @@ export default function AppDetailPage({
       {!isInline && <div className="absolute top-0 left-0 right-0 h-6 bg-gradient-to-b from-white/10 via-white/5 to-transparent blur-xl z-50 pointer-events-none opacity-40" />}
       
       {/* Sticky Header Bar */}
-      <div className={`sticky top-0 z-30 bg-background/80 backdrop-blur-md border-b border-border/40 ${isInline ? 'hidden md:block' : ''}`}>
+      <div className={`sticky top-0 z-30 bg-background transition-shadow duration-200 ${isInline ? 'hidden md:block' : ''} shadow-[0_4px_20px_rgba(0,0,0,0.03)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.2)]`}>
         <div className="flex items-center justify-between px-4 md:px-6 h-14 md:h-16">
           <button
             onClick={onBack}
@@ -137,7 +137,7 @@ export default function AppDetailPage({
                 onPointerDown={(e) => dragControls.start(e)}
                 className="flex-grow flex justify-center cursor-grab active:cursor-grabbing py-4"
               >
-                <div className="w-12 h-1.5 bg-white/10 rounded-full" />
+                <div className="w-12 h-1.5 bg-primary/10 rounded-full" />
               </div>
             )}
 
