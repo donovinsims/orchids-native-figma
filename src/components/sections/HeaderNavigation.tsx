@@ -71,22 +71,22 @@ const HeaderNavigation = ({ onSubscribeClick, onSubmitClick, onLoginClick, onPro
             <span>saw</span>
           </button>
 
-          {/* Nav Links - Desktop */}
-          <div className="hidden lg:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <button
-                key={link.label}
-                onClick={() => setActiveLink(link.label)}
-                className={`px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 ${
-                  activeLink === link.label
-                    ? "bg-primary text-background"
-                    : "text-secondary hover:text-primary hover:bg-surface"
-                }`}
-              >
-                {link.label}
-              </button>
-            ))}
-          </div>
+            {/* Nav Links - Desktop */}
+            <div className="hidden lg:flex items-center gap-1">
+              {navLinks.map((link) => (
+                <button
+                  key={link.label}
+                  onClick={() => setActiveLink(link.label)}
+                  className={`px-4 py-2 text-body font-medium rounded-pill transition-all duration-200 ${
+                    activeLink === link.label
+                      ? "bg-primary text-background"
+                      : "text-secondary hover:text-primary hover:bg-surface"
+                  }`}
+                >
+                  {link.label}
+                </button>
+              ))}
+            </div>
 
           {/* Right Section */}
           <div className="flex items-center gap-3">
