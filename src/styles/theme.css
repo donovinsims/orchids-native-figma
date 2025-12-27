@@ -59,6 +59,10 @@
 
   --shadow-card: 0 0 0 1px #E8E8E8;
   --shadow-inset: inset 0 0 0 1px #E8E8E8;
+
+  --nav-pill-bg: #F5F5F5;
+  --nav-pill-border: #E0E0E0;
+  --nav-pill-text: #000000;
 }
 
 :root[data-theme="dark"] {
