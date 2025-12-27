@@ -157,32 +157,32 @@ export default function App() {
 
           
           <div className="flex-grow">
-              {currentView === 'profile' ? (
-                  <div className="pt-[67px]">
+            {currentView === 'profile' ? (
+                <div className="pt-[72px]">
+                  <Container className="py-md md:py-xl">
+                    <ProfileView apps={apps} onAppClick={handleAppClick} />
+                  </Container>
+                </div>
+            ) : currentView === 'app-detail' && selectedApp ? (
+                <div className="pt-[72px]">
+                   <DesktopAppDetail 
+                     key={selectedApp.id}
+                     app={selectedApp} 
+                     onBack={handleBackToList}
+                     onNavigateToApp={handleAppClick}
+                     onLoginClick={authModal.open}
+                   />
+                </div>
+            ) : (
+                <div className="pt-[72px]">
+                  <main>
                     <Container className="py-md md:py-xl">
-                      <ProfileView apps={apps} onAppClick={handleAppClick} />
+                      <HeroHeader onSubscribeClick={subscribeModal.open} />
+                      <WebsiteGrid items={apps} onItemClick={handleAppClick} onLoginClick={handleLoginClick} />
                     </Container>
-                  </div>
-              ) : currentView === 'app-detail' && selectedApp ? (
-                  <div className="pt-[67px]">
-                     <DesktopAppDetail 
-                       key={selectedApp.id}
-                       app={selectedApp} 
-                       onBack={handleBackToList}
-                       onNavigateToApp={handleAppClick}
-                       onLoginClick={authModal.open}
-                     />
-                  </div>
-              ) : (
-                  <div className="pt-[67px]">
-                    <main>
-                      <Container className="py-md md:py-xl">
-                        <HeroHeader onSubscribeClick={subscribeModal.open} />
-                        <WebsiteGrid items={apps} onItemClick={handleAppClick} onLoginClick={handleLoginClick} />
-                      </Container>
-                    </main>
-                  </div>
-              )}
+                  </main>
+                </div>
+            )}
             </div>
 
           <Footer 
