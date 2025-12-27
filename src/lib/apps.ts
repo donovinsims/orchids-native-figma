@@ -56,6 +56,7 @@ const mapApp = (row: any): App => ({
 });
 
 export const getApps = async (): Promise<App[]> => {
+  console.log('Fetching apps from Supabase...');
   const { data, error } = await supabase
     .from('apps')
     .select('*')
@@ -65,10 +66,17 @@ export const getApps = async (): Promise<App[]> => {
     console.error('Error fetching apps:', error);
     return [];
   }
-  return data.map(mapApp);
+  
+  console.log(`Successfully fetched ${data?.length || 0} apps`);
+  if (data && data.length > 0) {
+    console.log('First app data:', data[0]);
+  }
+  
+  return (data || []).map(mapApp);
 };
 
 export const getAppDetail = async (id: string): Promise<AppDetail | null> => {
+  console.log(`Fetching app detail for ID: ${id}`);
   const { data: row, error } = await supabase
     .from('apps')
     .select('*')
