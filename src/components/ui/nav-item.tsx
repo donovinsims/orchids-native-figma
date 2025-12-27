@@ -8,9 +8,9 @@ export function NavItem({ label, isActive, onClick }: NavItemProps) {
   return (
     <button
       onClick={onClick}
-      className={`
-        relative inline-flex items-center justify-center px-4 py-2 text-sm font-medium
-        rounded-lg transition-colors
+className={`
+          relative inline-flex items-center justify-center px-2.5 py-1 text-sm font-medium
+          rounded-lg transition-colors
         ${isActive ? "text-nav-pill-text" : "text-primary"}
       `}
     >
