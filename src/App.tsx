@@ -19,6 +19,66 @@ import { useIsMobile } from "./hooks/use-mobile";
 
 import ProfileView from "./components/sections/ProfileView";
 
+const MOCK_APPS: AppType[] = [
+  {
+    id: "1",
+    title: "Linear",
+    description: "The best tool for software development. Build better products.",
+    shortDescription: "The best tool for software development.",
+    category: "Productivity",
+    platforms: ["macOS", "Web", "iOS"],
+    pricing: "Free",
+    developer: "Linear Orbit, Inc.",
+    lastUpdated: "2024-03-20",
+    websiteUrl: "https://linear.app",
+    faviconUrl: "https://linear.app/favicon.ico",
+    previewImage: "https://images.unsplash.com/photo-1614850523296-d8c1af93d400?w=800&auto=format&fit=crop&q=60",
+    about: "Linear is a better way to build products.",
+    features: ["Issue tracking", "Cycles", "Roadmaps"],
+    relatedAppIds: [],
+    createdAt: new Date().toISOString(),
+    href: "/apps/1"
+  },
+  {
+    id: "2",
+    title: "Figma",
+    description: "The collaborative interface design tool.",
+    shortDescription: "The collaborative interface design tool.",
+    category: "Design",
+    platforms: ["macOS", "Windows", "Web"],
+    pricing: "Free",
+    developer: "Figma, Inc.",
+    lastUpdated: "2024-03-15",
+    websiteUrl: "https://figma.com",
+    faviconUrl: "https://figma.com/favicon.ico",
+    previewImage: "https://images.unsplash.com/photo-1541462608141-ad4371eecc47?w=800&auto=format&fit=crop&q=60",
+    about: "Figma helps teams create, test, and ship better designs from start to finish.",
+    features: ["Collaboration", "Prototyping", "Design Systems"],
+    relatedAppIds: [],
+    createdAt: new Date().toISOString(),
+    href: "/apps/2"
+  },
+  {
+    id: "3",
+    title: "Raycast",
+    description: "A supercharged tool to replace your Spotlight.",
+    shortDescription: "A supercharged tool to replace your Spotlight.",
+    category: "Utilities",
+    platforms: ["macOS"],
+    pricing: "Free",
+    developer: "Raycast Technologies",
+    lastUpdated: "2024-03-10",
+    websiteUrl: "https://raycast.com",
+    faviconUrl: "https://raycast.com/favicon.ico",
+    previewImage: "https://images.unsplash.com/photo-1618477247222-acbdb0e159b3?w=800&auto=format&fit=crop&q=60",
+    about: "Raycast is a blazingly fast, totally extendable launcher.",
+    features: ["Extensions", "Snippets", "Calculator"],
+    relatedAppIds: [],
+    createdAt: new Date().toISOString(),
+    href: "/apps/3"
+  }
+];
+
 export default function App() {
   const subscribeModal = useModal();
   const submitModal = useModal();
@@ -31,12 +91,32 @@ export default function App() {
   const isMobile = useIsMobile();
 
   useEffect(() => {
-    getApps().then(setApps);
+    getApps().then(fetchedApps => {
+      console.log('Fetched apps count:', fetchedApps.length);
+      if (fetchedApps.length === 0) {
+        console.log('No apps found in database, using mock data.');
+        setApps(MOCK_APPS);
+      } else {
+        setApps(fetchedApps);
+      }
+    });
   }, []);
 
   useEffect(() => {
     if (selectedAppId) {
-      getAppDetail(selectedAppId).then(setSelectedApp);
+      getAppDetail(selectedAppId).then(app => {
+        if (!app) {
+          // If not found in DB, check mock data
+          const mockApp = MOCK_APPS.find(a => a.id === selectedAppId);
+          if (mockApp) {
+            setSelectedApp({ ...mockApp, relatedApps: [] });
+          } else {
+            setSelectedApp(null);
+          }
+        } else {
+          setSelectedApp(app);
+        }
+      });
     } else {
       setSelectedApp(null);
     }
