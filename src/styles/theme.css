@@ -78,6 +78,10 @@
 
   --shadow-card: 0 0 0 1px #212121;
   --shadow-inset: inset 0 0 0 1px #212121;
+
+  --nav-pill-bg: #3A3A3C;
+  --nav-pill-border: #4A4A4C;
+  --nav-pill-text: #FFFFFF;
 }
 
 /* Base App Styles */
