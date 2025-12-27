@@ -90,17 +90,17 @@ const HeaderNavigation = ({ onSubscribeClick, onSubmitClick, onLoginClick, onPro
 
           {/* Right Section */}
           <div className="flex items-center gap-3">
-            {/* Search Bar - Desktop */}
-            <div className="hidden md:flex items-center">
-              <div className="relative">
-                <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 text-secondary" />
-                <input
-                  type="text"
-                  placeholder="Search..."
-                  className="w-[200px] lg:w-[240px] h-10 pl-10 pr-4 rounded-lg border border-border bg-surface text-sm text-primary placeholder:text-tertiary focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
-                />
+              {/* Search Bar - Desktop */}
+              <div className="hidden md:flex items-center">
+                <div className="relative">
+                  <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 text-secondary" />
+                  <input
+                    type="text"
+                    placeholder="Search..."
+                    className="w-[200px] lg:w-[240px] h-10 pl-10 pr-4 rounded-md border border-border bg-surface text-body text-primary placeholder:text-secondary focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                  />
+                </div>
               </div>
-            </div>
 
             {/* Divider */}
             <div className="hidden md:block w-px h-8 bg-border" />
