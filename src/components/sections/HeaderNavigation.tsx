@@ -63,7 +63,7 @@ const HeaderNavigation = ({ onSubscribeClick, onSubmitClick, onLoginClick, onPro
         <div className="mx-auto max-w-[1440px] h-full flex items-center justify-between px-4 md:px-6">
           {/* Logo */}
           <button
-            className="flex w-max cursor-pointer items-center gap-xs rounded-pill border border-border bg-background px-md py-sm text-h1 leading-none transition-all duration-200 ease-in-out hover:-rotate-3 hover:border hover:bg-surface"
+            className="flex w-max cursor-pointer items-center gap-[6px] rounded-pill border border-border bg-background px-md py-sm text-h1 leading-none transition-all duration-200 ease-in-out hover:-rotate-3 hover:border hover:bg-surface"
             onClick={onHomeClick}
           >
             <span>see</span>
@@ -77,10 +77,10 @@ const HeaderNavigation = ({ onSubscribeClick, onSubmitClick, onLoginClick, onPro
                 <button
                   key={link.label}
                   onClick={() => setActiveLink(link.label)}
-                  className={`px-4 py-2 text-body font-medium rounded-md transition-all duration-200 ${
+                  className={`px-4 py-2 text-body font-medium rounded-lg transition-all duration-200 ${
                     activeLink === link.label
-                      ? "bg-[#E8E8E8] dark:bg-[#3A3A3C] text-primary"
-                      : "text-secondary hover:text-primary hover:bg-surface"
+                      ? "bg-[#E8E8E8] dark:bg-[#3A3A3C] text-primary border border-[#D4D4D4] dark:border-[#4A4A4C]"
+                      : "text-secondary hover:text-primary hover:bg-surface border border-transparent"
                   }`}
                 >
                   {link.label}
