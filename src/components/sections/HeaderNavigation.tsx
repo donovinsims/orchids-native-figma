@@ -59,45 +59,43 @@ const HeaderNavigation = ({ onSubscribeClick, onSubmitClick, onLoginClick, onPro
 
   return (
     <>
-      <nav className="fixed top-0 z-20 h-[72px] w-full bg-background border-b border-border transition-colors">
-        <div className="mx-auto max-w-[1440px] h-full flex items-center justify-between px-4 md:px-6">
-          {/* Logo */}
-          <button
-            className="flex w-max cursor-pointer items-center gap-[6px] rounded-pill border border-border bg-background px-md py-sm text-h1 leading-none transition-all duration-200 ease-in-out hover:-rotate-3 hover:border hover:bg-surface"
-            onClick={onHomeClick}
-          >
-            <span>see</span>
-            <MagicIcon className="w-[10.67px]" />
-            <span>saw</span>
-          </button>
+        <nav className="fixed top-0 z-20 h-[72px] w-full bg-background border-b border-border transition-colors">
+          <div className="mx-auto max-w-[1440px] h-full flex items-center justify-between px-2 md:px-3">
+            {/* Logo */}
+            <button
+              className="flex w-max cursor-pointer items-center gap-[6px] rounded-pill border border-border bg-background px-md py-sm text-h1 leading-none transition-all duration-200 ease-in-out hover:-rotate-3 hover:border hover:bg-surface"
+              onClick={onHomeClick}
+            >
+              <span>see</span>
+              <MagicIcon className="w-[10.67px]" />
+              <span>saw</span>
+            </button>
 
-            {/* Nav Links - Desktop */}
-            <div className="hidden lg:flex items-center gap-1">
-              {navLinks.map((link) => (
-                <button
-                  key={link.label}
-                  onClick={() => setActiveLink(link.label)}
-                  className={`
-                    relative inline-flex items-center justify-center px-4 py-2 text-body font-medium
-                    rounded-full transition-colors
-                    ${activeLink === link.label ? "text-white dark:text-neutral-900" : "text-secondary hover:text-primary"}
-                  `}
-                >
-                  {/* active pill background */}
-                  <span
+              {/* Nav Links - Desktop */}
+              <div className="hidden lg:flex items-center gap-0.5">
+                {navLinks.map((link) => (
+                  <button
+                    key={link.label}
+                    onClick={() => setActiveLink(link.label)}
                     className={`
-                      absolute inset-0 rounded-full border
-                      ${activeLink === link.label
-                        ? "border-neutral-500/60 bg-neutral-900 dark:bg-neutral-100"
-                        : "border-transparent bg-transparent hover:bg-surface"}
+                      relative inline-flex items-center justify-center px-3 py-1.5 text-body font-medium
+                      rounded-full transition-colors
+                      ${activeLink === link.label ? "text-[var(--nav-pill-text)]" : "text-secondary hover:text-primary"}
                     `}
-                    aria-hidden="true"
-                  />
-                  {/* label on top of pill */}
-                  <span className="relative">{link.label}</span>
-                </button>
-              ))}
-            </div>
+                  >
+                    <span
+                      className={`
+                        absolute inset-0 rounded-full border
+                        ${activeLink === link.label
+                          ? "border-[var(--nav-pill-border)] bg-[var(--nav-pill-bg)]"
+                          : "border-transparent bg-transparent hover:bg-surface"}
+                      `}
+                      aria-hidden="true"
+                    />
+                    <span className="relative">{link.label}</span>
+                  </button>
+                ))}
+              </div>
 
           {/* Right Section */}
           <div className="flex items-center gap-3">
