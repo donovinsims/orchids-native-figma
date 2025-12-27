@@ -108,49 +108,47 @@ const HeaderNavigation = ({ onSubscribeClick, onSubmitClick, onLoginClick, onPro
             {/* Theme Toggle */}
             <ThemeToggle />
 
-              {/* Auth Buttons - Desktop */}
-              <div className="hidden md:flex items-center gap-2">
-                {user ? (
-                  <>
-                    <button
-                      onClick={onProfileClick}
-                      className="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-surface transition-colors"
-                    >
-                      <div className="w-7 h-7 rounded-full bg-surface-raised flex items-center justify-center overflow-hidden border border-border">
-                        {profile?.avatar_url ? (
-                          <img src={profile.avatar_url} alt={profile.full_name || ""} className="w-full h-full object-cover" />
-                        ) : (
-                          <span className="text-xs font-bold">{user.email?.[0].toUpperCase()}</span>
-                        )}
-                      </div>
-                    </button>
-                    <Button
-                      variant="secondary"
-                      onClick={() => signOut()}
-                      className="h-10 rounded-md"
-                    >
-                      Log Out
-                    </Button>
-                  </>
-                ) : (
-                  <>
-                    <Button
-                      variant="ghost"
-                      onClick={onLoginClick}
-                      className="h-10 text-body font-medium rounded-md"
-                    >
-                      Sign in
-                    </Button>
-                    <Button
-                      variant="primary"
-                      onClick={onSubscribeClick}
-                      className="h-10 text-body font-medium rounded-md"
-                    >
-                      Create Account
-                    </Button>
-                  </>
-                )}
-              </div>
+                {/* Auth Buttons - Desktop */}
+                <div className="hidden md:flex items-center gap-2">
+                  {user ? (
+                    <>
+                      <button
+                        onClick={onProfileClick}
+                        className="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-surface transition-colors"
+                      >
+                        <div className="w-7 h-7 rounded-full bg-surface-raised flex items-center justify-center overflow-hidden border border-border">
+                          {profile?.avatar_url ? (
+                            <img src={profile.avatar_url} alt={profile.full_name || ""} className="w-full h-full object-cover" />
+                          ) : (
+                            <span className="text-xs font-bold">{user.email?.[0].toUpperCase()}</span>
+                          )}
+                        </div>
+                      </button>
+                      <Button
+                        variant="secondary"
+                        onClick={() => signOut()}
+                        className="h-10 rounded-md"
+                      >
+                        Log Out
+                      </Button>
+                    </>
+                  ) : (
+                    <>
+                      <button
+                        onClick={onLoginClick}
+                        className="h-10 px-4 text-body font-medium rounded-md border border-border bg-background hover:bg-surface transition-colors"
+                      >
+                        Sign in
+                      </button>
+                      <button
+                        onClick={onSubscribeClick}
+                        className="h-10 px-4 text-body font-medium rounded-md bg-[#1C1C1E] text-white dark:bg-white dark:text-[#1C1C1E] hover:opacity-90 transition-opacity"
+                      >
+                        Create Account
+                      </button>
+                    </>
+                  )}
+                </div>
 
             <MobileNavTrigger onClick={mobileNav.open} />
           </div>
