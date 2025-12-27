@@ -170,7 +170,7 @@ export default function DesktopAppDetail({
                         <Button
                             asChild
                             variant="primary"
-                            className="w-full h-12 text-base font-bold shadow-lg shadow-text-primary/10 hover:-translate-y-0.5 !bg-black-solid !text-white dark:!bg-white dark:!text-black"
+                            className="w-full h-12 text-base font-bold shadow-lg shadow-text-primary/10 hover:-translate-y-0.5 !bg-white !text-black border-none"
                           >
                             <a
                               href={app.websiteUrl}
@@ -178,8 +178,8 @@ export default function DesktopAppDetail({
                               rel="noopener noreferrer"
                               className="flex items-center justify-center gap-2"
                             >
-                              <span className="!text-white dark:!text-black">Visit Website</span>
-                              <ExternalLink className="w-5 h-5 !text-white dark:!text-black" />
+                              <span className="">Visit Website</span>
+                              <ExternalLink className="w-5 h-5 " />
                             </a>
                           </Button>
   
