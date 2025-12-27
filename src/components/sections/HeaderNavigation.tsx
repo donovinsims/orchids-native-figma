@@ -77,13 +77,24 @@ const HeaderNavigation = ({ onSubscribeClick, onSubmitClick, onLoginClick, onPro
                 <button
                   key={link.label}
                   onClick={() => setActiveLink(link.label)}
-                  className={`px-4 py-2 text-body font-medium rounded-lg transition-all duration-200 ${
-                    activeLink === link.label
-                      ? "bg-[#E8E8E8] dark:bg-[#3A3A3C] text-primary border border-[#D4D4D4] dark:border-[#4A4A4C]"
-                      : "text-secondary hover:text-primary hover:bg-surface border border-transparent"
-                  }`}
+                  className={`
+                    relative inline-flex items-center justify-center px-4 py-2 text-body font-medium
+                    rounded-full transition-colors
+                    ${activeLink === link.label ? "text-white dark:text-neutral-900" : "text-secondary hover:text-primary"}
+                  `}
                 >
-                  {link.label}
+                  {/* active pill background */}
+                  <span
+                    className={`
+                      absolute inset-0 rounded-full border
+                      ${activeLink === link.label
+                        ? "border-neutral-500/60 bg-neutral-900 dark:bg-neutral-100"
+                        : "border-transparent bg-transparent hover:bg-surface"}
+                    `}
+                    aria-hidden="true"
+                  />
+                  {/* label on top of pill */}
+                  <span className="relative">{link.label}</span>
                 </button>
               ))}
             </div>
