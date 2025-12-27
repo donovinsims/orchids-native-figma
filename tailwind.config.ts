@@ -29,6 +29,9 @@ export default {
 				'accent-dot': 'var(--color-accent-dot)',
 				'black-solid': 'var(--color-black-solid)',
 				'white-translucent': 'var(--color-white-translucent)',
+				'nav-pill-bg': 'var(--nav-pill-bg)',
+				'nav-pill-border': 'var(--nav-pill-border)',
+				'nav-pill-text': 'var(--nav-pill-text)',
 			},
 			spacing: {
 				xs: 'var(--space-xs)',
