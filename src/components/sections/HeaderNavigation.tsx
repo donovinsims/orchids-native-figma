@@ -77,9 +77,9 @@ const HeaderNavigation = ({ onSubscribeClick, onSubmitClick, onLoginClick, onPro
                 <button
                   key={link.label}
                   onClick={() => setActiveLink(link.label)}
-                  className={`px-4 py-2 text-body font-medium rounded-pill transition-all duration-200 ${
+                  className={`px-4 py-2 text-body font-medium rounded-md transition-all duration-200 ${
                     activeLink === link.label
-                      ? "bg-primary text-background"
+                      ? "bg-[#E8E8E8] dark:bg-[#3A3A3C] text-primary"
                       : "text-secondary hover:text-primary hover:bg-surface"
                   }`}
                 >
